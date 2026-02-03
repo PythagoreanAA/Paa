@@ -1,657 +1,569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Pythagorean Arithmosophic Anamnesis</title>
-<meta name="description" content="A symbolic systems laboratory for structural coherence, orientation, and long-term intelligibility." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pythagorean Arithmosophic Anamnesis</title>
+  <meta name="description" content="A symbolic systems laboratory for structural coherence, orientation, and long-term intelligibility." />
 
-<style>
-:root{
-  --bg0:#070A12;
-  --bg1:#0B1020;
-  --panel:#0E1426;
-  --panel2:#0B1020;
-  --fg:#E9ECF2;
-  --muted:#A6B0C2;
-  --muted2:#7F8AA3;
-  --border:rgba(255,255,255,.10);
+  <style>
+    :root{
+      --fg: #E9ECF2;
+      --muted: #A6B0C2;
+      --muted2:#7F8AA3;
+      --border: rgba(255,255,255,.10);
 
-  --accent:#7AA2F7;
-  --accent2:#A78BFA; /* purple */
-  --glow:rgba(122,162,247,.28);
+      --accent: #7AA2F7;
+      --accent2:#A78BFA; /* purple */
+      --aqua:  #5EEAD4;  /* turquoise hint */
 
-  --radius:18px;
-  --shadow: 0 18px 60px rgba(0,0,0,.55);
-  --shadow2: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
+      --pad: 24px;
 
-  --max: 920px;
-  --pad: 24px;
-}
+      --shadow: 0 22px 80px rgba(0,0,0,.55);
+      --shadow2: 0 12px 34px rgba(0,0,0,.35);
+    }
 
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Inter, Helvetica, Arial, sans-serif;
-  line-height: 1.55;
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
 
-  background:
-    radial-gradient(1200px 800px at 15% -10%,
-      rgba(122,162,247,0.18),
-      transparent 60%),
-    radial-gradient(1000px 700px at 85% 10%,
-      rgba(167,139,250,0.18),
-      transparent 55%),
-    radial-gradient(900px 600px at 50% 120%,
-      rgba(94,234,212,0.10),
-      transparent 60%),
-    linear-gradient(
-      180deg,
-      #070a14 0%,
-      #0b1020 45%,
-      #06080f 100%
-    );
-}
-</style>
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+      line-height:1.6;
 
-a{color:var(--accent); text-decoration:none;}
-a:hover{text-decoration:underline;}
+      /* Smooth, deep, colorful field */
+      background:
+        radial-gradient(1200px 800px at 12% -10%,
+          rgba(122,162,247,.20),
+          transparent 60%),
+        radial-gradient(1000px 700px at 88% 8%,
+          rgba(167,139,250,.18),
+          transparent 55%),
+        radial-gradient(900px 650px at 52% 120%,
+          rgba(94,234,212,.10),
+          transparent 62%),
+        linear-gradient(180deg, #070a14 0%, #0b1020 45%, #06080f 100%);
+    }
 
-.wrap{
-  width:100%;
-  max-width:var(--max);
-  margin:0 auto;
-  padding:0 var(--pad);
-}
+    /* Optional subtle “atmospheric grain” */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.014),
+          rgba(255,255,255,0.014) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+      mix-blend-mode: overlay;
+      opacity: .14;
+    }
 
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter: blur(14px);
-  background: rgba(7,10,18,.65);
-  border-bottom: 1px solid var(--border);
-}
+    a{ color: var(--accent); text-decoration:none; }
+    a:hover{ text-decoration: underline; }
 
-.topbar .inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:14px 0;
-}
+    .wrap{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      position: relative;
+    }
 
-.brand{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  min-width: 260px;
-}
-.brand .title{
-  font-size:.95rem;
-  letter-spacing:.02em;
-  font-weight:550;
-}
-.brand .sub{
-  color:var(--muted2);
-  font-size:.82rem;
-}
+    /* Top nav */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,18,.62);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar .inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width: 280px;
+    }
+    .brand .title{
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      font-size: .98rem;
+      white-space: nowrap;
+    }
+    .brand .sub{
+      color: var(--muted2);
+      font-size: .82rem;
+      white-space: nowrap;
+    }
 
-nav{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-nav a{
-  font-size:.88rem;
-  color:var(--muted);
-  padding:8px 10px;
-  border-radius:10px;
-  border:1px solid transparent;
-}
-nav a:hover{
-  color:var(--fg);
-  border-color: var(--border);
-  text-decoration:none;
-}
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav a{
+      color: var(--muted);
+      font-size: .9rem;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{
+      color: var(--fg);
+      border-color: var(--border);
+      text-decoration:none;
+    }
+    nav a.active{
+      color: var(--fg);
+      border-color: rgba(122,162,247,.40);
+      background: rgba(255,255,255,.04);
+    }
 
-.hero{
-  padding:70px 0 28px;
-}
-.hero-grid{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap:26px;
-  align-items:start;
-}
-@media (max-width: 880px){
-  .hero-grid{grid-template-columns:1fr; }
-}
+    /* Hero */
+    .hero{
+      padding: 72px 0 24px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 20px;
+      align-items: start;
+    }
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .brand .title, .brand .sub{ white-space: normal; }
+    }
 
-.h1{
-  font-size: clamp(2.0rem, 3.2vw, 3.1rem);
-  line-height:1.1;
-  font-weight:620;
-  margin:0 0 14px;
-  letter-spacing:-.02em;
-}
-.lede{
-  margin:0;
-  color:var(--muted);
-  font-size:1.06rem;
-  max-width: 60ch;
-}
+    .h1{
+      margin:0 0 14px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.06;
+      font-size: clamp(2.0rem, 3.2vw, 3.15rem);
+    }
+    .lede{
+      margin:0;
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 62ch;
+    }
 
-.hero-card{
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow2);
-  padding:18px;
-}
+    .actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .btn{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--fg);
+      padding: 11px 14px;
+      border-radius: 14px;
+      font-size: .95rem;
+      cursor: pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .15s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover{ border-color: rgba(122,162,247,.55); transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0); }
 
-.kicker{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:var(--muted2);
-  font-size:.9rem;
-  margin-bottom:10px;
-}
-.kdot{
-  width:10px;height:10px;border-radius:50%;
-  background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent2));
-  box-shadow: 0 0 0 4px rgba(122,162,247,.12);
-}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,162,247,.22), rgba(167,139,250,.18));
+      border-color: rgba(122,162,247,.35);
+      box-shadow: 0 0 0 6px rgba(122,162,247,.08);
+    }
+    .btn.primary:hover{
+      border-color: rgba(122,162,247,.75);
+      background: linear-gradient(135deg, rgba(122,162,247,.28), rgba(167,139,250,.22));
+    }
 
-.stat{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:12px;
-  margin-top:14px;
-}
-.stat .box{
-  border:1px solid var(--border);
-  border-radius: 14px;
-  padding:12px;
-  background: rgba(14,20,38,.55);
-}
-.stat .box .k{color:var(--muted2); font-size:.78rem; margin-bottom:4px;}
-.stat .box .v{font-weight:600; font-size:.95rem;}
+    .panel{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(12,16,32,.52);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+    }
 
-.actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-.btn{
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.03);
-  color:var(--fg);
-  padding:11px 14px;
-  border-radius: 14px;
-  font-size:.95rem;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  transition: transform .15s ease, border-color .2s ease, background .2s ease;
-}
-.btn:hover{border-color: rgba(122,162,247,.45); transform: translateY(-1px);}
-.btn:active{transform: translateY(0);}
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: var(--muted2);
+      font-size: .9rem;
+      margin-bottom: 10px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(122,162,247,.12);
+    }
 
-.btn.primary{
-  background: linear-gradient(135deg, rgba(122,162,247,.22), rgba(167,139,250,.18));
-  border-color: rgba(122,162,247,.35);
-  box-shadow: 0 0 0 6px rgba(122,162,247,.08);
-}
-.btn.primary:hover{
-  border-color: rgba(122,162,247,.65);
-  background: linear-gradient(135deg, rgba(122,162,247,.28), rgba(167,139,250,.22));
-}
+    .callout{
+      margin-top: 16px;
+      border-left: 2px solid rgba(122,162,247,.85);
+      background: rgba(122,162,247,.06);
+      color: var(--muted);
+      padding: 12px 14px;
+      border-radius: 12px;
+    }
 
-.section{
-  padding:48px 0 6px;
-}
-.h2{
-  font-size:1.25rem;
-  font-weight:620;
-  letter-spacing:.01em;
-  margin:0 0 12px;
-  color: var(--fg);
-}
-.rule{
-  height:1px;
-  background: linear-gradient(90deg, rgba(122,162,247,.55), rgba(167,139,250,.35), transparent);
-  opacity:.55;
-  margin:16px 0 0;
-}
+    /* Sections */
+    .section{
+      padding: 34px 0 10px;
+    }
+    .h2{
+      margin:0 0 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:16px;
-}
-@media (max-width: 880px){
-  .grid{grid-template-columns:1fr;}
-}
+    .list{
+      list-style:none;
+      padding:0;
+      margin: 0;
+    }
+    .list li{
+      position: relative;
+      padding-left: 16px;
+      margin: 10px 0;
+      color: var(--fg);
+    }
+    .list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.7em;
+      width:6px;height:6px;border-radius:999px;
+      background: rgba(122,162,247,.75);
+      box-shadow: 0 0 0 4px rgba(122,162,247,.10);
+    }
 
-.card{
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  background: rgba(14,20,38,.50);
-  box-shadow: var(--shadow2);
-  padding:18px;
-}
+    .rule{
+      height:1px;
+      margin: 26px 0 0;
+      background: linear-gradient(90deg, rgba(122,162,247,.55), rgba(167,139,250,.35), transparent);
+      opacity: .55;
+    }
 
-.card p{margin:0.55rem 0; color: var(--fg);}
-.card p.muted{color: var(--muted);}
-.card .mini{
-  color: var(--muted2);
-  font-size:.86rem;
-  margin-top:2px;
-}
+    /* Footer */
+    footer{
+      margin-top: 44px;
+      padding: 44px 0 70px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: .92rem;
+    }
 
-.list{
-  margin:10px 0 0;
-  padding:0;
-  list-style:none;
-}
-.list li{
-  margin:10px 0;
-  padding-left: 16px;
-  position:relative;
-  color: var(--fg);
-}
-.list li:before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.7em;
-  width:6px; height:6px;
-  border-radius:50%;
-  background: rgba(122,162,247,.75);
-  box-shadow: 0 0 0 4px rgba(122,162,247,.10);
-}
+    /* Modal */
+    .backdrop{
+      position:fixed;
+      inset:0;
+      display:none;
+      place-items:center;
+      background: rgba(0,0,0,.58);
+      z-index: 80;
+      padding: 24px;
+    }
+    .modal{
+      width: min(600px, 100%);
+      border-radius: 22px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(12,16,32,.96), rgba(7,10,18,.98));
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .modal .row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .modal h3{
+      margin:0;
+      font-size: 1.05rem;
+      font-weight: 750;
+    }
+    .modal p{
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+    .close{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--fg);
+      border-radius: 12px;
+      cursor:pointer;
+      padding: 8px 10px;
+    }
+    .close:hover{ border-color: rgba(122,162,247,.55); }
 
-.callout{
-  border-left:2px solid rgba(122,162,247,.85);
-  padding:10px 14px;
-  margin:14px 0 0;
-  color: var(--muted);
-  background: rgba(122,162,247,.06);
-  border-radius: 12px;
-}
+    .emailbox{
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    code{
+      color: var(--fg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .96rem;
+    }
+    .toast{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: .86rem;
+      min-height: 1.1em;
+    }
 
-.footer{
-  padding:54px 0 70px;
-  color: var(--muted2);
-  font-size:.92rem;
-  border-top: 1px solid var(--border);
-  margin-top: 42px;
-}
-
-/* Modal */
-.modal-backdrop{
-  position:fixed;
-  inset:0;
-  display:none;
-  place-items:center;
-  background: rgba(0,0,0,.55);
-  z-index:80;
-  padding:24px;
-}
-.modal{
-  width:min(560px, 100%);
-  border-radius: 22px;
-  border:1px solid var(--border);
-  background: linear-gradient(180deg, rgba(14,20,38,.98), rgba(7,10,18,.98));
-  box-shadow: var(--shadow);
-  padding:18px;
-}
-.modal .row{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:14px;
-}
-.modal h3{
-  margin:0;
-  font-size:1.05rem;
-  font-weight:650;
-}
-.modal p{
-  margin:10px 0 0;
-  color: var(--muted);
-}
-.close{
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.03);
-  color: var(--fg);
-  border-radius: 12px;
-  cursor:pointer;
-  padding:8px 10px;
-}
-.close:hover{border-color: rgba(122,162,247,.45);}
-.emailbox{
-  margin-top:14px;
-  padding:12px;
-  border-radius: 14px;
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.03);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-code{
-  color: var(--fg);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size:.95rem;
-}
-.toast{
-  margin-top:10px;
-  color: var(--muted2);
-  font-size:.86rem;
-  min-height: 1.1em;
-}
-
-/* Motion, respectful */
-@media (prefers-reduced-motion: no-preference){
-  .fade-in{
-    animation: fadeUp .55s ease both;
-  }
-  @keyframes fadeUp{
-    from{opacity:0; transform: translateY(8px);}
-    to{opacity:1; transform: translateY(0);}
-  }
-}
-</style>
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: no-preference){
+      .fade{
+        animation: fadeUp .55s ease both;
+      }
+      @keyframes fadeUp{
+        from{ opacity:0; transform: translateY(8px); }
+        to{ opacity:1; transform: translateY(0); }
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header class="topbar">
-  <div class="wrap inner">
-    <div class="brand">
-      <div class="title">Pythagorean Arithmosophic Anamnesis</div>
-      <div class="sub">Structural coherence. Symbolic diagnostics. Long-term intelligibility.</div>
-    </div>
-    <nav aria-label="Primary">
-      <a href="#what">What</a>
-      <a href="#diagnose">Diagnose</a>
-      <a href="#call">Call</a>
-      <a href="#for">For</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="fade-in">
-        <h1 class="h1">A symbolic systems laboratory for coherence, orientation, and endurance.</h1>
-        <p class="lede">
-          Number, symbol, proportion, and narrative structure used as diagnostic instruments—
-          not as belief, aesthetics, or abstraction.
-        </p>
-
-        <div class="actions">
-          <button class="btn primary" onclick="openModal()">Request a diagnostic call</button>
-          <a class="btn" href="#call" role="button">How the call works</a>
-        </div>
-
-        <div class="callout">
-          The aim is not insight, persuasion, or optimization—<strong>it is coherence</strong>:
-          what is structurally present, what is absent, and what cannot persist as arranged.
-        </div>
+  <header class="topbar">
+    <div class="wrap inner">
+      <div class="brand">
+        <div class="title">Pythagorean Arithmosophic Anamnesis</div>
+        <div class="sub">Structural coherence · symbolic diagnostics · long-term intelligibility</div>
       </div>
 
-      <aside class="hero-card fade-in">
-        <div class="kicker">
-          <span class="kdot" aria-hidden="true"></span>
-          <span>Operating premise</span>
-        </div>
-        <p class="muted" style="margin:0;">
-          Systems fail when meaning cannot survive translation: across time, scale, audience, and pressure.
-        </p>
-
-        <div class="stat">
-          <div class="box">
-            <div class="k">Mode</div>
-            <div class="v">Structural reading</div>
-          </div>
-          <div class="box">
-            <div class="k">Output</div>
-            <div class="v">Coherence map</div>
-          </div>
-          <div class="box">
-            <div class="k">Not</div>
-            <div class="v">Coaching / therapy</div>
-          </div>
-          <div class="box">
-            <div class="k">Focus</div>
-            <div class="v">Proportion + fracture</div>
-          </div>
-        </div>
-      </aside>
+      <nav aria-label="Primary">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="diagnostic.html">Diagnostic Call</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section id="what" class="section">
-    <div class="wrap">
-      <h2 class="h2">What This Is</h2>
-      <div class="grid">
-        <div class="card">
-          <p>
-            This work treats <strong>number</strong> as scaffolding: a way meaning survives scale, time, and translation.
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="fade">
+          <h1 class="h1">A symbolic systems laboratory for coherence, orientation, and endurance.</h1>
+          <p class="lede">
+            Number, symbol, proportion, and narrative structure used as diagnostic instruments—
+            not as belief, aesthetics, or abstraction.
           </p>
-          <p class="muted">
-            The method is diagnostic. It is not a doctrine. It does not ask for belief.
-          </p>
-        </div>
-        <div class="card">
-          <p>
-            When a system becomes misaligned, it compensates with language, complexity, and narrative noise.
-          </p>
-          <p class="muted">
-            The reading identifies where structure has been replaced by decoration, and where recursion has turned parasitic.
-          </p>
-        </div>
-      </div>
-      <div class="rule"></div>
-    </div>
-  </section>
 
-  <section id="diagnose" class="section">
-    <div class="wrap">
-      <h2 class="h2">What I Diagnose</h2>
-      <div class="grid">
-        <div class="card">
-          <ul class="list">
-            <li>Symbolic drift and narrative incoherence</li>
-            <li>Misalignment between stated values and operative structures</li>
-            <li>Hidden recursion, leakage, or collapse inside conceptual frameworks</li>
-            <li>Over-complexity masking structural absence</li>
-            <li>Loss of orientation across time, scale, or audience</li>
-          </ul>
-          <p class="mini">If it cannot be carried cleanly, it will not survive pressure.</p>
-        </div>
-        <div class="card">
-          <p class="muted" style="margin-top:0;">
-            Common symptom: the system needs constant explanation to feel “true.”
-            That is a sign the structure is not doing its own work.
-          </p>
+          <div class="actions">
+            <button class="btn primary" onclick="openModal()">Request a diagnostic call</button>
+            <a class="btn" href="diagnostic.html" role="button">Read the call format</a>
+          </div>
+
           <div class="callout">
-            A coherent system explains itself by its relations, not by insistence.
+            The aim is not optimization. It is coherence: what is structurally present, what is absent,
+            and what cannot persist as arranged.
+          </div>
+        </div>
+
+        <aside class="panel fade">
+          <div class="kicker">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Operating premise</span>
+          </div>
+          <p style="margin:0; color: var(--muted);">
+            Systems collapse when meaning cannot survive translation—across time, scale, audience, and pressure.
+          </p>
+
+          <div class="section" style="padding:14px 0 0;">
+            <ul class="list">
+              <li>Coherence without ideology</li>
+              <li>Structure over persuasion</li>
+              <li>Durability over aesthetics</li>
+              <li>Clarity over comfort</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">What This Is</h2>
+        <div class="grid">
+          <div class="panel">
+            <p style="margin:0.55rem 0;">
+              This practice works with <strong>number, symbol, proportion, and narrative structure</strong>
+              as diagnostic instruments.
+            </p>
+            <p style="margin:0.55rem 0; color: var(--muted);">
+              It does not ask for belief. It tests whether the system carries its own weight.
+            </p>
+          </div>
+          <div class="panel">
+            <p style="margin:0.55rem 0;">
+              When a system becomes misaligned, it compensates with language, complexity, and narrative noise.
+            </p>
+            <p style="margin:0.55rem 0; color: var(--muted);">
+              The reading identifies where structure has been replaced by decoration—and where recursion has turned parasitic.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">What I Diagnose</h2>
+        <div class="grid">
+          <div class="panel">
+            <ul class="list">
+              <li>Symbolic drift and narrative incoherence</li>
+              <li>Misalignment between stated values and operative structures</li>
+              <li>Hidden recursion, leakage, or collapse in conceptual systems</li>
+              <li>Over-complexity masking structural absence</li>
+              <li>Loss of orientation across time, scale, or audience</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p style="margin:0; color: var(--muted);">
+              Common symptom: the system needs constant explanation to feel “true.”
+              That usually means structure is missing and language is compensating.
+            </p>
+
+            <div class="callout">
+              A coherent system explains itself by its relations, not by insistence.
+            </div>
+          </div>
+        </div>
+
+        <div class="rule"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">Next Page</h2>
+        <div class="grid">
+          <div class="panel">
+            <p style="margin:0; color: var(--muted);">
+              You’re building a multi-page site. Keep the homepage minimal.
+              Put the full protocol and expectations on the Diagnostic Call page.
+            </p>
+          </div>
+          <div class="panel">
+            <div class="actions" style="margin:0;">
+              <a class="btn primary" href="diagnostic.html" role="button">Go to Diagnostic Call</a>
+              <a class="btn" href="contact.html" role="button">Contact</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="rule"></div>
-    </div>
-  </section>
+    </section>
 
-  <section id="call" class="section">
-    <div class="wrap">
-      <h2 class="h2">The Diagnostic Call</h2>
-      <div class="grid">
-        <div class="card">
+    <footer>
+      <div class="wrap">
+        <div>© <span id="year"></span> Stephen Richard Neville</div>
+        <div>Pythagorean Arithmosophic Anamnesis</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Contact Modal -->
+  <div class="backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="row">
+        <div>
+          <h3 id="modalTitle">Contact</h3>
           <p>
-            A diagnostic call is not a consultation, pitch, or coaching session.
-            It is a <strong>structural reading</strong>.
+            Short message. What system are you bringing. What is breaking. What must survive.
           </p>
-          <ul class="list">
-            <li>No preparatory material required</li>
-            <li>No obligation beyond the call</li>
-            <li>No ideological or therapeutic framing</li>
-          </ul>
         </div>
-        <div class="card">
-          <p>
-            You present a system—organizational, cultural, conceptual, or symbolic.
-            I listen for proportion, symmetry, recursion, and fracture.
-          </p>
-          <p class="muted">
-            The output is clarity: what is structurally present, what is missing,
-            and what cannot persist as currently arranged.
-          </p>
-          <div class="actions" style="margin-top:14px;">
-            <button class="btn primary" onclick="openModal()">Open contact</button>
-            <a class="btn" href="#for" role="button">Who this fits</a>
-          </div>
-        </div>
+        <button class="close" onclick="closeModal()" aria-label="Close">Close</button>
       </div>
-      <div class="rule"></div>
-    </div>
-  </section>
 
-  <section id="for" class="section">
-    <div class="wrap">
-      <h2 class="h2">Who This Is For</h2>
-      <div class="grid">
-        <div class="card">
-          <ul class="list">
-            <li>Institutions stewarding meaning over long time spans</li>
-            <li>Design and research organizations working pre-language</li>
-            <li>Founders sensing coherence loss but lacking vocabulary</li>
-            <li>Cultural or archival projects concerned with continuity</li>
-          </ul>
-        </div>
-        <div class="card">
-          <p class="muted" style="margin-top:0;">
-            If your work is forced to survive translation—across audiences, decades, formats, or hostile interpretation—
-            you need structure that can carry it.
-          </p>
-          <div class="callout">
-            The measure is endurance: does the meaning remain intact when the storyteller disappears?
-          </div>
-        </div>
+      <div class="emailbox">
+        <code id="emailText">PythagoreanAA@proton.me</code>
+        <button class="btn" style="margin:0;" onclick="copyEmail()">Copy</button>
       </div>
-      <div class="rule"></div>
-    </div>
-  </section>
+      <div class="toast" id="toast" aria-live="polite"></div>
 
-  <section id="contact" class="section">
-    <div class="wrap">
-      <h2 class="h2">Contact</h2>
-      <div class="card">
-        <p style="margin-top:0;">
-          If this language resonates, reach out briefly. No proposals required.
-        </p>
-        <div class="actions">
-          <button class="btn primary" onclick="openModal()">Reveal contact</button>
-          <button class="btn" onclick="copySiteLink()">Copy page link</button>
-        </div>
-        <p class="mini" id="copyStatus" aria-live="polite"></p>
+      <div class="actions" style="margin-top:14px;">
+        <a class="btn primary" href="mailto:PythagoreanAA@proton.me?subject=Diagnostic%20Call&body=System%3A%0A%0AWhat%20is%20breaking%3A%0A%0AWhat%20must%20survive%3A%0A">Email now</a>
+        <button class="btn" onclick="closeModal()">Return</button>
       </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="wrap">
-      <div>© <span id="year"></span> Stephen Richard Neville</div>
-      <div>Pythagorean Arithmosophic Anamnesis</div>
-    </div>
-  </footer>
-</main>
-
-<!-- Modal -->
-<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <div class="row">
-      <div>
-        <h3 id="modalTitle">Contact</h3>
-        <p>Short message. What system are you bringing. What is breaking. What must survive.</p>
-      </div>
-      <button class="close" onclick="closeModal()" aria-label="Close">Close</button>
-    </div>
-
-    <div class="emailbox">
-      <code id="emailText">PythagoreanAA@proton.com</code>
-      <button class="btn" style="margin:0;" onclick="copyEmail()">Copy</button>
-    </div>
-    <div class="toast" id="toast" aria-live="polite"></div>
-
-    <div class="actions" style="margin-top:14px;">
-      <a class="btn primary" id="mailto" href="mailto:PythagoreanAA@proton.com?subject=Diagnostic%20Call&body=System%3A%0A%0AWhat%20is%20breaking%3A%0A%0AWhat%20must%20survive%3A%0A">Email now</a>
-      <button class="btn" onclick="closeModal()">Return</button>
     </div>
   </div>
-</div>
 
-<script>
-const modal = document.getElementById("modal");
-const toast = document.getElementById("toast");
-const copyStatus = document.getElementById("copyStatus");
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-document.getElementById("year").textContent = new Date().getFullYear();
+    const modal = document.getElementById("modal");
+    const toast = document.getElementById("toast");
 
-function openModal(){
-  modal.style.display = "grid";
-  toast.textContent = "";
-}
-function closeModal(){
-  modal.style.display = "none";
-  toast.textContent = "";
-}
-modal.addEventListener("click", (e)=>{
-  if(e.target === modal) closeModal();
-});
-document.addEventListener("keydown", (e)=>{
-  if(e.key === "Escape" && modal.style.display === "grid") closeModal();
-});
+    function openModal(){
+      modal.style.display = "grid";
+      toast.textContent = "";
+    }
+    function closeModal(){
+      modal.style.display = "none";
+      toast.textContent = "";
+    }
 
-async function copyEmail(){
-  const email = document.getElementById("emailText").textContent.trim();
-  try{
-    await navigator.clipboard.writeText(email);
-    toast.textContent = "Copied.";
-  }catch{
-    toast.textContent = "Copy failed. Select and copy manually.";
-  }
-}
+    modal.addEventListener("click", (e)=>{
+      if(e.target === modal) closeModal();
+    });
 
-async function copySiteLink(){
-  const link = window.location.href.split("#")[0];
-  try{
-    await navigator.clipboard.writeText(link);
-    copyStatus.textContent = "Link copied.";
-    setTimeout(()=> copyStatus.textContent = "", 1400);
-  }catch{
-    copyStatus.textContent = "Copy failed.";
-    setTimeout(()=> copyStatus.textContent = "", 1400);
-  }
-}
-</script>
+    document.addEventListener("keydown", (e)=>{
+      if(e.key === "Escape" && modal.style.display === "grid") closeModal();
+    });
 
+    async function copyEmail(){
+      const email = document.getElementById("emailText").textContent.trim();
+      try{
+        await navigator.clipboard.writeText(email);
+        toast.textContent = "Copied.";
+      }catch{
+        toast.textContent = "Copy failed. Select and copy manually.";
+      }
+    }
+  </script>
 </body>
 </html>
-
