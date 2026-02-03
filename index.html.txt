@@ -8,25 +8,25 @@
 
   <style>
     :root{
-      --fg: #E9ECF2;
-      --muted: #A6B0C2;
+      --fg:#E9ECF2;
+      --muted:#A6B0C2;
       --muted2:#7F8AA3;
-      --border: rgba(255,255,255,.10);
+      --border:rgba(255,255,255,.10);
 
-      --accent: #7AA2F7;
-      --accent2:#A78BFA; /* purple */
-      --aqua:  #5EEAD4;  /* turquoise hint */
+      --accent:#7AA2F7;
+      --accent2:#A78BFA;
+      --aqua:#5EEAD4;
 
-      --radius: 18px;
-      --max: 980px;
-      --pad: 24px;
+      --radius:18px;
+      --max:980px;
+      --pad:24px;
 
-      --shadow: 0 22px 80px rgba(0,0,0,.55);
-      --shadow2: 0 12px 34px rgba(0,0,0,.35);
+      --shadow:0 22px 80px rgba(0,0,0,.55);
+      --shadow2:0 12px 34px rgba(0,0,0,.35);
     }
 
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
 
     body{
       margin:0;
@@ -35,21 +35,13 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
       line-height:1.6;
 
-      /* Smooth, deep, colorful field */
       background:
-        radial-gradient(1200px 800px at 12% -10%,
-          rgba(122,162,247,.20),
-          transparent 60%),
-        radial-gradient(1000px 700px at 88% 8%,
-          rgba(167,139,250,.18),
-          transparent 55%),
-        radial-gradient(900px 650px at 52% 120%,
-          rgba(94,234,212,.10),
-          transparent 62%),
+        radial-gradient(1200px 800px at 12% -10%, rgba(122,162,247,.20), transparent 60%),
+        radial-gradient(1000px 700px at 88% 8%, rgba(167,139,250,.18), transparent 55%),
+        radial-gradient(900px 650px at 52% 120%, rgba(94,234,212,.10), transparent 62%),
         linear-gradient(180deg, #070a14 0%, #0b1020 45%, #06080f 100%);
     }
 
-    /* Optional subtle “atmospheric grain” */
     body::before{
       content:"";
       position:fixed;
@@ -64,121 +56,123 @@
           transparent 2px
         );
       mix-blend-mode: overlay;
-      opacity: .14;
+      opacity:.14;
     }
 
-    a{ color: var(--accent); text-decoration:none; }
-    a:hover{ text-decoration: underline; }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
 
     .wrap{
       width:100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 var(--pad);
-      position: relative;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 var(--pad);
+      position:relative;
     }
 
-    /* Top nav */
+    /* Topbar */
     .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position:sticky;
+      top:0;
+      z-index:50;
       backdrop-filter: blur(14px);
       background: rgba(7,10,18,.62);
-      border-bottom: 1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
     .topbar .inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 18px;
-      padding: 14px 0;
+      gap:18px;
+      padding:14px 0;
     }
     .brand{
       display:flex;
       flex-direction:column;
       gap:2px;
-      min-width: 280px;
+      min-width:280px;
     }
     .brand .title{
-      font-weight: 650;
-      letter-spacing: -0.01em;
-      font-size: .98rem;
-      white-space: nowrap;
+      font-weight:650;
+      letter-spacing:-0.01em;
+      font-size:.98rem;
+      white-space:nowrap;
     }
     .brand .sub{
-      color: var(--muted2);
-      font-size: .82rem;
-      white-space: nowrap;
+      color:var(--muted2);
+      font-size:.82rem;
+      white-space:nowrap;
     }
 
     nav{
       display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
     nav a{
-      color: var(--muted);
-      font-size: .9rem;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
+      color:var(--muted);
+      font-size:.9rem;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
     }
     nav a:hover{
-      color: var(--fg);
-      border-color: var(--border);
+      color:var(--fg);
+      border-color:var(--border);
       text-decoration:none;
     }
     nav a.active{
-      color: var(--fg);
-      border-color: rgba(122,162,247,.40);
-      background: rgba(255,255,255,.04);
+      color:var(--fg);
+      border-color:rgba(122,162,247,.40);
+      background:rgba(255,255,255,.04);
     }
 
-    /* Hero */
+    /* Layout */
+    main{ padding: 0; }
+
     .hero{
-      padding: 72px 0 24px;
+      padding:72px 0 24px;
     }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap: 20px;
-      align-items: start;
+      gap:20px;
+      align-items:start;
     }
     @media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .brand .title, .brand .sub{ white-space: normal; }
+      .hero-grid{ grid-template-columns:1fr; }
+      .brand .title, .brand .sub{ white-space:normal; }
     }
 
     .h1{
       margin:0 0 14px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.06;
+      font-weight:720;
+      letter-spacing:-0.03em;
+      line-height:1.06;
       font-size: clamp(2.0rem, 3.2vw, 3.15rem);
     }
     .lede{
       margin:0;
-      color: var(--muted);
-      font-size: 1.06rem;
-      max-width: 62ch;
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width:62ch;
     }
 
     .actions{
       display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
     }
     .btn{
       border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color: var(--fg);
-      padding: 11px 14px;
-      border-radius: 14px;
-      font-size: .95rem;
-      cursor: pointer;
+      background:rgba(255,255,255,.03);
+      color:var(--fg);
+      padding:11px 14px;
+      border-radius:14px;
+      font-size:.95rem;
+      cursor:pointer;
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -202,16 +196,16 @@
       border-radius: var(--radius);
       background: rgba(12,16,32,.52);
       box-shadow: var(--shadow2);
-      padding: 18px;
+      padding:18px;
     }
 
     .kicker{
       display:flex;
       align-items:center;
       gap:10px;
-      color: var(--muted2);
-      font-size: .9rem;
-      margin-bottom: 10px;
+      color:var(--muted2);
+      font-size:.9rem;
+      margin-bottom:10px;
     }
     .dot{
       width:10px;height:10px;border-radius:999px;
@@ -220,43 +214,41 @@
     }
 
     .callout{
-      margin-top: 16px;
-      border-left: 2px solid rgba(122,162,247,.85);
+      margin-top:16px;
+      border-left:2px solid rgba(122,162,247,.85);
       background: rgba(122,162,247,.06);
       color: var(--muted);
       padding: 12px 14px;
       border-radius: 12px;
     }
 
-    /* Sections */
-    .section{
-      padding: 34px 0 10px;
-    }
+    .section{ padding:34px 0 10px; }
     .h2{
       margin:0 0 12px;
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: .01em;
+      font-size:1.15rem;
+      font-weight:760;
+      letter-spacing:.01em;
     }
+
     .grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap:16px;
     }
     @media (max-width: 920px){
-      .grid{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns:1fr; }
     }
 
     .list{
       list-style:none;
       padding:0;
-      margin: 0;
+      margin:0;
     }
     .list li{
-      position: relative;
-      padding-left: 16px;
-      margin: 10px 0;
-      color: var(--fg);
+      position:relative;
+      padding-left:16px;
+      margin:10px 0;
+      color:var(--fg);
     }
     .list li::before{
       content:"";
@@ -270,18 +262,17 @@
 
     .rule{
       height:1px;
-      margin: 26px 0 0;
+      margin:26px 0 0;
       background: linear-gradient(90deg, rgba(122,162,247,.55), rgba(167,139,250,.35), transparent);
-      opacity: .55;
+      opacity:.55;
     }
 
-    /* Footer */
     footer{
-      margin-top: 44px;
-      padding: 44px 0 70px;
-      border-top: 1px solid var(--border);
-      color: var(--muted2);
-      font-size: .92rem;
+      margin-top:44px;
+      padding:44px 0 70px;
+      border-top:1px solid var(--border);
+      color:var(--muted2);
+      font-size:.92rem;
     }
 
     /* Modal */
@@ -291,70 +282,67 @@
       display:none;
       place-items:center;
       background: rgba(0,0,0,.58);
-      z-index: 80;
-      padding: 24px;
+      z-index:80;
+      padding:24px;
     }
     .modal{
-      width: min(600px, 100%);
-      border-radius: 22px;
+      width:min(600px, 100%);
+      border-radius:22px;
       border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(12,16,32,.96), rgba(7,10,18,.98));
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding:18px;
     }
     .modal .row{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap: 14px;
+      gap:14px;
     }
     .modal h3{
       margin:0;
-      font-size: 1.05rem;
-      font-weight: 750;
+      font-size:1.05rem;
+      font-weight:750;
     }
     .modal p{
-      margin: 10px 0 0;
-      color: var(--muted);
+      margin:10px 0 0;
+      color:var(--muted);
     }
     .close{
       border:1px solid var(--border);
       background: rgba(255,255,255,.03);
-      color: var(--fg);
-      border-radius: 12px;
+      color:var(--fg);
+      border-radius:12px;
       cursor:pointer;
-      padding: 8px 10px;
+      padding:8px 10px;
     }
     .close:hover{ border-color: rgba(122,162,247,.55); }
 
     .emailbox{
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: 14px;
+      margin-top:14px;
+      padding:12px;
+      border-radius:14px;
       border:1px solid var(--border);
       background: rgba(255,255,255,.03);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 10px;
+      gap:10px;
     }
     code{
-      color: var(--fg);
+      color:var(--fg);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: .96rem;
+      font-size:.96rem;
     }
     .toast{
-      margin-top: 10px;
-      color: var(--muted2);
-      font-size: .86rem;
-      min-height: 1.1em;
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:.86rem;
+      min-height:1.1em;
     }
 
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: no-preference){
-      .fade{
-        animation: fadeUp .55s ease both;
-      }
+      .fade{ animation: fadeUp .55s ease both; }
       @keyframes fadeUp{
         from{ opacity:0; transform: translateY(8px); }
         to{ opacity:1; transform: translateY(0); }
@@ -444,7 +432,6 @@
             </p>
           </div>
         </div>
-
         <div class="rule"></div>
       </div>
     </section>
@@ -467,13 +454,11 @@
               Common symptom: the system needs constant explanation to feel “true.”
               That usually means structure is missing and language is compensating.
             </p>
-
             <div class="callout">
               A coherent system explains itself by its relations, not by insistence.
             </div>
           </div>
         </div>
-
         <div class="rule"></div>
       </div>
     </section>
@@ -484,8 +469,7 @@
         <div class="grid">
           <div class="panel">
             <p style="margin:0; color: var(--muted);">
-              You’re building a multi-page site. Keep the homepage minimal.
-              Put the full protocol and expectations on the Diagnostic Call page.
+              Keep the homepage minimal. Put the full protocol and expectations on the Diagnostic Call page.
             </p>
           </div>
           <div class="panel">
@@ -506,27 +490,28 @@
     </footer>
   </main>
 
-  <!-- Contact Modal -->
+  <!-- Modal -->
   <div class="backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <div class="row">
         <div>
           <h3 id="modalTitle">Contact</h3>
-          <p>
-            Short message. What system are you bringing. What is breaking. What must survive.
-          </p>
+          <p>Short message. What system are you bringing. What is breaking. What must survive.</p>
         </div>
         <button class="close" onclick="closeModal()" aria-label="Close">Close</button>
       </div>
 
       <div class="emailbox">
-        <code id="emailText">PythagoreanAA@proton.me</code>
+        <code id="emailText">pythagoreanAA@proton.me</code>
         <button class="btn" style="margin:0;" onclick="copyEmail()">Copy</button>
       </div>
       <div class="toast" id="toast" aria-live="polite"></div>
 
       <div class="actions" style="margin-top:14px;">
-        <a class="btn primary" href="mailto:PythagoreanAA@proton.me?subject=Diagnostic%20Call&body=System%3A%0A%0AWhat%20is%20breaking%3A%0A%0AWhat%20must%20survive%3A%0A">Email now</a>
+        <a class="btn primary"
+           href="mailto:pythagoreanaa@Proton.me?subject=Diagnostic%20Call&body=System%3A%0A%0AWhat%20is%20breaking%3A%0A%0AWhat%20must%20survive%3A%0A">
+          Email now
+        </a>
         <button class="btn" onclick="closeModal()">Return</button>
       </div>
     </div>
