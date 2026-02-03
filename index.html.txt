@@ -4,206 +4,634 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pythagorean Arithmosophic Anamnesis</title>
+<meta name="description" content="A symbolic systems laboratory for structural coherence, orientation, and long-term intelligibility." />
 
 <style>
-:root {
-  --bg: #0f1115;
-  --fg: #e6e6e6;
-  --muted: #9aa0a6;
-  --accent: #7aa2f7;
-  --border: #2a2f3a;
+:root{
+  --bg0:#070A12;
+  --bg1:#0B1020;
+  --panel:#0E1426;
+  --panel2:#0B1020;
+  --fg:#E9ECF2;
+  --muted:#A6B0C2;
+  --muted2:#7F8AA3;
+  --border:rgba(255,255,255,.10);
+
+  --accent:#7AA2F7;
+  --accent2:#A78BFA; /* purple */
+  --glow:rgba(122,162,247,.28);
+
+  --radius:18px;
+  --shadow: 0 18px 60px rgba(0,0,0,.55);
+  --shadow2: 0 10px 30px rgba(0,0,0,.35);
+
+  --max: 920px;
+  --pad: 24px;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--fg);
+  background:
+    radial-gradient(1100px 600px at 20% -10%, rgba(167,139,250,.18), transparent 60%),
+    radial-gradient(900px 520px at 85% 10%, rgba(122,162,247,.18), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 60%, #070A12);
+  line-height:1.6;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
+a{color:var(--accent); text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.wrap{
+  width:100%;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 var(--pad);
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(14px);
+  background: rgba(7,10,18,.65);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar .inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:14px 0;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width: 260px;
+}
+.brand .title{
+  font-size:.95rem;
+  letter-spacing:.02em;
+  font-weight:550;
+}
+.brand .sub{
+  color:var(--muted2);
+  font-size:.82rem;
+}
+
+nav{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+nav a{
+  font-size:.88rem;
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid transparent;
+}
+nav a:hover{
+  color:var(--fg);
+  border-color: var(--border);
+  text-decoration:none;
+}
+
+.hero{
+  padding:70px 0 28px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:26px;
+  align-items:start;
+}
+@media (max-width: 880px){
+  .hero-grid{grid-template-columns:1fr; }
+}
+
+.h1{
+  font-size: clamp(2.0rem, 3.2vw, 3.1rem);
+  line-height:1.1;
+  font-weight:620;
+  margin:0 0 14px;
+  letter-spacing:-.02em;
+}
+.lede{
+  margin:0;
+  color:var(--muted);
+  font-size:1.06rem;
+  max-width: 60ch;
+}
+
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow2);
+  padding:18px;
+}
+
+.kicker{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--muted2);
+  font-size:.9rem;
+  margin-bottom:10px;
+}
+.kdot{
+  width:10px;height:10px;border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent2));
+  box-shadow: 0 0 0 4px rgba(122,162,247,.12);
+}
+
+.stat{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin-top:14px;
+}
+.stat .box{
+  border:1px solid var(--border);
+  border-radius: 14px;
+  padding:12px;
+  background: rgba(14,20,38,.55);
+}
+.stat .box .k{color:var(--muted2); font-size:.78rem; margin-bottom:4px;}
+.stat .box .v{font-weight:600; font-size:.95rem;}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+.btn{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  color:var(--fg);
+  padding:11px 14px;
+  border-radius: 14px;
+  font-size:.95rem;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition: transform .15s ease, border-color .2s ease, background .2s ease;
+}
+.btn:hover{border-color: rgba(122,162,247,.45); transform: translateY(-1px);}
+.btn:active{transform: translateY(0);}
+
+.btn.primary{
+  background: linear-gradient(135deg, rgba(122,162,247,.22), rgba(167,139,250,.18));
+  border-color: rgba(122,162,247,.35);
+  box-shadow: 0 0 0 6px rgba(122,162,247,.08);
+}
+.btn.primary:hover{
+  border-color: rgba(122,162,247,.65);
+  background: linear-gradient(135deg, rgba(122,162,247,.28), rgba(167,139,250,.22));
+}
+
+.section{
+  padding:48px 0 6px;
+}
+.h2{
+  font-size:1.25rem;
+  font-weight:620;
+  letter-spacing:.01em;
+  margin:0 0 12px;
   color: var(--fg);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Inter, Helvetica, Arial, sans-serif;
-  line-height: 1.55;
+}
+.rule{
+  height:1px;
+  background: linear-gradient(90deg, rgba(122,162,247,.55), rgba(167,139,250,.35), transparent);
+  opacity:.55;
+  margin:16px 0 0;
 }
 
-main {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 64px 24px 96px;
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:16px;
+}
+@media (max-width: 880px){
+  .grid{grid-template-columns:1fr;}
 }
 
-h1 {
-  font-size: 2.1rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+.card{
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(14,20,38,.50);
+  box-shadow: var(--shadow2);
+  padding:18px;
 }
 
-h2 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-top: 3rem;
-  margin-bottom: 0.75rem;
-  color: var(--accent);
+.card p{margin:0.55rem 0; color: var(--fg);}
+.card p.muted{color: var(--muted);}
+.card .mini{
+  color: var(--muted2);
+  font-size:.86rem;
+  margin-top:2px;
 }
 
-p {
-  margin: 0.6rem 0;
+.list{
+  margin:10px 0 0;
+  padding:0;
+  list-style:none;
+}
+.list li{
+  margin:10px 0;
+  padding-left: 16px;
+  position:relative;
   color: var(--fg);
 }
+.list li:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.7em;
+  width:6px; height:6px;
+  border-radius:50%;
+  background: rgba(122,162,247,.75);
+  box-shadow: 0 0 0 4px rgba(122,162,247,.10);
+}
 
-p.muted {
+.callout{
+  border-left:2px solid rgba(122,162,247,.85);
+  padding:10px 14px;
+  margin:14px 0 0;
   color: var(--muted);
+  background: rgba(122,162,247,.06);
+  border-radius: 12px;
 }
 
-hr {
-  border: none;
+.footer{
+  padding:54px 0 70px;
+  color: var(--muted2);
+  font-size:.92rem;
   border-top: 1px solid var(--border);
-  margin: 3rem 0;
+  margin-top: 42px;
 }
 
-ul {
-  padding-left: 1.2rem;
+/* Modal */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  display:none;
+  place-items:center;
+  background: rgba(0,0,0,.55);
+  z-index:80;
+  padding:24px;
 }
-
-li {
-  margin: 0.4rem 0;
+.modal{
+  width:min(560px, 100%);
+  border-radius: 22px;
+  border:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(14,20,38,.98), rgba(7,10,18,.98));
+  box-shadow: var(--shadow);
+  padding:18px;
 }
-
-.callout {
-  border-left: 2px solid var(--accent);
-  padding-left: 1rem;
-  margin: 1.5rem 0;
+.modal .row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+.modal h3{
+  margin:0;
+  font-size:1.05rem;
+  font-weight:650;
+}
+.modal p{
+  margin:10px 0 0;
   color: var(--muted);
 }
-
-footer {
-  margin-top: 4rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  margin-top: 1.5rem;
-  padding: 10px 16px;
-  font-size: 0.95rem;
-  background: transparent;
-  border: 1px solid var(--border);
+.close{
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
   color: var(--fg);
-  cursor: pointer;
+  border-radius: 12px;
+  cursor:pointer;
+  padding:8px 10px;
+}
+.close:hover{border-color: rgba(122,162,247,.45);}
+.emailbox{
+  margin-top:14px;
+  padding:12px;
+  border-radius: 14px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+code{
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:.95rem;
+}
+.toast{
+  margin-top:10px;
+  color: var(--muted2);
+  font-size:.86rem;
+  min-height: 1.1em;
 }
 
-button:hover {
-  border-color: var(--accent);
+/* Motion, respectful */
+@media (prefers-reduced-motion: no-preference){
+  .fade-in{
+    animation: fadeUp .55s ease both;
+  }
+  @keyframes fadeUp{
+    from{opacity:0; transform: translateY(8px);}
+    to{opacity:1; transform: translateY(0);}
+  }
 }
 </style>
 </head>
 
 <body>
+<header class="topbar">
+  <div class="wrap inner">
+    <div class="brand">
+      <div class="title">Pythagorean Arithmosophic Anamnesis</div>
+      <div class="sub">Structural coherence. Symbolic diagnostics. Long-term intelligibility.</div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#what">What</a>
+      <a href="#diagnose">Diagnose</a>
+      <a href="#call">Call</a>
+      <a href="#for">For</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="fade-in">
+        <h1 class="h1">A symbolic systems laboratory for coherence, orientation, and endurance.</h1>
+        <p class="lede">
+          Number, symbol, proportion, and narrative structure used as diagnostic instruments—
+          not as belief, aesthetics, or abstraction.
+        </p>
 
-<h1>Pythagorean Arithmosophic Anamnesis</h1>
-<p class="muted">A symbolic systems laboratory for structural coherence, orientation, and long-term intelligibility.</p>
+        <div class="actions">
+          <button class="btn primary" onclick="openModal()">Request a diagnostic call</button>
+          <a class="btn" href="#call" role="button">How the call works</a>
+        </div>
 
-<hr/>
+        <div class="callout">
+          The aim is not insight, persuasion, or optimization—<strong>it is coherence</strong>:
+          what is structurally present, what is absent, and what cannot persist as arranged.
+        </div>
+      </div>
 
-<h2>What This Is</h2>
-<p>
-This practice works with <strong>number, symbol, proportion, and narrative structure</strong>
-as diagnostic instruments rather than beliefs, aesthetics, or abstractions.
-</p>
+      <aside class="hero-card fade-in">
+        <div class="kicker">
+          <span class="kdot" aria-hidden="true"></span>
+          <span>Operating premise</span>
+        </div>
+        <p class="muted" style="margin:0;">
+          Systems fail when meaning cannot survive translation: across time, scale, audience, and pressure.
+        </p>
 
-<p>
-The aim is not insight, persuasion, or optimization —
-but the restoration of <em>coherence</em> where systems have become misaligned,
-overgrown, or unintentionally distorted.
-</p>
+        <div class="stat">
+          <div class="box">
+            <div class="k">Mode</div>
+            <div class="v">Structural reading</div>
+          </div>
+          <div class="box">
+            <div class="k">Output</div>
+            <div class="v">Coherence map</div>
+          </div>
+          <div class="box">
+            <div class="k">Not</div>
+            <div class="v">Coaching / therapy</div>
+          </div>
+          <div class="box">
+            <div class="k">Focus</div>
+            <div class="v">Proportion + fracture</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-<div class="callout">
-Number here is treated as a cognitive scaffold —
-a way meaning survives scale, time, and translation.
-</div>
+  <section id="what" class="section">
+    <div class="wrap">
+      <h2 class="h2">What This Is</h2>
+      <div class="grid">
+        <div class="card">
+          <p>
+            This work treats <strong>number</strong> as scaffolding: a way meaning survives scale, time, and translation.
+          </p>
+          <p class="muted">
+            The method is diagnostic. It is not a doctrine. It does not ask for belief.
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            When a system becomes misaligned, it compensates with language, complexity, and narrative noise.
+          </p>
+          <p class="muted">
+            The reading identifies where structure has been replaced by decoration, and where recursion has turned parasitic.
+          </p>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </div>
+  </section>
 
-<hr/>
+  <section id="diagnose" class="section">
+    <div class="wrap">
+      <h2 class="h2">What I Diagnose</h2>
+      <div class="grid">
+        <div class="card">
+          <ul class="list">
+            <li>Symbolic drift and narrative incoherence</li>
+            <li>Misalignment between stated values and operative structures</li>
+            <li>Hidden recursion, leakage, or collapse inside conceptual frameworks</li>
+            <li>Over-complexity masking structural absence</li>
+            <li>Loss of orientation across time, scale, or audience</li>
+          </ul>
+          <p class="mini">If it cannot be carried cleanly, it will not survive pressure.</p>
+        </div>
+        <div class="card">
+          <p class="muted" style="margin-top:0;">
+            Common symptom: the system needs constant explanation to feel “true.”
+            That is a sign the structure is not doing its own work.
+          </p>
+          <div class="callout">
+            A coherent system explains itself by its relations, not by insistence.
+          </div>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </div>
+  </section>
 
-<h2>What I Diagnose</h2>
-<ul>
-  <li>Symbolic drift and narrative incoherence</li>
-  <li>Misalignment between stated values and operative structures</li>
-  <li>Hidden recursion, leakage, or collapse in conceptual systems</li>
-  <li>Over-complexity masking structural absence</li>
-  <li>Loss of orientation across time, scale, or audience</li>
-</ul>
+  <section id="call" class="section">
+    <div class="wrap">
+      <h2 class="h2">The Diagnostic Call</h2>
+      <div class="grid">
+        <div class="card">
+          <p>
+            A diagnostic call is not a consultation, pitch, or coaching session.
+            It is a <strong>structural reading</strong>.
+          </p>
+          <ul class="list">
+            <li>No preparatory material required</li>
+            <li>No obligation beyond the call</li>
+            <li>No ideological or therapeutic framing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <p>
+            You present a system—organizational, cultural, conceptual, or symbolic.
+            I listen for proportion, symmetry, recursion, and fracture.
+          </p>
+          <p class="muted">
+            The output is clarity: what is structurally present, what is missing,
+            and what cannot persist as currently arranged.
+          </p>
+          <div class="actions" style="margin-top:14px;">
+            <button class="btn primary" onclick="openModal()">Open contact</button>
+            <a class="btn" href="#for" role="button">Who this fits</a>
+          </div>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </div>
+  </section>
 
-<hr/>
+  <section id="for" class="section">
+    <div class="wrap">
+      <h2 class="h2">Who This Is For</h2>
+      <div class="grid">
+        <div class="card">
+          <ul class="list">
+            <li>Institutions stewarding meaning over long time spans</li>
+            <li>Design and research organizations working pre-language</li>
+            <li>Founders sensing coherence loss but lacking vocabulary</li>
+            <li>Cultural or archival projects concerned with continuity</li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="muted" style="margin-top:0;">
+            If your work is forced to survive translation—across audiences, decades, formats, or hostile interpretation—
+            you need structure that can carry it.
+          </p>
+          <div class="callout">
+            The measure is endurance: does the meaning remain intact when the storyteller disappears?
+          </div>
+        </div>
+      </div>
+      <div class="rule"></div>
+    </div>
+  </section>
 
-<h2>The Diagnostic Call</h2>
-<p>
-A diagnostic call is not a consultation, pitch, or coaching session.
-It is a <strong>structural reading</strong>.
-</p>
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2 class="h2">Contact</h2>
+      <div class="card">
+        <p style="margin-top:0;">
+          If this language resonates, reach out briefly. No proposals required.
+        </p>
+        <div class="actions">
+          <button class="btn primary" onclick="openModal()">Reveal contact</button>
+          <button class="btn" onclick="copySiteLink()">Copy page link</button>
+        </div>
+        <p class="mini" id="copyStatus" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
 
-<p>
-You present a system — organizational, cultural, conceptual, or symbolic.
-I listen for proportion, symmetry, recursion, and fracture.
-</p>
-
-<ul>
-  <li>No preparatory material required</li>
-  <li>No obligation beyond the call</li>
-  <li>No ideological or therapeutic framing</li>
-</ul>
-
-<p>
-The output is clarity: what is structurally present, what is missing,
-and what cannot persist as currently arranged.
-</p>
-
-<hr/>
-
-<h2>Who This Is For</h2>
-<ul>
-  <li>Institutions stewarding meaning over long time spans</li>
-  <li>Design and research organizations working pre-language</li>
-  <li>Founders sensing coherence loss but lacking vocabulary</li>
-  <li>Cultural or archival projects concerned with continuity</li>
-</ul>
-
-<hr/>
-
-<h2>Contact</h2>
-<p>
-If this language resonates, reach out briefly.
-No proposals required.
-</p>
-
-<button onclick="revealEmail()">Reveal contact</button>
-<p id="email" style="display:none; margin-top:0.75rem;">
-stephen [at] arithmosophic [dot] com
-</p>
-
-<footer>
-<p>
-© Stephen Richard Neville<br/>
-Pythagorean Arithmosophic Anamnesis
-</p>
-</footer>
-
+  <footer class="footer">
+    <div class="wrap">
+      <div>© <span id="year"></span> Stephen Richard Neville</div>
+      <div>Pythagorean Arithmosophic Anamnesis</div>
+    </div>
+  </footer>
 </main>
 
+<!-- Modal -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="row">
+      <div>
+        <h3 id="modalTitle">Contact</h3>
+        <p>Short message. What system are you bringing. What is breaking. What must survive.</p>
+      </div>
+      <button class="close" onclick="closeModal()" aria-label="Close">Close</button>
+    </div>
+
+    <div class="emailbox">
+      <code id="emailText">PythagoreanAA@proton.com</code>
+      <button class="btn" style="margin:0;" onclick="copyEmail()">Copy</button>
+    </div>
+    <div class="toast" id="toast" aria-live="polite"></div>
+
+    <div class="actions" style="margin-top:14px;">
+      <a class="btn primary" id="mailto" href="mailto:PythagoreanAA@proton.com?subject=Diagnostic%20Call&body=System%3A%0A%0AWhat%20is%20breaking%3A%0A%0AWhat%20must%20survive%3A%0A">Email now</a>
+      <button class="btn" onclick="closeModal()">Return</button>
+    </div>
+  </div>
+</div>
+
 <script>
-function revealEmail() {
-  document.getElementById("email").style.display = "block";
+const modal = document.getElementById("modal");
+const toast = document.getElementById("toast");
+const copyStatus = document.getElementById("copyStatus");
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function openModal(){
+  modal.style.display = "grid";
+  toast.textContent = "";
+}
+function closeModal(){
+  modal.style.display = "none";
+  toast.textContent = "";
+}
+modal.addEventListener("click", (e)=>{
+  if(e.target === modal) closeModal();
+});
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape" && modal.style.display === "grid") closeModal();
+});
+
+async function copyEmail(){
+  const email = document.getElementById("emailText").textContent.trim();
+  try{
+    await navigator.clipboard.writeText(email);
+    toast.textContent = "Copied.";
+  }catch{
+    toast.textContent = "Copy failed. Select and copy manually.";
+  }
+}
+
+async function copySiteLink(){
+  const link = window.location.href.split("#")[0];
+  try{
+    await navigator.clipboard.writeText(link);
+    copyStatus.textContent = "Link copied.";
+    setTimeout(()=> copyStatus.textContent = "", 1400);
+  }catch{
+    copyStatus.textContent = "Copy failed.";
+    setTimeout(()=> copyStatus.textContent = "", 1400);
+  }
 }
 </script>
 
