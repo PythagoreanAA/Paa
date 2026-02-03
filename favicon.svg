@@ -18,7 +18,7 @@
 
   <!-- Purist tetractys with equilateral spacing -->
   <!-- dx = 12, dy ≈ 10.4 (0.866*dx) -->
-  <g filter="url(#halo)" fill="#22E6C8">
+  <g filter="url(#halo)" fill="#11f2eb">
     <!-- Row 1 -->
     <circle cx="32" cy="14.0" r="4.0"/>
 
@@ -38,4 +38,5 @@
     <circle cx="50" cy="45.2" r="4.0"/>
   </g>
 </svg>
+
 
