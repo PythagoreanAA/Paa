@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Pythagorean Arithmosophic Anamnesis</title>
+  <meta name="description" content="Contact Stephen Richard Neville." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <style>
+    :root{
+      --fg:#E9ECF2;
+      --muted:#A6B0C2;
+      --muted2:#7F8AA3;
+      --border:rgba(255,255,255,.10);
+
+      --accent:#7AA2F7;
+      --accent2:#A78BFA;
+
+      --radius:18px;
+      --max:980px;
+      --pad:24px;
+
+      --shadow:0 22px 80px rgba(0,0,0,.55);
+      --shadow2:0 12px 34px rgba(0,0,0,.35);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+      line-height:1.6;
+
+      background:
+        radial-gradient(1200px 800px at 12% -10%, rgba(122,162,247,.20), transparent 60%),
+        radial-gradient(1000px 700px at 88% 8%, rgba(167,139,250,.18), transparent 55%),
+        radial-gradient(900px 650px at 52% 120%, rgba(94,234,212,.10), transparent 62%),
+        linear-gradient(180deg, #070a14 0%, #0b1020 45%, #06080f 100%);
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.014),
+          rgba(255,255,255,0.014) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+      mix-blend-mode: overlay;
+      opacity:.14;
+    }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 var(--pad);
+      position:relative;
+    }
+
+    /* Topbar */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,10,18,.62);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar .inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:280px;
+    }
+    .brand .title{
+      font-weight:650;
+      letter-spacing:-0.01em;
+      font-size:.98rem;
+      white-space:nowrap;
+    }
+    .brand .sub{
+      color:var(--muted2);
+      font-size:.82rem;
+      white-space:nowrap;
+    }
+
+    nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      color:var(--muted);
+      font-size:.9rem;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      color:var(--fg);
+      border-color:var(--border);
+      text-decoration:none;
+    }
+    nav a.active{
+      color:var(--fg);
+      border-color:rgba(122,162,247,.40);
+      background:rgba(255,255,255,.04);
+    }
+
+    main{ padding: 54px 0 0; }
+
+    .h1{
+      margin:0 0 12px;
+      font-weight:780;
+      letter-spacing:-0.03em;
+      line-height:1.08;
+      font-size: clamp(2.0rem, 3.0vw, 2.85rem);
+    }
+    .lede{
+      margin:0;
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width: 78ch;
+    }
+
+    .section{ padding: 30px 0 8px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns:1fr; }
+      .brand .title, .brand .sub{ white-space:normal; }
+    }
+
+    .panel{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(12,16,32,.52);
+      box-shadow: var(--shadow2);
+      padding:18px;
+    }
+
+    .callout{
+      margin-top:14px;
+      border-left:2px solid rgba(122,162,247,.85);
+      background: rgba(122,162,247,.06);
+      color: var(--muted);
+      padding: 12px 14px;
+      border-radius: 12px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--fg);
+      padding:11px 14px;
+      border-radius:14px;
+      font-size:.95rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .15s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover{ border-color: rgba(122,162,247,.55); transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,162,247,.22), rgba(167,139,250,.18));
+      border-color: rgba(122,162,247,.35);
+      box-shadow: 0 0 0 6px rgba(122,162,247,.08);
+    }
+    .btn.primary:hover{ border-color: rgba(122,162,247,.75); }
+
+    /* Form */
+    label{
+      display:block;
+      color: var(--muted2);
+      font-size:.9rem;
+      margin: 10px 0 6px;
+    }
+    input, textarea{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--fg);
+      padding:12px 12px;
+      outline:none;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+      line-height:1.5;
+    }
+    textarea{ min-height: 140px; resize: vertical; }
+    input:focus, textarea:focus{
+      border-color: rgba(122,162,247,.55);
+      box-shadow: 0 0 0 6px rgba(122,162,247,.08);
+    }
+
+    .row2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 680px){
+      .row2{ grid-template-columns:1fr; }
+    }
+
+    /* Hide honeypot visually */
+    .hp{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px !important;
+      height:1px !important;
+      overflow:hidden !important;
+    }
+
+    .emailbox{
+      margin-top:14px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    code{
+      color:var(--fg);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:.96rem;
+    }
+    .toast{
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:.88rem;
+      min-height:1.1em;
+    }
+
+    .notice{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(34,230,200,.18);
+      background: rgba(34,230,200,.06);
+      color: var(--muted);
+      display:none;
+    }
+    .notice strong{ color: var(--fg); }
+
+    footer{
+      margin-top:44px;
+      padding:44px 0 70px;
+      border-top:1px solid var(--border);
+      color:var(--muted2);
+      font-size:.92rem;
+    }
+
+    @media (prefers-reduced-motion: no-preference){
+      .fade{ animation: fadeUp .55s ease both; }
+      @keyframes fadeUp{
+        from{ opacity:0; transform: translateY(8px); }
+        to{ opacity:1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap inner">
+      <div class="brand">
+        <div class="title">Pythagorean Arithmosophic Anamnesis</div>
+        <div class="sub">Structural coherence · symbolic diagnostics · long-term intelligibility</div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="diagnostic.html">Diagnostic Call</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap fade">
+      <h1 class="h1">Contact</h1>
+      <p class="lede">
+        Short message. What system. What is breaking. What must survive.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="grid">
+          <div class="panel fade">
+            <form id="contactForm" action="https://formspree.io/f/xeezyokk" method="POST">
+
+              <!-- Honeypot -->
+              <div class="hp" aria-hidden="true">
+                <label>Leave this blank</label>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="row2">
+                <div>
+                  <label for="name">Name (optional)</label>
+                  <input id="name" name="name" type="text" placeholder="Name">
+                </div>
+                <div>
+                  <label for="email">Email (recommended)</label>
+                  <input id="email" name="email" type="email" placeholder="you@domain.com">
+                </div>
+              </div>
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="System:&#10;Break:&#10;Survive:" required></textarea>
+
+              <!-- Optional: helps you in the inbox -->
+              <input type="hidden" name="_subject" value="Website Inquiry — arithmosophic.com">
+
+              <div class="actions">
+                <button class="btn primary" type="submit">Send</button>
+                <a class="btn" id="mailtoFallback"
+                   href="mailto:pyhagoreanaa@proton.me?subject=Website%20Inquiry&body=System%3A%0A%0ABreak%3A%0A%0ASurvive%3A%0A">
+                  Use email instead
+                </a>
+              </div>
+
+              <div class="notice" id="notice"></div>
+            </form>
+
+            <div class="callout">
+              If you want a diagnostic call, use “System / Break / Survive.”
+              Rough is fine. Precision helps.
+            </div>
+          </div>
+
+          <div class="panel fade">
+            <p style="margin:0; color:var(--muted);">
+              Direct email works too.
+            </p>
+
+            <div class="emailbox">
+              <code id="emailText">pythagoreanAA@proton.me</code>
+              <button class="btn" style="margin:0;" onclick="copyEmail()">Copy</button>
+            </div>
+            <div class="toast" id="toast" aria-live="polite"></div>
+
+            <div class="callout">
+              If you prefer brevity: one paragraph, one question, one point of failure.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div>© <span id="year"></span> Stephen Richard Neville</div>
+        <div>Pythagorean Arithmosophic Anamnesis</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toast = document.getElementById("toast");
+    async function copyEmail(){
+      const email = document.getElementById("emailText").textContent.trim();
+      try{
+        await navigator.clipboard.writeText(email);
+        toast.textContent = "Copied.";
+      }catch{
+        toast.textContent = "Copy failed. Select and copy manually.";
+      }
+    }
+
+    // Inline submit via fetch (no redirect)
+    const form = document.getElementById("contactForm");
+    const notice = document.getElementById("notice");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      notice.style.display = "none";
+      notice.textContent = "";
+
+      const formData = new FormData(form);
+
+      try{
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        if(res.ok){
+          notice.style.display = "block";
+          notice.innerHTML = "<strong>Sent.</strong> If you included an email, I can respond directly.";
+          form.reset();
+        }else{
+          const data = await res.json().catch(()=>null);
+          notice.style.display = "block";
+          notice.innerHTML = "<strong>Not sent.</strong> Use the email button, or try again.";
+          if(data && data.errors && data.errors.length){
+            notice.innerHTML = "<strong>Not sent.</strong> " + data.errors.map(x => x.message).join(" ");
+          }
+        }
+      }catch{
+        notice.style.display = "block";
+        notice.innerHTML = "<strong>Network error.</strong> Use the email button instead.";
+      }
+    });
+  </script>
+</body>
+</html>
