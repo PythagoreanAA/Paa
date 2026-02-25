@@ -305,11 +305,12 @@
       </div>
 
       <nav aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="/diagnostic-call.html">Diagnostic Call</a>
-        <a class="active" href="contact.html">Contact</a>
-      </nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="/protocol.html">Protocol</a>
+  <a href="/diagnostic-call.html">Diagnostic Call</a>
+  <a class="active" href="contact.html">Contact</a>
+</nav>
     </div>
   </header>
 
@@ -320,6 +321,31 @@
         Short message. What system. What is breaking. What must survive.
       </p>
     </section>
+
+    <div id="diagnostic-intake" class="panel fade" style="margin-top:18px;">
+  <p style="margin:0; color:var(--muted);">
+    If you are requesting a diagnostic call, use the exact intake format below.
+  </p>
+
+  <div class="callout" style="margin-top:14px;">
+    Start with three lines: <strong>System / Break / Survive</strong>. Then complete the five-line intake.
+  </div>
+
+  <div class="emailbox" style="margin-top:14px; align-items:flex-start;">
+    <code id="intakeText" style="white-space:pre-wrap;">System:
+Break:
+Survive:
+
+OBJECT:
+PRESSURE:
+DECISION (30–90 days):
+CONSTRAINTS:
+EVIDENCE (links or attachments, max 3):</code>
+    <button class="btn" style="margin:0;" onclick="copyIntake()">Copy</button>
+  </div>
+
+  <div class="toast" id="intakeToast" aria-live="polite"></div>
+</div>
 
     <section class="section">
       <div class="wrap">
@@ -345,8 +371,8 @@
               </div>
 
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="System:&#10;Break:&#10;Survive:" required></textarea>
-
+              
+              <textarea id="message" name="message" placeholder="System:&#10;Break:&#10;Survive:&#10;&#10;OBJECT:&#10;PRESSURE:&#10;DECISION (30–90 days):&#10;CONSTRAINTS:&#10;EVIDENCE (links or attachments, max 3):" required></textarea>
               <!-- Optional: helps you in the inbox -->
               <input type="hidden" name="_subject" value="Website Inquiry — arithmosophic.com">
 
@@ -446,5 +472,6 @@
   </script>
 </body>
 </html>
+
 
 
