@@ -202,6 +202,68 @@
     }
     .btn.primary:hover{ border-color: rgba(122,162,247,.75); }
 
+/* Collapsible intake gate */
+.details{
+  margin-top:14px;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.03);
+  overflow:hidden;
+}
+
+.details summary{
+  list-style:none;
+  cursor:pointer;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:var(--fg);
+  font-weight:650;
+}
+
+.details summary::-webkit-details-marker{ display:none; }
+
+.details summary span{
+  color: var(--muted2);
+  font-weight:500;
+  font-size:.92rem;
+}
+
+.details .body{
+  padding: 0 14px 14px;
+  border-top:1px solid var(--border);
+}
+
+.intakebox{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background: rgba(0,0,0,.18);
+  position:relative;
+  padding:12px;
+}
+
+.intakebox pre{
+  margin:0;
+  white-space:pre-wrap;
+  color: rgba(233,238,252,0.80);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.copybtn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  margin:0;
+  padding:9px 12px;
+  border-radius:12px;
+  font-size:.9rem;
+}
+    
     /* Form */
     label{
       display:block;
@@ -322,14 +384,6 @@
       </p>
     </section>
 
-    <div id="diagnostic-intake" class="panel fade" style="margin-top:18px;">
-  <p style="margin:0; color:var(--muted);">
-    If you are requesting a diagnostic call, use the exact intake format below.
-  </p>
-
-  <div class="callout" style="margin-top:14px;">
-    Start with three lines: <strong>System / Break / Survive</strong>. Then complete the five-line intake.
-  </div>
 
   <div class="emailbox" style="margin-top:14px; align-items:flex-start;">
     <code id="intakeText" style="white-space:pre-wrap;">System:
@@ -370,6 +424,38 @@ EVIDENCE (links or attachments, max 3):</code>
                 </div>
               </div>
 
+              <details class="details" id="diagnosticGate">
+  <summary>
+    Diagnostic Intake Template
+    <span>copy + paste into message</span>
+  </summary>
+
+  <div class="body">
+    <div class="callout" style="margin-top:12px;">
+      Start with: <strong>System / Break / Survive</strong>. Then complete the five-line intake.
+    </div>
+
+    <div class="intakebox">
+      <button type="button" class="btn copybtn" onclick="copyIntake()">Copy</button>
+      <pre id="intakeText">System:
+Break:
+Survive:
+
+OBJECT:
+PRESSURE:
+DECISION (30–90 days):
+CONSTRAINTS:
+EVIDENCE (links or attachments, max 3):</pre>
+    </div>
+
+    <div class="toast" id="intakeToast" aria-live="polite"></div>
+
+    <div class="actions" style="margin-top:12px;">
+      <button type="button" class="btn" onclick="pasteIntakeIntoMessage()">Paste into message</button>
+    </div>
+  </div>
+</details> 
+              
               <label for="message">Message</label>
               
               <textarea id="message" name="message" placeholder="System:&#10;Break:&#10;Survive:&#10;&#10;OBJECT:&#10;PRESSURE:&#10;DECISION (30–90 days):&#10;CONSTRAINTS:&#10;EVIDENCE (links or attachments, max 3):" required></textarea>
@@ -433,7 +519,52 @@ EVIDENCE (links or attachments, max 3):</code>
         toast.textContent = "Copy failed. Select and copy manually.";
       }
     }
+    async function copyTextRobust(text, toastEl){
+      // Try modern clipboard first
+      try{
+        await navigator.clipboard.writeText(text);
+        if(toastEl) toastEl.textContent = "Copied.";
+        return true;
+      }catch(e){
+        // Fallback: hidden textarea + execCommand
+        try{
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          ta.style.top = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          ta.setSelectionRange(0, ta.value.length);
+          const ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+          if(toastEl) toastEl.textContent = ok ? "Copied." : "Copy failed. Select and copy manually.";
+          return ok;
+        }catch{
+          if(toastEl) toastEl.textContent = "Copy failed. Select and copy manually.";
+          return false;
+        }
+      }
+    }
 
+    function copyIntake(){
+      const text = document.getElementById("intakeText").textContent.trim();
+      const t = document.getElementById("intakeToast");
+      copyTextRobust(text, t);
+    }
+
+    function pasteIntakeIntoMessage(){
+      const t = document.getElementById("intakeText").textContent.trim();
+      const msg = document.getElementById("message");
+      msg.value = t + "\n\n";
+      msg.focus();
+      const toastEl = document.getElementById("intakeToast");
+      toastEl.textContent = "Pasted into message.";
+      // open the gate so the user sees what happened
+      const gate = document.getElementById("diagnosticGate");
+      if(gate && !gate.open) gate.open = true;
+    }
     // Inline submit via fetch (no redirect)
     const form = document.getElementById("contactForm");
     const notice = document.getElementById("notice");
@@ -472,6 +603,7 @@ EVIDENCE (links or attachments, max 3):</code>
   </script>
 </body>
 </html>
+
 
 
 
