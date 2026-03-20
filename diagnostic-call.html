@@ -4,9 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Diagnostic Call | Pythagorean Arithmosophic Anamnesis</title>
-  <meta name="description" content="A concise, high-signal diagnostic call: compress the problem, test the structure, leave with a verdict and next actions." />
+  <meta
+    name="description"
+    content="A high-signal diagnostic call to isolate the true problem, test the structure, and leave with a verdict and next actions."
+  />
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
   <style>
     :root{
@@ -18,12 +21,20 @@
       --aqua2:#6ef7ee;
       --gold:#c7a96a;
       --text:#e9eefc;
-      --muted:rgba(233,238,252,0.72);
+      --muted:rgba(233,238,252,0.74);
+      --soft:rgba(233,238,252,0.56);
       --line:rgba(233,238,252,0.10);
+      --line-strong:rgba(110,247,238,0.22);
       --glass:rgba(233,238,252,0.04);
+      --glass-2:rgba(255,255,255,0.03);
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
+      --radius:18px;
+      --radius-sm:14px;
+      --max:1120px;
     }
 
     *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     html,body{ height:100%; }
 
     body{
@@ -41,43 +52,67 @@
       position:fixed;
       inset:0;
       pointer-events:none;
-      opacity:0.28;
+      opacity:0.26;
       background-image:
         radial-gradient(circle at 1px 1px, rgba(233,238,252,0.10) 1px, transparent 1px),
-        linear-gradient(rgba(51,211,200,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(51,211,200,0.06) 1px, transparent 1px);
-      background-size: 22px 22px, 110px 110px, 110px 110px;
+        linear-gradient(rgba(51,211,200,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51,211,200,0.05) 1px, transparent 1px);
+      background-size:22px 22px, 110px 110px, 110px 110px;
       mask-image: radial-gradient(closest-side at 50% 25%, #000 55%, transparent 100%);
+    }
+
+    a{ color:inherit; }
+
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:16px;
+      top:16px;
+      width:auto;
+      height:auto;
+      padding:10px 14px;
+      background:#111827;
+      border:1px solid var(--line-strong);
+      border-radius:10px;
+      z-index:1000;
     }
 
     header{
       position:sticky;
       top:0;
-      z-index:10;
+      z-index:20;
       backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(7,8,18,0.92), rgba(7,8,18,0.50));
+      background: linear-gradient(180deg, rgba(7,8,18,0.94), rgba(7,8,18,0.56));
       border-bottom:1px solid var(--line);
     }
 
     .nav{
-      max-width:1080px;
+      max-width:var(--max);
       margin:0 auto;
-      padding: 14px 18px;
+      padding:14px 20px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
+      gap:16px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      min-width: 220px;
+      gap:12px;
+      min-width:220px;
+      text-decoration:none;
     }
 
     .brand-mark{
-      width:10px; height:10px;
+      width:10px;
+      height:10px;
       border-radius:50%;
       background: radial-gradient(circle at 30% 30%, var(--aqua2), var(--aqua));
       box-shadow: 0 0 16px rgba(51,211,200,0.35);
@@ -94,7 +129,7 @@
 
     .navlinks{
       display:flex;
-      gap:6px;
+      gap:8px;
       align-items:center;
       flex-wrap:wrap;
       justify-content:flex-end;
@@ -112,49 +147,46 @@
       transition: border-color .15s ease, background .15s ease, transform .15s ease;
     }
 
-    .nav a:hover{
+    .nav a:hover,
+    .nav a:focus-visible{
       border-color: rgba(110,247,238,0.25);
       background: rgba(51,211,200,0.05);
       transform: translateY(-1px);
+      outline:none;
     }
 
     .wrap{
-      max-width:1080px;
+      max-width:var(--max);
       margin:0 auto;
-      padding: 34px 18px 64px;
+      padding:34px 20px 72px;
     }
 
     .hero{
       display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:18px;
       align-items:stretch;
-      margin-top: 18px;
-    }
-
-    @media (max-width: 980px){
-      .hero{ grid-template-columns: 1fr; }
-      .brand{ min-width: unset; }
+      margin-top:18px;
     }
 
     .card{
       position:relative;
-      border-radius:18px;
+      border-radius:var(--radius);
       border:1px solid var(--line);
-      background: var(--glass);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05);
+      background:var(--glass);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.05);
       overflow:hidden;
     }
 
-    .card.glyph{
+    .hero-visual{
       background:
-        radial-gradient(900px 700px at 60% 10%, rgba(42,11,61,0.55), transparent 60%),
-        linear-gradient(140deg, rgba(12,26,58,0.55), rgba(7,8,18,0.82));
-      border-color: rgba(233,238,252,0.09);
-      min-height: 420px;
+        radial-gradient(900px 700px at 60% 10%, rgba(42,11,61,0.56), transparent 60%),
+        linear-gradient(140deg, rgba(12,26,58,0.58), rgba(7,8,18,0.84));
+      min-height:520px;
+      border-color:rgba(233,238,252,0.09);
     }
 
-    .card.glyph::before{
+    .hero-visual::before{
       content:"";
       position:absolute;
       inset:-35%;
@@ -162,9 +194,8 @@
         radial-gradient(circle at 50% 50%, rgba(51,211,200,0.12), transparent 55%),
         radial-gradient(circle at 48% 52%, rgba(199,169,106,0.10), transparent 62%),
         conic-gradient(from 180deg, rgba(51,211,200,0.10), rgba(42,11,61,0.10), rgba(51,211,200,0.10));
-      filter: blur(0.6px);
       opacity:0.85;
-      animation: slowspin 26s linear infinite;
+      animation: slowspin 28s linear infinite;
     }
 
     .axis{
@@ -195,72 +226,83 @@
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      gap: 16px;
-      padding: 26px;
+      gap:18px;
+      padding:32px 28px;
       text-align:center;
     }
 
-    .sigil-title{
+    .eyebrow{
+      margin:0;
       font-size:12px;
       letter-spacing:0.18em;
       text-transform:uppercase;
-      color: rgba(199,169,106,0.82);
+      color:rgba(199,169,106,0.86);
+    }
+
+    .visual-title{
+      margin:0;
+      font-size:clamp(26px, 3vw, 38px);
+      line-height:1.06;
+      letter-spacing:-0.025em;
+      max-width:12ch;
+    }
+
+    .visual-copy{
+      margin:0;
+      max-width:36ch;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:15px;
     }
 
     .tetractys{
       display:grid;
       gap:10px;
       justify-content:center;
-      padding-top: 6px;
+      padding-top:8px;
     }
+
     .trow{ display:flex; gap:12px; justify-content:center; }
 
     .dot{
-      width:14px; height:14px; border-radius:50%;
-      background: radial-gradient(circle at 35% 35%,
-        rgba(110,247,238,0.95),
-        rgba(51,211,200,0.55) 55%,
-        rgba(51,211,200,0.20)
-      );
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background: radial-gradient(circle at 35% 35%, rgba(110,247,238,0.95), rgba(51,211,200,0.55) 55%, rgba(51,211,200,0.20));
       border:1px solid rgba(233,238,252,0.14);
       box-shadow: 0 0 18px rgba(51,211,200,0.22), 0 0 34px rgba(51,211,200,0.09);
       opacity:0.95;
     }
 
-    .glyph-band{
+    .field-row{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       justify-content:center;
-      margin-top: 6px;
+      margin-top:4px;
     }
 
     .chip{
       font-size:12px;
       letter-spacing:0.08em;
       text-transform:uppercase;
-      color: rgba(233,238,252,0.75);
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(233,238,252,0.10);
-      background: rgba(0,0,0,0.18);
+      color:rgba(233,238,252,0.76);
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.18);
       backdrop-filter: blur(6px);
       white-space:nowrap;
     }
 
     .chip b{
-      color: rgba(110,247,238,0.90);
-      font-weight:600;
+      color:rgba(110,247,238,0.92);
+      font-weight:700;
       letter-spacing:0.10em;
     }
 
-    @keyframes slowspin{
-      from{ transform: rotate(0deg); }
-      to{ transform: rotate(360deg); }
-    }
-
-    .card.content{
-      padding: 24px 22px;
+    .content{
+      padding:28px 24px 24px;
     }
 
     .kicker{
@@ -268,53 +310,54 @@
       font-size:12px;
       letter-spacing:0.16em;
       text-transform:uppercase;
-      color: rgba(199,169,106,0.85);
+      color:rgba(199,169,106,0.85);
     }
 
     h1{
-      margin:0 0 12px;
-      font-size: clamp(30px, 3.2vw, 44px);
-      line-height:1.05;
-      letter-spacing:-0.02em;
+      margin:0 0 14px;
+      font-size:clamp(32px, 3.4vw, 48px);
+      line-height:1.02;
+      letter-spacing:-0.03em;
+      max-width:10ch;
     }
 
     .sub{
-      margin:0 0 18px;
-      color: var(--muted);
-      line-height:1.6;
-      max-width: 62ch;
+      margin:0 0 22px;
+      color:var(--muted);
+      line-height:1.65;
+      max-width:58ch;
+      font-size:15px;
     }
 
-    .tri{
+    .proof{
       display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:10px;
-      margin: 16px 0 18px;
+      margin:18px 0 22px;
     }
 
-    .tri .item{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(233,238,252,0.10);
-      background: rgba(0,0,0,0.12);
+    .proof-item{
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.12);
     }
 
-    .tri .item span{
-      color: rgba(233,238,252,0.88);
-      letter-spacing:0.02em;
-    }
-
-    .tri .item em{
-      color: rgba(110,247,238,0.85);
-      font-style:normal;
-      letter-spacing:0.10em;
+    .proof-item strong{
+      display:block;
+      font-size:11px;
+      letter-spacing:0.14em;
       text-transform:uppercase;
-      font-size:12px;
-      white-space:nowrap;
-      opacity:0.95;
+      color:rgba(110,247,238,0.88);
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    .proof-item span{
+      color:rgba(233,238,252,0.88);
+      font-size:14px;
+      line-height:1.5;
+      display:block;
     }
 
     .cta{
@@ -322,7 +365,7 @@
       gap:12px;
       flex-wrap:wrap;
       align-items:center;
-      margin-top: 12px;
+      margin-top:4px;
     }
 
     .btn{
@@ -330,12 +373,12 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(233,238,252,0.12);
-      color: var(--text);
-      background: rgba(233,238,252,0.04);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      padding:13px 16px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.12);
+      color:var(--text);
+      background:rgba(233,238,252,0.04);
+      box-shadow:0 14px 40px rgba(0,0,0,0.35);
       transition: transform .15s ease, border-color .15s ease, background .15s ease;
       letter-spacing:0.06em;
       text-transform:uppercase;
@@ -343,33 +386,59 @@
       white-space:nowrap;
     }
 
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(110,247,238,0.35);
-      background: rgba(51,211,200,0.06);
+    .btn:hover,
+    .btn:focus-visible{
+      transform:translateY(-1px);
+      border-color:rgba(110,247,238,0.35);
+      background:rgba(51,211,200,0.06);
+      outline:none;
     }
 
     .btn.primary{
-      border-color: rgba(110,247,238,0.32);
-      background: linear-gradient(180deg, rgba(51,211,200,0.16), rgba(51,211,200,0.06));
-      box-shadow:
-        0 18px 60px rgba(0,0,0,0.45),
-        0 0 40px rgba(51,211,200,0.10);
+      border-color:rgba(110,247,238,0.32);
+      background:linear-gradient(180deg, rgba(51,211,200,0.16), rgba(51,211,200,0.06));
+      box-shadow:0 18px 60px rgba(0,0,0,0.45), 0 0 40px rgba(51,211,200,0.10);
     }
 
     .micro{
-      margin-top: 14px;
-      font-size: 12px;
-      color: rgba(169,179,201,0.78);
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(233,238,252,0.08);
+      color:var(--soft);
+      font-size:12px;
       line-height:1.6;
-      border-top: 1px solid rgba(233,238,252,0.08);
-      padding-top: 14px;
+    }
+
+    .micro .meta{
+      padding:10px 12px;
+      border:1px solid rgba(233,238,252,0.08);
+      border-radius:12px;
+      background:rgba(255,255,255,0.02);
+    }
+
+    .micro .meta strong{
+      color:rgba(110,247,238,0.85);
+      letter-spacing:0.10em;
+      text-transform:uppercase;
+      font-size:11px;
+      margin-right:8px;
+    }
+
+    .stack{
+      display:grid;
+      gap:18px;
+      margin-top:20px;
     }
 
     .section{
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(233,238,252,0.08);
+      padding:20px 18px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:var(--glass-2);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     .section h2{
@@ -377,90 +446,216 @@
       font-size:14px;
       letter-spacing:0.14em;
       text-transform:uppercase;
-      color: rgba(199,169,106,0.82);
+      color:rgba(199,169,106,0.84);
+    }
+
+    .section p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:15px;
+      max-width:70ch;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
     }
 
     .list{
-      margin:0;
-      padding-left: 18px;
-      color: rgba(233,238,252,0.78);
-      line-height:1.6;
+      margin:12px 0 0;
+      padding-left:18px;
+      color:rgba(233,238,252,0.80);
+      line-height:1.65;
       font-size:14px;
-      max-width: 70ch;
     }
 
-    .list li{ margin: 7px 0; }
+    .list li{ margin:7px 0; }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .step{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.14);
+    }
+
+    .step-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      border:1px solid rgba(110,247,238,0.25);
+      color:rgba(110,247,238,0.92);
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .step h3{
+      margin:0 0 8px;
+      font-size:15px;
+      color:var(--text);
+    }
+
+    .step p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
 
     .pillrow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top: 10px;
+      margin-top:12px;
     }
 
     .pill{
       font-size:12px;
       letter-spacing:0.08em;
       text-transform:uppercase;
-      color: rgba(233,238,252,0.78);
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(233,238,252,0.10);
-      background: rgba(0,0,0,0.14);
+      color:rgba(233,238,252,0.78);
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.14);
       white-space:nowrap;
     }
 
     .pill b{
-      color: rgba(110,247,238,0.90);
-      font-weight:600;
+      color:rgba(110,247,238,0.90);
+      font-weight:700;
       letter-spacing:0.10em;
     }
 
     .intake{
-      margin-top: 18px;
-      padding: 16px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(233,238,252,0.10);
-      background: rgba(0,0,0,0.14);
+      margin-top:14px;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.14);
     }
 
-    .intake pre{
-      margin: 12px 0 0;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(233,238,252,0.10);
-      background: rgba(0,0,0,0.18);
-      color: rgba(233,238,252,0.80);
+    .intake-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+
+    .intake-copy{
+      color:rgba(233,238,252,0.84);
+      line-height:1.6;
+      font-size:14px;
+      max-width:56ch;
+    }
+
+    .copy-btn{
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(255,255,255,0.03);
+      color:var(--text);
+      font-size:12px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+
+    .copy-btn:hover,
+    .copy-btn:focus-visible{
+      border-color:rgba(110,247,238,0.32);
+      background:rgba(51,211,200,0.06);
+      outline:none;
+    }
+
+    pre{
+      margin:0;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.18);
+      color:rgba(233,238,252,0.82);
       overflow:auto;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 12px;
-      line-height: 1.6;
+      font-size:12px;
+      line-height:1.7;
+      white-space:pre-wrap;
     }
 
     .note{
-      margin: 10px 0 0;
-      color: rgba(169,179,201,0.78);
-      font-size: 12px;
-      line-height: 1.6;
-      max-width: 74ch;
+      margin-top:10px;
+      color:rgba(169,179,201,0.78);
+      font-size:12px;
+      line-height:1.6;
+      max-width:74ch;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 0;
+      padding:0 20px 52px;
+    }
+
+    .footer-card{
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.02);
+      color:var(--soft);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .footer-card strong{
+      color:rgba(233,238,252,0.86);
+    }
+
+    @keyframes slowspin{
+      from{ transform: rotate(0deg); }
+      to{ transform: rotate(360deg); }
+    }
+
+    @media (max-width: 980px){
+      .hero{ grid-template-columns:1fr; }
+      .brand{ min-width:unset; }
+      .proof{ grid-template-columns:1fr; }
+      .grid-2{ grid-template-columns:1fr; }
+      .steps{ grid-template-columns:1fr; }
+      h1{ max-width:none; }
+      .hero-visual{ min-height:420px; }
     }
 
     @media (prefers-reduced-motion: reduce){
-      .card.glyph::before{ animation:none; }
-      .btn, .nav a{ transition:none; }
+      html{ scroll-behavior:auto; }
+      .hero-visual::before{ animation:none; }
+      .btn, .nav a, .copy-btn{ transition:none; }
     }
   </style>
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-grid" aria-hidden="true"></div>
 
   <header>
     <div class="nav">
-      <div class="brand">
+      <a class="brand" href="/index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-title">Pythagorean Arithmosophic Anamnesis</span>
-      </div>
+      </a>
 
       <nav class="navlinks" aria-label="Top navigation">
         <a href="/index.html">Home</a>
@@ -472,11 +667,15 @@
   </header>
 
   <div class="wrap">
-    <div class="hero">
-      <section class="card glyph" aria-label="Pythagorean field">
+    <section class="hero" aria-label="Diagnostic call overview">
+      <div class="card hero-visual">
         <div class="axis" aria-hidden="true"></div>
         <div class="glyph-inner">
-          <div class="sigil-title">Tetractys Seal</div>
+          <p class="eyebrow">Tetractys Seal</p>
+          <h2 class="visual-title">Diagnosis before drift becomes cost.</h2>
+          <p class="visual-copy">
+            Not coaching. Not motivational talk. A disciplined diagnostic for situations where the visible problem is usually not the real one.
+          </p>
 
           <div class="tetractys" aria-label="Tetractys of ten points">
             <div class="trow"><span class="dot"></span></div>
@@ -485,85 +684,183 @@
             <div class="trow"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
           </div>
 
-          <div class="glyph-band" aria-label="Three-field markers">
+          <div class="field-row" aria-label="Three-field markers">
             <div class="chip"><b>3-6-9</b> Harmonic</div>
             <div class="chip"><b>5-7-11</b> Blade</div>
             <div class="chip"><b>2-4-8</b> Pillars</div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <main class="card content">
+      <main id="main" class="card content">
         <p class="kicker">Diagnostic Call</p>
-        <h1>Bring the problem.<br>Leave with a verdict.</h1>
+        <h1>Bring the problem. Leave with a verdict.</h1>
 
         <p class="sub">
-          A short, high-signal session to compress the true question, test the structure, and exit with next actions that hold under pressure.
+          A short, high-signal session to isolate the true question, test the structure under pressure, and leave with next actions that can survive contact with reality.
         </p>
 
-        </div>
-
-        <div class="micro">
-          <div><span style="color:rgba(110,247,238,0.85); letter-spacing:0.10em; text-transform:uppercase;">Format</span> &nbsp; 25–45 min (remote)</div>
-          <div><span style="color:rgba(110,247,238,0.85); letter-spacing:0.10em; text-transform:uppercase;">Best for</span> &nbsp; founders, creators, researchers, operators</div>
-          <div><span style="color:rgba(110,247,238,0.85); letter-spacing:0.10em; text-transform:uppercase;">Requirement</span> &nbsp; willingness to be corrected</div>
-        </div>
-
-        <div class="section" aria-label="Inputs required">
-          <h2>Inputs required (pre-call)</h2>
-          <ul class="list">
-            <li><strong>Object:</strong> what system is under diagnosis</li>
-            <li><strong>Pressure:</strong> what stress is exposing failure</li>
-            <li><strong>Decision:</strong> what must be decided in 30–90 days</li>
-            <li><strong>Constraints:</strong> non-negotiables (time, money, politics, ethics)</li>
-            <li><strong>Evidence:</strong> up to 3 artifacts (doc, deck, screenshots, messaging)</li>
-          </ul>
-          <p class="note">No biographies. No long backstory. We diagnose what can be examined.</p>
-        </div>
-
-        <div class="section" aria-label="Call flow">
-          <h2>Call flow</h2>
-          <div class="pillrow">
-            <div class="pill"><b>1</b> Compression</div>
-            <div class="pill"><b>2</b> Structural tests</div>
-            <div class="pill"><b>3</b> Verdict</div>
+        <div class="proof" aria-label="Core outcomes">
+          <div class="proof-item">
+            <strong>Clarify</strong>
+            <span>Compress the situation into its load-bearing variables.</span>
           </div>
-          <ul class="list" style="margin-top:10px;">
-            <li><strong>Compression:</strong> reduce the situation to object + pressure + decision + constraints.</li>
-            <li><strong>Tests:</strong> load-bearing scan, contradiction scan, incentives, feedback integrity, time horizon.</li>
-            <li><strong>Verdict:</strong> proceed / revise / decline, plus one next move that holds.</li>
-          </ul>
+          <div class="proof-item">
+            <strong>Test</strong>
+            <span>Find contradiction, drift, incentive distortion, and weak assumptions.</span>
+          </div>
+          <div class="proof-item">
+            <strong>Decide</strong>
+            <span>Exit with a verdict: proceed, revise, or decline.</span>
+          </div>
         </div>
 
-        <div id="intake" class="section" aria-label="Request intake">
-          <h2>Request intake</h2>
+        <div class="cta">
+          <a class="btn primary" href="#intake">Start intake</a>
+          <a class="btn" href="/contact.html">Ask a question first</a>
+        </div>
 
-          <div class="intake">
-            <div style="color:rgba(233,238,252,0.82); line-height:1.6; font-size:14px;">
-              Send the following five lines (copy/paste).
+        <div class="micro" aria-label="Session details">
+          <div class="meta"><strong>Format</strong>25–45 min · remote</div>
+          <div class="meta"><strong>Best for</strong>founders, creators, researchers, operators</div>
+          <div class="meta"><strong>Requirement</strong>willingness to be corrected</div>
+        </div>
+      </main>
+    </section>
+
+    <div class="stack">
+      <section class="section">
+        <h2>Who this is for</h2>
+        <p>
+          This is for people facing a real decision, real friction, or repeated failure. It is not for vague curiosity, ornamental brainstorming, or biography disguised as analysis.
+        </p>
+
+        <div class="grid-2" style="margin-top:14px;">
+          <div>
+            <ul class="list">
+              <li>A project that has lost coherence</li>
+              <li>A message that is not converting</li>
+              <li>A system under stress or drift</li>
+              <li>A decision bottleneck inside the next 30–90 days</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list">
+              <li>A team or venture facing contradiction</li>
+              <li>An offer that feels misaligned or weak</li>
+              <li>A pattern of churn, confusion, or repeated misfire</li>
+              <li>A sense that the visible problem is not the actual one</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Inputs required">
+        <h2>Inputs required</h2>
+        <p>
+          Send only what can be examined. Compression is part of the test.
+        </p>
+        <ul class="list">
+          <li><strong>Object:</strong> what system is under diagnosis</li>
+          <li><strong>Pressure:</strong> what stress is exposing failure</li>
+          <li><strong>Decision:</strong> what must be decided in the next 30–90 days</li>
+          <li><strong>Constraints:</strong> time, money, politics, ethics, or other non-negotiables</li>
+          <li><strong>Evidence:</strong> up to 3 artifacts — doc, deck, screenshots, links, or messaging</li>
+        </ul>
+        <p class="note">No long autobiography. No atmospheric preamble. Send the material that bears weight.</p>
+      </section>
+
+      <section class="section" aria-label="Call flow">
+        <h2>Call flow</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Compression</h3>
+            <p>Reduce the situation to object, pressure, decision, and constraints.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Structural tests</h3>
+            <p>Scan load-bearing assumptions, contradictions, incentives, feedback integrity, and time horizon.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Verdict</h3>
+            <p>Proceed, revise, or decline — with one next move that holds under pressure.</p>
+          </div>
+        </div>
+
+        <div class="pillrow" aria-label="Example test categories">
+          <div class="pill"><b>Load</b> bearing scan</div>
+          <div class="pill"><b>Contradiction</b> scan</div>
+          <div class="pill"><b>Incentives</b> and feedback</div>
+          <div class="pill"><b>Time</b> horizon check</div>
+        </div>
+      </section>
+
+      <section id="intake" class="section" aria-label="Request intake">
+        <h2>Request intake</h2>
+        <p>
+          Send the five lines below. Keep them sharp. The quality of the intake affects the quality of the verdict.
+        </p>
+
+        <div class="intake">
+          <div class="intake-head">
+            <div class="intake-copy">
+              Copy this template, fill it in, and email it with up to three relevant artifacts.
             </div>
+            <button class="copy-btn" type="button" id="copyTemplate">Copy template</button>
+          </div>
 
-         
-            <div class="cta" style="margin-top:12px;">
-              <a class="btn primary"
-                 href="mailto:PythagoreanAA@proton.me?subject=Diagnostic%20Request&body=OBJECT:%20%0A%0APRESSURE:%20%0A%0ADECISION%20(30%E2%80%9390%20days):%20%0A%0ACONSTRAINTS:%20%0A%0AEVIDENCE%20(links%20or%20attachments,%20max%203):%20">
-                Email the Intake
-              </a>
-              <a class="btn" href="/contact.html">Use contact form</a>
-            </div>
-
-            <pre>OBJECT:
+          <pre id="intakeTemplate">OBJECT:
 PRESSURE:
 DECISION (30–90 days):
 CONSTRAINTS:
 EVIDENCE (links or attachments, max 3):</pre>
 
-            
+          <div class="cta" style="margin-top:14px;">
+            <a
+              class="btn primary"
+              href="mailto:PythagoreanAA@proton.me?subject=Diagnostic%20Request&body=OBJECT:%20%0A%0APRESSURE:%20%0A%0ADECISION%20(30%E2%80%9390%20days):%20%0A%0ACONSTRAINTS:%20%0A%0AEVIDENCE%20(links%20or%20attachments,%20max%203):%20"
+            >
+              Email the intake
+            </a>
+            <a class="btn" href="/contact.html">Use contact form</a>
           </div>
-        </div>
 
-      </main>
+          <p class="note">
+            If the issue is sensitive, send a compressed version first. Specificity matters more than volume.
+          </p>
+        </div>
+      </section>
     </div>
   </div>
+
+  <footer>
+    <div class="footer-card">
+      <strong>Diagnostic principle:</strong> the first story is rarely the true structure. We test what is load-bearing, not what is merely loud.
+    </div>
+  </footer>
+
+  <script>
+    const copyBtn = document.getElementById('copyTemplate');
+    const template = document.getElementById('intakeTemplate').textContent;
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(template);
+        const original = copyBtn.textContent;
+        copyBtn.textContent = 'Copied';
+        setTimeout(() => {
+          copyBtn.textContent = original;
+        }, 1400);
+      } catch (err) {
+        copyBtn.textContent = 'Copy failed';
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy template';
+        }, 1600);
+      }
+    });
+  </script>
 </body>
 </html>
