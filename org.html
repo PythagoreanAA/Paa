@@ -3,40 +3,733 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Organizations & Messaging | Pythagorean Arithmosophic Anamnesis</title>
+  <title>Organizations | Pythagorean Arithmosophic Anamnesis</title>
+  <meta name="description" content="Structural diagnostics for organizations under pressure: messaging drift, hiring friction, internal incoherence, and strategic misalignment.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
   <style>
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#070812;color:#e9eefc;}
-    .wrap{max-width:860px;margin:0 auto;padding:44px 18px;}
-    a{color:#6ef7ee;text-decoration:none;}
-    .nav{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
-    h1{margin:0 0 12px;font-size:36px;line-height:1.1}
-    p{color:rgba(233,238,252,.78);line-height:1.7}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:14px;border:1px solid rgba(233,238,252,.12);color:#e9eefc;background:rgba(233,238,252,.04);letter-spacing:.06em;text-transform:uppercase;font-size:12px}
-    .btn.primary{border-color:rgba(110,247,238,.32);background:linear-gradient(180deg, rgba(51,211,200,.16), rgba(51,211,200,.06))}
-    ul{margin:16px 0 22px;line-height:1.7;color:rgba(233,238,252,.78)}
+    :root{
+      --bg0:#070812;
+      --bg1:#090b1a;
+      --tyrian:#2a0b3d;
+      --indigo:#0c1a3a;
+      --aqua:#33d3c8;
+      --aqua2:#6ef7ee;
+      --gold:#c7a96a;
+      --text:#e9eefc;
+      --muted:rgba(233,238,252,0.78);
+      --soft:rgba(233,238,252,0.60);
+      --line:rgba(233,238,252,0.10);
+      --line-strong:rgba(110,247,238,0.22);
+      --glass:rgba(233,238,252,0.04);
+      --glass-2:rgba(255,255,255,0.03);
+      --shadow:0 18px 60px rgba(0,0,0,0.45);
+      --radius:18px;
+      --radius-sm:14px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 70% 20%, rgba(51,211,200,0.10), transparent 60%),
+        radial-gradient(900px 700px at 20% 70%, rgba(199,169,106,0.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    .bg-grid{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:0.24;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(233,238,252,0.10) 1px, transparent 1px),
+        linear-gradient(rgba(51,211,200,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51,211,200,0.05) 1px, transparent 1px);
+      background-size:22px 22px, 110px 110px, 110px 110px;
+      mask-image: radial-gradient(closest-side at 50% 25%, #000 55%, transparent 100%);
+    }
+
+    a{color:inherit;text-decoration:none;}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      background:linear-gradient(180deg, rgba(7,8,18,0.94), rgba(7,8,18,0.56));
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+
+    .brand-mark{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, var(--aqua2), var(--aqua));
+      box-shadow:0 0 16px rgba(51,211,200,0.35);
+      flex:0 0 auto;
+    }
+
+    .brand-title{
+      font-size:12px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:rgba(233,238,252,0.78);
+      white-space:nowrap;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .navlinks a{
+      color:rgba(233,238,252,0.78);
+      font-size:12px;
+      letter-spacing:0.10em;
+      text-transform:uppercase;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition:border-color .15s ease, background .15s ease, transform .15s ease;
+    }
+
+    .navlinks a:hover,
+    .navlinks a:focus-visible{
+      border-color:rgba(110,247,238,0.25);
+      background:rgba(51,211,200,0.05);
+      transform:translateY(-1px);
+      outline:none;
+    }
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 20px 72px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:18px;
+    }
+
+    .card{
+      position:relative;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:var(--glass);
+      box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,0.05);
+      overflow:hidden;
+    }
+
+    .hero-visual{
+      background:
+        radial-gradient(900px 700px at 60% 10%, rgba(42,11,61,0.56), transparent 60%),
+        linear-gradient(140deg, rgba(12,26,58,0.58), rgba(7,8,18,0.84));
+      min-height:520px;
+      border-color:rgba(233,238,252,0.09);
+    }
+
+    .hero-visual::before{
+      content:"";
+      position:absolute;
+      inset:-35%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(51,211,200,0.12), transparent 55%),
+        radial-gradient(circle at 48% 52%, rgba(199,169,106,0.10), transparent 62%),
+        conic-gradient(from 180deg, rgba(51,211,200,0.10), rgba(42,11,61,0.10), rgba(51,211,200,0.10));
+      opacity:0.85;
+      animation:slowspin 28s linear infinite;
+    }
+
+    .axis{
+      position:absolute;
+      left:50%;
+      top:10%;
+      bottom:10%;
+      width:2px;
+      transform:translateX(-50%);
+      background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(51,211,200,0.18) 18%,
+        rgba(110,247,238,0.42) 50%,
+        rgba(51,211,200,0.18) 82%,
+        transparent
+      );
+      box-shadow:0 0 18px rgba(51,211,200,0.28), 0 0 42px rgba(51,211,200,0.12);
+      opacity:0.80;
+      z-index:1;
+    }
+
+    .glyph-inner{
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      padding:32px 28px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      margin:0;
+      font-size:12px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:rgba(199,169,106,0.86);
+    }
+
+    .visual-title{
+      margin:0;
+      font-size:clamp(26px, 3vw, 38px);
+      line-height:1.06;
+      letter-spacing:-0.025em;
+      max-width:13ch;
+    }
+
+    .visual-copy{
+      margin:0;
+      max-width:36ch;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:15px;
+    }
+
+    .metric-stack{
+      width:min(420px, 100%);
+      display:grid;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    .metric{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.18);
+      color:rgba(233,238,252,0.82);
+      font-size:13px;
+      line-height:1.5;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+
+    .metric b{
+      color:rgba(110,247,238,0.92);
+      font-weight:700;
+      letter-spacing:0.10em;
+    }
+
+    .content{
+      padding:28px 24px 24px;
+    }
+
+    .kicker{
+      margin:0 0 10px;
+      font-size:12px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:rgba(199,169,106,0.85);
+    }
+
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(32px, 3.4vw, 48px);
+      line-height:1.02;
+      letter-spacing:-0.03em;
+      max-width:11ch;
+    }
+
+    .sub{
+      margin:0 0 22px;
+      color:var(--muted);
+      line-height:1.65;
+      max-width:60ch;
+      font-size:15px;
+    }
+
+    .proof{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:10px;
+      margin:18px 0 22px;
+    }
+
+    .proof-item{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.12);
+    }
+
+    .proof-item strong{
+      display:block;
+      font-size:11px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:rgba(110,247,238,0.88);
+      margin-bottom:8px;
+      font-weight:700;
+    }
+
+    .proof-item span{
+      color:rgba(233,238,252,0.88);
+      font-size:14px;
+      line-height:1.5;
+      display:block;
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:4px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 16px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.12);
+      color:var(--text);
+      background:rgba(233,238,252,0.04);
+      box-shadow:0 14px 40px rgba(0,0,0,0.35);
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible{
+      transform:translateY(-1px);
+      border-color:rgba(110,247,238,0.35);
+      background:rgba(51,211,200,0.06);
+      outline:none;
+    }
+
+    .btn.primary{
+      border-color:rgba(110,247,238,0.32);
+      background:linear-gradient(180deg, rgba(51,211,200,0.16), rgba(51,211,200,0.06));
+      box-shadow:0 18px 60px rgba(0,0,0,0.45), 0 0 40px rgba(51,211,200,0.10);
+    }
+
+    .micro{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(233,238,252,0.08);
+      color:var(--soft);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .meta{
+      padding:10px 12px;
+      border:1px solid rgba(233,238,252,0.08);
+      border-radius:12px;
+      background:rgba(255,255,255,0.02);
+    }
+
+    .meta strong{
+      color:rgba(110,247,238,0.85);
+      letter-spacing:0.10em;
+      text-transform:uppercase;
+      font-size:11px;
+      margin-right:8px;
+    }
+
+    .stack{
+      display:grid;
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .section{
+      padding:20px 18px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:var(--glass-2);
+      box-shadow:var(--shadow), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:rgba(199,169,106,0.84);
+    }
+
+    .section p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:15px;
+      max-width:72ch;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+      margin-top:12px;
+    }
+
+    .mini-card{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.14);
+    }
+
+    .mini-card h3{
+      margin:0 0 8px;
+      font-size:15px;
+      color:var(--text);
+    }
+
+    .mini-card p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:rgba(233,238,252,0.80);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    .list li{margin:7px 0;}
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .step{
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(233,238,252,0.10);
+      background:rgba(0,0,0,0.14);
+    }
+
+    .step-num{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:28px;
+      height:28px;
+      border-radius:999px;
+      border:1px solid rgba(110,247,238,0.25);
+      color:rgba(110,247,238,0.92);
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .step h3{
+      margin:0 0 8px;
+      font-size:15px;
+      color:var(--text);
+    }
+
+    .step p{
+      margin:0;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .quote{
+      margin-top:14px;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(110,247,238,0.14);
+      background:linear-gradient(180deg, rgba(51,211,200,0.08), rgba(51,211,200,0.03));
+      color:rgba(233,238,252,0.88);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:24px auto 0;
+      padding:0 20px 52px;
+    }
+
+    .footer-card{
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.02);
+      color:var(--soft);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .footer-card strong{color:rgba(233,238,252,0.86);}
+
+    @keyframes slowspin{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
+    }
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .proof,.grid-2,.grid-3,.steps{grid-template-columns:1fr;}
+      h1{max-width:none;}
+      .hero-visual{min-height:420px;}
+      .brand{min-width:unset;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+      .hero-visual::before{animation:none;}
+      .btn,.navlinks a{transition:none;}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header>
     <div class="nav">
-      <a href="/index.html">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
+      <a class="brand" href="/index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-title">Pythagorean Arithmosophic Anamnesis</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Top navigation">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/diagnostic-call.html">Diagnostic Call</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <h1>Organizations & Messaging Diagnostics</h1>
-    <p>Structural testing for narratives, brands, campaigns, and internal strategy — to detect drift and collapse before the market does.</p>
+  <div class="wrap">
+    <section class="hero" aria-label="Organizations diagnostic overview">
+      <div class="card hero-visual">
+        <div class="axis" aria-hidden="true"></div>
+        <div class="glyph-inner">
+          <p class="eyebrow">Organizations</p>
+          <h2 class="visual-title">Misalignment is expensive long before it is visible.</h2>
+          <p class="visual-copy">
+            Organizations usually do not fail from lack of effort. They fail because message, incentives, role design, and internal reality stop matching.
+          </p>
 
-    <ul>
-      <li>Messaging coherence audit: what holds under scrutiny vs what breaks on contact.</li>
-      <li>Narrative drift detection across teams, channels, and time.</li>
-      <li>Risk reduction: prevent expensive confusion before launch.</li>
-    </ul>
+          <div class="metric-stack" aria-label="Core organizational pressures">
+            <div class="metric"><span>Messaging drift</span><b>signal loss</b></div>
+            <div class="metric"><span>Hiring mismatch</span><b>friction cost</b></div>
+            <div class="metric"><span>Internal incoherence</span><b>execution drag</b></div>
+          </div>
+        </div>
+      </div>
 
-      <a class="btn primary" href="/diagnostic-call.html">Book a Diagnostic Call</a>
-      <a class="btn" href="/protocol.html">Protocol</a>
-      <a class="btn" href="/contact.html">Inquire</a>
+      <main class="card content">
+        <p class="kicker">Organizations & Messaging Diagnostics</p>
+        <h1>Find what is costing you coherence.</h1>
+
+        <p class="sub">
+          This work is for organizations that sense drag, confusion, or inconsistency but do not yet have clean language for the true failure point. The aim is not branding theater. It is structural diagnosis: what your organization says, what it rewards, what it hires for, and what it actually is.
+        </p>
+
+        <div class="proof" aria-label="Core organizational outcomes">
+          <div class="proof-item">
+            <strong>Detect</strong>
+            <span>Expose contradictions between stated message, operational reality, and role expectations.</span>
+          </div>
+          <div class="proof-item">
+            <strong>Reduce</strong>
+            <span>Lower the cost of confused launches, poor fit hires, and cross-team narrative drift.</span>
+          </div>
+          <div class="proof-item">
+            <strong>Clarify</strong>
+            <span>Leave with a sharper organizational reading and a next move that can actually hold.</span>
+          </div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="/diagnostic-call.html">Book a Diagnostic Call</a>
+          <a class="btn" href="/contact.html">Inquire</a>
+        </div>
+
+        <div class="micro" aria-label="Best fit organizations">
+          <div class="meta"><strong>Best fit</strong>leadership teams, HR, communications, founders</div>
+          <div class="meta"><strong>Use cases</strong>messaging, hiring, team friction, strategic drift</div>
+          <div class="meta"><strong>Mode</strong>diagnosis first, prescription second</div>
+        </div>
+      </main>
+    </section>
+
+    <div class="stack">
+      <section class="section" aria-label="Why organizations bring this in">
+        <h2>Why this becomes necessary</h2>
+        <p>
+          Most organizational problems are named too late and too vaguely. A company says it has a messaging problem, but the real issue is internal contradiction. It says it has a hiring problem, but the real issue is that the role, the manager, and the team rhythm do not match. It says it has a strategy problem, but the real issue is that different parts of the organization are operating from different realities.
+        </p>
+        <div class="quote">
+          When an organization cannot describe itself clearly, the market, the staff, and the candidate pool begin describing it for them.
+        </div>
+      </section>
+
+      <section class="section" aria-label="What can be diagnosed">
+        <h2>What can be diagnosed</h2>
+        <div class="grid-3">
+          <article class="mini-card">
+            <h3>Messaging coherence</h3>
+            <p>Test whether the external story survives contact with actual incentives, delivery, and team behavior.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Hiring and role design</h3>
+            <p>Identify what a role really requires, what the team can absorb, and where a polished candidate will still fail.</p>
+          </article>
+          <article class="mini-card">
+            <h3>Narrative alignment</h3>
+            <p>Find where leadership language, internal culture, and customer-facing claims are pulling against each other.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-label="What organizations leave with">
+        <h2>What you leave with</h2>
+        <div class="grid-2">
+          <div>
+            <ul class="list">
+              <li>The contradiction most likely to erode trust over time</li>
+              <li>The structural constraint your current plan is ignoring</li>
+              <li>The message that can hold under scrutiny instead of collapse under pressure</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list">
+              <li>A cleaner reading of the role, team, or initiative in question</li>
+              <li>A sharper sense of where friction is cosmetic versus load-bearing</li>
+              <li>A practical next move: proceed, revise, delay, or decline</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Engagement flow">
+        <h2>Engagement flow</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Intake</h3>
+            <p>You bring the initiative, team, role, campaign, or pressure point that matters.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Compression</h3>
+            <p>The situation is reduced to decision, incentives, constraints, stakeholders, and failure modes.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Structural test</h3>
+            <p>Message, role, reality, and pressure are checked for contradiction, drift, and mismatch.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>Verdict</h3>
+            <p>You leave with a diagnostic reading and the next move most likely to hold under pressure.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Example organizational situations">
+        <h2>Example situations</h2>
+        <div class="grid-2">
+          <div>
+            <ul class="list">
+              <li>A city or institution whose public language sounds careful but not credible</li>
+              <li>A company preparing a launch while sensing internal disagreement beneath the surface</li>
+              <li>A team with recurring turnover that standard HR language has failed to explain</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="list">
+              <li>A founder whose message attracts attention but not the right partners or hires</li>
+              <li>A communications effort where the narrative shifts by channel, department, or spokesperson</li>
+              <li>A hiring decision where the résumé looks right but the fit feels structurally wrong</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Final call to action">
+        <h2>Begin with the real problem</h2>
+        <p>
+          Do not begin with a full engagement. Begin with diagnosis. If the structure holds, that will become obvious. If it does not, that should be discovered before more money, labor, and credibility are spent.
+        </p>
+
+        <div class="cta" style="margin-top:16px;">
+          <a class="btn primary" href="/diagnostic-call.html">Book a Diagnostic Call</a>
+          <a class="btn" href="/contact.html">Ask a question first</a>
+        </div>
+      </section>
+    </div>
   </div>
+
+  <footer>
+    <div class="footer-card">
+      <strong>©2026 Pythagorean Arithmosophic Anamnesis LLC</strong>
+    </div>
+  </footer>
 </body>
 </html>
