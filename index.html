@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>PAA — Structural Diagnostics</title>
+
+  <meta name="description" content="Structural diagnostics for systems under pressure. Discover your Root Glyph." />
+
+  <meta property="og:title" content="Pythagorean Arithmosophic Anamnesis" />
+  <meta property="og:description" content="Structural diagnostics for systems under pressure." />
+  <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg" />
+  <meta property="og:url" content="https://pythagoreanaa.com" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(58, 199, 255, 0.22), transparent 32%),
+        radial-gradient(circle at top right, rgba(93, 46, 140, 0.35), transparent 30%),
+        linear-gradient(180deg, #07111f, #01040a 70%);
+      color: #e8f0ff;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 22px 36px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+
+    .brand {
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      color: #8fdfff;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      color: rgba(232, 240, 255, 0.72);
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+
+    .hero {
+      max-width: 760px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 0 0 22px;
+      font-weight: 650;
+    }
+
+    .sub {
+      font-size: 20px;
+      line-height: 1.55;
+      color: rgba(232, 240, 255, 0.72);
+      max-width: 680px;
+      margin-bottom: 34px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    input {
+      padding: 15px 16px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(143, 223, 255, 0.24);
+      background: rgba(255, 255, 255, 0.08);
+      color: #e8f0ff;
+      min-width: 230px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: rgba(58, 199, 255, 0.8);
+      box-shadow: 0 0 0 4px rgba(58, 199, 255, 0.12);
+    }
+
+    button {
+      padding: 15px 22px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, #3ac7ff, #9eeaff);
+      color: #02111f;
+      font-weight: 750;
+      cursor: pointer;
+      font-size: 15px;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+
+    .result {
+      margin-top: 46px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(143, 223, 255, 0.16);
+      border-radius: 22px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      display: none;
+      max-width: 760px;
+    }
+
+    .calc-path {
+      font-size: 13px;
+      color: rgba(232, 240, 255, 0.55);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .glyph {
+      font-size: 34px;
+      font-weight: 750;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .short {
+      font-size: 17px;
+      line-height: 1.6;
+      color: rgba(232, 240, 255, 0.78);
+    }
+
+    .recognition {
+      margin-top: 24px;
+      padding: 20px;
+      border-left: 3px solid #3ac7ff;
+      background: rgba(58, 199, 255, 0.06);
+      border-radius: 12px;
+    }
+
+    .recognition h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .recognition p {
+      margin: 12px 0 0;
+      line-height: 1.6;
+      color: rgba(232, 240, 255, 0.78);
+    }
+
+    .cut {
+      color: #ffffff !important;
+      font-weight: 700;
+    }
+
+    .locked-wrap {
+      position: relative;
+      margin-top: 26px;
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .locked {
+      opacity: 0.38;
+      filter: blur(4px);
+      user-select: none;
+      line-height: 1.8;
+    }
+
+    .lock-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      font-weight: 750;
+      color: #ffffff;
+      background: rgba(1, 4, 10, 0.18);
+    }
+
+    .cta {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .secondary {
+      background: transparent;
+      color: #e8f0ff;
+      border: 1px solid rgba(143, 223, 255, 0.26);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 74px;
+    }
+
+    .card {
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(143, 223, 255, 0.13);
+      border-radius: 22px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: rgba(232, 240, 255, 0.68);
+      line-height: 1.65;
+    }
+
+    .authority {
+      margin-top: 74px;
+      max-width: 760px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(232, 240, 255, 0.62);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 42px;
+      color: rgba(232, 240, 255, 0.42);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        align-items: flex-start;
+        gap: 18px;
+        flex-direction: column;
+        margin-bottom: 54px;
+      }
+
+      .nav a {
+        margin-left: 0;
+        margin-right: 18px;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      button,
+      input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header class="topbar">
+      <div class="brand">PAA</div>
+      <nav class="nav">
+        <a href="#reading">Root Glyph</a>
+        <a href="#paths">Paths</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="reading">
+        <h1>Structural diagnostics for systems under pressure.</h1>
+
+        <div class="sub">
+          Discover your Root Glyph: the numeric constraint-pattern beneath behavior,
+          distortion, and self-recognition.
+        </div>
+
+        <div class="input-row">
+          <input type="date" id="birthdate" />
+          <button onclick="calculate()">Reveal Root Glyph</button>
+        </div>
+      </section>
+
+      <section class="result" id="result">
+        <div class="calc-path" id="calcPath"></div>
+
+        <div class="glyph" id="glyph"></div>
+        <div class="short" id="short"></div>
+
+        <div class="recognition">
+          <h3>Recognition Test</h3>
+          <p id="hook"></p>
+          <p class="cut" id="cut"></p>
+        </div>
+
+        <div class="locked-wrap">
+          <div class="locked">
+            <p>Full Archetype</p>
+            <p>EIEIA Breakdown</p>
+            <p>Coherent Expression</p>
+            <p>Distortion Trigger</p>
+            <p>Distorted Expression</p>
+            <p>Regulation Mechanics</p>
+          </div>
+          <div class="lock-label">
+            Full diagnostic locked.
+          </div>
+        </div>
+
+        <div class="cta">
+          <button onclick="window.location.href='https://buy.stripe.com/YOUR_LINK'">
+            Unlock Full Diagnostic
+          </button>
+          <button class="secondary" onclick="window.location.href='/contact.html'">
+            Book Diagnostic Call
+          </button>
+        </div>
+      </section>
+
+      <section class="split" id="paths">
+        <div class="card">
+          <h3>Personal Reading</h3>
+          <p>
+            Identify your root pattern, distortion triggers, behavioral loops,
+            and the discipline required to restore coherence.
+          </p>
+          <button onclick="window.location.href='/personal.html'">Enter Personal Path</button>
+        </div>
+
+        <div class="card">
+          <h3>Organizations & Messaging</h3>
+          <p>
+            Diagnose narrative drift, internal misalignment, decision incoherence,
+            and the hidden structural pressures beneath public expression.
+          </p>
+          <button onclick="window.location.href='/organizations.html'">Enter Organizational Path</button>
+        </div>
+      </section>
+
+      <section class="authority">
+        <strong>Pythagorean Arithmosophic Anamnesis</strong> is a structural diagnostic system.
+        It does not reduce a human being to personality traits. It identifies constraint patterns:
+        how a person initiates, distorts, stabilizes, collapses, and returns to coherence.
+      </section>
+
+      <footer class="footer">
+        PAA — Pythagorean Arithmosophic Anamnesis
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function reduceToRoot(number) {
+      while (number > 9) {
+        number = number
+          .toString()
+          .split("")
+          .reduce((a, b) => a + Number(b), 0);
+      }
+      return number;
+    }
+
+    function calculate() {
+      const input = document.getElementById("birthdate").value;
+      if (!input) return;
+
+      const digits = input.replaceAll("-", "").split("").map(Number);
+      const initialSum = digits.reduce((a, b) => a + b, 0);
+      const root = reduceToRoot(initialSum);
+
+      const archetypes = {
+        1: [
+          "1 — The Initiator",
+          "You generate action without permission. When misaligned, you over-isolate or dominate.",
+          "You do not wait for consensus. You feel most alive when something begins through you.",
+          "Your danger: mistaking independence for strength when it is actually fear of being influenced."
+        ],
+        2: [
+          "2 — The Mirror",
+          "You track alignment and emotion. When misaligned, you lose self in others.",
+          "You notice the room before the room notices itself. You feel shifts in tone, distance, silence, and approval.",
+          "Your danger: confusing harmony with self-erasure."
+        ],
+        3: [
+          "3 — The Expression",
+          "You generate meaning and signal. When misaligned, you scatter or perform.",
+          "You turn experience into language, humor, image, story, or performance almost instantly.",
+          "Your danger: becoming interesting instead of becoming integrated."
+        ],
+        4: [
+          "4 — The Builder",
+          "You stabilize and structure. When misaligned, you become rigid or controlling.",
+          "You trust what can be repeated, measured, maintained, and built upon.",
+          "Your danger: mistaking control for safety."
+        ],
+        5: [
+          "5 — The Disruptor",
+          "You break stagnation. When misaligned, you destabilize everything.",
+          "You sense cages quickly. You test limits because dead systems feel unbearable to you.",
+          "Your danger: calling escape freedom."
+        ],
+        6: [
+          "6 — The Harmonizer",
+          "You sustain systems. When misaligned, you over-carry or collapse.",
+          "You instinctively notice what is wounded, unfinished, neglected, or out of balance.",
+          "Your danger: becoming necessary to people who should be learning to stand."
+        ],
+        7: [
+          "7 — The Seer",
+          "You analyze and withdraw. When misaligned, you detach or fragment.",
+          "You do not accept surfaces. You look for hidden laws, unseen motives, and concealed patterns.",
+          "Your danger: hiding from life inside interpretation."
+        ],
+        8: [
+          "8 — The Executor",
+          "You manage power and scale. When misaligned, you dominate or burn out.",
+          "You read leverage, consequence, hierarchy, and pressure better than most people admit exists.",
+          "Your danger: turning power into armor."
+        ],
+        9: [
+          "9 — The Integrator",
+          "You complete cycles. When misaligned, you dissolve or over-sacrifice.",
+          "You absorb complexity and seek the whole pattern behind conflict, suffering, and contradiction.",
+          "Your danger: forgiving what should be ended."
+        ]
+      };
+
+      document.getElementById("calcPath").innerHTML =
+        "Birthdate digits: " + digits.join(" + ") + "<br>" +
+        "Initial sum: " + initialSum + "<br>" +
+        "Root Glyph: " + root;
+
+      document.getElementById("glyph").innerText = archetypes[root][0];
+      document.getElementById("short").innerText = archetypes[root][1];
+      document.getElementById("hook").innerText = archetypes[root][2];
+      document.getElementById("cut").innerText = archetypes[root][3];
+
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  </script>
+</body>
+</html>
