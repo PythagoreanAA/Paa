@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAA Birth Root Glyph | Pythagorean Arithmosophic Anamnesis</title>
+  <meta name="description" content="Reveal your Birth Root Glyph through PAA: digit sum, reduction path, archetype, EIEIA diagnostic, virtue, shadow, distortion trigger, and regulation mechanics." />
+  <meta name="theme-color" content="#050816" />
+  <meta property="og:title" content="PAA Birth Root Glyph" />
+  <meta property="og:description" content="A symbolic-archetypal reading engine for the structure beneath your birthdate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root {
+      --bg: #050713;
+      --bg2: #080d22;
+      --bg3: #111538;
+      --ink: #f7f3e8;
+      --paper: #fff8e7;
+      --muted: #b9bdd5;
+      --dim: #7e86a8;
+      --line: rgba(255,255,255,.14);
+      --line2: rgba(86,226,222,.35);
+      --aqua: #56e2de;
+      --aqua2: #a9fff8;
+      --gold: #d7b46a;
+      --gold2: #ffe2a2;
+      --tyrian: #4d1d6e;
+      --purple: #34215f;
+      --violet: #17102e;
+      --rose: #ffb4c1;
+      --good: #b7f8d7;
+      --warn: #ffd89a;
+      --bad: #ffaaa6;
+      --glass: rgba(255,255,255,.072);
+      --glass2: rgba(255,255,255,.105);
+      --shadow: 0 32px 110px rgba(0,0,0,.48);
+      --radius: 28px;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(86,226,222,.17), transparent 30%),
+        radial-gradient(circle at 85% 0%, rgba(77,29,110,.52), transparent 34%),
+        radial-gradient(circle at 54% 104%, rgba(215,180,106,.13), transparent 45%),
+        linear-gradient(135deg, var(--bg), var(--bg2) 46%, #050612 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 15%, black, transparent 75%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 20%, transparent 0, rgba(0,0,0,.35) 75%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .glass {
+      background: linear-gradient(145deg, var(--glass), rgba(255,255,255,.032));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,7,19,.74);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 950;
+      letter-spacing: .035em;
+    }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: var(--gold2);
+      border: 1px solid rgba(215,180,106,.76);
+      background: radial-gradient(circle at 38% 28%, rgba(86,226,222,.22), rgba(255,255,255,.045));
+      box-shadow: 0 0 36px rgba(86,226,222,.14), inset 0 0 20px rgba(215,180,106,.1);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+    nav { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: .93rem; }
+    nav a:hover { color: var(--ink); }
+    .nav-cta {
+      padding: 10px 14px;
+      border: 1px solid rgba(86,226,222,.34);
+      border-radius: 999px;
+      color: var(--aqua);
+      background: rgba(86,226,222,.055);
+    }
+
+    .hero {
+      padding: 70px 0 42px;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+    .sigil-card {
+      min-height: 610px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sigil-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(86,226,222,.20), transparent 30%),
+        radial-gradient(circle at 50% 70%, rgba(215,180,106,.14), transparent 36%);
+      pointer-events: none;
+    }
+    .sigil-inner {
+      position: relative;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .tetractys {
+      display: grid;
+      gap: 17px;
+      justify-items: center;
+      margin-bottom: 44px;
+    }
+    .dot-row { display: flex; justify-content: center; gap: 17px; }
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 28px rgba(215,180,106,.66);
+    }
+    .rings {
+      width: 336px;
+      height: 336px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border: 1px solid rgba(86,226,222,.50);
+      box-shadow: inset 0 0 58px rgba(86,226,222,.10), 0 0 84px rgba(77,29,110,.18);
+    }
+    .rings::before, .rings::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(215,180,106,.36);
+    }
+    .rings::before { width: 248px; height: 248px; }
+    .rings::after { width: 152px; height: 152px; border-color: rgba(86,226,222,.28); }
+    .ring-center {
+      z-index: 2;
+      color: var(--paper);
+      font-family: var(--serif);
+      letter-spacing: .13em;
+      line-height: 1.48;
+      font-size: 1.12rem;
+      text-shadow: 0 0 22px rgba(86,226,222,.18);
+    }
+    .ring-label {
+      position: absolute;
+      z-index: 3;
+      font-size: .72rem;
+      color: var(--muted);
+      background: rgba(5,7,19,.84);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      white-space: nowrap;
+    }
+    .ring-label.one { top: 8px; left: 50%; transform: translateX(-50%); }
+    .ring-label.two { bottom: 53px; left: -18px; }
+    .ring-label.three { bottom: 53px; right: -18px; }
+    .sigil-note {
+      margin-top: 28px;
+      color: var(--dim);
+      font-size: .86rem;
+      line-height: 1.55;
+      max-width: 390px;
+    }
+
+    .hero-copy {
+      padding: 18px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .eyebrow {
+      color: var(--aqua);
+      text-transform: uppercase;
+      letter-spacing: .19em;
+      font-weight: 950;
+      font-size: .74rem;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2.85rem, 6.2vw, 5.75rem);
+      line-height: .90;
+      letter-spacing: -.075em;
+      margin: 0 0 24px;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 1.13rem;
+      line-height: 1.75;
+      max-width: 720px;
+      margin: 0 0 18px;
+    }
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+      max-width: 760px;
+    }
+    .point {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,.05);
+    }
+    .point b { color: var(--gold2); display: block; margin-bottom: 6px; }
+    .point span { color: var(--muted); font-size: .9rem; line-height: 1.45; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 950;
+      letter-spacing: .01em;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #051014;
+      background: linear-gradient(135deg, var(--aqua), var(--aqua2));
+      box-shadow: 0 15px 48px rgba(86,226,222,.25);
+    }
+    .btn-secondary {
+      color: var(--ink);
+      background: rgba(255,255,255,.075);
+      border: 1px solid var(--line);
+    }
+    .btn-gold {
+      color: #120d05;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      box-shadow: 0 15px 48px rgba(215,180,106,.16);
+    }
+
+    section { padding: 50px 0; }
+    .section-title {
+      font-size: clamp(2rem, 4.2vw, 3.75rem);
+      line-height: .96;
+      letter-spacing: -.06em;
+      margin: 0 0 14px;
+    }
+    .section-sub {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 875px;
+      margin: 0 0 28px;
+    }
+
+    .calc-panel { padding: 28px; }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+    }
+    label {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 850;
+    }
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      color: var(--ink);
+      padding: 15px 16px;
+      border-radius: 16px;
+      outline: none;
+      color-scheme: dark;
+    }
+    input:focus { border-color: rgba(86,226,222,.72); box-shadow: 0 0 0 4px rgba(86,226,222,.12); }
+    .helper { color: var(--dim); font-size: .9rem; margin-top: 9px; line-height: 1.5; }
+
+    .result { display: none; margin-top: 24px; overflow: hidden; padding: 0; }
+    .result-head {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(86,226,222,.12), transparent 32%),
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.024));
+    }
+    .glyph-number {
+      font-family: var(--serif);
+      font-size: clamp(5rem, 12vw, 8.8rem);
+      line-height: .78;
+      color: var(--gold);
+      text-shadow: 0 0 46px rgba(215,180,106,.30);
+    }
+    .result-title {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      letter-spacing: -.045em;
+      margin: 0 0 8px;
+    }
+    .result-subtitle { color: var(--muted); line-height: 1.6; margin: 0; max-width: 735px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .chip {
+      font-size: .78rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.055);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .result-body { padding: 24px; }
+
+    .diagnostic-spine {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .spine-step {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.055);
+      padding: 14px;
+      min-height: 104px;
+    }
+    .spine-step b { color: var(--aqua); display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .10em; margin-bottom: 8px; }
+    .spine-step span { color: var(--muted); line-height: 1.45; font-size: .93rem; }
+
+    .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .tile {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.052);
+      padding: 20px;
+    }
+    .tile.full { grid-column: 1 / -1; }
+    .tile h3 {
+      font-size: .83rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--gold2);
+      margin: 0 0 10px;
+    }
+    .tile p { color: var(--muted); line-height: 1.70; margin: 0; }
+    .tile.good { border-color: rgba(183,248,215,.28); }
+    .tile.bad { border-color: rgba(255,170,166,.28); }
+    .tile.aqua { border-color: rgba(86,226,222,.30); }
+
+    .eieia-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .eieia-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(77,29,110,.30);
+      padding: 16px;
+    }
+    .eieia-card strong { display: block; color: var(--aqua); margin-bottom: 8px; }
+    .eieia-card p { font-size: .93rem; line-height: 1.56; }
+
+    .reg-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .reg-card {
+      border: 1px solid var(--line);
+      background: rgba(77,29,110,.28);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .reg-card b { color: var(--aqua); display: block; margin-bottom: 8px; }
+    .reg-card span { color: var(--muted); line-height: 1.55; font-size: .93rem; }
+
+    .unlock {
+      border: 1px solid rgba(215,180,106,.38);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(215,180,106,.14), transparent 26%),
+        rgba(255,255,255,.055);
+    }
+    .blurred-lines { margin-top: 14px; display: grid; gap: 9px; }
+    .blur-line { height: 13px; border-radius: 999px; background: linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,255,255,.03)); filter: blur(.15px); }
+    .blur-line:nth-child(2) { width: 86%; }
+    .blur-line:nth-child(3) { width: 72%; }
+
+    .method-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 16px; }
+    .micro-list { display: grid; gap: 10px; margin-top: 14px; }
+    .micro {
+      display: grid;
+      grid-template-columns: 126px 1fr;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.045);
+    }
+    .micro b { color: var(--aqua); }
+    .micro span { color: var(--muted); line-height: 1.45; }
+
+    .number-gallery { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+    .num-card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.052);
+      padding: 18px;
+      min-height: 190px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .num-card:hover { transform: translateY(-3px); border-color: var(--line2); background: rgba(255,255,255,.075); }
+    .num-card .n { font-family: var(--serif); font-size: 2.7rem; color: var(--gold); line-height: 1; }
+    .num-card h3 { margin: 10px 0 8px; letter-spacing: -.02em; }
+    .num-card p { color: var(--muted); line-height: 1.55; font-size: .94rem; margin: 0; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .price-card { position: relative; overflow: hidden; }
+    .price-card.featured { border-color: rgba(215,180,106,.42); }
+    .price-card h3 { font-size: 1.4rem; color: var(--ink); text-transform: none; letter-spacing: -.02em; }
+    .price { font-family: var(--serif); color: var(--gold2); font-size: 2.8rem; margin: 8px 0; }
+    .list { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; color: var(--muted); }
+    .list li { display: flex; gap: 10px; line-height: 1.5; }
+    .list li::before { content: "—"; color: var(--aqua); }
+
+    .copy-box {
+      width: 100%;
+      min-height: 190px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(77,29,110,.24);
+      color: var(--muted);
+      padding: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      font-family: var(--mono);
+      font-size: .84rem;
+      margin-top: 14px;
+      overflow-x: auto;
+    }
+
+    footer { border-top: 1px solid var(--line); padding: 34px 0; color: var(--dim); font-size: .92rem; margin-top: 34px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero, .method-grid { grid-template-columns: 1fr; }
+      .hero-points, .diagnostic-spine, .eieia-grid, .reg-grid, .number-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pricing-grid, .calc-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 22px, 1180px); }
+      .sigil-card { min-height: 500px; }
+      .rings { width: 270px; height: 270px; }
+      .ring-label { white-space: normal; max-width: 142px; text-align: center; }
+      .content-grid, .hero-points, .diagnostic-spine, .eieia-grid, .reg-grid, .number-gallery { grid-template-columns: 1fr; }
+      .result-head { grid-template-columns: 1fr; }
+      .micro { grid-template-columns: 1fr; }
+      h1 { font-size: 3.05rem; }
+      .calc-panel, .result-body, .result-head { padding: 18px; }
+    }
+    /* Tyrian Reforge Overrides: legible glyph-card field, no black voids */
+    :root { --tyrian-deep: #240a35; --tyrian-ink: #16061f; --tyrian-glass: rgba(77,29,110,.30); }
+    .tile, .spine-step, .micro, .eieia-card, .reg-card, .copy-box {
+      background: radial-gradient(circle at 0% 0%, rgba(86,226,222,.07), transparent 36%), linear-gradient(135deg, rgba(77,29,110,.26), rgba(22,6,31,.70)) !important;
+      border-color: rgba(255,255,255,.16) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.045);
+    }
+    .copy-box { background: linear-gradient(135deg, rgba(77,29,110,.24), rgba(20,10,40,.82)) !important; }
+    .num-card {
+      --glyph-accent: var(--gold);
+      --glyph-glow: rgba(215,180,106,.28);
+      background: radial-gradient(circle at 12% 0%, var(--glyph-glow), transparent 38%), linear-gradient(145deg, rgba(77,29,110,.30), rgba(22,6,31,.74)) !important;
+      border-color: rgba(255,255,255,.16) !important;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 18px 54px rgba(0,0,0,.20);
+    }
+    .num-card:hover { transform: translateY(-3px); border-color: var(--glyph-accent) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 24px 70px rgba(0,0,0,.28), 0 0 36px var(--glyph-glow); }
+    .num-card .n { color: var(--glyph-accent) !important; text-shadow: 0 0 24px var(--glyph-glow); }
+    .glyph-card-1 { --glyph-accent: #ffe2a2; --glyph-glow: rgba(255,226,162,.28); }
+    .glyph-card-2 { --glyph-accent: #b9d6ff; --glyph-glow: rgba(185,214,255,.25); }
+    .glyph-card-3 { --glyph-accent: #e9c76f; --glyph-glow: rgba(233,199,111,.26); }
+    .glyph-card-4 { --glyph-accent: #b7f8d7; --glyph-glow: rgba(183,248,215,.22); }
+    .glyph-card-5 { --glyph-accent: #56e2de; --glyph-glow: rgba(86,226,222,.26); }
+    .glyph-card-6 { --glyph-accent: #ffcad8; --glyph-glow: rgba(255,202,216,.24); }
+    .glyph-card-7 { --glyph-accent: #b794ff; --glyph-glow: rgba(183,148,255,.30); }
+    .glyph-card-8 { --glyph-accent: #d7b46a; --glyph-glow: rgba(215,180,106,.26); }
+    .glyph-card-9 { --glyph-accent: #a9fff8; --glyph-glow: rgba(169,255,248,.22); }
+    .glyph-card-11 { --glyph-accent: #c6a7ff; --glyph-glow: rgba(198,167,255,.32); }
+
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="PAA Birth Root Glyph home">
+        <span class="brand-mark">P</span>
+        <span>PAA Birth Root Glyph</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#reveal">Reveal</a>
+        <a href="#method">Method</a>
+        <a href="#gallery">Glyphs</a>
+        <a href="#premium">Full Reading</a>
+        <a class="nav-cta" href="#reveal">Begin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap hero">
+      <aside class="glass sigil-card" aria-label="PAA symbolic field diagram">
+        <div class="sigil-inner">
+          <div>
+            <div class="tetractys" aria-label="Tetractys of ten points">
+              <div class="dot-row"><span class="dot"></span></div>
+              <div class="dot-row"><span class="dot"></span><span class="dot"></span></div>
+              <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+            <div class="rings">
+              <div class="ring-label one">3–6–9 Harmonic Matrix</div>
+              <div class="ring-label two">5–7–11 Blade Field</div>
+              <div class="ring-label three">2–4–8 Tectonic Pillars</div>
+              <div class="ring-center">ROOT<br />GLYPH<br />READING</div>
+            </div>
+            <p class="sigil-note">A symbolic interface for the birthdate as structure: compression, reduction, archetype, shadow, and regulation.</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="hero-copy">
+        <div class="eyebrow">Pythagorean Arithmosophic Anamnesis</div>
+        <h1>Reveal the structure beneath your birthdate.</h1>
+        <p class="lead">
+          Your Root Glyph is not a personality label. It is a symbolic pressure-map: how your number-field moves, where it coheres, where it distorts, and what discipline restores alignment.
+        </p>
+        <div class="hero-points">
+          <div class="point"><b>Calculation Path</b><span>Digit sum, reduction, and preserved master-number detection.</span></div>
+          <div class="point"><b>EIEIA Engine</b><span>Essence, Impulse, Energy, Intelligence, Archetypal Action.</span></div>
+          <div class="point"><b>Regulation Mechanics</b><span>Awareness, constraint, feedback, and cost under pressure.</span></div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#reveal">Reveal My Root Glyph</a>
+          <a class="btn btn-secondary" href="#premium">See Full Reading Format</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="reveal" class="wrap">
+      <h2 class="section-title">Birth Root Calculator</h2>
+      <p class="section-sub">
+        Enter a birthdate. The engine sums every digit, preserves 11 when it appears as a master initiatic number, and renders a structured reading using the same premium format: archetype, sacred form, reliable aspects, EIEIA, coherent expression, distortion trigger, distorted expression, and regulation mechanics.
+      </p>
+
+      <div class="glass calc-panel">
+        <div class="calc-grid">
+          <div>
+            <label for="birthdate">Birthdate</label>
+            <input type="date" id="birthdate" />
+            <div class="helper">Example: 1998-05-05 → 1+9+9+8+0+5+0+5 = 37 → 10 → 1.</div>
+          </div>
+          <button class="btn btn-primary" onclick="calculateGlyph()">Reveal My Root Glyph</button>
+        </div>
+
+        <article id="result" class="glass result" aria-live="polite">
+          <div class="result-head">
+            <div>
+              <h2 class="result-title" id="resultTitle"></h2>
+              <p class="result-subtitle" id="resultSubtitle"></p>
+              <div class="chips" id="chips"></div>
+            </div>
+            <div class="glyph-number" id="glyphNumber"></div>
+          </div>
+
+          <div class="result-body">
+            <div class="diagnostic-spine">
+              <div class="spine-step"><b>Birthdate</b><span id="spineBirthdate"></span></div>
+              <div class="spine-step"><b>Digit Sum</b><span id="spineSum"></span></div>
+              <div class="spine-step"><b>Reduction Path</b><span id="spineReduction"></span></div>
+              <div class="spine-step"><b>Root Glyph</b><span id="spineGlyph"></span></div>
+              <div class="spine-step"><b>Function</b><span id="spineFunction"></span></div>
+            </div>
+
+            <div class="content-grid">
+              <div class="tile full aqua"><h3>Number Archetype</h3><p id="description"></p></div>
+              <div class="tile"><h3>Social Role</h3><p id="role"></p></div>
+              <div class="tile"><h3>Sacred Form</h3><p id="geometry"></p></div>
+              <div class="tile good"><h3>Virtue / Coherent Expression</h3><p id="virtue"></p></div>
+              <div class="tile bad"><h3>Vice / Shadow Expression</h3><p id="vice"></p></div>
+              <div class="tile full"><h3>Deep Wisdom</h3><p id="wisdom"></p></div>
+              <div class="tile"><h3>Growth Cycle</h3><p id="cycle"></p></div>
+              <div class="tile"><h3>Reliable In</h3><p id="reliable"></p></div>
+
+              <div class="tile full">
+                <h3>EIEIA — Archetypal Intelligence</h3>
+                <p>Essence names what it is. Impulse names what moves first. Energy names how it moves. Intelligence names how it reads reality. Archetypal Action names what it becomes in motion.</p>
+                <div class="eieia-grid">
+                  <div class="eieia-card"><strong>Essence</strong><p id="eEssence"></p></div>
+                  <div class="eieia-card"><strong>Impulse</strong><p id="eImpulse"></p></div>
+                  <div class="eieia-card"><strong>Energy</strong><p id="eEnergy"></p></div>
+                  <div class="eieia-card"><strong>Intelligence</strong><p id="eIntelligence"></p></div>
+                  <div class="eieia-card"><strong>Action</strong><p id="eAction"></p></div>
+                </div>
+              </div>
+
+              <div class="tile"><h3>Distortion Trigger</h3><p id="trigger"></p></div>
+              <div class="tile"><h3>Distorted Expression</h3><p id="distorted"></p></div>
+
+              <div class="tile full">
+                <h3>Regulation Mechanics</h3>
+                <p>The reading is not complete until the distortion can be regulated.</p>
+                <div class="reg-grid">
+                  <div class="reg-card"><b>Awareness</b><span id="rAwareness"></span></div>
+                  <div class="reg-card"><b>Constraint</b><span id="rConstraint"></span></div>
+                  <div class="reg-card"><b>Feedback</b><span id="rFeedback"></span></div>
+                  <div class="reg-card"><b>Cost</b><span id="rCost"></span></div>
+                </div>
+              </div>
+
+              <div class="tile full unlock">
+                <h3>Full Diagnostic Unlock</h3>
+                <p id="premiumPreview"></p>
+                <div class="blurred-lines" aria-hidden="true"><div class="blur-line"></div><div class="blur-line"></div><div class="blur-line"></div></div>
+                <div class="hero-actions"><a class="btn btn-gold" href="#premium">Unlock Full Reading</a><button class="btn btn-secondary" onclick="copyReading()">Copy Reading</button></div>
+              </div>
+
+              <div class="tile full"><h3>Copy / Share Reading</h3><div class="copy-box" id="copyBox"></div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="method" class="wrap">
+      <h2 class="section-title">The Reading Spine</h2>
+      <p class="section-sub">A reading must pass through ordered gates. Without sequence, symbolic language becomes projection. With sequence, the glyph becomes an instrument.</p>
+      <div class="method-grid">
+        <div class="glass tile">
+          <h3>Operational Sequence</h3>
+          <div class="micro-list">
+            <div class="micro"><b>1. Date</b><span>The raw birth imprint before interpretation.</span></div>
+            <div class="micro"><b>2. Sum</b><span>The first compression: all digits gathered into one field.</span></div>
+            <div class="micro"><b>3. Reduction</b><span>The root number revealed through lawful compression.</span></div>
+            <div class="micro"><b>4. Archetype</b><span>The qualitative structure of the number.</span></div>
+            <div class="micro"><b>5. EIEIA</b><span>A fivefold diagnostic of being, motive, motion, perception, and action.</span></div>
+            <div class="micro"><b>6. Regulation</b><span>The practical discipline that separates coherent expression from distortion.</span></div>
+          </div>
+        </div>
+        <div class="glass tile">
+          <h3>What Makes It Paid-Reading Quality</h3>
+          <p>A free reading can name the glyph. A serious reading must also identify the distortion pattern and the corrective discipline. The value is not only recognition; it is regulation.</p>
+          <br />
+          <p>This tool is for symbolic reflection, teaching, and self-inquiry. It is not a medical, psychological, legal, financial, or scientific diagnosis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="wrap">
+      <h2 class="section-title">Root Glyph Gallery</h2>
+      <p class="section-sub">Each glyph is a field: a mode of movement, a virtue, a distortion, and a route back to coherence.</p>
+      <div class="number-gallery" id="numberGallery"></div>
+    </section>
+
+    <section id="premium" class="wrap">
+      <h2 class="section-title">Full Reading Format</h2>
+      <p class="section-sub">The public calculator reveals the root. The paid format expands the whole architecture: root glyph, EIEIA diagnostic, pressure behavior, distortion triggers, regulation mechanics, and practical integration.</p>
+      <div class="pricing-grid">
+        <div class="glass tile price-card">
+          <h3>Free Root Glyph</h3>
+          <div class="price">$0</div>
+          <p>For initial recognition and curiosity.</p>
+          <ul class="list">
+            <li>Birthdate digit sum and reduction path</li>
+            <li>Root glyph and core archetype</li>
+            <li>Virtue, shadow, and sacred form</li>
+            <li>Brief EIEIA summary</li>
+          </ul>
+        </div>
+        <div class="glass tile price-card featured">
+          <h3>Full PAA Reading</h3>
+          <div class="price">Unlock</div>
+          <p>For serious self-study and applied symbolic diagnosis.</p>
+          <ul class="list">
+            <li>Full EIEIA profile with interpretive depth</li>
+            <li>Coherent expression and distorted expression</li>
+            <li>Pressure prediction and failure pattern</li>
+            <li>Awareness, constraint, feedback, and cost</li>
+            <li>Practical integration prompts and next steps</li>
+          </ul>
+          <div class="hero-actions"><a class="btn btn-gold" href="mailto:pythagoreanaa@gmail.com?subject=Full%20PAA%20Reading%20Request">Request Full Reading</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 Pythagorean Arithmosophic Anamnesis LLC.</span>
+      <span>Symbolic reflection tool. Not clinical diagnosis.</span>
+    </div>
+  </footer>
+
+<script>
+const glyphs = {
+  1: {
+    name: "The Spark", title: "The Monad · Initiator", planet: "Sun — Apollo", role: "The Pioneer / The Sovereign Individual", form: "The Point — origin of all form, the dimensionless seed from which geometry radiates.", direction: "Outward — radiating from center to periphery, projecting will into manifestation.",
+    description: "The Monad is the original impulse: the first act of becoming. Where 1 appears, existence begins. It does not ask permission; it declares itself into being. This is the number of the self before the mirror, the seed before the soil, the thought before the word.",
+    virtue: "Will, independence, originality, courage, self-direction, and decisive initiation.", vice: "Arrogance, isolation, domination disguised as autonomy, refusal to receive correction.", wisdom: "True initiation is not domination of the world but the courage to begin again. To be One is not to be alone; it is to become a source.", cycle: "The beginning of every cycle. Seed-point of intention. Governs first steps, new ventures, and the moment of I Am.", reliable: "Decisive action, self-starting energy, fearless initiation, and natural leadership in uncharted territory.",
+    essence: "Pure origination: the singular, unrepeatable beginning that precedes sequence.", impulse: "To exist, initiate, declare selfhood, and move before permission is granted.", energy: "Linear, penetrating, solar, and direct. It strikes rather than circles.", intelligence: "Reads reality through agency: What can I create? What can I begin? Where is the opening?", action: "The Initiator: the one who steps into the void before the path exists.",
+    trigger: "Fear of irrelevance, loss of autonomy, dependency, humiliation, or being absorbed into the collective.", distorted: "Narcissistic isolation, domineering control, compulsive need to be first, refusal of guidance or collaboration.",
+    regulation: { awareness: "Notice when independence becomes compulsion, especially when help feels like humiliation.", constraint: "Practice deliberate followership. Allow another to lead without internal rebellion.", feedback: "Seek honest mirrors who will tell you when your radiance becomes heat against others.", cost: "Unchecked, the Spark burns itself out in lonely brilliance. The cost is connection." },
+    premium: "A full 1-reading would map leadership style, autonomy wounds, authority conflict, and the precise line between sovereignty and domination."
+  },
+  2: {
+    name: "The Mirror", title: "The Dyad · Field Stabilizer", planet: "Moon — Artemis", role: "The Harmonizer / The Emotional Barometer", form: "The Line — the first connection between two points; bridge, bond, and tension held between poles.", direction: "Horizontal attunement — movement across, between, and through others.",
+    description: "Two is not duality as an abstraction. It is the first division that does not destroy unity. It is the moment the One encounters itself as Other. Where 1 asserts, 2 responds. Where 1 initiates, 2 attunes.",
+    virtue: "Sensitivity, empathy, attunement, cooperation, emotional intelligence, and capacity to harmonize conflicting forces.", vice: "Over-dependence, emotional volatility, passive manipulation, loss of self in others, avoidance of conflict at all costs.", wisdom: "Two teaches that perception is participation. To feel another is to be changed by them. The task is not to feel less; the task is to differentiate without disconnecting.", cycle: "Begins in dependence, moves through entanglement, and matures into conscious relational discernment: I can feel you without becoming you.", reliable: "Reading emotional tone, diffusing conflict, creating connection, sensing misalignment before it surfaces, maintaining relational continuity.",
+    essence: "Relational awareness: reality becomes known through reflection and interaction.", impulse: "To connect, harmonize, reduce tension, and preserve the field of relationship.", energy: "Fluid, adaptive, responsive, receptive with consequence.", intelligence: "Reads reality through feedback: What is being felt? What is unsaid? What is the state of the bond?", action: "The Relational Mirror: the one who reveals truth through response rather than declaration.",
+    trigger: "Fear of rejection, abandonment, conflict, disconnection, or no longer being needed.", distorted: "People-pleasing, emotional dependency, indirect control through sensitivity, resentment masked as care, inability to act without approval.",
+    regulation: { awareness: "Notice when your emotional state is determined entirely by someone else’s presence or absence.", constraint: "Develop separation practices: solitude, decision-making without consultation, naming your own position first.", feedback: "Ask directly: Am I being clear, or am I only trying to keep things smooth?", cost: "Unchecked, the Mirror shatters into fragments of others. No core remains, only reflections." },
+    premium: "A full 2-reading would examine attachment pattern, conflict style, boundary strength, and the difference between attunement and self-abandonment."
+  },
+  3: {
+    name: "The Creative Communicator", title: "Triad · Expressor", planet: "Jupiter — Zeus", role: "The Storyteller / The Creative Catalyst", form: "The Triangle — the first stable polygon, dynamic balance, and creative tension.", direction: "Expansive — radiating outward in multiple directions, seeking audience and resonance.",
+    description: "The Triad is the principle of synthesis: where thesis meets antithesis and something new is born. It is creative overflow given form. Where 3 appears, expression demands structure.",
+    virtue: "Creativity, joy, expressive power, synthesis, social magnetism, humor, and accessible communication.", vice: "Superficiality, scattered attention, performance without substance, gossip, emotional volatility.", wisdom: "True creativity is not self-display but self-transcendence through expression. The triangle stands because it distributes force; creation requires the impulse and the discipline to contain it.", cycle: "The phase of first expression and manifestation. Governs creative output, social emergence, and the translation of inner vision into outer form.", reliable: "Inspiring communication, creative problem-solving, bringing disparate elements into synthesis, lifting collective mood.",
+    essence: "Creative synthesis: from every pair of opposites, a third thing emerges that is neither and both.", impulse: "To express, synthesize, make visible, and turn inner experience into word, image, movement, or sound.", energy: "Radiant, warm, quick, oscillating between exuberance and intensity.", intelligence: "Reads reality through combination: How can these elements become something new?", action: "The Expressor: the translator between the invisible world of feeling and the visible world of communication.",
+    trigger: "Fear of being ignored, ordinary, emotionally irrelevant, unseen, or trapped in silence.", distorted: "Compulsive performance, scattered creative energy, charm as substitute for depth, spectacle instead of truth.",
+    regulation: { awareness: "Notice when you are performing rather than expressing, especially when audience response matters more than truth.", constraint: "Practice completion over novelty. Finish one thing before beginning three more.", feedback: "Seek critique from those who will say: this is not your best work.", cost: "Unchecked, the signal dazzles but does not deepen. The cost is substance." },
+    premium: "A full 3-reading would map voice, creative discipline, performative masks, audience hunger, and the craft required for lasting expression."
+  },
+  4: {
+    name: "The Stone", title: "Tetrad · Builder", planet: "Earth — Demeter", role: "The Architect / The Foundation-Keeper", form: "The Square — material stability, four equal sides, four right angles, the geometry of earth and matter.", direction: "Downward and inward — grounding, consolidating, compressing energy into material form.",
+    description: "The Tetrad is manifestation: where spirit meets matter and form becomes stable. It is the square, the four corners, the season cycle, the cardinal directions. Where 4 appears, chaos submits to order.",
+    virtue: "Structure, discipline, reliability, patience, methodical mastery, and long-term execution.", vice: "Rigidity, excessive control, fear of the unplanned, emotional suppression in service of order.", wisdom: "True structure is not rigidity but ordered flexibility: the skeleton that allows the body to move. Foundations are not visible in the finished temple, yet without them nothing stands.", cycle: "The phase of consolidation and foundation-building. Governs systems creation, material establishment, and the discipline required to sustain what has been born.", reliable: "Systematic execution, long-term planning, creating stable structures, transforming vision into material reality.",
+    essence: "Material stability: form requires constraint, and infinite possibility must be sacrificed for anything to actually exist.", impulse: "To build, order, make lasting, secure the base, and reduce uncertainty.", energy: "Dense, gravitational, rhythmic, slow, powerful, and cumulative.", intelligence: "Reads reality structurally: What is load-bearing? What will endure? Where is the weakness?", action: "The Builder: the one who turns vision into inhabitable reality through disciplined sequence.",
+    trigger: "Fear of chaos, unpredictability, loss of control, wasted labor, or foundational work being undermined.", distorted: "Obsessive control, emotional rigidity, workaholism as identity, punishment for deviation, confusing the map for the territory.",
+    regulation: { awareness: "Notice when discipline becomes punishment and rest feels like failure.", constraint: "Practice deliberate unstructured time. Allow life to breathe beyond the plan.", feedback: "Ask loved ones: Do you feel safe or surveilled in my presence?", cost: "Unchecked, the Stone becomes the tomb. The cost is spontaneity and joy." },
+    premium: "A full 4-reading would map work ethic, control reflex, duty wounds, system-building genius, and the line between stability and imprisonment."
+  },
+  5: {
+    name: "The Wind", title: "Pentad · Adventurer", planet: "Mercury — Hermes", role: "The Explorer / The Trickster-Teacher", form: "The Pentagon / Pentagram — golden ratio incarnate, the geometry of life, growth, and organic proportion.", direction: "Centrifugal spiral — moving outward in expanding circles, never returning to quite the same point.",
+    description: "The Pentad is dynamic change: the disruption that prevents stagnation. It stands at the center of the first nine, the pivot point. Where 5 appears, the known world cracks open.",
+    virtue: "Adaptability, freedom, curiosity, versatility, courage to change, intelligent risk, and regenerative motion.", vice: "Impulsiveness, addiction to novelty, irresponsibility, chronic restlessness, fear of commitment.", wisdom: "True freedom is not absence of commitment but the presence of choice within commitment. Change is not the enemy of stability; it is its prerequisite.", cycle: "The phase of disruption and midpoint crisis. Governs breakdowns, course corrections, and fertile chaos between structures.", reliable: "Catalyzing change, breaking stagnation, cross-pollinating ideas between domains, rapid adaptation to crisis.",
+    essence: "Dynamic change: life requires movement, adaptation, and willingness to abandon what no longer serves.", impulse: "To move, test, liberate, vary, taste, cross boundaries, and escape confinement.", energy: "Mercurial, electric, unpredictable, invisible until it touches something.", intelligence: "Reads reality adaptively: What is changing? What needs to change? Where is the exit or opening?", action: "The Adventurer: the one who tests limits and returns from the edge with forbidden knowledge.",
+    trigger: "Fear of entrapment, routine, boredom, slow predictability, or being contained by another’s system.", distorted: "Compulsive novelty-seeking, addiction, abandoning people or projects at difficulty, using freedom as excuse for irresponsibility.",
+    regulation: { awareness: "Notice whether you are running toward something or away from something.", constraint: "Practice staying. Complete one full cycle before beginning the next adventure.", feedback: "Count the unfinished things in your life. Each one carries a compounding cost.", cost: "Unchecked, the Wind scatters everything it touches, including itself. The cost is depth, trust, and legacy." },
+    premium: "A full 5-reading would map freedom hunger, sensory loops, novelty addiction, true mobility, and the commitments that make freedom durable."
+  },
+  6: {
+    name: "The Hearth", title: "Hexad · Nurturer", planet: "Venus — Aphrodite", role: "The Caretaker / The Aesthetic Harmonizer", form: "The Hexagon — honeycomb geometry, maximum efficiency, natural harmony, organic cooperation.", direction: "Centripetal — drawing inward, gathering, creating warmth at center.",
+    description: "The Hexad is harmony: the reconciliation of opposites into beauty. It is home, responsibility chosen rather than imposed, and love as daily practice. Where 6 appears, the fragmented seeks wholeness through care.",
+    virtue: "Harmony, responsibility, love, aesthetic sensitivity, nurturing presence, protection, and relational repair.", vice: "Martyrdom, control through caretaking, self-righteousness, inability to receive care, suffocating love.", wisdom: "True nurturing does not create dependence; it cultivates the other’s capacity to thrive independently. Harmony is not decoration. It is structural intelligence.", cycle: "The phase of responsibility and integration. Governs community formation, aesthetic refinement, and service to something larger than self.", reliable: "Creating beauty, maintaining harmony, emotional labor, building communities of care, aesthetic judgment.",
+    essence: "Harmonic wholeness: fragments seek reunion inside a larger pattern of beauty.", impulse: "To heal, harmonize, beautify, mend what is broken, and make the field livable.", energy: "Warm, magnetic, enveloping, cohesive, and sometimes enclosing.", intelligence: "Reads reality through need, beauty, imbalance, relationship strain, and the invisible labor that maintains community.", action: "The Nurturer: the one who creates conditions for others to flourish.",
+    trigger: "Fear of being unneeded, unloved, morally imperfect, aesthetically disordered, or unappreciated.", distorted: "Martyrdom, guilt-based control, perfectionism in relationships, inability to let others fail and learn.",
+    regulation: { awareness: "Notice when giving has strings attached and invisible ledgers begin forming.", constraint: "Practice receiving without reciprocating. Let someone care for you without earning it.", feedback: "Ask those you love: Do you feel free in my care, or obligated?", cost: "Unchecked, the Hearth consumes its keeper. The cost is authentic selfhood beneath the caretaker role." },
+    premium: "A full 6-reading would map caretaking style, beauty instinct, moral pressure, resentment loops, and the boundary between love and control."
+  },
+  7: {
+    name: "The Veil", title: "Heptad · Seeker", planet: "Neptune — Poseidon", role: "The Philosopher / The Sacred Investigator", form: "The Heptagon — threshold geometry, not constructible by compass and straightedge alone, symbol of irreducible mystery.", direction: "Inward and downward — diving beneath surface, seeking the source under appearances.",
+    description: "The Heptad is mystery: the reminder that not everything can be known by accumulation of facts. It is the prime that refuses easy division. Where 7 appears, surface explanation dissolves and deeper questioning begins.",
+    virtue: "Wisdom, introspection, analytical depth, spiritual perception, intellectual independence, discernment.", vice: "Withdrawal, cynicism, paralysis through analysis, spiritual elitism, emotional isolation disguised as depth.", wisdom: "True wisdom is not accumulation but humility before what cannot be fully known. The deepest truths are approached obliquely: through symbol, silence, and disciplined surrender.", cycle: "The phase of reflection and inner work. Governs sabbatical periods, spiritual deepening, and integration of experience into wisdom.", reliable: "Deep analysis, pattern recognition across domains, spiritual discernment, finding hidden truths, mentoring through insight rather than instruction.",
+    essence: "Irreducible mystery: reality always exceeds comprehension, and the map never captures the territory.", impulse: "To understand, penetrate, see behind, and refine perception before action.", energy: "Still, penetrating, oceanic, apparently motionless while carrying deep current.", intelligence: "Reads reality through hidden structure, contradiction, symbol, and the question others stopped asking.", action: "The Seeker: the one who enters the cave of unknowing and returns with fragments of understanding.",
+    trigger: "Fear of superficiality, exposure of ignorance, emotional vulnerability, betrayal of trust, or being ordinary.", distorted: "Intellectual arrogance, emotional withdrawal, complexity as weapon, contempt for those who think less deeply.",
+    regulation: { awareness: "Notice when depth becomes a hiding place and understanding substitutes for experiencing.", constraint: "Practice embodiment. Do something physical, sensory, and unanalyzed.", feedback: "Ask someone you respect: Am I wise, or am I distant?", cost: "Unchecked, the Veil becomes a shroud. The cost is warmth, intimacy, and simple joy." },
+    premium: "A full 7-reading would map solitude, trust wounds, analysis style, mystic perception, embodiment gaps, and the return-path from insight to life."
+  },
+  8: {
+    name: "The Tower", title: "Ogdoad · Ruler", planet: "Saturn — Kronos", role: "The Executive / The Power-Wielder", form: "The Octagon — bridge between square and circle, matter and spirit, power and regeneration.", direction: "Ascending spiral — building upward through cycles of accumulation and release.",
+    description: "The Ogdoad is power: not merely power over, but power through mastery of natural law. Where 8 appears, stakes rise and consequences multiply. The Tower commands by gravitational authority.",
+    virtue: "Power, mastery, material intelligence, strategic vision, executive capacity, endurance.", vice: "Domination, greed, ruthlessness, corruption through authority, using power for its own sake.", wisdom: "True power is circulation: the capacity to receive and give in equal measure. Authority earned through mastery commands without coercion.", cycle: "The phase of mastery and manifestation at scale. Governs achievement, consequence, resource flow, and the test of whether power serves life or consumes it.", reliable: "Strategic execution, resource management, scaling systems, navigating power dynamics, manifesting ambitious visions.",
+    essence: "Regenerative power: authority becomes stewardship when integrated with wisdom.", impulse: "To master, build at scale, wield, organize resources, and create leverage.", energy: "Dense, magnetic, commanding, accumulating force through strategic channels.", intelligence: "Reads reality through leverage: Where are the stakes? Who controls the resources? What is the power structure?", action: "The Ruler: the one who commands through earned authority and builds systems others inhabit.",
+    trigger: "Fear of powerlessness, dependency, poverty, humiliation, or subjection to another’s authority.", distorted: "Hoarding, domination, utility-based relationships, workaholism, inability to be vulnerable or admit limitation.",
+    regulation: { awareness: "Notice when mastery makes you unable to be a beginner.", constraint: "Practice generosity without strategic calculation. Give where there is no return.", feedback: "Ask those beneath your authority: Do you feel empowered or diminished in my presence?", cost: "Unchecked, the Tower becomes the prison of its own height. The cost is humility, play, and the freedom to fail." },
+    premium: "A full 8-reading would map authority, money pressure, empire instinct, control, ambition, stewardship, and power without soul-loss."
+  },
+  9: {
+    name: "The River", title: "Ennead · Humanitarian", planet: "Universal Field", role: "The Sage-Healer / The Compassionate Completer", form: "The Enneagram — nine points on a circle, complete process, all stages of transformation held in one field.", direction: "Omnidirectional — flowing outward to all, dissolving narrow boundaries between self and world.",
+    description: "The Ennead is completion: not ending, but ripeness before transformation. It is the last single digit, containing all others within itself. Where 9 appears, the personal opens into the universal.",
+    virtue: "Compassion, universality, wisdom through completion, selfless service, transcendent perspective.", vice: "Self-neglect, escapism, martyrdom without boundaries, spiritual bypassing, world-weariness.", wisdom: "True completion is not the end but the beginning understood for the first time. To give fully, you must first be full.", cycle: "The phase of completion, integration, and release. Governs endings, harvest, legacy, and wisdom earned only by completing the circuit.", reliable: "Holding universal perspective, completing cycles, teaching through lived wisdom, humanitarian service, bridging personal and collective.",
+    essence: "Universal completion: all things return to source, and wisdom becomes compassion after full experience.", impulse: "To complete, give, transcend, release, and turn accumulated experience into service.", energy: "Flowing, warm, all-encompassing, widening as it approaches surrender.", intelligence: "Reads reality through the whole picture: What needs completion? Where is suffering? What is ready to be released?", action: "The Humanitarian: the one whose completed journey becomes a gift for others.",
+    trigger: "Fear of meaninglessness, universal suffering, endings, or the terrifying prospect of actually completing the work.", distorted: "Savior complex, chronic self-neglect, dissociative transcendence, world-weariness, bypassing particular love for abstract love.",
+    regulation: { awareness: "Notice when compassion excludes yourself.", constraint: "Practice bounded generosity. You cannot pour from an empty vessel and call it service.", feedback: "Ask your body: Am I tired? If yes, rest is maintenance of the instrument.", cost: "Unchecked, the River drowns its own banks. The cost is health, happiness, and particular love." },
+    premium: "A full 9-reading would map completion cycles, savior loops, grief, service, legacy, and the difference between compassion and self-erasure."
+  },
+  11: {
+    name: "The Blade", title: "Master Initiatic Number · Threshold-Crosser", planet: "Uranus — Prometheus, with Moon undertone", role: "The Lightning Rod / The Prophetic Witness", form: "Twin Pillars — the gateway between worlds, two vertical lines creating a threshold and a test.", direction: "Vertical oscillation — rapid movement between above and below, vision and embodiment.",
+    description: "Eleven is not merely double one. It is the first master number: the threshold between mundane and numinous. It carries the mirror-quality of 2, charged with doubled initiation. Where 11 appears, ordinary perception cracks and revelation presses through.",
+    virtue: "Heightened intuition, visionary perception, dual illumination, prophetic insight, capacity to channel transpersonal information.", vice: "Nervous instability, psychic overwhelm, grandiosity masked as sensitivity, paralysis between worlds, martyrdom of giftedness.", wisdom: "The master number does not confer superiority; it confers intensity. Heightened perception is responsibility, not privilege. The two pillars are not monuments to self but a gateway for others.", cycle: "Not a phase but a persistent condition: the integration of heightened perception with daily life, spiritual crisis, and disciplined translation.", reliable: "Visionary inspiration, intuitive guidance, holding paradox, bridging seen and unseen, spiritual leadership through revelation rather than authority.",
+    essence: "Threshold illumination: liminal perception positioned at the boundary between ordinary and extraordinary awareness.", impulse: "To illuminate, reveal, channel, open the gate, and translate what presses through.", energy: "Electric, high-frequency, sudden, brilliant, difficult to sustain without grounding.", intelligence: "Reads reality through the membrane: What is trying to come through? What truth is pressing against ordinary awareness?", action: "The Visionary Initiate: the one who stands at the threshold and holds the door open for others.",
+    trigger: "Overstimulation, lack of grounding, identification with vision rather than service, spiritual inflation, ordinary life felt as too small.", distorted: "Nervous collapse, chosen-one complex, spiritual performance, using sensitivity as excuse for fragility, severance from reality.",
+    regulation: { awareness: "Notice when sensitivity becomes identity and intensity becomes a source of pride.", constraint: "Ground relentlessly. Physical practice, routine, and mundane obligation anchor the vision.", feedback: "Ask a trusted friend: Am I transmitting something useful, or performing spiritual intensity?", cost: "Unchecked, the Blade severs the wielder from reality. The cost is stability, relationships, and ordinary joy." },
+    premium: "A full 11-reading would map sensitivity, vision, nervous system load, prophetic inflation, grounding discipline, and service as the antidote to grandiosity."
+  }
+};
+
+function digitSumFromDate(value) {
+  const digits = value.replace(/\D/g, "").split("").map(Number);
+  return { digits, sum: digits.reduce((a,b) => a + b, 0) };
+}
+
+function reduceNumber(n) {
+  const path = [n];
+  let current = n;
+  while (current > 9 && current !== 11) {
+    current = String(current).split("").reduce((a,b) => a + Number(b), 0);
+    path.push(current);
+  }
+  return { root: current, path };
+}
+
+function calculateGlyph() {
+  const input = document.getElementById("birthdate");
+  const value = input.value;
+  if (!value) {
+    input.focus();
+    return;
+  }
+
+  const { digits, sum } = digitSumFromDate(value);
+  const reduced = reduceNumber(sum);
+  const root = reduced.root;
+  const glyph = glyphs[root] || glyphs[reduceNumber(root).root] || glyphs[9];
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("resultTitle").textContent = `${root} — ${glyph.name}`;
+  document.getElementById("resultSubtitle").textContent = `${glyph.title} · ${glyph.planet}`;
+  document.getElementById("glyphNumber").textContent = root;
+  document.getElementById("chips").innerHTML = [glyph.role, glyph.direction, glyph.planet].map(x => `<span class="chip">${x}</span>`).join("");
+
+  document.getElementById("spineBirthdate").textContent = value;
+  document.getElementById("spineSum").textContent = `${digits.join(" + ")} = ${sum}`;
+  document.getElementById("spineReduction").textContent = reduced.path.join(" → ");
+  document.getElementById("spineGlyph").textContent = `${root} · ${glyph.name}`;
+  document.getElementById("spineFunction").textContent = "Recognize the field. Separate coherence from distortion. Regulate the pattern.";
+
+  setText("description", glyph.description);
+  setText("role", glyph.role);
+  setText("geometry", glyph.form);
+  setText("virtue", glyph.virtue);
+  setText("vice", glyph.vice);
+  setText("wisdom", glyph.wisdom);
+  setText("cycle", glyph.cycle);
+  setText("reliable", glyph.reliable);
+  setText("eEssence", glyph.essence);
+  setText("eImpulse", glyph.impulse);
+  setText("eEnergy", glyph.energy);
+  setText("eIntelligence", glyph.intelligence);
+  setText("eAction", glyph.action);
+  setText("trigger", glyph.trigger);
+  setText("distorted", glyph.distorted);
+  setText("rAwareness", glyph.regulation.awareness);
+  setText("rConstraint", glyph.regulation.constraint);
+  setText("rFeedback", glyph.regulation.feedback);
+  setText("rCost", glyph.regulation.cost);
+  setText("premiumPreview", glyph.premium);
+
+  const copy = `PAA Birth Root Glyph\nBirthdate: ${value}\nDigits: ${digits.join(" + ")} = ${sum}\nReduction: ${reduced.path.join(" → ")}\n\nRoot Glyph: ${root} — ${glyph.name}\n${glyph.title}\n${glyph.planet}\n\nNumber Archetype:\n${glyph.description}\n\nVirtue / Coherent Expression:\n${glyph.virtue}\n\nVice / Shadow:\n${glyph.vice}\n\nEIEIA:\nEssence — ${glyph.essence}\nImpulse — ${glyph.impulse}\nEnergy — ${glyph.energy}\nIntelligence — ${glyph.intelligence}\nArchetypal Action — ${glyph.action}\n\nDistortion Trigger:\n${glyph.trigger}\n\nRegulation Mechanics:\nAwareness — ${glyph.regulation.awareness}\nConstraint — ${glyph.regulation.constraint}\nFeedback — ${glyph.regulation.feedback}\nCost — ${glyph.regulation.cost}`;
+  setText("copyBox", copy);
+  document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function setText(id, value) { document.getElementById(id).textContent = value; }
+
+function copyReading() {
+  const text = document.getElementById("copyBox").textContent;
+  if (!text.trim()) return;
+  navigator.clipboard.writeText(text);
+}
+
+function renderGallery() {
+  const order = [1,2,3,4,5,6,7,8,9,11];
+  document.getElementById("numberGallery").innerHTML = order.map(n => {
+    const g = glyphs[n];
+    return `<button class="num-card glyph-card-${n}" onclick="previewGlyph(${n})" aria-label="Preview glyph ${n}"><div class="n">${n}</div><h3>${g.name}</h3><p>${g.title}<br>${g.role}</p></button>`;
+  }).join("");
+}
+
+function previewGlyph(n) {
+  const g = glyphs[n];
+  const fakeDate = n === 11 ? "Master 11 Preview" : `Root ${n} Preview`;
+  document.getElementById("result").style.display = "block";
+  document.getElementById("resultTitle").textContent = `${n} — ${g.name}`;
+  document.getElementById("resultSubtitle").textContent = `${g.title} · ${g.planet}`;
+  document.getElementById("glyphNumber").textContent = n;
+  document.getElementById("chips").innerHTML = [g.role, g.direction, g.planet].map(x => `<span class="chip">${x}</span>`).join("");
+  document.getElementById("spineBirthdate").textContent = fakeDate;
+  document.getElementById("spineSum").textContent = "Gallery preview";
+  document.getElementById("spineReduction").textContent = `${n}`;
+  document.getElementById("spineGlyph").textContent = `${n} · ${g.name}`;
+  document.getElementById("spineFunction").textContent = "Recognize the field. Separate coherence from distortion. Regulate the pattern.";
+
+  [
+    ["description", g.description], ["role", g.role], ["geometry", g.form], ["virtue", g.virtue], ["vice", g.vice],
+    ["wisdom", g.wisdom], ["cycle", g.cycle], ["reliable", g.reliable], ["eEssence", g.essence], ["eImpulse", g.impulse],
+    ["eEnergy", g.energy], ["eIntelligence", g.intelligence], ["eAction", g.action], ["trigger", g.trigger], ["distorted", g.distorted],
+    ["rAwareness", g.regulation.awareness], ["rConstraint", g.regulation.constraint], ["rFeedback", g.regulation.feedback], ["rCost", g.regulation.cost],
+    ["premiumPreview", g.premium]
+  ].forEach(([id, val]) => setText(id, val));
+
+  setText("copyBox", `PAA Root Glyph Preview\n${n} — ${g.name}\n${g.title}\n\n${g.description}`);
+  document.getElementById("reveal").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+renderGallery();
+</script>
+</body>
+</html>
