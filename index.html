@@ -6,8 +6,8 @@
   <title>PAA Glyph Reading | Birth Root + Full Name</title>
   <meta name="description" content="A polished PAA reading tool for birthdate, full birth name, the single Birth Root to Full Name relationship, EIEIA, and regulation mechanics." />
   <meta name="theme-color" content="#070817" />
-  <meta property="og:title" content="PAA Final Glyph Reading" />
-  <meta property="og:description" content="Reveal the Birth Root, Full Name Glyph, and the single ordered relationship between them." />
+  <meta property="og:title" content="PAA Glyph Reading" />
+  <meta property="og:description" content="Reveal the Birth Root Glyph, Full Name Glyph, and the single ordered relationship between them." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +38,7 @@
 <body>
 <header class="topbar">
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="PAA Final Glyph Reading home"><span class="brand-mark">P</span><span>PAA Glyph Reading</span></a>
+    <a class="brand" href="#top" aria-label="PAA Glyph Reading home"><span class="brand-mark">P</span><span>PAA Glyph Reading</span></a>
     <nav aria-label="Primary navigation"><a href="#reveal">Reveal</a><a href="#method">Method</a><a href="#gallery">Glyphs</a><a href="#advanced">Advanced</a><a class="nav-cta" href="#reveal">Begin</a></nav>
   </div>
 </header>
@@ -59,25 +59,25 @@
             <div class="ring-label three">Undertone</div>
             <div class="ring-center">ROOT → NAME<br/><span style="font-size:.78em;color:var(--muted)">(undertone within)</span></div>
           </div>
-          <p class="sigil-note">One relationship governs the reading. The reduction does not compete with the pair; it modifies the name-field from underneath.</p>
+          <p class="sigil-note">Pythagorean Arithmosophic Anamnesis</p>
         </div>
       </div>
     </aside>
     <div class="hero-copy">
       <div class="eyebrow">Pythagorean Arithmosophic Anamnesis</div>
       <h1>Your life runs on a pattern. This reveals it.</h1>
-      <p class="lead">Your birthdate shows the pressure life repeats. Your full name shows how you carry that pressure. The reduction shows what quietly drives it underneath.</p>
+      <p class="lead">Your birthdate shows the pressure life repeats. Your full name shows how you carry that pressure and what quietly drives it underneath.</p>
       <div class="hero-points">
         <div class="point"><b>Birth Root</b><span>The pattern life keeps activating.</span></div>
-        <div class="point"><b>Full Name</b><span>The form that carries it.</span></div>
-        <div class="point"><b>Reduction</b><span>The hidden motive shaping the response.</span></div>
+        <div class="point"><b>Full Name Ordinal</b><span>The form that carries it.</span></div>
+        <div class="point"><b>Full Name Reduction</b><span>The hidden motive shaping the response.</span></div>
       </div>
       <div class="actions"><a class="btn btn-primary" href="#reveal">Run Your Reading</a><a class="btn btn-secondary" href="#advanced">See Full Diagnostic</a></div>
     </div>
   </section>
   <section id="reveal" class="wrap">
-    <h2 class="section-title">Final Glyph Calculator</h2>
-    <p class="section-sub">Enter a birthdate and full birth name. The free reading gives recognition: the core sequence, the visible name-form, and the undertone. The full reading shows where the sequence breaks, how it repeats, and how to correct it.</p>
+    <h2 class="section-title">PAA Glyph Calculator</h2>
+    <p class="section-sub">Enter a birthdate and full birth name. The free reading gives recognition: the core sequence, the visible name-form, and the underlying engine. The full reading shows where the sequence breaks, how it repeats, and how to correct it.</p>
     <div class="glass calc-panel">
       <div class="calc-grid">
         <div>
@@ -155,7 +155,7 @@
 
           <div class="tile full">
             <h3>Free EIEIA Snapshot</h3>
-            <p>Essence names the structure. Impulse names the first movement. Energy names the tempo. Intelligence names how the pattern reads reality. Action names how others experience it in motion.</p>
+            <p>This is the surface map of the pattern. Essence names the structure. Impulse names the first movement. Energy names the tempo. Intelligence names the interpretive bias. Action names how the pattern is experienced in motion.</p>
             <div class="eieia-grid">
               <div class="eieia-card"><strong>Essence</strong><p id="eEssence"></p></div>
               <div class="eieia-card"><strong>Impulse</strong><p id="eImpulse"></p></div>
@@ -165,16 +165,6 @@
             </div>
           </div>
 
-          <div class="tile full">
-            <h3>Regulation Mechanics</h3>
-            <p>The reading matters only when the distortion can be interrupted.</p>
-            <div class="reg-grid">
-              <div class="reg-card"><b>Awareness</b><span id="rAwareness"></span></div>
-              <div class="reg-card"><b>Constraint</b><span id="rConstraint"></span></div>
-              <div class="reg-card"><b>Feedback</b><span id="rFeedback"></span></div>
-              <div class="reg-card"><b>Cost</b><span id="rCost"></span></div>
-            </div>
-          </div>
 
           <div id="advanced" class="tile full premium-shell is-locked">
             <div class="premium-topline">
@@ -372,6 +362,8 @@ function buildPaidReading(ctx){
       paidP("The Repeating Problem",`The person may react from Glyph ${root}, carry that reaction through Glyph ${nameGlyph}, and justify it through the hidden motive of Glyph ${red} until the defense starts to feel like identity.`)
     ),
     paidSection("IX. Regulation Mechanics",
+      `<p><strong>The reading is incomplete until the distortion can be interrupted.</strong> Regulation is not generic self-improvement. It is the behavioral correction for this exact sequence: Glyph ${root} → Glyph ${nameGlyph}, with Glyph ${red} operating underneath.</p>`+
+      `<div class="reg-grid">${paidMini("Awareness",`You default to ${gName.name.toLowerCase()} before confirming what the situation actually requires. That is the error point.`)}${paidMini("Constraint",`Complete the birth-root demand first: ${gRoot.reg} Do not move into the name-form until the initial demand has been seen clearly.`)}${paidMini("Feedback",`Track repetition. If the same problem keeps returning, you are likely responding too early or using the name-form as a defense.`)}${paidMini("Cost",`If unchecked, the pattern becomes identity instead of behavior. Once that happens, it stops adapting, and the undertone may rationalize the defense through ${gRed.distorted.toLowerCase()}.`)}</div>`+
       paidP(`Glyph ${root} Practice`,gRoot.reg)+
       paidP(`Glyph ${nameGlyph} Practice`,gName.reg)+
       paidP(`Glyph ${red} Reduction Practice`,gRed.reg)+
@@ -389,19 +381,19 @@ function demoRevealPaidReading(){const shell=document.getElementById("advanced")
 document.addEventListener("DOMContentLoaded",()=>{const link=document.getElementById("stripeUnlockLink");if(link)link.href=STRIPE_PAYMENT_LINK});
 
 function regulationSet(gRoot,gName,gRed){return {
-  awareness:`Notice when you default to ${gName.name.toLowerCase()} before confirming the situation actually requires it.`,
-  constraint:`Force yourself to complete the birth-root demand first: ${gRoot.reg}`,
-  feedback:`Track outcomes. If the same problem repeats, you are responding too early or using the name-form as a defense.`,
-  cost:`If left unchecked, this becomes identity instead of behavior — and stops adapting. The undertone can then rationalize the defense through ${gRed.distorted.toLowerCase()}`
+  awareness:`You default to ${gName.name.toLowerCase()} before confirming what the situation actually requires. That is the error point.`,
+  constraint:`Complete the birth-root demand first: ${gRoot.reg} Do not move into the name-form until the initial demand has been seen clearly.`,
+  feedback:`Track repetition. If the same problem keeps returning, you are likely responding too early or using the name-form as a defense.`,
+  cost:`If unchecked, the pattern becomes identity instead of behavior. Once that happens, it stops adapting, and the undertone may rationalize the defense through ${gRed.distorted.toLowerCase()}.`
 }}
 function eieiaBlend(gRoot,gName,gRed){return {
-  essence:`Your structure is ${gRoot.essence.toLowerCase()}, expressed through ${gName.essence.toLowerCase()}, and colored by ${gRed.essence.toLowerCase()}.`,
-  impulse:`You move first by ${gRoot.impulse.toLowerCase()}, but act through ${gName.impulse.toLowerCase()}.`,
-  energy:`Your energy begins ${gRoot.energy.toLowerCase()}, but stabilizes as ${gName.energy.toLowerCase()}.`,
-  intelligence:`You notice ${gRoot.intelligence.toLowerCase()}, but interpret it through ${gName.intelligence.toLowerCase()}.`,
-  action:`You become ${gRoot.action}, but are experienced as ${gName.action}.`
+  essence:`Your core pattern is ${gRoot.essence.toLowerCase()}. It is expressed through ${gName.essence.toLowerCase()} and driven underneath by ${gRed.essence.toLowerCase()}.`,
+  impulse:`You initiate through ${gRoot.impulse.toLowerCase()}, but your behavior tends to move through ${gName.impulse.toLowerCase()}. The hidden push comes from ${gRed.impulse.toLowerCase()}.`,
+  energy:`Your energy begins ${gRoot.energy.toLowerCase()} and settles into ${gName.energy.toLowerCase()}. The underlying tone is ${gRed.energy.toLowerCase()}.`,
+  intelligence:`You notice through ${gRoot.intelligence.toLowerCase()}, but you interpret through ${gName.intelligence.toLowerCase()}. The bias underneath is ${gRed.intelligence.toLowerCase()}.`,
+  action:`You become ${gRoot.action}, but others experience you as ${gName.action}. The reduction layer pulls this toward ${gRed.action}.`
 }}
-function calculateDiagnostic(){const date=document.getElementById("birthdate").value;const fullName=document.getElementById("fullName").value.trim();if(!date){document.getElementById("birthdate").focus();return}if(!cleanName(fullName)){document.getElementById("fullName").focus();return}const d=digitSumFromDate(date);const birth=reduceNumber(d.sum);const n=calculateName(fullName);const root=birth.root,ord=n.ordinal.root,red=n.reduction.root;const gRoot=glyphs[root]||glyphs[reduceNumber(root).root]||glyphs[9];const gOrd=glyphs[ord]||glyphs[reduceNumber(ord).root]||glyphs[9];const gRed=glyphs[red]||glyphs[reduceNumber(red).root]||glyphs[9];document.getElementById("result").style.display="block";set("spineBirthdate",date);set("spineBirthSum",`${d.digits.join(" + ")} = ${d.sum}`);set("spineBirthRoot",`${birth.path.join(" → ")} · Glyph ${root}`);set("spineNameGlyph",`Ordinal ${ord} · Undertone ${red}`);set("spineRelationship",`Glyph ${root} → Glyph ${ord}`);set("resultSubtitle",`${fullName} · Birthdate ${date}. The sequence is Birth Root Glyph ${root} → Full Name Glyph ${ord}. Reduction Glyph ${red} modifies the name from underneath.`);set("birthGlyphNum",root);set("birthGlyphName",`Glyph ${root} · ${gRoot.name} · ${gRoot.title}`);set("birthGlyphDesc",short(gRoot.description));document.getElementById("birthMeta").innerHTML=chipList([gRoot.role,gRoot.form,gRoot.planet]);const sameNameGlyph=ord===red;set("nameGlyphNum",sameNameGlyph?ord:`${ord}/${red}`);set("nameGlyphName",sameNameGlyph?`Glyph ${ord} · ${gOrd.name} · ${gOrd.title}`:`Ordinal Glyph ${ord}: ${gOrd.name} · Reduction Glyph ${red}: ${gRed.name}`);set("nameGlyphDesc",sameNameGlyph?`The same number is being read in two ways: ordinal as how the full name stands in the world, reduction as what quietly drives the person underneath. ${short(gOrd.description,150)}`:`Two name-values are present: one shows how the name is likely experienced from the outside; the other shows what may be moving underneath. This tension should be read, not flattened.`);set("ordinalLens",`${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}. How people may experience this: ${gOrd.essence.toLowerCase()}. Application: ${gOrd.action}.`);set("reductionLens",`${n.reductionTotal} → ${n.reduction.path.join(" → ")}. What quietly drives this: ${gRed.essence.toLowerCase()}. Application: ${gRed.impulse}.`);document.getElementById("nameMeta").innerHTML=chipList([`Ordinal total ${n.ordinalTotal}`,`Reduction total ${n.reductionTotal}`,sameNameGlyph?`Unified glyph ${ord}`:`Name tension ${ord}/${red}`]);set("structuralSentence",`You are repeatedly placed into situations that require ${gRoot.impulse.toLowerCase()}, but you carry it through ${gOrd.impulse.toLowerCase()}, while being quietly driven by ${gRed.impulse.toLowerCase()}. When this is clean, it works. When it breaks, you mistake ${gOrd.impulse.toLowerCase()} for the solution to a problem that actually began with ${gRoot.impulse.toLowerCase()}.`);setHTML("primaryRelationship",`The primary relationship is <strong>Glyph ${root} → Glyph ${ord}</strong>. Glyph ${root} is the first pressure. Glyph ${ord} is the full-name response-form. Glyph ${red} is the undertone inside the name-field, not a second pair.`);setHTML("birthCalc",calcRow("Birthdate",date)+calcRow("Digits",`${d.digits.join(" + ")} = ${d.sum}`,true)+calcRow("Reduction",birth.path.join(" → "),true)+calcRow("Final Root",`${root} — ${gRoot.name}`));setHTML("ordinalCalc",calcRow("Name",fullName)+calcRow("Letter Values",`${n.letters.map((l,i)=>`${l}=${n.ordinalValues[i]}`).join(" · ")}`,true)+calcRow("Ordinal Total",String(n.ordinalTotal),true)+calcRow("Reduction",n.ordinal.path.join(" → "),true)+calcRow("Final Glyph",`${ord} — ${gOrd.name}`));setHTML("reductionCalc",calcRow("Name",fullName)+calcRow("Reduced Letters",`${n.letters.map((l,i)=>`${l}=${n.reductionValues[i]}`).join(" · ")}`,true)+calcRow("Reduction Total",String(n.reductionTotal),true)+calcRow("Reduction",n.reduction.path.join(" → "),true)+calcRow("Final Glyph",`${red} — ${gRed.name}`));set("coreTension",`The tension is not three separate traits. It is one sequence: life activates Glyph ${root}; the name carries it through Glyph ${ord}; the undertone of Glyph ${red} quietly colors the motive. Watch the gap between what starts the reaction and what you use to answer it.`);set("coherence",`This works well when Glyph ${root} gives the life-pattern, Glyph ${ord} gives the visible carrying-form, and Glyph ${red} motivates without secretly taking over. In high expression: ${gRoot.coherent}`);set("distortion",`This goes wrong when Glyph ${root} is triggered by ${gRoot.trigger.toLowerCase()} Glyph ${ord} may distort into ${gOrd.distorted.toLowerCase()}, while Glyph ${red} may seek safety through ${gRed.distorted.toLowerCase()}`);const e=eieiaBlend(gRoot,gOrd,gRed);set("eEssence",e.essence);set("eImpulse",e.impulse);set("eEnergy",e.energy);set("eIntelligence",e.intelligence);set("eAction",e.action);const r=regulationSet(gRoot,gOrd,gRed);set("rAwareness",r.awareness);set("rConstraint",r.constraint);set("rFeedback",r.feedback);set("rCost",r.cost);document.getElementById("advanced").classList.add("is-locked");document.getElementById("advanced").classList.remove("is-unlocked");setHTML("paidDiagnostic",buildPaidReading({fullName,date,root,ord,red,gRoot,gOrd,gRed,n,birth,d}));const copy=`PAA Core Glyph Reading\nName: ${fullName}\nBirthdate: ${date}\n\nBirth Glyph: ${d.digits.join(" + ")} = ${d.sum} → ${birth.path.join(" → ")}\n${root} — ${gRoot.name}\n\nName Ordinal: ${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}\n${ord} — ${gOrd.name}\n\nName Reduction: ${n.reductionTotal} → ${n.reduction.path.join(" → ")}\n${red} — ${gRed.name}\n\nPattern:\nBirth Root Glyph ${root} → Full Name Glyph ${ord}. Reduction Glyph ${red} modifies the name-field from underneath.\n\nYour Main Glyph Tension:\n${document.getElementById("coreTension").textContent}\n\nBasic Coherence:\n${document.getElementById("coherence").textContent}\n\nBasic Distortion:\n${document.getElementById("distortion").textContent}`;set("copyBox",copy);document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"})}
+function calculateDiagnostic(){const date=document.getElementById("birthdate").value;const fullName=document.getElementById("fullName").value.trim();if(!date){document.getElementById("birthdate").focus();return}if(!cleanName(fullName)){document.getElementById("fullName").focus();return}const d=digitSumFromDate(date);const birth=reduceNumber(d.sum);const n=calculateName(fullName);const root=birth.root,ord=n.ordinal.root,red=n.reduction.root;const gRoot=glyphs[root]||glyphs[reduceNumber(root).root]||glyphs[9];const gOrd=glyphs[ord]||glyphs[reduceNumber(ord).root]||glyphs[9];const gRed=glyphs[red]||glyphs[reduceNumber(red).root]||glyphs[9];document.getElementById("result").style.display="block";set("spineBirthdate",date);set("spineBirthSum",`${d.digits.join(" + ")} = ${d.sum}`);set("spineBirthRoot",`${birth.path.join(" → ")} · Glyph ${root}`);set("spineNameGlyph",`Ordinal ${ord} · Undertone ${red}`);set("spineRelationship",`Glyph ${root} → Glyph ${ord}`);set("resultSubtitle",`${fullName} · Birthdate ${date}. The sequence is Birth Root Glyph ${root} → Full Name Glyph ${ord}. Reduction Glyph ${red} modifies the name from underneath.`);set("birthGlyphNum",root);set("birthGlyphName",`Glyph ${root} · ${gRoot.name} · ${gRoot.title}`);set("birthGlyphDesc",short(gRoot.description));document.getElementById("birthMeta").innerHTML=chipList([gRoot.role,gRoot.form,gRoot.planet]);const sameNameGlyph=ord===red;set("nameGlyphNum",sameNameGlyph?ord:`${ord}/${red}`);set("nameGlyphName",sameNameGlyph?`Glyph ${ord} · ${gOrd.name} · ${gOrd.title}`:`Ordinal Glyph ${ord}: ${gOrd.name} · Reduction Glyph ${red}: ${gRed.name}`);set("nameGlyphDesc",sameNameGlyph?`The same number is being read in two ways: ordinal as how the full name stands in the world, reduction as what quietly drives the person underneath. ${short(gOrd.description,150)}`:`Two name-values are present: one shows how the name is likely experienced from the outside; the other shows what may be moving underneath. This tension should be read, not flattened.`);set("ordinalLens",`${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}. How people may experience this: ${gOrd.essence.toLowerCase()}. Application: ${gOrd.action}.`);set("reductionLens",`${n.reductionTotal} → ${n.reduction.path.join(" → ")}. What quietly drives this: ${gRed.essence.toLowerCase()}. Application: ${gRed.impulse}.`);document.getElementById("nameMeta").innerHTML=chipList([`Ordinal total ${n.ordinalTotal}`,`Reduction total ${n.reductionTotal}`,sameNameGlyph?`Unified glyph ${ord}`:`Name tension ${ord}/${red}`]);set("structuralSentence",`Life repeatedly forces ${gRoot.impulse.toLowerCase()}. You respond through ${gOrd.impulse.toLowerCase()}, driven underneath by ${gRed.impulse.toLowerCase()}. When this fails, you treat ${gOrd.impulse.toLowerCase()} as the solution to a problem that actually began with ${gRoot.impulse.toLowerCase()}.`);setHTML("primaryRelationship",`The primary relationship is <strong>Glyph ${root} → Glyph ${ord}</strong>. Glyph ${root} is the first pressure. Glyph ${ord} is the full-name response-form. Glyph ${red} is the undertone inside the name-field, not a second pair.`);setHTML("birthCalc",calcRow("Birthdate",date)+calcRow("Digits",`${d.digits.join(" + ")} = ${d.sum}`,true)+calcRow("Reduction",birth.path.join(" → "),true)+calcRow("Final Root",`${root} — ${gRoot.name}`));setHTML("ordinalCalc",calcRow("Name",fullName)+calcRow("Letter Values",`${n.letters.map((l,i)=>`${l}=${n.ordinalValues[i]}`).join(" · ")}`,true)+calcRow("Ordinal Total",String(n.ordinalTotal),true)+calcRow("Reduction",n.ordinal.path.join(" → "),true)+calcRow("Final Glyph",`${ord} — ${gOrd.name}`));setHTML("reductionCalc",calcRow("Name",fullName)+calcRow("Reduced Letters",`${n.letters.map((l,i)=>`${l}=${n.reductionValues[i]}`).join(" · ")}`,true)+calcRow("Reduction Total",String(n.reductionTotal),true)+calcRow("Reduction",n.reduction.path.join(" → "),true)+calcRow("Final Glyph",`${red} — ${gRed.name}`));set("coreTension",`The tension is not three separate traits. It is one sequence: life activates Glyph ${root}; the name carries it through Glyph ${ord}; the undertone of Glyph ${red} quietly colors the motive. Watch the gap between what starts the reaction and what you use to answer it.`);set("coherence",`This works well when Glyph ${root} gives the life-pattern, Glyph ${ord} gives the visible carrying-form, and Glyph ${red} motivates without secretly taking over. In high expression: ${gRoot.coherent}`);set("distortion",`This goes wrong when Glyph ${root} is triggered by ${gRoot.trigger.toLowerCase()}. Glyph ${ord} may distort into ${gOrd.distorted.toLowerCase()}, while Glyph ${red} may seek safety through ${gRed.distorted.toLowerCase()}.`);const e=eieiaBlend(gRoot,gOrd,gRed);set("eEssence",e.essence);set("eImpulse",e.impulse);set("eEnergy",e.energy);set("eIntelligence",e.intelligence);set("eAction",e.action);document.getElementById("advanced").classList.add("is-locked");document.getElementById("advanced").classList.remove("is-unlocked");setHTML("paidDiagnostic",buildPaidReading({fullName,date,root,ord,red,gRoot,gOrd,gRed,n,birth,d}));const copy=`PAA Core Glyph Reading\nName: ${fullName}\nBirthdate: ${date}\n\nBirth Glyph: ${d.digits.join(" + ")} = ${d.sum} → ${birth.path.join(" → ")}\n${root} — ${gRoot.name}\n\nName Ordinal: ${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}\n${ord} — ${gOrd.name}\n\nName Reduction: ${n.reductionTotal} → ${n.reduction.path.join(" → ")}\n${red} — ${gRed.name}\n\nPattern:\nBirth Root Glyph ${root} → Full Name Glyph ${ord}. Reduction Glyph ${red} modifies the name-field from underneath.\n\nYour Main Glyph Tension:\n${document.getElementById("coreTension").textContent}\n\nBasic Coherence:\n${document.getElementById("coherence").textContent}\n\nBasic Distortion:\n${document.getElementById("distortion").textContent}`;set("copyBox",copy);document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"})}
 function copyReading(){const text=document.getElementById("copyBox").textContent;if(text.trim())navigator.clipboard.writeText(text)}
 function renderGallery(){const order=[1,2,3,4,5,6,7,8,9,11];document.getElementById("galleryGrid").innerHTML=order.map(n=>{const g=glyphs[n];return`<div class="num-card"><div class="n">${n}</div><h3>${g.name}</h3><p>${g.title}<br>${g.role}</p></div>`}).join("")}
 renderGallery();
