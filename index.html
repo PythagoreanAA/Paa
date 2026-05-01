@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAA Glyph Reading | Birth Root + Full Name</title>
+  <meta name="description" content="A clean PAA reading tool: calculate your Birth Root, your Full Name Glyph, and unlock the short synthesis between them." />
+  <meta name="theme-color" content="#070817" />
+  <meta property="og:title" content="PAA Glyph Reading" />
+  <meta property="og:description" content="Reveal the pattern life keeps pressing on you, the name-pattern you carry, and the correction between them." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root{
+      --bg:#050713;
+      --bg2:#090b20;
+      --panel:#10142f;
+      --ink:#fbf4e8;
+      --muted:#b9bed7;
+      --dim:#8188a9;
+      --line:rgba(255,255,255,.14);
+      --aqua:#56e2de;
+      --aqua2:#b9fff8;
+      --royal:#7a3cff;
+      --royal2:#c6adff;
+      --royal3:#eee5ff;
+      --tyrian:#32104f;
+      --deep:#13071f;
+      --good:#b8f7d6;
+      --bad:#ffaaa6;
+      --shadow:0 34px 110px rgba(0,0,0,.48);
+      --radius:28px;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --serif:Georgia,"Times New Roman",serif;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 0,rgba(86,226,222,.14),transparent 30%),
+        radial-gradient(circle at 86% -3%,rgba(122,60,255,.24),transparent 34%),
+        radial-gradient(circle at 52% 110%,rgba(58,13,95,.55),transparent 44%),
+        linear-gradient(135deg,var(--bg),var(--bg2) 55%,#050612);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);
+      background-size:68px 68px;
+      mask-image:radial-gradient(circle at 50% 14%,black,transparent 76%);
+    }
+    body:after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      background:radial-gradient(circle at 50% 17%,transparent 0,rgba(0,0,0,.39) 78%);
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}
+    .glass{background:linear-gradient(145deg,rgba(255,255,255,.083),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .topbar{position:sticky;top:0;z-index:40;border-bottom:1px solid var(--line);background:rgba(5,7,19,.78);backdrop-filter:blur(18px)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:.035em}
+    .brand-mark{width:42px;height:42px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(198,173,255,.75);color:var(--royal2);font-family:var(--serif);background:radial-gradient(circle at 35% 25%,rgba(122,60,255,.30),rgba(255,255,255,.045));box-shadow:0 0 34px rgba(122,60,255,.34)}
+    nav{display:flex;align-items:center;gap:18px;color:var(--muted);font-size:.93rem}
+    nav a:hover{color:var(--ink)}
+    .nav-cta{padding:10px 14px;border:1px solid rgba(86,226,222,.34);border-radius:999px;color:var(--aqua);background:rgba(86,226,222,.055)}
+
+    .hero{padding:72px 0 44px;display:grid;grid-template-columns:.88fr 1.12fr;gap:34px;align-items:stretch}
+    .sigil{min-height:585px;padding:30px;position:relative;overflow:hidden}
+    .sigil:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 50% 28%,rgba(86,226,222,.22),transparent 30%),radial-gradient(circle at 50% 73%,rgba(122,60,255,.19),transparent 38%)}
+    .sigil-inner{position:relative;height:100%;display:grid;place-items:center;text-align:center}
+    .tetractys{display:grid;gap:17px;justify-items:center;margin-bottom:44px}
+    .dot-row{display:flex;gap:17px}
+    .dot{width:15px;height:15px;border-radius:999px;background:var(--royal2);box-shadow:0 0 28px rgba(122,60,255,.46)}
+    .rings{width:346px;height:346px;border-radius:999px;display:grid;place-items:center;position:relative;border:1px solid rgba(198,173,255,.50);box-shadow:inset 0 0 58px rgba(122,60,255,.14),0 0 84px rgba(86,226,222,.12)}
+    .rings:before,.rings:after{content:"";position:absolute;border-radius:999px;border:1px solid rgba(198,173,255,.34)}
+    .rings:before{width:252px;height:252px}
+    .rings:after{width:154px;height:154px;border-color:rgba(86,226,222,.3)}
+    .ring-center{z-index:2;font-family:var(--serif);letter-spacing:.13em;line-height:1.5;color:var(--ink);font-size:1.02rem}
+    .ring-center span{font-family:var(--sans);letter-spacing:.07em;font-size:.74em;color:var(--muted);text-transform:uppercase}
+    .ring-label{position:absolute;z-index:3;font-size:.72rem;color:var(--muted);background:rgba(5,7,19,.86);border:1px solid var(--line);border-radius:999px;padding:8px 11px;white-space:nowrap}
+    .ring-label.one{top:8px;left:50%;transform:translateX(-50%)}
+    .ring-label.two{bottom:52px;left:-18px}
+    .ring-label.three{bottom:52px;right:-18px}
+    .sigil-note{margin-top:30px;color:var(--dim);font-size:.9rem;line-height:1.6;max-width:420px}
+    .hero-copy{display:flex;flex-direction:column;justify-content:center;padding:18px 0}
+    .eyebrow{color:var(--aqua);text-transform:uppercase;letter-spacing:.19em;font-weight:950;font-size:.74rem;margin-bottom:18px}
+    h1{font-size:clamp(2.9rem,6vw,5.6rem);line-height:.9;letter-spacing:-.075em;margin:0 0 24px}
+    .lead{color:var(--muted);font-size:1.14rem;line-height:1.72;max-width:780px;margin:0 0 18px}
+    .hero-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+    .point{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.05)}
+    .point b{display:block;color:var(--royal2);margin-bottom:6px}
+    .point span{color:var(--muted);font-size:.9rem;line-height:1.45}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+    .btn{border:0;cursor:pointer;border-radius:999px;padding:14px 20px;font-weight:950;letter-spacing:.01em;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.18s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{color:#041114;background:linear-gradient(135deg,var(--aqua),var(--aqua2));box-shadow:0 15px 48px rgba(86,226,222,.24)}
+    .btn-secondary{color:var(--ink);background:rgba(255,255,255,.075);border:1px solid var(--line)}
+    .btn-royal{color:#050713;background:linear-gradient(135deg,var(--royal),var(--royal2));box-shadow:0 15px 48px rgba(122,60,255,.32)}
+
+    section{padding:50px 0}
+    .section-title{font-size:clamp(2rem,4.2vw,3.75rem);line-height:.96;letter-spacing:-.06em;margin:0 0 14px}
+    .section-sub{color:var(--muted);line-height:1.75;max-width:900px;margin:0 0 28px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .calc-panel{padding:26px;position:relative;overflow:hidden}
+    .calc-panel:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 0 0,rgba(86,226,222,.08),transparent 32%);pointer-events:none}
+    .calc-panel>*{position:relative}
+    .calc-title{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+    .calc-title h3{font-size:1.28rem;margin:0;letter-spacing:-.025em}
+    .pill{border:1px solid rgba(198,173,255,.32);border-radius:999px;padding:7px 10px;color:var(--royal2);font-size:.75rem;font-weight:950;text-transform:uppercase;letter-spacing:.08em;background:rgba(122,60,255,.10)}
+    label{display:block;color:var(--muted);font-weight:850;margin-bottom:8px}
+    input{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--ink);padding:15px 16px;border-radius:16px;outline:none;color-scheme:dark}
+    input:focus{border-color:rgba(86,226,222,.72);box-shadow:0 0 0 4px rgba(86,226,222,.12)}
+    .helper{color:var(--dim);font-size:.88rem;margin-top:8px;line-height:1.5}
+    .form-row{display:grid;gap:14px}
+    .result{display:none;margin-top:18px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.061),rgba(255,255,255,.025))}
+    .result-head{padding:22px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 20% 10%,rgba(86,226,222,.12),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.024))}
+    .result-head h3{font-size:1.7rem;letter-spacing:-.045em;margin:0 0 8px}
+    .result-head p{color:var(--muted);line-height:1.62;margin:0}
+    .result-body{padding:20px;display:grid;gap:14px}
+    .glyph-hero{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:center;border:1px solid var(--line);border-radius:22px;padding:18px;background:radial-gradient(circle at 0 0,rgba(122,60,255,.17),transparent 38%),linear-gradient(145deg,rgba(58,13,95,.30),rgba(22,6,31,.72))}
+    .glyph-number{font-family:var(--serif);font-size:5.4rem;line-height:.86;color:var(--royal2);text-shadow:0 0 30px rgba(122,60,255,.4);text-align:center}
+    .glyph-copy h4{margin:0 0 8px;font-size:1.25rem}
+    .glyph-copy p{margin:0;color:var(--muted);line-height:1.58}
+    .mini-stack{display:grid;gap:10px}
+    .card{border:1px solid var(--line);border-radius:18px;padding:16px;background:rgba(255,255,255,.052)}
+    .card h4{margin:0 0 8px;color:var(--aqua);font-size:.78rem;text-transform:uppercase;letter-spacing:.13em}
+    .card p{margin:0;color:var(--muted);line-height:1.68}
+    .card.cut{border-color:rgba(255,170,166,.30);background:linear-gradient(135deg,rgba(255,170,166,.07),rgba(122,60,255,.10))}
+    .card.cut p{font-size:1.03rem;color:var(--ink)}
+    .calc-path{font-family:var(--mono);font-size:.84rem;color:var(--muted);line-height:1.65;word-break:break-word}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+    .chip{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:rgba(255,255,255,.055)}
+
+    .synthesis-shell{padding:28px;border-color:rgba(198,173,255,.38);position:relative;overflow:hidden}
+    .synthesis-shell:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 10% 0,rgba(122,60,255,.20),transparent 34%),radial-gradient(circle at 84% 10%,rgba(86,226,222,.10),transparent 28%);pointer-events:none}
+    .synthesis-shell>*{position:relative}
+    .status-box{border:1px solid rgba(86,226,222,.27);border-radius:22px;padding:20px;background:linear-gradient(135deg,rgba(86,226,222,.07),rgba(122,60,255,.10));margin-bottom:18px}
+    .status-box h3{margin:0 0 8px;font-size:1.34rem;letter-spacing:-.025em}
+    .status-box p{margin:0;color:var(--muted);line-height:1.68}
+    .paid-lock{border:1px solid rgba(198,173,255,.35);border-radius:24px;padding:20px;background:linear-gradient(135deg,rgba(19,7,31,.86),rgba(58,13,95,.42));margin-top:18px}
+    .paid-lock h3{margin:0 0 8px;font-size:1.5rem;letter-spacing:-.035em}
+    .paid-lock p{color:var(--muted);line-height:1.66;margin:0}
+    .paid-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+    .paid-card{border:1px solid rgba(255,255,255,.13);border-radius:20px;background:rgba(255,255,255,.052);padding:18px}
+    .paid-card.primary{grid-column:1/-1;border-color:rgba(86,226,222,.30);background:linear-gradient(135deg,rgba(86,226,222,.075),rgba(122,60,255,.10))}
+    .paid-card h4{margin:0 0 10px;color:var(--aqua);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em}
+    .paid-card p{margin:0;color:var(--muted);line-height:1.72}
+    .paid-card strong{color:var(--ink)}
+    .paid-output{display:none;margin-top:18px}
+
+    .method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .method-card{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.052);padding:20px}
+    .method-card h3{margin:0 0 8px;font-size:1.05rem;color:var(--royal2)}
+    .method-card p{margin:0;color:var(--muted);line-height:1.62}
+    .gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .num-card{border:1px solid var(--line);border-radius:22px;background:radial-gradient(circle at 12% 0%,rgba(122,60,255,.16),transparent 38%),linear-gradient(145deg,rgba(58,13,95,.30),rgba(22,6,31,.74));padding:18px;min-height:178px}
+    .num-card .n{font-family:var(--serif);font-size:2.7rem;color:var(--royal2);line-height:1}
+    .num-card h3{margin:10px 0 8px}
+    .num-card p{color:var(--muted);line-height:1.52;font-size:.92rem;margin:0}
+    footer{border-top:1px solid var(--line);padding:34px 0;color:var(--dim);font-size:.92rem;margin-top:34px}
+    .footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media(max-width:980px){nav{display:none}.hero,.split,.method-grid,.paid-grid{grid-template-columns:1fr}.hero-points,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.sigil{min-height:500px}}
+    @media(max-width:640px){.wrap{width:min(100% - 22px,1160px)}h1{font-size:3.05rem}.hero{padding-top:42px}.rings{width:270px;height:270px}.ring-label{white-space:normal;max-width:142px;text-align:center}.hero-points,.gallery{grid-template-columns:1fr}.glyph-hero{grid-template-columns:1fr}.glyph-number{text-align:left}.calc-panel,.synthesis-shell{padding:20px}.paid-card.primary{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="PAA Glyph Reading home"><span class="brand-mark">P</span><span>PAA Glyph Reading</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#birth">Birth Root</a>
+      <a href="#name">Full Name</a>
+      <a href="#synthesis">Full Reading</a>
+      <a href="#method">Method</a>
+      <a class="nav-cta" href="#birth">Begin</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <aside class="glass sigil" aria-label="PAA symbolic diagram">
+      <div class="sigil-inner">
+        <div>
+          <div class="tetractys" aria-label="Tetractys of ten points">
+            <div class="dot-row"><span class="dot"></span></div>
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span></div>
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="rings">
+            <div class="ring-label one">Birth Root</div>
+            <div class="ring-label two">Full Name</div>
+            <div class="ring-label three">Synthesis</div>
+            <div class="ring-center">ROOT → NAME<br><span>Pattern under pressure</span></div>
+          </div>
+          <p class="sigil-note">Two simple readings first. The deeper pattern only appears after they are kept separate.</p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="hero-copy">
+      <div class="eyebrow">Pythagorean Arithmosophic Anamnesis</div>
+      <h1>Find the pattern you keep repeating.</h1>
+      <p class="lead">Your birthdate shows the pressure life keeps handing you. Your full name shows the pattern you carry into rooms, relationships, work, and conflict.</p>
+      <p class="lead">Do not start with a giant report. Start with the cut: what keeps happening, what you do under pressure, and where the correction begins.</p>
+      <div class="hero-points">
+        <div class="point"><b>Birth Root</b><span>What life keeps asking of you.</span></div>
+        <div class="point"><b>Full Name</b><span>How your identity tends to move.</span></div>
+        <div class="point"><b>Full Reading</b><span>Where the two collide, repeat, and correct.</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#birth">Start with Birth Root</a>
+        <a class="btn btn-secondary" href="#name">Calculate Full Name</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="birth" class="wrap">
+    <h2 class="section-title">Birth Root Calculator</h2>
+    <p class="section-sub">This is the first door. It does not explain your whole life. It names the pressure life keeps bringing back.</p>
+    <div class="split">
+      <div class="glass calc-panel">
+        <div class="calc-title"><h3>Enter your birthdate</h3><span class="pill">Free</span></div>
+        <div class="form-row">
+          <div>
+            <label for="birthdate">Birthdate</label>
+            <input type="date" id="birthdate" />
+            <div class="helper">Example: 1998-05-05 → 37 → 10 → 1.</div>
+          </div>
+          <button class="btn btn-primary" type="button" onclick="calculateBirth()">Reveal Birth Root</button>
+        </div>
+      </div>
+
+      <article id="birthResult" class="result" aria-live="polite">
+        <div class="result-head">
+          <h3>Your Birth Root</h3>
+          <p id="birthSummary"></p>
+        </div>
+        <div class="result-body">
+          <div class="glyph-hero">
+            <div class="glyph-number" id="birthNum"></div>
+            <div class="glyph-copy">
+              <h4 id="birthName"></h4>
+              <p id="birthDesc"></p>
+              <div class="chips" id="birthChips"></div>
+            </div>
+          </div>
+          <div class="card"><h4>Calculation</h4><p class="calc-path" id="birthCalc"></p></div>
+          <div class="card"><h4>What keeps happening</h4><p id="birthAsk"></p></div>
+          <div class="card"><h4>Under pressure</h4><p id="birthPressure"></p></div>
+          <div class="card cut"><h4>The cut</h4><p id="birthCut"></p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="name" class="wrap">
+    <h2 class="section-title">Full Name Calculator</h2>
+    <p class="section-sub">Your name is not the same reading as your birthdate. It shows the pattern you carry: how people tend to experience you, and what quietly drives the way you respond.</p>
+    <div class="split">
+      <div class="glass calc-panel">
+        <div class="calc-title"><h3>Enter your full birth name</h3><span class="pill">Free</span></div>
+        <div class="form-row">
+          <div>
+            <label for="fullName">Full Birth Name</label>
+            <input type="text" id="fullName" placeholder="First Middle Last" autocomplete="name" />
+            <div class="helper">Letters only are counted. Spaces and punctuation are ignored.</div>
+          </div>
+          <button class="btn btn-primary" type="button" onclick="calculateNameReading()">Reveal Full Name Glyph</button>
+        </div>
+      </div>
+
+      <article id="nameResult" class="result" aria-live="polite">
+        <div class="result-head">
+          <h3>Your Full Name Pattern</h3>
+          <p id="nameSummary"></p>
+        </div>
+        <div class="result-body">
+          <div class="glyph-hero">
+            <div class="glyph-number" id="nameNum"></div>
+            <div class="glyph-copy">
+              <h4 id="nameTitle"></h4>
+              <p id="nameDesc"></p>
+              <div class="chips" id="nameChips"></div>
+            </div>
+          </div>
+          <div class="card"><h4>Calculation</h4><p class="calc-path" id="nameCalc"></p></div>
+          <div class="card"><h4>How people may experience you</h4><p id="ordinalLens"></p></div>
+          <div class="card"><h4>What quietly drives it</h4><p id="reductionLens"></p></div>
+          <div class="card cut"><h4>The cut</h4><p id="nameCut"></p></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="synthesis" class="wrap">
+    <div class="glass synthesis-shell">
+      <h2 class="section-title">Full Pattern Reading</h2>
+      <p class="section-sub">The free readings keep the two patterns separate. The full reading names what happens when they meet. This is the part that shows the repeated mistake and the correction.</p>
+      <div class="status-box">
+        <h3 id="synthesisStatusTitle">Complete both calculators to generate your synthesis.</h3>
+        <p id="synthesisStatus">Birth Root and Full Name must be read separately first. Once both are revealed, the synthesis can name the point of collision.</p>
+      </div>
+      <div class="paid-lock">
+        <h3>The paid reading is not more pages. It is a sharper diagnosis.</h3>
+        <p>It answers four questions: where this pattern works, where it breaks, how others misread it, and what correction you should practice first.</p>
+        <div class="actions">
+          <a id="stripeUnlockLink" class="btn btn-royal" href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" target="_blank" rel="noopener">Unlock Full Reading</a>
+          <button class="btn btn-secondary" type="button" onclick="previewPaid()">Preview Full Reading</button>
+          <button class="btn btn-secondary" type="button" onclick="copyFree()">Copy Free Reading</button>
+        </div>
+        <p class="helper">Replace the Stripe URL with your real Payment Link. The preview button is for review only; remove it before launch.</p>
+      </div>
+      <div id="paidOutput" class="paid-output">
+        <div id="paidGrid" class="paid-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="method" class="wrap">
+    <h2 class="section-title">The method, without the fog.</h2>
+    <p class="section-sub">This page uses number as a pressure-reading tool. It does not try to flatter you. It tries to name what repeats.</p>
+    <div class="method-grid">
+      <div class="method-card"><h3>Birthdate</h3><p>Shows the recurring lesson. Not your personality. The pressure that keeps returning.</p></div>
+      <div class="method-card"><h3>Full Name</h3><p>Shows the pattern you carry. How your identity tends to move, defend, speak, withhold, or reach.</p></div>
+      <div class="method-card"><h3>Synthesis</h3><p>Shows the friction between them. This is where the repeated mistake becomes visible.</p></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="wrap">
+    <h2 class="section-title">Glyph Gallery</h2>
+    <p class="section-sub">Each number is treated as a pressure pattern: what it does well, where it bends, and how it fails when unconscious.</p>
+    <div class="gallery" id="galleryGrid"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Pythagorean Arithmosophic Anamnesis LLC.</span>
+    <span>Symbolic reflection tool. Not clinical, legal, financial, or scientific diagnosis.</span>
+  </div>
+</footer>
+
+<script>
+const glyphs={
+  1:{name:"The Spark",glyph:"Monad · Initiator",form:"The Point",archetype:"The Initiator",essence:"the need to begin",impulse:"to act first",energy:"direct and forceful",intelligence:"openings, targets, and decisions",action:"Initiator",desc:"The first push. The part that starts, decides, claims direction, and refuses to wait forever.",ask:"Life keeps asking you to begin before conditions are perfect.",pressure:"Under pressure, you move toward action, control, decision, and direction.",cut:"Your danger is not confidence. Your danger is turning every delay into an enemy.",carry:"Others may experience you as direct, self-starting, hard to redirect, or unwilling to wait for permission.",nameCut:"Your name can make independence look like wisdom even when it is only refusal to receive help.",works:"You work well when a room needs courage, a first move, or a clean decision.",breaks:"You break when you confuse leadership with not needing anyone.",misread:"People may call you selfish when the deeper issue is that you feel safer moving alone than waiting with others.",correct:"Before you take over, ask one honest question and actually let the answer change your move."},
+  2:{name:"The Mirror",glyph:"Dyad · Relational Number",form:"The Line",archetype:"The Relational Mirror",essence:"the need to connect",impulse:"to seek alignment",energy:"responsive and sensitive",intelligence:"tone, feedback, and relationship",action:"Relational Mirror",desc:"The part that feels the room, reads the bond, and notices what is unsaid before others admit it.",ask:"Life keeps asking you to stay connected without disappearing into the connection.",pressure:"Under pressure, you seek repair, agreement, reassurance, or emotional balance.",cut:"Your danger is not sensitivity. Your danger is letting someone else become your center.",carry:"Others may experience you as receptive, careful, emotionally aware, or hard to separate from the mood around you.",nameCut:"Your name can make peacekeeping look like love even when it is fear of disconnection.",works:"You work well when people need mediation, care, listening, and repair.",breaks:"You break when keeping the peace costs you your own position.",misread:"People may call you passive when the deeper issue is that conflict feels like a threat to belonging.",correct:"Name your position before you adapt to anyone else's."},
+  3:{name:"The Voice",glyph:"Triad · Expressor",form:"The Triangle",archetype:"The Expressor",essence:"the need to express",impulse:"to speak, create, and combine",energy:"warm and outward",intelligence:"connections, stories, and possibilities",action:"Expressor",desc:"The part that turns pressure into words, images, humor, ideas, and motion.",ask:"Life keeps asking you to express what is real, not merely what gets a reaction.",pressure:"Under pressure, you talk, reframe, create, joke, perform, or find a third option.",cut:"Your danger is not expression. Your danger is performing the feeling instead of finishing the work.",carry:"Others may experience you as expressive, engaging, changeable, funny, dramatic, or hard to pin down.",nameCut:"Your name can make performance look like truth when the audience matters more than the message.",works:"You work well when a situation needs language, morale, creativity, or a fresh frame.",breaks:"You break when starting ten things protects you from completing one.",misread:"People may call you shallow when the deeper issue is that expression arrives faster than integration.",correct:"Finish one real thing before you make another beautiful explanation."},
+  4:{name:"The Stone",glyph:"Tetrad · Builder",form:"The Square",archetype:"The Builder",essence:"the need to build",impulse:"to order and stabilize",energy:"steady and heavy",intelligence:"structure, limits, and what will hold",action:"Builder",desc:"The part that wants a plan, a structure, a duty, and a stable place to stand.",ask:"Life keeps asking you to build something real without making life feel like a cage.",pressure:"Under pressure, you organize, slow down, set rules, reinforce boundaries, or return to what is proven.",cut:"Your danger is not discipline. Your danger is making control feel like safety.",carry:"Others may experience you as reliable, serious, grounded, stubborn, careful, or resistant to sudden change.",nameCut:"Your name can make rigidity look like responsibility.",works:"You work well when something needs order, consistency, skill, and follow-through.",breaks:"You break when the plan becomes more important than the person inside it.",misread:"People may call you cold when the deeper issue is that chaos feels expensive to you.",correct:"Leave one part of the day unplanned and do not turn it into a project."},
+  5:{name:"The Wind",glyph:"Pentad · Adventurer",form:"The Pentagon / Pentagram",archetype:"The Adventurer",essence:"the need for movement",impulse:"to change and test",energy:"quick and restless",intelligence:"exits, openings, and fresh options",action:"Adventurer",desc:"The part that needs motion, variety, risk, and room to breathe.",ask:"Life keeps asking you to move without using movement as escape.",pressure:"Under pressure, you pivot, leave, experiment, disrupt, or look for a new path.",cut:"Your danger is not freedom. Your danger is leaving before the lesson can change you.",carry:"Others may experience you as exciting, unpredictable, curious, evasive, or allergic to confinement.",nameCut:"Your name can make escape look like growth.",works:"You work well when a stagnant situation needs life, options, humor, risk, or motion.",breaks:"You break when every hard moment becomes proof that you should go elsewhere.",misread:"People may call you unreliable when the deeper issue is that stillness can feel like slow death.",correct:"Stay through one full cycle before calling it a prison."},
+  6:{name:"The Hearth",glyph:"Hexad · Nurturer",form:"The Hexagon",archetype:"The Nurturer",essence:"the need to care",impulse:"to repair and harmonize",energy:"warm and gathering",intelligence:"need, imbalance, and responsibility",action:"Nurturer",desc:"The part that notices what is strained and tries to restore warmth, beauty, care, and balance.",ask:"Life keeps asking you to care without becoming responsible for everyone's wholeness.",pressure:"Under pressure, you fix, carry, soothe, beautify, protect, or absorb tension.",cut:"Your danger is not love. Your danger is turning care into a quiet form of control.",carry:"Others may experience you as caring, responsible, warm, protective, demanding, or hard to disappoint.",nameCut:"Your name can make over-giving look like devotion.",works:"You work well when people need care, steadiness, repair, and a better environment.",breaks:"You break when your help creates debt instead of freedom.",misread:"People may call you controlling when the deeper issue is fear that things fall apart unless you carry them.",correct:"Let someone face a consequence without rushing in to soften it."},
+  7:{name:"The Veil",glyph:"Heptad · Seeker",form:"The Heptagon",archetype:"The Seeker",essence:"the need to understand",impulse:"to question and look beneath",energy:"quiet and penetrating",intelligence:"hidden structure and false assumptions",action:"Seeker",desc:"The part that doubts easy answers and wants to know what is really happening underneath the surface.",ask:"Life keeps asking you to seek truth without using depth as distance.",pressure:"Under pressure, you withdraw, analyze, question, separate signal from noise, or test assumptions.",cut:"Your danger is not depth. Your danger is hiding from life inside your analysis.",carry:"Others may experience you as perceptive, private, difficult, skeptical, wise, or emotionally far away.",nameCut:"Your name can make distance look like discernment.",works:"You work well when something needs investigation, pattern recognition, and the courage to question the obvious.",breaks:"You break when understanding replaces participating.",misread:"People may call you detached when the deeper issue is that superficiality feels dishonest to you.",correct:"Do one concrete thing before you explain the whole pattern."},
+  8:{name:"The Tower",glyph:"Ogdoad · Ruler",form:"The Octagon",archetype:"The Ruler",essence:"the need to master",impulse:"to secure power and outcome",energy:"commanding and strategic",intelligence:"leverage, stakes, and results",action:"Ruler",desc:"The part that sees power, consequence, resources, hierarchy, and what must be handled at scale.",ask:"Life keeps asking you to use power without making control your proof of safety.",pressure:"Under pressure, you take command, measure leverage, protect position, enforce order, or secure resources.",cut:"Your danger is not ambition. Your danger is treating vulnerability as a loss of rank.",carry:"Others may experience you as capable, intense, strategic, intimidating, protective, or hard to soften.",nameCut:"Your name can make control look like maturity.",works:"You work well when stakes are high and someone must own the outcome.",breaks:"You break when every relationship becomes a power map.",misread:"People may call you ruthless when the deeper issue is fear of being powerless again.",correct:"Give without strategy. Let one generous act produce no advantage."},
+  9:{name:"The River",glyph:"Ennead · Humanitarian",form:"The Enneagram",archetype:"The Humanitarian",essence:"the need to complete",impulse:"to release and integrate",energy:"wide and encompassing",intelligence:"the whole cycle",action:"Humanitarian",desc:"The part that sees the larger story, the ending, the cost, and what must be released.",ask:"Life keeps asking you to complete without vanishing into everything unfinished.",pressure:"Under pressure, you forgive, integrate, serve, release, widen the frame, or absorb too much.",cut:"Your danger is not compassion. Your danger is disappearing into the pain you are trying to heal.",carry:"Others may experience you as compassionate, wise, elusive, forgiving, tired, or hard to locate personally.",nameCut:"Your name can make self-erasure look noble.",works:"You work well when something needs closure, forgiveness, perspective, and humane completion.",breaks:"You break when you keep forgiving what needed a boundary.",misread:"People may call you vague when the deeper issue is that you are seeing too many sides at once.",correct:"Hold one boundary without explaining it into softness."},
+  11:{name:"The Blade",glyph:"Master Number · Threshold-Crosser",form:"Twin Pillars",archetype:"The Visionary Initiate",essence:"the need to reveal",impulse:"to illuminate and translate",energy:"charged and high-pressure",intelligence:"what is trying to break through",action:"Visionary",desc:"The part that feels a signal before it is easy to explain and carries pressure others may not yet notice.",ask:"Life keeps asking you to reveal what you see without worshiping the intensity of seeing it.",pressure:"Under pressure, you intensify, translate, warn, reveal, rupture the ordinary frame, or hold paradox.",cut:"Your danger is not vision. Your danger is confusing intensity with authority.",carry:"Others may experience you as powerful, overwhelming, unusual, inspired, unstable, or impossible to reduce.",nameCut:"Your name can make revelation arrive before grounding.",works:"You work well when heightened perception is made useful, practical, and clear.",breaks:"You break when the signal becomes your identity instead of your responsibility.",misread:"People may call you dramatic when the deeper issue is that you are registering pressure they cannot name yet.",correct:"Turn the signal into one useful act before you announce it."}
+};
+
+const state={birth:null,name:null};
+function cleanName(name){return (name||"").toUpperCase().replace(/[^A-Z]/g,"");}
+function letterValue(ch){return ch.charCodeAt(0)-64;}
+function digitalRootLetter(v){return ((v-1)%9)+1;}
+function reduceNumber(n){const path=[n];let c=n;while(c>9&&c!==11){c=String(c).split("").reduce((a,b)=>a+Number(b),0);path.push(c)}return{root:c,path};}
+function digitSumFromDate(v){const digits=v.replace(/\D/g,"").split("").map(Number);return{digits,sum:digits.reduce((a,b)=>a+b,0)};}
+function byId(id){return document.getElementById(id)}
+function set(id,v){byId(id).textContent=v}
+function html(id,v){byId(id).innerHTML=v}
+function chips(items){return items.map(x=>`<span class="chip">${x}</span>`).join("")}
+function calculateNameData(name){const letters=cleanName(name).split("");const ordinalValues=letters.map(letterValue);const reductionValues=ordinalValues.map(digitalRootLetter);const ordinalTotal=ordinalValues.reduce((a,b)=>a+b,0);const reductionTotal=reductionValues.reduce((a,b)=>a+b,0);const ordinal=reduceNumber(ordinalTotal);const reduction=reduceNumber(reductionTotal);return{letters,ordinalValues,reductionValues,ordinalTotal,reductionTotal,ordinal,reduction};}
+
+function calculateBirth(){
+  const date=byId('birthdate').value;
+  if(!date){alert('Enter a birthdate first.');return;}
+  const d=digitSumFromDate(date);
+  const r=reduceNumber(d.sum);
+  const g=glyphs[r.root]||glyphs[reduceNumber(r.root).root]||glyphs[9];
+  state.birth={date,digits:d.digits,sum:d.sum,root:r.root,path:r.path,g};
+  set('birthSummary',`Birthdate resolves to Glyph ${r.root}: ${g.name}. This is the pressure-pattern that keeps returning.`);
+  set('birthNum',r.root);
+  set('birthName',`${g.name} — ${g.glyph}`);
+  set('birthDesc',g.desc);
+  html('birthChips',chips([g.form,g.archetype,g.essence]));
+  set('birthCalc',`${date} → ${d.digits.join(' + ')} = ${d.sum} → ${r.path.join(' → ')}`);
+  set('birthAsk',g.ask);
+  set('birthPressure',g.pressure);
+  set('birthCut',g.cut);
+  byId('birthResult').style.display='block';
+  updateSynthesisStatus();
+}
+
+function calculateNameReading(){
+  const raw=byId('fullName').value.trim();
+  const n=calculateNameData(raw);
+  if(!raw||!n.letters.length){alert('Enter a full birth name first.');return;}
+  const ord=n.ordinal.root, red=n.reduction.root;
+  const gOrd=glyphs[ord]||glyphs[9], gRed=glyphs[red]||glyphs[9];
+  state.name={raw,n,ord,red,gOrd,gRed};
+  set('nameSummary',`Full name resolves to Ordinal Glyph ${ord}, with Reduction Undertone ${red}.`);
+  set('nameNum',ord);
+  set('nameTitle',`${gOrd.name} — ${gOrd.glyph}`);
+  set('nameDesc',gOrd.desc);
+  html('nameChips',chips([gOrd.form,gOrd.archetype,`Undertone: ${gRed.name}`]));
+  set('ordinalLens',gOrd.carry);
+  set('reductionLens',`Beneath the visible pattern, ${gRed.name} adds this: ${gRed.essence}, driven ${gRed.impulse}.`);
+  set('nameCalc',`Ordinal: ${n.ordinalValues.join(' + ')} = ${n.ordinalTotal} → ${n.ordinal.path.join(' → ')}\nReduction: ${n.reductionValues.join(' + ')} = ${n.reductionTotal} → ${n.reduction.path.join(' → ')}`);
+  set('nameCut',`${gOrd.name}: ${gOrd.nameCut} Undertone ${red}: ${gRed.correct}`);
+  byId('nameResult').style.display='block';
+  updateSynthesisStatus();
+}
+
+function pairMode(a,b){
+  if(a===b)return 'Reinforcement';
+  if(a===11||b===11)return 'Threshold charge';
+  const gap=Math.abs(a-b);
+  if(gap<=2)return 'Clean tension';
+  if(gap<=4)return 'Compensation';
+  return 'Stress reversal';
+}
+function pairTitle(a,b){const A=glyphs[a]||glyphs[9],B=glyphs[b]||glyphs[9];return `${A.action} → ${B.action}`;}
+function lowerFirst(s){return s.charAt(0).toLowerCase()+s.slice(1)}
+function synthesis(){
+  if(!state.birth||!state.name)return null;
+  const a=state.birth.root,b=state.name.ord,u=state.name.red;
+  const A=state.birth.g,B=state.name.gOrd,U=state.name.gRed;
+  const mode=pairMode(a,b);
+  return{
+    a,b,u,A,B,U,mode,title:pairTitle(a,b),
+    core:`You begin with ${A.essence}. You carry yourself through ${B.essence}. Underneath, ${U.name} adds ${U.essence}. This means the first pressure and the way you respond are not the same thing. Do not let one impersonate the other.`,
+    works:`This pattern works when ${A.name} handles the first pressure and ${B.name} handles the response. ${A.works} ${B.works}`,
+    mistake:`The repeating mistake is simple: the first pressure arrives, but the name-pattern takes over too quickly. ${A.breaks} Then ${B.name} turns the reaction into a familiar defense: ${lowerFirst(B.breaks)}`,
+    social:`People may first meet ${B.name} in you. ${B.misread} What they may not see is the older pressure underneath: ${lowerFirst(A.ask)}`,
+    correction:`First correction: ${A.correct} Second correction: ${B.correct} Undertone correction: ${U.correct}`
+  };
+}
+function updateSynthesisStatus(){
+  const s=synthesis();
+  if(!s){
+    set('synthesisStatusTitle',state.birth?'Birth Root complete. Now reveal the Full Name Glyph.':state.name?'Name Glyph complete. Now reveal the Birth Root.':'Complete both calculators to generate your synthesis.');
+    set('synthesisStatus','Keep the two readings separate first. Once both are revealed, the full reading can name the point where they repeat, collide, or correct each other.');
+    return;
+  }
+  set('synthesisStatusTitle',`Synthesis ready: Glyph ${s.a} → Glyph ${s.b}`);
+  set('synthesisStatus',`Your full reading is prepared: ${s.title}. The undertone is Glyph ${s.u}.`);
+  renderPaid(false);
+}
+function paidCard(title,body,cls=''){return `<div class="paid-card ${cls}"><h4>${title}</h4><p>${body}</p></div>`;}
+function renderPaid(show){
+  const s=synthesis();
+  if(!s)return;
+  html('paidGrid',
+    paidCard('The Core Collision',`<strong>Glyph ${s.a} → Glyph ${s.b}: ${s.title}.</strong> ${s.core}`,'primary')+
+    paidCard('Where This Works',s.works)+
+    paidCard('The Repeating Mistake',s.mistake)+
+    paidCard('How Others Experience It',s.social)+
+    paidCard('The Correction',s.correction)
+  );
+  byId('paidOutput').style.display=show?'block':'none';
+}
+function previewPaid(){
+  const s=synthesis();
+  if(!s){alert('Complete both calculators first.');return;}
+  renderPaid(true);
+  byId('paidOutput').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function copyFree(){
+  const out=[];
+  if(state.birth){out.push(`Birth Root: Glyph ${state.birth.root} — ${state.birth.g.name}`);out.push(`Cut: ${state.birth.g.cut}`)}
+  if(state.name){out.push(`Name Glyph: Glyph ${state.name.ord} — ${state.name.gOrd.name}`);out.push(`Reduction Undertone: Glyph ${state.name.red} — ${state.name.gRed.name}`);out.push(`Name Cut: ${state.name.gOrd.nameCut}`)}
+  if(!out.length){alert('Complete at least one calculator first.');return;}
+  navigator.clipboard.writeText(out.join('\n\n')).then(()=>alert('Free reading copied.'));
+}
+function buildGallery(){
+  html('galleryGrid',[1,2,3,4,5,6,7,8,9,11].map(n=>{const g=glyphs[n];return `<div class="num-card"><div class="n">${n}</div><h3>${g.name}</h3><p>${g.form}<br>${g.archetype}</p></div>`}).join(''));
+}
+buildGallery();
+</script>
+</body>
+</html>
