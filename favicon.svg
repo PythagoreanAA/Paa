@@ -55,10 +55,10 @@
     <circle
       cx="32"
       cy="32"
-      r="29.5"
+      r="29"
       fill="url(#discGradient)"
       stroke="#8a44b8"
-      stroke-width="1.2"
+      stroke-width="2.4"
     />
   </g>
 
