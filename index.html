@@ -139,48 +139,192 @@
       box-shadow:0 0 14px rgba(141,248,255,.42);
     }
 
+    /* PRIMARY NAVIGATION — REFINED */
+
+    nav,
+    .navlinks{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    nav a,
     .navlinks a{
       position:relative;
+      isolation:isolate;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      min-height:42px;
       padding:10px 16px;
+
       border-radius:999px;
-      transition:
-        color .25s ease,
-        background .25s ease,
-        border-color .25s ease,
-        transform .25s ease,
-        box-shadow .25s ease;
-      border:1px solid transparent;
-    }
+      border:1px solid rgba(141,248,255,.11);
 
-    .navlinks a:hover{
-      color:#f4fcff;
-      background:rgba(141,248,255,.08);
-      border-color:rgba(141,248,255,.22);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.015)
+        );
+
+      color:#c8dce8;
+
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.055em;
+      text-transform:uppercase;
+
+      white-space:nowrap;
+
       box-shadow:
-        0 0 22px rgba(141,248,255,.10),
-        inset 0 0 18px rgba(141,248,255,.05);
-      transform:translateY(-1px);
+        inset 0 0 18px rgba(141,248,255,.025);
+
+      transition:
+        color .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease;
     }
 
+    nav a::before,
+    .navlinks a::before{
+      content:'';
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      z-index:-1;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(141,248,255,.28),
+          rgba(185,88,223,.28)
+        );
+
+      opacity:0;
+      transition:opacity .22s ease;
+    }
+
+    nav a::after,
     .navlinks a::after{
       content:'';
       position:absolute;
       left:18px;
       right:18px;
-      bottom:6px;
+      bottom:7px;
       height:1px;
-      background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(141,248,255,.75),
-        transparent
-      );
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(141,248,255,.85),
+          transparent
+        );
+
       opacity:0;
-      transition:opacity .25s ease;
+      transition:opacity .22s ease;
     }
 
+    nav a:hover,
+    .navlinks a:hover{
+      color:#f8fdff;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(141,248,255,.09),
+          rgba(185,88,223,.055)
+        );
+
+      border-color:rgba(141,248,255,.28);
+
+      box-shadow:
+        0 0 24px rgba(141,248,255,.10),
+        inset 0 0 22px rgba(141,248,255,.045);
+
+      transform:translateY(-1px);
+    }
+
+    nav a:hover::before,
+    .navlinks a:hover::before{
+      opacity:1;
+    }
+
+    nav a:hover::after,
     .navlinks a:hover::after{
       opacity:1;
+    }
+
+    nav a.active,
+    .navlinks a.active{
+      color:#031116;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--turquoise),
+          var(--aqua)
+        );
+
+      border-color:rgba(141,248,255,.55);
+
+      box-shadow:
+        0 14px 34px rgba(49,223,209,.17),
+        0 0 38px rgba(141,248,255,.12);
+    }
+
+    nav a.active::after,
+    .navlinks a.active::after{
+      opacity:0;
+    }
+
+    nav a.nav-cta,
+    .navlinks a.nav-cta{
+      color:#f8fdff;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(185,88,223,.28),
+          rgba(49,223,209,.16)
+        );
+
+      border-color:rgba(185,88,223,.38);
+
+      box-shadow:
+        0 0 26px rgba(185,88,223,.12),
+        inset 0 0 18px rgba(141,248,255,.04);
+    }
+
+    nav a.nav-cta:hover,
+    .navlinks a.nav-cta:hover{
+      border-color:rgba(141,248,255,.42);
+
+      box-shadow:
+        0 0 30px rgba(141,248,255,.14),
+        0 0 36px rgba(185,88,223,.12),
+        inset 0 0 22px rgba(141,248,255,.05);
+    }
+
+    nav a.nav-cta.active,
+    .navlinks a.nav-cta.active{
+      color:#031116;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--violetBright),
+          var(--aqua)
+        );
+
+      border-color:rgba(141,248,255,.58);
     }
 
     h1,h2,h3{
@@ -834,8 +978,29 @@
         font-size:72px;
       }
 
+      .nav{
+        align-items:flex-start;
+      }
+
+      nav,
       .navlinks{
-        display:none;
+        width:100%;
+        justify-content:center;
+        gap:8px;
+      }
+
+      nav a,
+      .navlinks a{
+        flex:1 1 calc(50% - 8px);
+        min-width:140px;
+        padding:11px 12px;
+        font-size:11px;
+        letter-spacing:.045em;
+      }
+
+      nav a.nav-cta,
+      .navlinks a.nav-cta{
+        flex-basis:100%;
       }
 
       .brand{
@@ -906,12 +1071,12 @@
 
     </div>
 
-    <nav aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="aboutpaa.html" class="active">What Is PAA?</a>
-        <a href="index.html#birth-root">Birth Root Glyph</a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="what-is-paa.html">What Is PAA?</a>
+        <a href="index.html#calculator">Birth Root Glyph</a>
         <a href="donate.html" class="nav-cta">Support PAA</a>
-    </nav>
+      </nav>
 
   </div>
 </header>
