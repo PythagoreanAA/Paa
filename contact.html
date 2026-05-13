@@ -1,273 +1,554 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pythagorean Arithmosophic Anamnesis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Single, correct description -->
-  <meta name="description" content="Contact — Structural diagnostics for systems under pressure: coherence, drift, and fracture in people, organizations, and ideas.">
+  <title>Contact | Pythagorean Arithmosophic Anamnesis</title>
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta
+    name="description"
+    content="Contact Pythagorean Arithmosophic Anamnesis for inquiries, collaborations, consultations, and advanced diagnostic readings."
+  />
 
-  <meta property="og:title" content="Contact — PAA">
-  <meta property="og:description" content="Consultancy-grade diagnostics for coherence, drift, and fracture.">
-  <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg">
-  <meta property="og:url" content="https://pythagoreanaa.com/contact.html">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Contact | Pythagorean Arithmosophic Anamnesis" />
+  <meta
+    property="og:description"
+    content="Initiatic correspondence, advanced readings, and symbolic consultation."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.jpg" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+
     :root{
-      --fg:#E9ECF2;
-      --muted:#A6B0C2;
-      --muted2:#7F8AA3;
-      --border:rgba(255,255,255,.10);
-      --accent:#7AA2F7;
-      --accent2:#A78BFA;
-      --radius:18px;
-      --max:980px;
-      --pad:24px;
-      --shadow:0 22px 80px rgba(0,0,0,.55);
-      --shadow2:0 12px 34px rgba(0,0,0,.35);
+      --bg:#040612;
+      --bg2:#08111f;
+      --panel:#0d1526;
+      --panel2:#10192d;
+      --ink:#edf7ff;
+      --muted:#9eb4c2;
+      --dim:#6f8792;
+      --aqua:#8df8ff;
+      --turquoise:#31dfd1;
+      --teal:#16b3a4;
+      --violet:#7c2a91;
+      --violetBright:#b958df;
+      --violet2:#36105a;
+      --line:rgba(141,248,255,.13);
+      --shadow:0 30px 80px rgba(0,0,0,.45);
+      --radius:28px;
+      --serif:'Cormorant Garamond', serif;
+      --sans:'Inter', sans-serif;
     }
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    *{box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
-      min-height:100vh;
-      color:var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
-      line-height:1.6;
+      color:var(--ink);
+      font-family:var(--sans);
       background:
-        radial-gradient(1200px 800px at 12% -10%, rgba(122,162,247,.20), transparent 60%),
-        radial-gradient(1000px 700px at 88% 8%, rgba(167,139,250,.18), transparent 55%),
-        radial-gradient(900px 650px at 52% 120%, rgba(94,234,212,.10), transparent 62%),
-        linear-gradient(180deg, #070a14 0%, #0b1020 45%, #06080f 100%);
+        radial-gradient(circle at top, rgba(124,42,145,.46), transparent 28rem),
+        radial-gradient(circle at 18% 22%, rgba(49,223,209,.12), transparent 24rem),
+        radial-gradient(circle at 80% 14%, rgba(141,248,255,.07), transparent 22rem),
+        linear-gradient(180deg, #030711 0%, #08111f 48%, #040612 100%);
     }
 
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
-
-    /* HEADER — aligned with index */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: rgba(7,10,18,.65);
-      border-bottom:1px solid var(--border);
-    }
-
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:16px 0;
-    }
-
-    .brand strong{ font-size:.95rem; letter-spacing:.05em; }
-    .brand span{ display:block; font-size:.78rem; color:var(--muted2); }
-
-    nav{ display:flex; gap:10px; flex-wrap:wrap; }
-
-    nav a{
-      color:var(--muted);
-      font-size:.85rem;
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid transparent;
+    a{
+      color:inherit;
       text-decoration:none;
     }
 
-    nav a:hover{ color:var(--fg); border-color:var(--border); }
-    nav a.active{
-      color:var(--fg);
-      border-color:rgba(122,162,247,.40);
-      background:rgba(255,255,255,.04);
+    .wrap{
+      width:min(1120px, calc(100% - 32px));
+      margin:auto;
     }
 
-    main{ padding:48px 0 0; }
-
-    h1{
-      margin:0 0 10px;
-      font-size:2.2rem;
-      letter-spacing:-0.03em;
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
+      background:rgba(4,6,18,.76);
+      border-bottom:1px solid var(--line);
     }
 
-    .lede{ color:var(--muted); max-width:60ch; }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-top:28px;
-    }
-
-    @media(max-width:900px){ .grid{ grid-template-columns:1fr; } }
-
-    .panel{
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      background: rgba(12,16,32,.55);
-      box-shadow:var(--shadow2);
-      padding:18px;
-    }
-
-    label{ font-size:.85rem; color:var(--muted2); }
-
-    input, textarea{
-      width:100%; margin-top:6px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color:var(--fg);
-      padding:12px;
-    }
-
-    textarea{ min-height:140px; }
-
-    .actions{ display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
-
-    .btn{
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.03);
-      color:var(--fg);
-      cursor:pointer;
-    }
-
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(122,162,247,.25), rgba(167,139,250,.20));
-      border-color:rgba(122,162,247,.45);
-    }
-
-    .notice{
-      margin-top:12px;
-      padding:12px;
-      border-radius:12px;
-      border:1px solid rgba(34,230,200,.2);
-      background:rgba(34,230,200,.06);
-      display:none;
-    }
-
-    .emailbox{
-      margin-top:16px;
-      padding:12px;
-      border:1px solid var(--border);
-      border-radius:12px;
+    .nav{
       display:flex;
       justify-content:space-between;
       align-items:center;
+      padding:18px 0;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:var(--aqua);
+    }
+
+    .brand span{
+      line-height:1.45;
+    }
+
+    .tetractys{
+      width:46px;
+      height:40px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:4px;
+      flex:0 0 auto;
+    }
+
+    .tetra-row{
+      display:flex;
+      justify-content:center;
+      gap:5px;
+      line-height:0;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--aqua),var(--violetBright));
+      box-shadow:0 0 14px rgba(141,248,255,.42);
+    }
+
+    .navlinks{
+      display:flex;
+      gap:20px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .navlinks a:hover{
+      color:var(--aqua);
+    }
+
+    .hero{
+      padding:120px 0 80px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      color:var(--aqua);
+      text-transform:uppercase;
+      letter-spacing:.25em;
+      font-size:12px;
+      margin-bottom:24px;
+    }
+
+    h1,h2,h3{
+      margin:0;
+      font-weight:400;
+      font-family:var(--serif);
+    }
+
+    h1{
+      font-size:clamp(48px, 8vw, 100px);
+      line-height:.92;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      background:linear-gradient(180deg,#fff 0%,var(--aqua) 55%,#b8e8ff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:850px;
+      margin:32px auto 0;
+      font-size:clamp(18px,2vw,22px);
+      color:var(--muted);
+      line-height:1.9;
+    }
+
+    .threshold{
+      margin-top:40px;
+      font-family:var(--serif);
+      font-size:30px;
+      color:#dfefff;
+      font-style:italic;
+    }
+
+    .contact-section{
+      padding-bottom:120px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .panel{
+      background:linear-gradient(180deg,rgba(16,25,45,.92),rgba(6,10,20,.98));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:42px;
+      box-shadow:var(--shadow);
+    }
+
+    .panel-title{
+      font-size:clamp(30px,4vw,48px);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+
+    .panel-intro{
+      color:#d3e3ed;
+      line-height:1.9;
+      font-size:18px;
+      margin-bottom:28px;
+    }
+
+    form{
+      display:grid;
+      gap:18px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:10px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+    }
+
+    input,
+    textarea{
+      width:100%;
+      background:#050b16;
+      border:1px solid rgba(141,248,255,.18);
+      color:var(--ink);
+      border-radius:18px;
+      padding:18px;
+      font-size:16px;
+      font-family:var(--sans);
+      transition:.2s ease;
+    }
+
+    textarea{
+      min-height:220px;
+      resize:vertical;
+      line-height:1.8;
+    }
+
+    input:focus,
+    textarea:focus{
+      outline:none;
+      border-color:rgba(141,248,255,.45);
+      box-shadow:0 0 0 1px rgba(141,248,255,.16);
+    }
+
+    button{
+      border:none;
+      cursor:pointer;
+      border-radius:18px;
+      padding:18px 24px;
+      background:linear-gradient(135deg,var(--turquoise),var(--aqua));
+      color:#031116;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      box-shadow:0 14px 40px rgba(49,223,209,.18);
+      transition:.2s ease;
+      font-family:var(--sans);
+      font-size:14px;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .info-card{
+      padding:24px;
+      border-radius:24px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(141,248,255,.10);
+      margin-bottom:18px;
+    }
+
+    .info-card h3{
+      margin-bottom:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      color:var(--aqua);
+      font-family:var(--sans);
+      font-weight:700;
+    }
+
+    .info-card p{
+      margin:0;
+      color:#e9edf1;
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    .contact-link{
+      color:var(--aqua);
+      word-break:break-word;
+    }
+
+    .seal{
+      margin-top:26px;
+      padding:24px;
+      border-radius:24px;
+      border:1px solid rgba(185,88,223,.22);
+      background:
+        radial-gradient(circle at top left, rgba(185,88,223,.16), transparent 16rem),
+        rgba(255,255,255,.03);
+    }
+
+    .seal p{
+      margin:0;
+      color:#d5e3ec;
+      line-height:1.9;
+      font-size:17px;
     }
 
     footer{
-      margin-top:40px;
-      padding:30px 0 60px;
-      border-top:1px solid var(--border);
-      color:var(--muted2);
-      font-size:.85rem;
+      padding:40px 0 80px;
+      text-align:center;
+      color:#6f8792;
+      font-size:14px;
     }
+
+    @media(max-width:900px){
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:760px){
+
+      .navlinks{
+        display:none;
+      }
+
+      .brand{
+        letter-spacing:.10em;
+        font-size:10px;
+      }
+
+      .panel{
+        padding:28px;
+      }
+
+      button{
+        width:100%;
+      }
+
+    }
+
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="wrap nav">
-    <div class="brand">
-      <strong>Pythagorean Arithmosophic Anamnesis</strong>
-      <span>Structural diagnostics</span>
-    </div>
 
-    <nav>
+    <a href="index.html" class="brand" aria-label="Pythagorean Arithmosophic Anamnesis">
+
+      <div class="tetractys" aria-hidden="true">
+        <div class="tetra-row"><span class="dot"></span></div>
+        <div class="tetra-row"><span class="dot"></span><span class="dot"></span></div>
+        <div class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+
+      <span>
+        Pythagorean<br>
+        Arithmosophic<br>
+        Anamnesis
+      </span>
+
+    </a>
+
+    <nav class="navlinks">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="/diagnostic-call.html">Diagnostic Call</a>
-      <a class="active" href="contact.html">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
+
   </div>
 </header>
 
 <main>
-  <div class="wrap">
-    <h1>Contact</h1>
-    <p class="lede">State the system. Name the break. Define what must survive.</p>
 
-    <div class="grid">
+  <section class="hero wrap">
 
-      <!-- FORM -->
+    <div class="eyebrow">
+      Correspondence & Consultation
+    </div>
+
+    <h1>
+      Enter the<br>
+      Threshold
+    </h1>
+
+    <p>
+      Not every inquiry is merely informational.
+      Some arise because a pattern has repeated long enough that the psyche can no longer ignore it.
+    </p>
+
+    <p>
+      If you are seeking advanced diagnostic readings, symbolic consultation, philosophical correspondence, or collaborative work aligned with the spirit of Pythagorean Arithmosophic inquiry, you may initiate contact below.
+    </p>
+
+    <div class="threshold">
+      Clarity begins where avoidance ends.
+    </div>
+
+  </section>
+
+  <section id="contact" class="contact-section wrap">
+
+    <div class="contact-grid">
+
       <div class="panel">
-        <form id="contactForm" action="https://formspree.io/f/xeezyokk" method="POST">
 
-          <label>Name</label>
-          <input name="name" type="text">
+        <h2 class="panel-title">
+          Contact
+        </h2>
 
-          <label>Email</label>
-          <input name="email" type="email">
-
-          <label>Message</label>
-          <textarea name="message" required></textarea>
-
-          <div class="actions">
-            <button class="btn primary" type="submit">Send</button>
-            <a class="btn" href="mailto:pythagoreanAA@proton.me">Use email instead</a>
-          </div>
-
-          <div class="notice" id="notice"></div>
-        </form>
-      </div>
-
-      <!-- SIDE -->
-      <div class="panel">
-        <p style="color:var(--muted); margin:0;">Direct email:</p>
-
-        <div class="emailbox">
-          <code id="emailText">pythagoreanAA@proton.me</code>
-          <button class="btn" onclick="copyEmail()">Copy</button>
+        <div class="panel-intro">
+          Use the form below for inquiries regarding advanced readings, collaborations, podcast appearances, writing, or symbolic consultation.
         </div>
 
-        <p style="margin-top:12px; color:var(--muted2);">
-          One paragraph. One failure point. No performance.
-        </p>
+<form action="https://formspree.io/f/mkoyedbl" method="POST">
+
+  <input type="hidden" name="_subject" value="New PAA Correspondence">
+  <input type="hidden" name="_captcha" value="false">
+
+  <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+  <input type="text" name="name" autocomplete="name">
+  <input type="email" name="email" autocomplete="email">
+  
+  <div>
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Your name"
+      required
+    />
+  </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Nature of inquiry"
+            />
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write clearly. Patterns reveal themselves through language."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">
+            Send Correspondence
+          </button>
+
+        </form>
+
       </div>
 
+      <aside class="panel">
+
+        <h2 class="panel-title">
+          Transmission
+        </h2>
+
+        <div class="info-card">
+          <h3>Email</h3>
+          <p>
+            <a class="contact-link" href="mailto:pythagoreanaa@proton.me">
+              youremail@example.com
+            </a>
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Substack</h3>
+          <p>
+            Essays, symbolic analysis, and initiatic writings may be found through your public archive and ongoing transmissions.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Consultation Focus</h3>
+          <p>
+            Archetypal diagnostics, symbolic interpretation, structural pattern recognition, philosophical refinement, and disciplined self-observation.
+          </p>
+        </div>
+
+        <div class="seal">
+          <p>
+            This work is not aimed at passive consumption.
+            The purpose is not fascination with symbols, but recognition of recurring structures within ordinary life.
+            Recognition permits refinement.
+          </p>
+        </div>
+
+      </aside>
+
     </div>
-  </div>
+
+  </section>
+
 </main>
 
 <footer>
-  <div class="wrap">
-    © <span id="year"></span> Stephen Richard Neville
-  </div>
+  © 2026 Pythagorean Arithmosophic Anamnesis
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  async function copyEmail(){
-    const email = document.getElementById("emailText").textContent;
-    await navigator.clipboard.writeText(email);
-  }
-
-  const form = document.getElementById("contactForm");
-  const notice = document.getElementById("notice");
-
-  form.addEventListener("submit", async (e)=>{
-    e.preventDefault();
-    const res = await fetch(form.action, {
-      method:"POST",
-      body:new FormData(form),
-      headers:{"Accept":"application/json"}
-    });
-
-    notice.style.display="block";
-    notice.innerHTML = res.ok ? "<strong>Sent.</strong>" : "<strong>Failed.</strong>";
-
-    if(res.ok) form.reset();
-  });
-</script>
 
 </body>
 </html>
-
-
-
-
+```
