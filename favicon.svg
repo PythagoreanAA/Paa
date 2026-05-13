@@ -8,7 +8,7 @@
       <stop offset="100%" stop-color="#010a2b"/>
     </radialGradient>
 
-    <!-- Standard dot glow -->
+    <!-- Standard dot gradient -->
     <radialGradient id="dotGradient" cx="35%" cy="30%" r="70%">
       <stop offset="0%" stop-color="#9ffcff"/>
       <stop offset="38%" stop-color="#58ebf7"/>
@@ -17,32 +17,32 @@
 
     <!-- Brighter top dot -->
     <radialGradient id="topDotGradient" cx="35%" cy="30%" r="70%">
-      <stop offset="0%" stop-color="#e4ffff"/>
-      <stop offset="35%" stop-color="#9ffcff"/>
+      <stop offset="0%" stop-color="#eaffff"/>
+      <stop offset="35%" stop-color="#b8ffff"/>
       <stop offset="100%" stop-color="#43e6f3"/>
     </radialGradient>
 
     <!-- Disc soft glow -->
     <filter id="discGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.45" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Dot glow -->
+    <!-- Standard dot glow -->
     <filter id="dotGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="1.15" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="1.05" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Top dot stronger glow -->
+    <!-- Stronger glow for top dot -->
     <filter id="topDotGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="1.8" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="1.6" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -50,9 +50,8 @@
     </filter>
   </defs>
 
-  <!-- Transparent outside; only the seal shows -->
+  <!-- Circular seal -->
   <g filter="url(#discGlow)">
-    <!-- Circular seal -->
     <circle
       cx="32"
       cy="32"
@@ -63,26 +62,24 @@
     />
   </g>
 
-  <!-- Tetractys -->
+  <!-- More upright tetractys -->
   <g>
     <!-- Row 1 -->
-    <circle cx="32" cy="18" r="4.15" fill="url(#topDotGradient)" filter="url(#topDotGlow)"/>
+    <circle cx="32" cy="16.8" r="3.95" fill="url(#topDotGradient)" filter="url(#topDotGlow)"/>
 
     <!-- Row 2 -->
-    <circle cx="25" cy="25.4" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
-    <circle cx="39" cy="25.4" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="26.5" cy="25.2" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="37.5" cy="25.2" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
 
     <!-- Row 3 -->
-    <circle cx="18" cy="32.8" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
-    <circle cx="32" cy="32.8" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
-    <circle cx="46" cy="32.8" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="21" cy="33.6" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="32" cy="33.6" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="43" cy="33.6" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
 
     <!-- Row 4 -->
-    <circle cx="11" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
-    <circle cx="25" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
-    <circle cx="39" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
-    <circle cx="53" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="15.5" cy="42" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="26.5" cy="42" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="37.5" cy="42" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="48.5" cy="42" r="3.95" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
   </g>
 </svg>
-
-
