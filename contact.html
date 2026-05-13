@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +20,6 @@
   <meta property="og:image" content="/preview.jpg" />
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> 
-
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,9 +139,49 @@
       color:var(--muted);
     }
 
-    .navlinks a:hover{
-      color:var(--aqua);
-    }
+   .navlinks a{
+  position:relative;
+  padding:10px 16px;
+  border-radius:999px;
+  transition:
+    color .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+  border:1px solid transparent;
+}
+
+.navlinks a:hover{
+  color:#f4fcff;
+  background:rgba(141,248,255,.08);
+  border-color:rgba(141,248,255,.22);
+  box-shadow:
+    0 0 22px rgba(141,248,255,.10),
+    inset 0 0 18px rgba(141,248,255,.05);
+  transform:translateY(-1px);
+}
+
+.navlinks a::after{
+  content:'';
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:6px;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(141,248,255,.75),
+    transparent
+  );
+  opacity:0;
+  transition:opacity .25s ease;
+}
+
+.navlinks a:hover::after{
+  opacity:1;
+}
 
     .hero{
       padding:120px 0 80px;
