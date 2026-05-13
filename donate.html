@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Support PAA | Pythagorean Arithmosophic Anamnesis</title>
+
+  <meta
+    name="description"
+    content="Support the development of Pythagorean Arithmosophic Anamnesis: a pattern-diagnostic system for structure, pressure, collapse, and renewal."
+  />
+
+  <meta property="og:title" content="Support PAA" />
+  <meta
+    property="og:description"
+    content="Help fund the development of Pythagorean Arithmosophic Anamnesis as a modern diagnostic framework for pattern, structure, and renewal."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.jpg" />
+
+  <style>
+    :root {
+      --bg: #060814;
+      --bg-soft: #0b1024;
+      --bg-card: rgba(13, 20, 44, 0.78);
+      --bg-card-strong: rgba(18, 27, 58, 0.92);
+
+      --text: #eef7ff;
+      --muted: #aebbd0;
+      --soft: #74839b;
+
+      --teal: #43f0e0;
+      --aqua: #70fff0;
+      --purple: #7f3cff;
+      --tyrian: #5d1f6f;
+      --violet: #a77cff;
+
+      --border: rgba(112, 255, 240, 0.18);
+      --border-purple: rgba(167, 124, 255, 0.26);
+
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+      --radius: 28px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(67, 240, 224, 0.16), transparent 32rem),
+        radial-gradient(circle at 80% 10%, rgba(127, 60, 255, 0.19), transparent 34rem),
+        radial-gradient(circle at 50% 100%, rgba(93, 31, 111, 0.22), transparent 34rem),
+        linear-gradient(180deg, #050612 0%, #070a17 44%, #04050b 100%);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 18, 0.74);
+      border-bottom: 1px solid rgba(112, 255, 240, 0.12);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle, rgba(112, 255, 240, 0.18), transparent 60%),
+        linear-gradient(135deg, rgba(67, 240, 224, 0.25), rgba(127, 60, 255, 0.21));
+      border: 1px solid rgba(112, 255, 240, 0.32);
+      box-shadow: 0 0 34px rgba(67, 240, 224, 0.14);
+      flex: 0 0 auto;
+    }
+
+    .tetractys {
+      width: 25px;
+      height: 25px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      transform: translateY(1px);
+    }
+
+    .dot {
+      width: 4.5px;
+      height: 4.5px;
+      border-radius: 50%;
+      background: var(--aqua);
+      box-shadow: 0 0 8px rgba(112, 255, 240, 0.8);
+      justify-self: center;
+      align-self: center;
+    }
+
+    .d1 { grid-column: 2 / span 2; justify-self: center; }
+    .d2 { grid-column: 2; }
+    .d3 { grid-column: 3; }
+    .d4 { grid-column: 1; }
+    .d5 { grid-column: 2; }
+    .d6 { grid-column: 3; }
+    .d7 { grid-column: 4; }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: #dfefff;
+      white-space: nowrap;
+    }
+
+    .brand-text span:nth-child(2) {
+      color: var(--aqua);
+    }
+
+    .brand-text span:nth-child(3) {
+      color: var(--violet);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav a {
+      opacity: 0.88;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--aqua);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(112, 255, 240, 0.24);
+      background: rgba(112, 255, 240, 0.08);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 86px 0 50px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--aqua);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--aqua), transparent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(110deg, #ffffff 0%, var(--aqua) 42%, var(--violet) 88%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin: 28px 0 0;
+      max-width: 690px;
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      color: var(--muted);
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, rgba(67, 240, 224, 0.94), rgba(167, 124, 255, 0.92));
+      color: #02040a;
+      box-shadow: 0 18px 44px rgba(67, 240, 224, 0.15);
+    }
+
+    .button.secondary {
+      border: 1px solid rgba(112, 255, 240, 0.24);
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--text);
+    }
+
+    .button.tertiary {
+      border: 1px solid rgba(167, 124, 255, 0.3);
+      background: rgba(167, 124, 255, 0.08);
+      color: var(--text);
+    }
+
+    .support-card {
+      position: relative;
+      min-height: 440px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 50% 28%, rgba(112, 255, 240, 0.22), transparent 12rem),
+        radial-gradient(circle at 70% 68%, rgba(127, 60, 255, 0.24), transparent 13rem),
+        rgba(11, 16, 36, 0.76);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 34px;
+    }
+
+    .support-card::before {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(112, 255, 240, 0.2);
+      box-shadow:
+        inset 0 0 50px rgba(112, 255, 240, 0.08),
+        0 0 60px rgba(127, 60, 255, 0.18);
+    }
+
+    .support-card::after {
+      content: "";
+      position: absolute;
+      inset: 72px;
+      border-radius: 50%;
+      border: 1px solid rgba(167, 124, 255, 0.24);
+    }
+
+    .support-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .support-symbol {
+      font-size: clamp(5.8rem, 13vw, 9rem);
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -0.08em;
+      background: linear-gradient(135deg, #fff, var(--aqua) 44%, var(--violet));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 50px rgba(112, 255, 240, 0.16);
+    }
+
+    .support-label {
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    main {
+      padding-bottom: 80px;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      color: var(--aqua);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 800px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)),
+        var(--bg-card);
+      box-shadow: var(--shadow);
+    }
+
+    .content-card {
+      padding: clamp(26px, 5vw, 44px);
+    }
+
+    .content-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-card strong {
+      color: var(--text);
+    }
+
+    .divider-line {
+      height: 1px;
+      margin: 28px 0;
+      background: linear-gradient(90deg, transparent, rgba(112, 255, 240, 0.35), rgba(167, 124, 255, 0.35), transparent);
+    }
+
+    .donation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .donation-option {
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid rgba(112, 255, 240, 0.15);
+      background: rgba(255, 255, 255, 0.035);
+      display: flex;
+      flex-direction: column;
+      min-height: 270px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .donation-option::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      right: -76px;
+      top: -76px;
+      border-radius: 50%;
+      background: rgba(112, 255, 240, 0.06);
+    }
+
+    .donation-option.featured {
+      border-color: rgba(167, 124, 255, 0.36);
+      background:
+        radial-gradient(circle at top right, rgba(167, 124, 255, 0.16), transparent 13rem),
+        rgba(255, 255, 255, 0.04);
+    }
+
+    .option-label {
+      color: var(--aqua);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .option-title {
+      font-size: 1.35rem;
+      line-height: 1.1;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .option-text {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 22px;
+    }
+
+    .option-amount {
+      font-size: 2.2rem;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -0.06em;
+      margin-top: auto;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, var(--aqua), var(--violet));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .option-button {
+      width: 100%;
+      min-height: 46px;
+    }
+
+    .use-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .use-item {
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(112, 255, 240, 0.14);
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--muted);
+    }
+
+    .use-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .principle-panel {
+      padding: 34px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-purple);
+      background:
+        radial-gradient(circle, rgba(167, 124, 255, 0.16), transparent 14rem),
+        rgba(255, 255, 255, 0.035);
+    }
+
+    .principle-number {
+      font-size: clamp(5rem, 12vw, 8rem);
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -0.09em;
+      background: linear-gradient(135deg, #fff, var(--violet), var(--aqua));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .principle-caption {
+      margin-top: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+    }
+
+    .text-panel {
+      padding: 34px;
+    }
+
+    .text-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .text-panel strong {
+      color: var(--text);
+    }
+
+    .support-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .support-line {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(112, 255, 240, 0.15);
+      background: rgba(255, 255, 255, 0.035);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .support-line span {
+      color: var(--aqua);
+    }
+
+    .grant-card {
+      padding: clamp(30px, 5vw, 54px);
+      border-color: rgba(167, 124, 255, 0.34);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(112, 255, 240, 0.12), transparent 24rem),
+        radial-gradient(circle at 80% 80%, rgba(167, 124, 255, 0.16), transparent 24rem),
+        rgba(12, 14, 34, 0.84);
+    }
+
+    .grant-card h2 {
+      max-width: 840px;
+    }
+
+    .grant-card p {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .contact-box {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(112, 255, 240, 0.16);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .contact-box strong {
+      display: block;
+      color: var(--text);
+    }
+
+    .contact-box span {
+      color: var(--muted);
+    }
+
+    .note {
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .cta {
+      padding: clamp(30px, 5vw, 46px);
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(67, 240, 224, 0.11), rgba(167, 124, 255, 0.11)),
+        rgba(255, 255, 255, 0.035);
+    }
+
+    .cta h2 {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(112, 255, 240, 0.1);
+      padding: 32px 0 48px;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        padding: 16px 0;
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .support-card {
+        min-height: 340px;
+      }
+
+      .donation-grid,
+      .use-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .brand-text {
+        font-size: 0.72rem;
+      }
+
+      nav {
+        gap: 14px;
+        font-size: 0.86rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .donation-grid,
+      .use-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content-card,
+      .text-panel,
+      .principle-panel,
+      .donation-option {
+        padding: 24px;
+      }
+
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding-bottom: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
+        <div class="brand-mark" aria-hidden="true">
+          <div class="tetractys">
+            <span class="dot d1"></span>
+            <span class="dot d2"></span>
+            <span class="dot d3"></span>
+            <span class="dot d4"></span>
+            <span class="dot d5"></span>
+            <span class="dot d6"></span>
+            <span class="dot d7"></span>
+          </div>
+        </div>
+
+        <div class="brand-text">
+          <span>Pythagorean</span>
+          <span>Arithmosophic</span>
+          <span>Anamnesis</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="what-is-paa.html">What Is PAA?</a>
+        <a href="index.html#birth-root">Birth Root Glyph</a>
+        <a href="donate.html" class="nav-cta active">Support PAA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Support the Work</div>
+
+          <h1>
+            Help Build <span class="gradient-text">PAA.</span>
+          </h1>
+
+          <p class="hero-copy">
+            <strong>Pythagorean Arithmosophic Anamnesis</strong> is being
+            developed as a modern diagnostic framework for structure, pressure,
+            collapse, and renewal. Your support helps turn the system from
+            private discovery into public method.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#donate-options" class="button primary">Donate Now</a>
+            <a href="#grants" class="button secondary">Grant / Institutional Support</a>
+          </div>
+        </div>
+
+        <div class="support-card" aria-hidden="true">
+          <div class="support-inner">
+            <div class="support-symbol">PAA</div>
+            <div class="support-label">Fund the Framework</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-support">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">I. Why Support PAA?</div>
+          <h2>This is not content for content’s sake.</h2>
+        </div>
+
+        <div class="card content-card">
+          <p>
+            PAA exists to develop a disciplined system of pattern recognition:
+            a way to read recurring structures in individuals, organizations,
+            ideas, and civilizations.
+          </p>
+
+          <p>
+            The aim is not entertainment. The aim is not vague inspiration.
+            The aim is to build a practical and teachable framework for
+            diagnosing what holds, what fails, what repeats, and what must be
+            corrected.
+          </p>
+
+          <div class="divider-line"></div>
+
+          <p>
+            Your support helps fund the continued development of the system:
+            research, writing, public tools, diagnostic frameworks, educational
+            materials, and the infrastructure needed to make PAA accessible.
+          </p>
+
+          <p>
+            In simple terms: <strong>support turns insight into structure.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="donate-options">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">II. Donation Options</div>
+          <h2>Choose the level of support that fits.</h2>
+          <p class="lead">
+            These buttons are placeholders. Replace each link with your real
+            Stripe, PayPal, Cash App, Venmo, or other payment link.
+          </p>
+        </div>
+
+        <div class="donation-grid">
+          <article class="donation-option">
+            <div class="option-label">One-Time Gift</div>
+            <div class="option-title">Supporter</div>
+            <div class="option-text">
+              A simple contribution toward the continued development of the
+              public-facing PAA framework.
+            </div>
+            <div class="option-amount">$11</div>
+            <a
+              class="button secondary option-button"
+              href="https://buy.stripe.com/YOUR-LINK-HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Donate $11
+            </a>
+          </article>
+
+          <article class="donation-option featured">
+            <div class="option-label">Recommended</div>
+            <div class="option-title">Builder</div>
+            <div class="option-text">
+              Helps fund writing, website refinement, research expansion,
+              diagnostic tools, and educational materials.
+            </div>
+            <div class="option-amount">$33</div>
+            <a
+              class="button primary option-button"
+              href="https://buy.stripe.com/YOUR-LINK-HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Donate $33
+            </a>
+          </article>
+
+          <article class="donation-option">
+            <div class="option-label">Deep Support</div>
+            <div class="option-title">Patron</div>
+            <div class="option-text">
+              A stronger act of support for bringing PAA into public form as a
+              diagnostic method, body of writing, and teachable system.
+            </div>
+            <div class="option-amount">$111</div>
+            <a
+              class="button tertiary option-button"
+              href="https://buy.stripe.com/YOUR-LINK-HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Donate $111
+            </a>
+          </article>
+        </div>
+
+        <p class="note">
+          Suggested amounts are symbolic and practical. Any amount of support
+          helps. For a custom amount, replace the button below with your own
+          custom donation/payment link.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            href="https://buy.stripe.com/YOUR-LINK-HERE"
+            class="button secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Donate a Custom Amount
+          </a>
+
+          <a
+            href="mailto:pythagoreanaa@proton.me?subject=PAA%20Support%20Inquiry"
+            class="button secondary"
+          >
+            Contact About Supporting PAA
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="where-it-goes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">III. Where Support Goes</div>
+          <h2>Funding is directed toward building the method.</h2>
+          <p class="lead">
+            The work is to move PAA from scattered insight into coherent public
+            structure: legible, testable, teachable, and useful.
+          </p>
+        </div>
+
+        <div class="use-grid">
+          <div class="use-item">
+            <strong>Research</strong>
+            Testing glyph patterns across individuals, roles, organizations,
+            historical figures, and cultural systems.
+          </div>
+
+          <div class="use-item">
+            <strong>Writing</strong>
+            Developing articles, doctrine pages, case studies, public essays,
+            and eventually book-length materials.
+          </div>
+
+          <div class="use-item">
+            <strong>Tools</strong>
+            Improving calculators, diagnostic engines, paid readings, and
+            interactive applications.
+          </div>
+
+          <div class="use-item">
+            <strong>Education</strong>
+            Creating frameworks, lessons, diagrams, examples, and accessible
+            explanations for public use.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="principle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">IV. The Principle</div>
+          <h2>Support is not charity. It is structural participation.</h2>
+        </div>
+
+        <div class="split">
+          <div class="principle-panel">
+            <div>
+              <div class="principle-number">11</div>
+              <div class="principle-caption">Recursive Development</div>
+            </div>
+          </div>
+
+          <div class="card text-panel">
+            <p>
+              PAA is being built at the threshold between symbolic tradition and
+              modern diagnostic application.
+            </p>
+
+            <p>
+              The work requires time, testing, language, design, infrastructure,
+              public explanation, and disciplined refinement.
+            </p>
+
+            <p>
+              Support makes that refinement possible.
+            </p>
+
+            <div class="support-list">
+              <div class="support-line"><span>Insight</span> becomes language.</div>
+              <div class="support-line"><span>Language</span> becomes method.</div>
+              <div class="support-line"><span>Method</span> becomes tool.</div>
+              <div class="support-line"><span>Tool</span> becomes public work.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="grants">
+      <div class="wrap">
+        <div class="card grant-card">
+          <div class="section-kicker">V. Grants, Sponsorships, and Institutional Support</div>
+
+          <h2>For larger support, collaborations, or institutional inquiries.</h2>
+
+          <p>
+            PAA is open to serious support from individuals, organizations,
+            institutions, research groups, educational initiatives, and aligned
+            patrons who recognize the value of developing new frameworks for
+            structural diagnosis and symbolic pattern recognition.
+          </p>
+
+          <p>
+            Larger contributions can support expanded research, applied case
+            studies, consulting development, educational material, software
+            prototypes, and public-facing diagnostic tools.
+          </p>
+
+          <div class="contact-box">
+            <div>
+              <strong>Contact Stephen Neville</strong>
+              <span>For grants, sponsorships, collaborations, or patronage inquiries.</span>
+            </div>
+
+            <a
+              href="mailto:pythagoreanaa@proton.me?subject=PAA%20Grant%20or%20Sponsorship%20Inquiry"
+              class="button primary"
+            >
+              Email About Support
+            </a>
+          </div>
+
+          <p class="note">
+            This page is not legal, tax, or financial advice. If tax-deductible
+            giving becomes available in the future, the page should be updated
+            to state that explicitly. Until then, support should be treated as
+            a voluntary contribution to the development of PAA.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="card cta">
+          <h2>Help move the work from signal to structure.</h2>
+          <p>
+            PAA is still being forged. Support helps clarify the language, test
+            the system, improve the tools, and bring the framework into public
+            use.
+          </p>
+
+          <div class="hero-actions" style="justify-content: center;">
+            <a href="#donate-options" class="button primary">Support PAA</a>
+            <a href="what-is-paa.html" class="button secondary">Read What PAA Is</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>© <span id="year"></span> Pythagorean Arithmosophic Anamnesis</div>
+      <div>Number as Structure. Structure as Pattern.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
