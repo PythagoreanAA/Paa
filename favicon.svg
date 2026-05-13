@@ -1,43 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <!-- Tight halo for crisp separation at 16×16 -->
-    <filter id="halo" x="-35%" y="-35%" width="170%" height="170%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="1.3" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0.5 0" result="shadow"/>
+    <!-- Background disc -->
+    <radialGradient id="discGradient" cx="50%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#0b2568"/>
+      <stop offset="55%" stop-color="#04164a"/>
+      <stop offset="100%" stop-color="#010a2b"/>
+    </radialGradient>
+
+    <!-- Standard dot glow -->
+    <radialGradient id="dotGradient" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#9ffcff"/>
+      <stop offset="38%" stop-color="#58ebf7"/>
+      <stop offset="100%" stop-color="#2fd9ea"/>
+    </radialGradient>
+
+    <!-- Brighter top dot -->
+    <radialGradient id="topDotGradient" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e4ffff"/>
+      <stop offset="35%" stop-color="#9ffcff"/>
+      <stop offset="100%" stop-color="#43e6f3"/>
+    </radialGradient>
+
+    <!-- Disc soft glow -->
+    <filter id="discGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
       <feMerge>
-        <feMergeNode in="shadow"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Dot glow -->
+    <filter id="dotGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="1.15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Top dot stronger glow -->
+    <filter id="topDotGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="1.8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
 
-  <!-- Edge-loaded tetractys for favicon rendering -->
-  <!-- dx ≈ 14, dy ≈ 12.1 (√3/2) -->
-  <g filter="url(#halo)" fill="#11d4f2">
+  <!-- Transparent outside; only the seal shows -->
+  <g filter="url(#discGlow)">
+    <!-- Circular seal -->
+    <circle
+      cx="32"
+      cy="32"
+      r="29.5"
+      fill="url(#discGradient)"
+      stroke="#8a44b8"
+      stroke-width="1.2"
+    />
+  </g>
+
+  <!-- Tetractys -->
+  <g>
     <!-- Row 1 -->
-    <circle cx="32" cy="10.5" r="4.2"/>
+    <circle cx="32" cy="18" r="4.15" fill="url(#topDotGradient)" filter="url(#topDotGlow)"/>
 
     <!-- Row 2 -->
-    <circle cx="25" cy="22.6" r="4.2"/>
-    <circle cx="39" cy="22.6" r="4.2"/>
+    <circle cx="25" cy="25.4" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="39" cy="25.4" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
 
     <!-- Row 3 -->
-    <circle cx="18" cy="34.7" r="4.2"/>
-    <circle cx="32" cy="34.7" r="4.2"/>
-    <circle cx="46" cy="34.7" r="4.2"/>
+    <circle cx="18" cy="32.8" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="32" cy="32.8" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="46" cy="32.8" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
 
     <!-- Row 4 -->
-    <circle cx="11" cy="46.8" r="4.2"/>
-    <circle cx="25" cy="46.8" r="4.2"/>
-    <circle cx="39" cy="46.8" r="4.2"/>
-    <circle cx="53" cy="46.8" r="4.2"/>
+    <circle cx="11" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="25" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="39" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
+    <circle cx="53" cy="40.2" r="4.15" fill="url(#dotGradient)" filter="url(#dotGlow)"/>
   </g>
 </svg>
-
 
 
