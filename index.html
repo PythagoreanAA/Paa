@@ -1189,7 +1189,13 @@
       }
     }
 
-  </style>
+  
+    .impact-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+    .impact-card{padding:16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);text-align:center}
+    .impact-value{display:block;font-size:1.6rem;font-weight:800;color:var(--aqua)}
+    .impact-label{font-size:.83rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    @media (max-width:760px){.impact-strip{grid-template-columns:1fr;}}
+</style>
 </head>
   
 <body>
@@ -1262,6 +1268,12 @@
       distortion, relational pattern,
       coherence, and conscious refinement.
     </p>
+
+    <div class="impact-strip" aria-label="Impact highlights">
+      <article class="impact-card"><span class="impact-value">3</span><span class="impact-label">Active Programs</span></article>
+      <article class="impact-card"><span class="impact-value">1</span><span class="impact-label">Unified Framework</span></article>
+      <article class="impact-card"><span class="impact-value">∞</span><span class="impact-label">Pattern Depth</span></article>
+    </div>
 
     <div class="hero-cta">
       <a href="#calculator" class="button-link">
