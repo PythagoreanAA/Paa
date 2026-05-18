@@ -826,7 +826,12 @@
 
     }
 
-  </style>
+  
+    .impact-calculator{margin-top:26px;padding:20px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.02)}
+    .impact-calculator input[type="range"]{width:100%}
+    .impact-output{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px;color:var(--muted)}
+    .impact-output strong{color:var(--aqua);font-size:1.2rem}
+</style>
 </head>
 
 <body>
@@ -889,7 +894,17 @@
           Support helps transform the work into a refined public system.
         </p>
 
-        <div class="hero-actions">
+  
+      <div class="impact-calculator" aria-live="polite">
+        <label for="impactRange"><strong>Donation Impact Estimator</strong></label>
+        <input id="impactRange" type="range" min="25" max="2500" step="25" value="100">
+        <div class="impact-output">
+          <div>Estimated donation: <strong id="impactAmount">$100</strong></div>
+          <div id="impactDescription">Supports publishing and tooling updates.</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
           <a href="#donate-options" class="button primary">Donate Now</a>
           <a href="#institutional" class="button secondary">Institutional Support</a>
         </div>
@@ -1179,6 +1194,28 @@
 <script>
   document.getElementById("year").textContent =
     new Date().getFullYear();
+
+  const impactRange = document.getElementById("impactRange");
+  const impactAmount = document.getElementById("impactAmount");
+  const impactDescription = document.getElementById("impactDescription");
+
+  if (impactRange && impactAmount && impactDescription) {
+    const describeImpact = (amount) => {
+      if (amount < 100) return "Helps maintain core infrastructure and hosting.";
+      if (amount < 500) return "Supports publishing and tooling updates.";
+      if (amount < 1200) return "Funds educational content and structural diagnostics.";
+      return "Accelerates large-scale development and institutional rollout.";
+    };
+
+    const updateImpact = () => {
+      const amount = Number(impactRange.value);
+      impactAmount.textContent = `$${amount.toLocaleString()}`;
+      impactDescription.textContent = describeImpact(amount);
+    };
+
+    impactRange.addEventListener("input", updateImpact);
+    updateImpact();
+  }
 </script>
 
 </body>
