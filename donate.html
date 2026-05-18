@@ -831,45 +831,311 @@
     .impact-calculator input[type="range"]{width:100%}
     .impact-output{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:8px;color:var(--muted)}
     .impact-output strong{color:var(--aqua);font-size:1.2rem}
+
+
+    /* =========================================================
+       CANONICAL PAA HEADER — unified across index/about/support
+       ========================================================= */
+    .paa-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(18px) saturate(135%);
+      -webkit-backdrop-filter:blur(18px) saturate(135%);
+      background:
+        linear-gradient(180deg, rgba(4,6,18,.88), rgba(4,6,18,.68));
+      border-bottom:1px solid rgba(141,248,255,.14);
+      box-shadow:0 18px 44px rgba(0,0,0,.28);
+    }
+
+    .paa-header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 16% 50%, rgba(141,248,255,.10), transparent 16rem),
+        radial-gradient(circle at 72% 40%, rgba(185,88,223,.11), transparent 18rem);
+      opacity:.8;
+    }
+
+    .paa-header::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:1px;
+      pointer-events:none;
+      background:linear-gradient(90deg, transparent, rgba(141,248,255,.52), rgba(185,88,223,.38), transparent);
+      opacity:.62;
+    }
+
+    .paa-nav{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:26px;
+      padding:14px 0;
+    }
+
+    .paa-brand{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      align-items:center;
+      gap:14px;
+      min-width:max-content;
+      color:var(--ink);
+      text-decoration:none;
+    }
+
+    .paa-brand-mark{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(141,248,255,.26);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(141,248,255,.18), transparent 58%),
+        linear-gradient(135deg, rgba(49,223,209,.13), rgba(185,88,223,.14));
+      box-shadow:
+        inset 0 0 22px rgba(141,248,255,.055),
+        0 0 30px rgba(141,248,255,.08),
+        0 0 46px rgba(185,88,223,.055);
+    }
+
+    .paa-tetractys{
+      width:34px;
+      height:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:4px;
+    }
+
+    .paa-tetra-row{
+      display:flex;
+      justify-content:center;
+      gap:4px;
+      line-height:0;
+    }
+
+    .paa-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--aqua), var(--violetBright));
+      box-shadow:0 0 13px rgba(141,248,255,.46);
+    }
+
+    .paa-brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+      line-height:1.02;
+      text-transform:uppercase;
+      letter-spacing:.145em;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .paa-brand-text span:nth-child(1){ color:#f4fbff; }
+    .paa-brand-text span:nth-child(2){ color:var(--aqua); }
+    .paa-brand-text span:nth-child(3){ color:var(--violetBright); }
+
+    .paa-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .paa-links a{
+      position:relative;
+      isolation:isolate;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 15px;
+      border-radius:999px;
+      border:1px solid rgba(141,248,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.014));
+      color:#c9dbe6;
+      font-family:var(--sans);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.065em;
+      line-height:1;
+      text-transform:uppercase;
+      white-space:nowrap;
+      box-shadow:inset 0 0 18px rgba(141,248,255,.025);
+      transition:
+        transform .22s ease,
+        color .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .paa-links a::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      z-index:-1;
+      background:linear-gradient(135deg, rgba(141,248,255,.28), rgba(185,88,223,.28));
+      opacity:0;
+      transition:opacity .22s ease;
+    }
+
+    .paa-links a::after{
+      content:"";
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:7px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(141,248,255,.82), transparent);
+      opacity:0;
+      transition:opacity .22s ease;
+    }
+
+    .paa-links a:hover{
+      color:#f8fdff;
+      background:linear-gradient(180deg, rgba(141,248,255,.09), rgba(185,88,223,.055));
+      border-color:rgba(141,248,255,.30);
+      box-shadow:
+        0 0 24px rgba(141,248,255,.10),
+        inset 0 0 22px rgba(141,248,255,.045);
+      transform:translateY(-1px);
+    }
+
+    .paa-links a:hover::before,
+    .paa-links a:hover::after{
+      opacity:1;
+    }
+
+    .paa-links a.active{
+      color:#031116;
+      background:linear-gradient(135deg, var(--turquoise), var(--aqua));
+      border-color:rgba(141,248,255,.58);
+      box-shadow:
+        0 14px 34px rgba(49,223,209,.18),
+        0 0 38px rgba(141,248,255,.12);
+    }
+
+    .paa-links a.active::after{
+      opacity:0;
+    }
+
+    .paa-links a.paa-nav-cta{
+      margin-left:4px;
+      color:#f9fdff;
+      border-color:rgba(185,88,223,.40);
+      background:linear-gradient(135deg, rgba(185,88,223,.30), rgba(49,223,209,.16));
+      box-shadow:
+        0 0 26px rgba(185,88,223,.12),
+        inset 0 0 18px rgba(141,248,255,.04);
+    }
+
+    .paa-links a.paa-nav-cta:hover{
+      border-color:rgba(141,248,255,.44);
+      box-shadow:
+        0 0 30px rgba(141,248,255,.14),
+        0 0 36px rgba(185,88,223,.12),
+        inset 0 0 22px rgba(141,248,255,.05);
+    }
+
+    .paa-links a.paa-nav-cta.active{
+      color:#031116;
+      background:linear-gradient(135deg, var(--violetBright), var(--aqua));
+      border-color:rgba(141,248,255,.60);
+    }
+
+    @media(max-width:860px){
+      .paa-nav{
+        flex-direction:column;
+        align-items:stretch;
+        gap:12px;
+        padding:13px 0 14px;
+      }
+
+      .paa-brand{
+        justify-content:center;
+      }
+
+      .paa-links{
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:8px;
+      }
+
+      .paa-links a{
+        width:100%;
+        min-height:41px;
+        padding:10px 10px;
+        font-size:11px;
+        letter-spacing:.045em;
+      }
+
+      .paa-links a.paa-nav-cta{
+        margin-left:0;
+        grid-column:1 / -1;
+      }
+    }
+
+    @media(max-width:460px){
+      .paa-brand-mark{
+        width:46px;
+        height:46px;
+      }
+
+      .paa-brand-text{
+        font-size:10px;
+        letter-spacing:.11em;
+      }
+
+      .paa-links{
+        grid-template-columns:1fr;
+      }
+    }
+
 </style>
 </head>
 
 <body>
 
-<header>
-
-  <div class="wrap nav">
-
-    <a class="brand" href="index.html" aria-label="PAA home">
-
-      <div class="brand-sigil" aria-hidden="true">
-
-        <div class="tetractys">
-          <div class="tetra-row"><span class="dot"></span></div>
-          <div class="tetra-row"><span class="dot"></span><span class="dot"></span></div>
-          <div class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        </div>
-
-      </div>
-
-      <span>
-        <span class="brand-line-1">Pythagorean</span><br>
-        <span class="brand-line-2">Arithmosophic</span><br>
-        <span class="brand-line-3">Anamnesis</span>
+<header class="paa-header">
+  <div class="wrap paa-nav">
+    <a class="paa-brand" href="index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
+      <span class="paa-brand-mark" aria-hidden="true">
+        <span class="paa-tetractys">
+          <span class="paa-tetra-row"><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+        </span>
       </span>
 
+      <span class="paa-brand-text">
+        <span>Pythagorean</span>
+        <span>Arithmosophic</span>
+        <span>Anamnesis</span>
+      </span>
     </a>
 
-    <nav class="navlinks" aria-label="Primary navigation">
+    <nav class="paa-links" aria-label="Primary navigation">
       <a href="index.html">Home</a>
       <a href="aboutpaa.html">What Is PAA?</a>
       <a href="index.html#calculator">Birth Root Glyph</a>
-      <a href="donate.html" class="nav-cta active">Support PAA</a>
+      <a href="donate.html" class="active paa-nav-cta">Support PAA</a>
     </nav>
-
   </div>
-
 </header>
 
 <main>
