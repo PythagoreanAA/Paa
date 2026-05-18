@@ -1198,7 +1198,7 @@
 
 
     /* =========================================================
-       CANONICAL PAA HEADER — unified across index/about/support
+       CANONICAL PAA HEADER — compact nested menu navigation
        ========================================================= */
     .paa-header{
       position:sticky;
@@ -1207,7 +1207,7 @@
       backdrop-filter:blur(18px) saturate(135%);
       -webkit-backdrop-filter:blur(18px) saturate(135%);
       background:
-        linear-gradient(180deg, rgba(4,6,18,.88), rgba(4,6,18,.68));
+        linear-gradient(180deg, rgba(4,6,18,.90), rgba(4,6,18,.70));
       border-bottom:1px solid rgba(141,248,255,.14);
       box-shadow:0 18px 44px rgba(0,0,0,.28);
     }
@@ -1240,7 +1240,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:26px;
+      gap:22px;
       padding:14px 0;
     }
 
@@ -1309,68 +1309,168 @@
     .paa-brand-text span:nth-child(2){ color:var(--aqua); }
     .paa-brand-text span:nth-child(3){ color:var(--violetBright); }
 
-    .paa-links{
+    .paa-menu-wrap{
+      position:relative;
       display:flex;
       align-items:center;
       justify-content:flex-end;
-      gap:8px;
-      flex-wrap:wrap;
     }
 
-    .paa-links a{
+    .paa-menu-button{
       position:relative;
       isolation:isolate;
-      display:inline-flex;
+      display:inline-grid;
+      grid-template-columns:auto auto;
       align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:10px 15px;
+      gap:12px;
+      min-height:48px;
+      padding:10px 16px;
       border-radius:999px;
-      border:1px solid rgba(141,248,255,.12);
-      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.014));
-      color:#c9dbe6;
+      border:1px solid rgba(141,248,255,.22);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)),
+        radial-gradient(circle at 35% 0%, rgba(141,248,255,.12), transparent 70%);
+      color:#e7f8ff;
       font-family:var(--sans);
       font-size:12px;
-      font-weight:800;
-      letter-spacing:.065em;
-      line-height:1;
+      font-weight:900;
+      letter-spacing:.12em;
       text-transform:uppercase;
-      white-space:nowrap;
-      box-shadow:inset 0 0 18px rgba(141,248,255,.025);
-      transition:
-        transform .22s ease,
-        color .22s ease,
-        background .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
+      cursor:pointer;
+      box-shadow:
+        0 0 28px rgba(141,248,255,.08),
+        inset 0 0 20px rgba(141,248,255,.04);
+      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
     }
 
-    .paa-links a::before{
+    .paa-menu-button::before{
       content:"";
       position:absolute;
       inset:-1px;
       border-radius:inherit;
       z-index:-1;
-      background:linear-gradient(135deg, rgba(141,248,255,.28), rgba(185,88,223,.28));
-      opacity:0;
+      background:linear-gradient(135deg, rgba(141,248,255,.32), rgba(185,88,223,.34));
+      opacity:.55;
       transition:opacity .22s ease;
     }
 
-    .paa-links a::after{
-      content:"";
+    .paa-menu-button:hover,
+    .paa-menu-button[aria-expanded="true"]{
+      transform:translateY(-1px);
+      border-color:rgba(141,248,255,.42);
+      box-shadow:
+        0 0 34px rgba(141,248,255,.13),
+        0 0 44px rgba(185,88,223,.10),
+        inset 0 0 22px rgba(141,248,255,.055);
+    }
+
+    .paa-menu-button:hover::before,
+    .paa-menu-button[aria-expanded="true"]::before{
+      opacity:1;
+    }
+
+    .paa-menu-bars{
+      width:24px;
+      height:18px;
+      display:grid;
+      align-content:space-between;
+    }
+
+    .paa-menu-bars span{
+      display:block;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--aqua), var(--violetBright));
+      box-shadow:0 0 12px rgba(141,248,255,.48);
+      transform-origin:center;
+      transition:transform .22s ease, opacity .18s ease;
+    }
+
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(2){ opacity:0; }
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+    .paa-menu-label{
+      display:inline-block;
+    }
+
+    .paa-links{
       position:absolute;
-      left:18px;
-      right:18px;
-      bottom:7px;
-      height:1px;
-      background:linear-gradient(90deg, transparent, rgba(141,248,255,.82), transparent);
+      right:0;
+      top:calc(100% + 14px);
+      width:min(390px, calc(100vw - 32px));
+      display:grid;
+      gap:9px;
+      padding:14px;
+      border-radius:24px;
+      border:1px solid rgba(141,248,255,.18);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(141,248,255,.11), transparent 15rem),
+        radial-gradient(circle at 100% 10%, rgba(185,88,223,.14), transparent 16rem),
+        linear-gradient(180deg, rgba(7,12,26,.98), rgba(4,6,18,.98));
+      box-shadow:
+        0 28px 70px rgba(0,0,0,.50),
+        inset 0 0 26px rgba(141,248,255,.035);
       opacity:0;
-      transition:opacity .22s ease;
+      transform:translateY(-8px) scale(.985);
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .22s ease, transform .22s ease, visibility .22s ease;
+    }
+
+    .paa-menu-wrap.open .paa-links{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .paa-menu-kicker{
+      padding:6px 10px 9px;
+      color:var(--aqua);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      border-bottom:1px solid rgba(141,248,255,.12);
+      margin-bottom:2px;
+    }
+
+    .paa-links a{
+      position:relative;
+      isolation:isolate;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:center;
+      min-height:48px;
+      padding:13px 14px;
+      border-radius:16px;
+      border:1px solid rgba(141,248,255,.11);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+      color:#d5e8f1;
+      font-family:var(--sans);
+      font-size:12px;
+      font-weight:850;
+      letter-spacing:.075em;
+      line-height:1.15;
+      text-transform:uppercase;
+      white-space:nowrap;
+      box-shadow:inset 0 0 18px rgba(141,248,255,.025);
+      transition:transform .22s ease, color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .paa-links a::after{
+      content:"→";
+      color:rgba(141,248,255,.78);
+      font-size:15px;
+      transform:translateX(-3px);
+      opacity:.64;
+      transition:transform .22s ease, opacity .22s ease;
     }
 
     .paa-links a:hover{
       color:#f8fdff;
-      background:linear-gradient(180deg, rgba(141,248,255,.09), rgba(185,88,223,.055));
+      background:linear-gradient(180deg, rgba(141,248,255,.095), rgba(185,88,223,.055));
       border-color:rgba(141,248,255,.30);
       box-shadow:
         0 0 24px rgba(141,248,255,.10),
@@ -1378,8 +1478,8 @@
       transform:translateY(-1px);
     }
 
-    .paa-links a:hover::before,
     .paa-links a:hover::after{
+      transform:translateX(0);
       opacity:1;
     }
 
@@ -1393,11 +1493,11 @@
     }
 
     .paa-links a.active::after{
-      opacity:0;
+      color:#031116;
+      opacity:.8;
     }
 
     .paa-links a.paa-nav-cta{
-      margin-left:4px;
       color:#f9fdff;
       border-color:rgba(185,88,223,.40);
       background:linear-gradient(135deg, rgba(185,88,223,.30), rgba(49,223,209,.16));
@@ -1406,54 +1506,18 @@
         inset 0 0 18px rgba(141,248,255,.04);
     }
 
-    .paa-links a.paa-nav-cta:hover{
-      border-color:rgba(141,248,255,.44);
-      box-shadow:
-        0 0 30px rgba(141,248,255,.14),
-        0 0 36px rgba(185,88,223,.12),
-        inset 0 0 22px rgba(141,248,255,.05);
-    }
-
     .paa-links a.paa-nav-cta.active{
       color:#031116;
       background:linear-gradient(135deg, var(--violetBright), var(--aqua));
       border-color:rgba(141,248,255,.60);
     }
 
-    @media(max-width:860px){
+    @media(max-width:640px){
       .paa-nav{
-        flex-direction:column;
-        align-items:stretch;
-        gap:12px;
-        padding:13px 0 14px;
+        gap:14px;
+        padding:12px 0;
       }
 
-      .paa-brand{
-        justify-content:center;
-      }
-
-      .paa-links{
-        width:100%;
-        display:grid;
-        grid-template-columns:repeat(2, minmax(0, 1fr));
-        gap:8px;
-      }
-
-      .paa-links a{
-        width:100%;
-        min-height:41px;
-        padding:10px 10px;
-        font-size:11px;
-        letter-spacing:.045em;
-      }
-
-      .paa-links a.paa-nav-cta{
-        margin-left:0;
-        grid-column:1 / -1;
-      }
-    }
-
-    @media(max-width:460px){
       .paa-brand-mark{
         width:46px;
         height:46px;
@@ -1461,11 +1525,24 @@
 
       .paa-brand-text{
         font-size:10px;
-        letter-spacing:.11em;
+        letter-spacing:.105em;
+      }
+
+      .paa-menu-button{
+        min-height:46px;
+        padding:10px 13px;
+      }
+
+      .paa-menu-label{
+        display:none;
       }
 
       .paa-links{
-        grid-template-columns:1fr;
+        position:fixed;
+        left:16px;
+        right:16px;
+        top:78px;
+        width:auto;
       }
     }
 
@@ -1493,12 +1570,25 @@
       </span>
     </a>
 
-    <nav class="paa-links" aria-label="Primary navigation">
-      <a href="index.html" class="active">Home</a>
-      <a href="aboutpaa.html">What Is PAA?</a>
-      <a href="index.html#calculator">Birth Root Glyph</a>
-      <a href="donate.html" class="paa-nav-cta">Support PAA</a>
-    </nav>
+    <div class="paa-menu-wrap" data-paa-menu>
+      <button class="paa-menu-button" type="button" aria-label="Open primary navigation" aria-expanded="false" aria-controls="paa-primary-menu" data-paa-menu-button>
+        <span class="paa-menu-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="paa-menu-label">Menu</span>
+      </button>
+
+      <nav id="paa-primary-menu" class="paa-links" aria-label="Primary navigation" data-paa-menu-panel>
+        <div class="paa-menu-kicker">Navigate</div>
+        <a href="index.html" class="active">Home</a>
+        <a href="aboutpaa.html">What Is PAA?</a>
+        <a href="index.html#calculator">Birth Root Glyph</a>
+        <a href="publications.html">Publications</a>
+        <a href="donate.html" class="paa-nav-cta">Support PAA</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -1749,6 +1839,41 @@
   © 2026 Pythagorean Arithmosophic Anamnesis LLC
 </footer>
 <script>
+
+  const paaMenuWrap = document.querySelector('[data-paa-menu]');
+  const paaMenuButton = document.querySelector('[data-paa-menu-button]');
+
+  function closePaaMenu() {
+    if (!paaMenuWrap || !paaMenuButton) return;
+    paaMenuWrap.classList.remove('open');
+    paaMenuButton.setAttribute('aria-expanded', 'false');
+    paaMenuButton.setAttribute('aria-label', 'Open primary navigation');
+  }
+
+  function togglePaaMenu() {
+    if (!paaMenuWrap || !paaMenuButton) return;
+    const isOpen = paaMenuWrap.classList.toggle('open');
+    paaMenuButton.setAttribute('aria-expanded', String(isOpen));
+    paaMenuButton.setAttribute('aria-label', isOpen ? 'Close primary navigation' : 'Open primary navigation');
+  }
+
+  paaMenuButton?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    togglePaaMenu();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!paaMenuWrap?.contains(event.target)) closePaaMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closePaaMenu();
+  });
+
+  document.querySelectorAll('[data-paa-menu-panel] a').forEach((link) => {
+    link.addEventListener('click', closePaaMenu);
+  });
+
   const glyphs = {
   "1": {
     "name": "The Monad",
