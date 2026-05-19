@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>PAA | Relationship Glyph</title>
+
+  <meta
+    name="description"
+    content="Discover the Relationship Glyph formed by two Birth Root Glyphs: a Pythagorean diagnostic of relational field, pressure, harmony, distortion, and refinement."
+  />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root{
+      --bg:#03040a;
+      --bg2:#07111f;
+      --panel:#0d1524;
+      --panel2:#121c31;
+      --ink:#eef7ff;
+      --muted:#a4bac8;
+      --dim:#6f8795;
+      --aqua:#9ffcff;
+      --cyan:#5be7ff;
+      --turquoise:#33dfcf;
+      --violet:#7d34a3;
+      --violetBright:#cb74ff;
+      --gold:#f0cf8d;
+      --amber:#e8a84e;
+      --rose:#ff7aa8;
+      --line:rgba(159,252,255,.12);
+      --radius:30px;
+      --shadow:0 34px 90px rgba(0,0,0,.55);
+      --serif:'Cormorant Garamond', serif;
+      --sans:'Inter', sans-serif;
+    }
+
+    *{ box-sizing:border-box; }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:var(--sans);
+      background:
+        radial-gradient(circle at top, rgba(125,52,163,.40), transparent 30rem),
+        radial-gradient(circle at 12% 18%, rgba(51,223,207,.10), transparent 24rem),
+        radial-gradient(circle at 85% 10%, rgba(240,207,141,.08), transparent 20rem),
+        radial-gradient(circle at 50% 120%, rgba(91,231,255,.08), transparent 40rem),
+        linear-gradient(180deg,#03040a 0%, #07111f 52%, #03040a 100%);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      width:min(1180px, calc(100% - 34px));
+      margin:auto;
+    }
+
+    .paa-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(18px) saturate(140%);
+      background:linear-gradient(180deg,rgba(3,4,10,.88),rgba(3,4,10,.66));
+      border-bottom:1px solid rgba(159,252,255,.10);
+      box-shadow:0 18px 44px rgba(0,0,0,.28);
+    }
+
+    .paa-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 0;
+    }
+
+    .paa-brand{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      align-items:center;
+      gap:14px;
+      min-width:max-content;
+    }
+
+    .paa-brand-mark{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(159,252,255,.24);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(159,252,255,.18), transparent 58%),
+        linear-gradient(135deg, rgba(51,223,207,.14), rgba(203,116,255,.14));
+      box-shadow:
+        inset 0 0 24px rgba(159,252,255,.05),
+        0 0 32px rgba(159,252,255,.08),
+        0 0 48px rgba(203,116,255,.05);
+    }
+
+    .paa-tetractys{
+      width:34px;
+      height:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:4px;
+    }
+
+    .paa-tetra-row{
+      display:flex;
+      justify-content:center;
+      gap:4px;
+    }
+
+    .paa-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--aqua),var(--violetBright));
+      box-shadow:0 0 14px rgba(159,252,255,.45);
+    }
+
+    .paa-brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      line-height:1.04;
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .paa-brand-text span:nth-child(1){ color:#f4fbff; }
+    .paa-brand-text span:nth-child(2){ color:var(--aqua); }
+    .paa-brand-text span:nth-child(3){ color:var(--violetBright); }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .navlinks a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid rgba(159,252,255,.11);
+      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+      color:#d4e6f2;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      transition:.22s ease;
+    }
+
+    .navlinks a:hover{
+      transform:translateY(-1px);
+      border-color:rgba(159,252,255,.28);
+      box-shadow:0 0 24px rgba(159,252,255,.10);
+    }
+
+    .navlinks a.active{
+      color:#031116;
+      background:linear-gradient(135deg,var(--turquoise),var(--aqua));
+      border-color:rgba(159,252,255,.52);
+      box-shadow:0 14px 34px rgba(51,223,207,.16);
+    }
+
+    .hero{
+      padding:100px 0 52px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      color:var(--aqua);
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      font-size:12px;
+      margin-bottom:24px;
+    }
+
+    h1,h2,h3{
+      margin:0;
+      font-family:var(--serif);
+      font-weight:400;
+    }
+
+    h1{
+      font-size:clamp(54px,9vw,118px);
+      line-height:.9;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      background:linear-gradient(180deg,#fff 0%,var(--gold) 22%,var(--aqua) 62%,#d7eeff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-intro{
+      max-width:900px;
+      margin:30px auto 0;
+      color:var(--muted);
+      font-size:clamp(18px,2vw,22px);
+      line-height:1.9;
+    }
+
+    .hero-intro strong{
+      color:#f8fdff;
+    }
+
+    .engine{
+      position:relative;
+      overflow:hidden;
+      margin:0 auto 72px;
+      padding:38px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(203,116,255,.12), transparent 22rem),
+        radial-gradient(circle at bottom right, rgba(159,252,255,.08), transparent 22rem),
+        linear-gradient(180deg,rgba(15,22,38,.94),rgba(7,11,20,.98));
+      box-shadow:var(--shadow);
+    }
+
+    .engine-title{
+      text-align:center;
+      font-size:clamp(30px,4vw,54px);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .engine-subtitle{
+      max-width:820px;
+      margin:0 auto 34px;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .selector-grid{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:18px;
+      align-items:end;
+    }
+
+    label{
+      display:block;
+      margin-bottom:10px;
+      color:var(--aqua);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    select{
+      width:100%;
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(159,252,255,.18);
+      background:#050b16;
+      color:var(--ink);
+      font-size:17px;
+      font-family:var(--sans);
+    }
+
+    .plus{
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(240,207,141,.28);
+      color:var(--gold);
+      font-family:var(--serif);
+      font-size:42px;
+      background:rgba(240,207,141,.055);
+      box-shadow:0 0 30px rgba(240,207,141,.08);
+    }
+
+    button{
+      margin:28px auto 0;
+      display:block;
+      border:none;
+      cursor:pointer;
+      border-radius:18px;
+      padding:18px 26px;
+      background:linear-gradient(135deg,var(--turquoise),var(--aqua));
+      color:#031116;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      box-shadow:0 14px 40px rgba(51,223,207,.18);
+      transition:.2s ease;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .formula{
+      margin:28px auto 0;
+      max-width:760px;
+      text-align:center;
+      color:#d8e7f2;
+      line-height:1.8;
+      padding:18px 20px;
+      border-radius:20px;
+      border:1px solid rgba(159,252,255,.11);
+      background:rgba(255,255,255,.035);
+    }
+
+    .formula strong{
+      color:var(--gold);
+    }
+
+    .reading{
+      display:none;
+      padding-bottom:96px;
+    }
+
+    .result-hero{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .result-orb{
+      width:190px;
+      height:190px;
+      margin:0 auto 26px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(159,252,255,.28);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(203,116,255,.48), rgba(6,11,24,.98)),
+        linear-gradient(135deg, rgba(240,207,141,.12), rgba(159,252,255,.08));
+      box-shadow:
+        inset 0 0 44px rgba(159,252,255,.08),
+        0 0 100px rgba(51,223,207,.12);
+    }
+
+    .result-orb span{
+      font-family:var(--serif);
+      font-size:94px;
+      color:var(--aqua);
+    }
+
+    .result-title{
+      font-size:clamp(40px,6vw,76px);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .result-subtitle{
+      margin-top:10px;
+      color:var(--gold);
+      font-family:var(--serif);
+      font-size:30px;
+      font-style:italic;
+    }
+
+    .pill-row{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .pill{
+      border:1px solid rgba(159,252,255,.16);
+      background:rgba(255,255,255,.035);
+      color:#c7dae4;
+      border-radius:999px;
+      padding:9px 13px;
+      font-size:13px;
+    }
+
+    .section{
+      margin:24px 0;
+      padding:38px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at top right, rgba(203,116,255,.10), transparent 18rem),
+        linear-gradient(180deg,rgba(16,25,45,.92),rgba(6,10,20,.98));
+      box-shadow:var(--shadow);
+    }
+
+    .section-title{
+      margin-bottom:22px;
+      font-size:clamp(30px,4vw,50px);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .lead{
+      color:#dde9f1;
+      font-family:var(--serif);
+      font-size:clamp(24px,3vw,33px);
+      line-height:1.62;
+    }
+
+    .mini{
+      margin-top:20px;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:18px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      padding:22px;
+      border-radius:24px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(159,252,255,.10);
+      line-height:1.75;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      color:var(--aqua);
+      font-family:var(--sans);
+      font-weight:800;
+    }
+
+    .card p{
+      margin:0;
+      color:#e9edf1;
+      font-size:17px;
+      line-height:1.75;
+    }
+
+    .callout{
+      margin-top:22px;
+      padding:24px;
+      border-radius:24px;
+      border:1px solid rgba(240,207,141,.22);
+      background:rgba(240,207,141,.055);
+      color:#f4ead8;
+      line-height:1.8;
+      font-family:var(--serif);
+      font-size:24px;
+    }
+
+    .list{
+      margin:0;
+      padding-left:20px;
+      color:#e6f5fb;
+      line-height:1.7;
+    }
+
+    .list li{
+      margin:8px 0;
+    }
+
+    footer{
+      padding:40px 0 80px;
+      text-align:center;
+      color:#6f8795;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .selector-grid,
+      .grid2,
+      .grid3{
+        grid-template-columns:1fr;
+      }
+
+      .plus{
+        margin:auto;
+      }
+
+      .section,
+      .engine{
+        padding:28px;
+      }
+
+      .paa-nav{
+        flex-direction:column;
+      }
+
+      .navlinks{
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="paa-header">
+  <div class="wrap paa-nav">
+    <a class="paa-brand" href="index.html">
+      <span class="paa-brand-mark">
+        <span class="paa-tetractys">
+          <span class="paa-tetra-row"><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+        </span>
+      </span>
+
+      <span class="paa-brand-text">
+        <span>Pythagorean</span>
+        <span>Arithmosophic</span>
+        <span>Anamnesis</span>
+      </span>
+    </a>
+
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="geometry.html">Geometry</a>
+      <a href="relationships.html" class="active">Relationships</a>
+      <a href="aboutpaa.html">What Is PAA?</a>
+      <a href="donate.html">Support PAA</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Relational Arithmosophy</div>
+
+    <h1>
+      Relationship<br>
+      Glyph
+    </h1>
+
+    <p class="hero-intro">
+      A relationship is not merely two personalities attempting to tolerate one another.
+      It is a <strong>third field</strong>.
+      Your glyph and your partner’s glyph combine to reveal the hidden structure of that field:
+      its attraction, pressure signature, distortion, medicine, and discipline of refinement.
+    </p>
+  </section>
+
+  <section class="engine">
+    <h2 class="engine-title">Generate the Relational Field</h2>
+
+    <p class="engine-subtitle">
+      Select two Birth Root Glyphs. Their sum reveals the Relationship Glyph.
+      When the sum exceeds 9, it is reduced by Pythagorean addition until a single glyph remains.
+    </p>
+
+    <div class="selector-grid">
+      <div>
+        <label for="glyphA">Your Glyph</label>
+        <select id="glyphA"></select>
+      </div>
+
+      <div class="plus">+</div>
+
+      <div>
+        <label for="glyphB">Partner’s Glyph</label>
+        <select id="glyphB"></select>
+      </div>
+    </div>
+
+    <button id="revealBtn">Reveal Relationship Glyph</button>
+
+    <div class="formula" id="formulaBox">
+      <strong>Example:</strong> 7 + 5 = 12 → 1 + 2 = 3.
+      The relationship field is Triadic: expression, synthesis, and signal.
+    </div>
+  </section>
+
+  <section id="reading" class="reading">
+
+    <div class="result-hero">
+      <div class="result-orb"><span id="resultNumber"></span></div>
+      <h2 id="resultName" class="result-title"></h2>
+      <div id="resultSubtitle" class="result-subtitle"></div>
+
+      <div class="pill-row">
+        <span id="pairPill" class="pill"></span>
+        <span id="sumPill" class="pill"></span>
+        <span id="fieldPill" class="pill"></span>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2 class="section-title">The Third Field</h2>
+      <p id="fieldText" class="lead"></p>
+      <p id="fieldWisdom" class="mini"></p>
+      <div id="anamneticLine" class="callout"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Glyphic Interaction</h2>
+      <div class="grid2">
+        <article class="card">
+          <h3 id="aTitle"></h3>
+          <p id="aText"></p>
+        </article>
+        <article class="card">
+          <h3 id="bTitle"></h3>
+          <p id="bText"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Relational Dynamics</h2>
+      <div class="grid3">
+        <article class="card">
+          <h3>Attraction</h3>
+          <p id="attraction"></p>
+        </article>
+        <article class="card">
+          <h3>Pressure</h3>
+          <p id="pressure"></p>
+        </article>
+        <article class="card">
+          <h3>Distortion</h3>
+          <p id="distortion"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Disciplines of Refinement</h2>
+      <div class="grid2">
+        <article class="card">
+          <h3>What Must Be Practiced</h3>
+          <ul id="practiceList" class="list"></ul>
+        </article>
+        <article class="card">
+          <h3>What Must Be Avoided</h3>
+          <ul id="avoidList" class="list"></ul>
+        </article>
+      </div>
+    </section>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Pythagorean Arithmosophic Anamnesis LLC
+</footer>
+
+<script>
+const glyphData = {
+  1:{
+    name:"Monad",
+    title:"The Sovereign Field",
+    essence:"origin, will, direction, initiation",
+    gift:"courage, decisiveness, self-definition, first movement",
+    shadow:"domination, isolation, unilateral control, refusal to receive",
+    need:"respect for autonomy and direct acknowledgment",
+    medicine:"humility, listening, shared sovereignty",
+    field:"A Monad relationship field forms when the bond is meant to awaken identity, courage, authorship, and decisive movement. This union does not permit indefinite vagueness. It demands that both people become more clearly themselves.",
+    wisdom:"The blessing of this field is direction. The danger is that direction becomes command. The relationship succeeds when leadership circulates rather than hardening into a throne.",
+    anamnesis:"This bond asks: can two beings stand together without one becoming the center and the other becoming orbit?"
+  },
+  2:{
+    name:"Dyad",
+    title:"The Mirror Field",
+    essence:"attunement, polarity, reflection, emotional bond",
+    gift:"empathy, tenderness, mediation, deep relational sensitivity",
+    shadow:"dependency, resentment, emotional merging, indirect control",
+    need:"safety, responsiveness, tonal honesty",
+    medicine:"truthful boundaries and direct speech",
+    field:"A Dyad relationship field magnifies feeling, subtle tone, affection, distance, and the invisible atmosphere between two people. Nothing is merely functional here. Everything communicates.",
+    wisdom:"The blessing of this field is exquisite attunement. The danger is self-erasure in the name of peace. Harmony must not be purchased by hiding truth.",
+    anamnesis:"This bond asks: can closeness deepen without either soul disappearing into the other?"
+  },
+  3:{
+    name:"Triad",
+    title:"The Signal Field",
+    essence:"expression, story, humor, creativity, synthesis",
+    gift:"communication, play, beauty, reframe, symbolic intelligence",
+    shadow:"performance, evasion, scattered energy, stimulation without depth",
+    need:"being heard, creative oxygen, expressive freedom",
+    medicine:"embodied honesty and completion",
+    field:"A Triad relationship field creates movement through language, humor, creativity, imagination, and the ability to turn tension into meaning. The relationship becomes a living conversation.",
+    wisdom:"The blessing of this field is expression. The danger is performing clarity before truth has actually been lived. Speech must become contact, not escape.",
+    anamnesis:"This bond asks: can the two of you turn experience into wisdom instead of merely turning it into noise?"
+  },
+  4:{
+    name:"Tetrad",
+    title:"The Foundation Field",
+    essence:"structure, reliability, duty, embodiment",
+    gift:"stability, loyalty, craft, planning, endurance",
+    shadow:"rigidity, control, emotional withholding, fear of change",
+    need:"consistency, accountability, visible effort",
+    medicine:"flexibility, warmth, and living structure",
+    field:"A Tetrad relationship field is built around trust, schedule, labor, responsibility, and the question of whether love can become durable form. This is not fantasy. This is architecture.",
+    wisdom:"The blessing of this field is reliability. The danger is confusing safety with immobility. A house must protect life without becoming a tomb.",
+    anamnesis:"This bond asks: can devotion become structure without structure becoming imprisonment?"
+  },
+  5:{
+    name:"Pentad",
+    title:"The Wind Field",
+    essence:"change, appetite, motion, exploration",
+    gift:"freedom, vitality, adaptation, sensual intelligence, experiment",
+    shadow:"avoidance, restlessness, instability, escape disguised as liberation",
+    need:"space, novelty, chosen freedom",
+    medicine:"commitment without captivity",
+    field:"A Pentad relationship field brings movement, chemistry, discovery, risk, travel, sensuality, and the constant need for fresh air. This bond cannot survive dead repetition.",
+    wisdom:"The blessing of this field is aliveness. The danger is confusing intensity with intimacy. Freedom matures when it can remain present by choice.",
+    anamnesis:"This bond asks: can freedom and commitment cease being enemies?"
+  },
+  6:{
+    name:"Hexad",
+    title:"The Hearth Field",
+    essence:"love, beauty, devotion, reciprocity, repair",
+    gift:"care, harmony, loyalty, aesthetic cultivation, protection",
+    shadow:"overgiving, obligation, moral pressure, control through care",
+    need:"mutual devotion and visible cherishing",
+    medicine:"balanced reciprocity and honest desire",
+    field:"A Hexad relationship field seeks beauty, commitment, healing, family, home, and the restoration of harmony. It naturally asks: how shall we care for what is sacred between us?",
+    wisdom:"The blessing of this field is devotion. The danger is turning love into duty and duty into quiet resentment. Care must remain alive, chosen, and mutual.",
+    anamnesis:"This bond asks: can love serve the soul without becoming a contract of invisible debts?"
+  },
+  7:{
+    name:"Heptad",
+    title:"The Mystery Field",
+    essence:"depth, solitude, inquiry, sacred distance",
+    gift:"discernment, contemplation, initiation, inner truth",
+    shadow:"withdrawal, suspicion, emotional opacity, superiority through distance",
+    need:"privacy, depth, respect for inner process",
+    medicine:"vulnerability without self-betrayal",
+    field:"A Heptad relationship field is not simple. It draws both people toward mystery, introspection, silence, spiritual inquiry, and the unspoken layers beneath ordinary bond.",
+    wisdom:"The blessing of this field is depth. The danger is disappearance. Mystery must not become a beautiful name for emotional inaccessibility.",
+    anamnesis:"This bond asks: can two inner worlds meet without either demanding total access or total concealment?"
+  },
+  8:{
+    name:"Octad",
+    title:"The Power Field",
+    essence:"force, consequence, ambition, exchange",
+    gift:"strength, manifestation, discipline, protection, strategic capacity",
+    shadow:"control, scorekeeping, dominance, transactional affection",
+    need:"respect, competence, shared standards",
+    medicine:"ethical power and generous strength",
+    field:"An Octad relationship field intensifies power, resources, ambition, respect, sexuality, consequence, and worldly manifestation. This bond asks what the pair can build, command, protect, or transform.",
+    wisdom:"The blessing of this field is potency. The danger is turning love into leverage. Power must become stewardship, not conquest.",
+    anamnesis:"This bond asks: can strength kneel before love without becoming weak?"
+  },
+  9:{
+    name:"Ennead",
+    title:"The Completion Field",
+    essence:"compassion, culmination, release, transmutation",
+    gift:"forgiveness, perspective, spiritual maturity, closure, grace",
+    shadow:"martyrdom, vagueness, savior-complex, unresolved sacrifice",
+    need:"meaning, compassion, emotional spaciousness",
+    medicine:"clear endings, clean giving, embodied compassion",
+    field:"An Ennead relationship field gathers old patterns for completion. It often feels fated because it brings unfinished material to the surface for forgiveness, maturation, release, or sacred renewal.",
+    wisdom:"The blessing of this field is grace. The danger is martyrdom. Compassion must not become the refusal to draw a clean line.",
+    anamnesis:"This bond asks: what must be forgiven, completed, released, or redeemed?"
+  }
+};
+
+const practices = {
+  1:["Share initiative deliberately.","Name decisions without coercion.","Let both people retain a sovereign center."],
+  2:["Speak needs before resentment forms.","Keep empathy joined to boundaries.","Repair quickly, but not dishonestly."],
+  3:["Turn conflict into language, not spectacle.","Complete what the relationship begins.","Let humor reveal rather than conceal."],
+  4:["Build rituals, schedules, and agreements.","Let structure serve life.","Prove care through consistent action."],
+  5:["Give the bond oxygen and novelty.","Choose freedom consciously.","Distinguish adventure from avoidance."],
+  6:["Practice mutual care, not one-sided devotion.","Name invisible expectations.","Let beauty and affection be maintained."],
+  7:["Protect solitude without weaponizing silence.","Speak from depth, not distance.","Honor mystery without hiding behind it."],
+  8:["Use power ethically.","Make agreements explicit.","Let respect soften into tenderness."],
+  9:["Complete old cycles cleanly.","Give without self-erasure.","Let compassion include truth."]
+};
+
+const avoidances = {
+  1:["One person becoming the ruler of the bond.","Confusing leadership with entitlement.","Turning every disagreement into a contest of will."],
+  2:["Peacekeeping at the expense of truth.","Emotional merging.","Indirect tests of loyalty."],
+  3:["Performing the relationship for others.","Talking around the wound.","Using novelty to avoid depth."],
+  4:["Overbuilding rules around fear.","Treating spontaneity as threat.","Withholding warmth while providing function."],
+  5:["Mistaking restlessness for revelation.","Using freedom as an exit from accountability.","Breaking trust to feel alive."],
+  6:["Keeping score through care.","Turning love into obligation.","Overfunctioning until desire dies."],
+  7:["Using privacy as punishment.","Assuming the other should read silence correctly.","Retreating into superiority."],
+  8:["Making affection transactional.","Power struggles disguised as standards.","Winning at the cost of intimacy."],
+  9:["Saving instead of relating.","Endless forgiveness without transformation.","Avoiding clean endings."]
+};
+
+function digitalRoot(n){
+  while(n > 9){
+    n = String(n).split('').reduce((a,b)=>a + Number(b),0);
+  }
+  return n;
+}
+
+function populateSelects(){
+  const options = Object.entries(glyphData).map(([num,g]) =>
+    `<option value="${num}">${num} — ${g.name}</option>`
+  ).join('');
+
+  glyphA.innerHTML = options;
+  glyphB.innerHTML = options;
+  glyphA.value = "7";
+  glyphB.value = "5";
+}
+
+function polarityText(a,b){
+  if(a === b){
+    return `Because both partners carry the ${glyphData[a].name}, the relationship amplifies one archetypal current. This creates immediate recognition, but also doubles the shadow. What is beautiful becomes unmistakable; what is unrefined becomes impossible to ignore.`;
+  }
+
+  const difference = Math.abs(a-b);
+
+  if(difference === 1){
+    return "These glyphs stand beside one another in sequence. The bond carries developmental tension: one partner often activates the next lesson the other is approaching but has not fully integrated.";
+  }
+
+  if(difference <= 3){
+    return "These glyphs are different enough to create movement, but close enough to translate one another. The relationship can become a bridge if neither partner demands identical perception.";
+  }
+
+  if(difference <= 5){
+    return "These glyphs create strong contrast. The attraction may be catalytic because each partner carries a faculty the other may lack, resist, desire, or secretly need.";
+  }
+
+  return "These glyphs are widely separated in temperament. The bond may feel fated, foreign, provocative, or difficult to simplify. It requires conscious translation rather than instinctive assumption.";
+}
+
+function interactionRole(self, other, result){
+  const s = glyphData[self];
+  const o = glyphData[other];
+  const r = glyphData[result];
+
+  return `The ${s.name} brings ${s.essence} into contact with the ${o.name}'s ${o.essence}. In this pairing, its gift is ${s.gift}; its shadow, if unrefined, is ${s.shadow}. To serve the ${r.name} field, this glyph must practice ${s.medicine}.`;
+}
+
+function reveal(){
+  const a = Number(glyphA.value);
+  const b = Number(glyphB.value);
+  const raw = a + b;
+  const result = digitalRoot(raw);
+  const r = glyphData[result];
+
+  resultNumber.textContent = result;
+  resultName.textContent = r.name;
+  resultSubtitle.textContent = r.title;
+
+  pairPill.textContent = `${glyphData[a].name} + ${glyphData[b].name}`;
+  sumPill.textContent = raw > 9 ? `${a} + ${b} = ${raw} → ${result}` : `${a} + ${b} = ${result}`;
+  fieldPill.textContent = `Relationship Glyph: ${result}`;
+
+  fieldText.textContent = r.field;
+  fieldWisdom.textContent = r.wisdom;
+  anamneticLine.textContent = r.anamnesis;
+
+  aTitle.textContent = `Partner A: ${glyphData[a].name}`;
+  bTitle.textContent = `Partner B: ${glyphData[b].name}`;
+
+  aText.textContent = interactionRole(a,b,result);
+  bText.textContent = interactionRole(b,a,result);
+
+  attraction.textContent =
+    `The attraction arises through the meeting of ${glyphData[a].essence} and ${glyphData[b].essence}. ` +
+    polarityText(a,b);
+
+  pressure.textContent =
+    `Under pressure, the ${glyphData[a].name} tends toward ${glyphData[a].shadow}, while the ${glyphData[b].name} tends toward ${glyphData[b].shadow}. The relationship field then attempts to teach ${r.medicine}.`;
+
+  distortion.textContent =
+    `The distortion of this bond appears when the pair forgets the purpose of the ${r.name}: ${r.essence}. Then the field collapses into ${r.shadow}.`;
+
+  practiceList.innerHTML = practices[result].map(x=>`<li>${x}</li>`).join('');
+  avoidList.innerHTML = avoidances[result].map(x=>`<li>${x}</li>`).join('');
+
+  formulaBox.innerHTML =
+    `<strong>Current Calculation:</strong> ${a} + ${b} = ${raw}` +
+    (raw > 9 ? ` → ${String(raw).split('').join(' + ')} = ${result}.` : `.`) +
+    ` The relationship field is <strong>${r.name}</strong>.`;
+
+  reading.style.display = "block";
+  reading.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+populateSelects();
+revealBtn.addEventListener("click", reveal);
+</script>
+
+</body>
+</html>
