@@ -16,6 +16,8 @@
     property="og:description"
     content="Number as geometric principle. Geometry as visible metaphysics."
   />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.jpg" />
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
@@ -23,117 +25,112 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   >
 
   <style>
-
     :root{
-
-      --bg:#03040a;
-      --bg2:#07111f;
-
-      --panel:#0d1524;
-      --panel2:#121c31;
-
-      --ink:#eef7ff;
-      --muted:#a4bac8;
-      --dim:#6f8795;
-
-      --aqua:#9ffcff;
+      --bg:#040612;
+      --bg2:#08111f;
+      --panel:#0d1526;
+      --panel2:#10192d;
+      --ink:#edf7ff;
+      --muted:#9eb4c2;
+      --dim:#6f8792;
+      --aqua:#8df8ff;
       --cyan:#5be7ff;
-      --turquoise:#33dfcf;
-
-      --violet:#7d34a3;
-      --violetBright:#cb74ff;
-
+      --turquoise:#31dfd1;
+      --teal:#16b3a4;
+      --violet:#7c2a91;
+      --violetBright:#b958df;
+      --violet2:#36105a;
       --gold:#f0cf8d;
       --amber:#e8a84e;
-
-      --line:rgba(159,252,255,.12);
-
-      --radius:30px;
-
-      --shadow:
-        0 34px 90px rgba(0,0,0,.55);
-
+      --line:rgba(141,248,255,.13);
+      --shadow:0 30px 80px rgba(0,0,0,.45);
+      --radius:28px;
       --serif:'Cormorant Garamond', serif;
       --sans:'Inter', sans-serif;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{ box-sizing:border-box; }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{ scroll-behavior:smooth; }
 
     body{
       margin:0;
       color:var(--ink);
       font-family:var(--sans);
-
       background:
-        radial-gradient(circle at top, rgba(125,52,163,.40), transparent 30rem),
-        radial-gradient(circle at 12% 18%, rgba(51,223,207,.10), transparent 24rem),
-        radial-gradient(circle at 85% 10%, rgba(240,207,141,.08), transparent 20rem),
-        radial-gradient(circle at 50% 120%, rgba(91,231,255,.08), transparent 40rem),
-        linear-gradient(180deg,#03040a 0%, #07111f 52%, #03040a 100%);
+        radial-gradient(circle at top, rgba(124,42,145,.46), transparent 28rem),
+        radial-gradient(circle at 18% 22%, rgba(49,223,209,.12), transparent 24rem),
+        radial-gradient(circle at 80% 14%, rgba(141,248,255,.07), transparent 22rem),
+        radial-gradient(circle at 50% 120%, rgba(91,231,255,.07), transparent 42rem),
+        linear-gradient(180deg, #030711 0%, #08111f 48%, #040612 100%);
     }
+
+    body.menu-open{ overflow:hidden; }
 
     a{
       color:inherit;
       text-decoration:none;
     }
 
+    button{
+      font:inherit;
+    }
+
     .wrap{
-      width:min(1260px, calc(100% - 34px));
+      width:min(1120px, calc(100% - 32px));
       margin:auto;
     }
 
-    /* =======================================================
-       HEADER
-       ======================================================= */
-
+    /* =========================================================
+       CANONICAL PAA HEADER — compact nested menu navigation
+       ========================================================= */
     .paa-header{
       position:sticky;
       top:0;
       z-index:1000;
-
-      backdrop-filter:blur(18px) saturate(140%);
+      backdrop-filter:blur(18px) saturate(135%);
+      -webkit-backdrop-filter:blur(18px) saturate(135%);
       background:
-        linear-gradient(
-          180deg,
-          rgba(3,4,10,.88),
-          rgba(3,4,10,.66)
-        );
-
-      border-bottom:1px solid rgba(159,252,255,.10);
-
-      box-shadow:
-        0 18px 44px rgba(0,0,0,.28);
+        linear-gradient(180deg, rgba(4,6,18,.90), rgba(4,6,18,.70));
+      border-bottom:1px solid rgba(141,248,255,.14);
+      box-shadow:0 18px 44px rgba(0,0,0,.28);
     }
 
     .paa-header::before{
-      content:'';
+      content:"";
       position:absolute;
       inset:0;
       pointer-events:none;
-
       background:
-        radial-gradient(circle at 12% 50%, rgba(159,252,255,.09), transparent 16rem),
-        radial-gradient(circle at 80% 40%, rgba(203,116,255,.10), transparent 18rem);
+        radial-gradient(circle at 16% 50%, rgba(141,248,255,.10), transparent 16rem),
+        radial-gradient(circle at 72% 40%, rgba(185,88,223,.11), transparent 18rem);
+      opacity:.8;
+    }
+
+    .paa-header::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      height:1px;
+      pointer-events:none;
+      background:linear-gradient(90deg, transparent, rgba(141,248,255,.52), rgba(185,88,223,.38), transparent);
+      opacity:.62;
     }
 
     .paa-nav{
+      position:relative;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:20px;
+      gap:22px;
       padding:14px 0;
-      position:relative;
     }
 
     .paa-brand{
@@ -142,6 +139,8 @@
       align-items:center;
       gap:14px;
       min-width:max-content;
+      color:var(--ink);
+      text-decoration:none;
     }
 
     .paa-brand-mark{
@@ -150,17 +149,14 @@
       border-radius:50%;
       display:grid;
       place-items:center;
-
-      border:1px solid rgba(159,252,255,.24);
-
+      border:1px solid rgba(141,248,255,.26);
       background:
-        radial-gradient(circle at 50% 35%, rgba(159,252,255,.18), transparent 58%),
-        linear-gradient(135deg, rgba(51,223,207,.14), rgba(203,116,255,.14));
-
+        radial-gradient(circle at 50% 35%, rgba(141,248,255,.18), transparent 58%),
+        linear-gradient(135deg, rgba(49,223,209,.13), rgba(185,88,223,.14));
       box-shadow:
-        inset 0 0 24px rgba(159,252,255,.05),
-        0 0 32px rgba(159,252,255,.08),
-        0 0 48px rgba(203,116,255,.05);
+        inset 0 0 22px rgba(141,248,255,.055),
+        0 0 30px rgba(141,248,255,.08),
+        0 0 46px rgba(185,88,223,.055);
     }
 
     .paa-tetractys{
@@ -176,28 +172,24 @@
       display:flex;
       justify-content:center;
       gap:4px;
+      line-height:0;
     }
 
     .paa-dot{
       width:6px;
       height:6px;
       border-radius:50%;
-
-      background:
-        linear-gradient(135deg, var(--aqua), var(--violetBright));
-
-      box-shadow:
-        0 0 14px rgba(159,252,255,.45);
+      background:linear-gradient(135deg, var(--aqua), var(--violetBright));
+      box-shadow:0 0 13px rgba(141,248,255,.46);
     }
 
     .paa-brand-text{
       display:flex;
       flex-direction:column;
       gap:1px;
-
+      line-height:1.02;
       text-transform:uppercase;
-      letter-spacing:.14em;
-      line-height:1.04;
+      letter-spacing:.145em;
       font-size:11px;
       font-weight:800;
     }
@@ -206,86 +198,213 @@
     .paa-brand-text span:nth-child(2){ color:var(--aqua); }
     .paa-brand-text span:nth-child(3){ color:var(--violetBright); }
 
-    .navlinks{
+    .paa-menu-wrap{
+      position:relative;
       display:flex;
       align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
-    .navlinks a{
+    .paa-menu-button{
       position:relative;
-
-      display:inline-flex;
+      isolation:isolate;
+      display:inline-grid;
+      grid-template-columns:auto auto;
       align-items:center;
-      justify-content:center;
-
-      min-height:42px;
+      gap:12px;
+      min-height:48px;
       padding:10px 16px;
-
       border-radius:999px;
-
-      border:1px solid rgba(159,252,255,.11);
-
+      border:1px solid rgba(141,248,255,.22);
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.045),
-          rgba(255,255,255,.015)
-        );
-
-      color:#d4e6f2;
-
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)),
+        radial-gradient(circle at 35% 0%, rgba(141,248,255,.12), transparent 70%);
+      color:#e7f8ff;
+      font-family:var(--sans);
       font-size:12px;
-      font-weight:800;
-      letter-spacing:.08em;
+      font-weight:900;
+      letter-spacing:.12em;
       text-transform:uppercase;
-
-      transition:
-        transform .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease,
-        background .22s ease;
+      cursor:pointer;
+      box-shadow:
+        0 0 28px rgba(141,248,255,.08),
+        inset 0 0 20px rgba(141,248,255,.04);
+      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
     }
 
-    .navlinks a:hover{
+    .paa-menu-button::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      z-index:-1;
+      background:linear-gradient(135deg, rgba(141,248,255,.32), rgba(185,88,223,.34));
+      opacity:.55;
+      transition:opacity .22s ease;
+    }
+
+    .paa-menu-button:hover,
+    .paa-menu-button[aria-expanded="true"]{
       transform:translateY(-1px);
-
-      border-color:rgba(159,252,255,.28);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(159,252,255,.08),
-          rgba(203,116,255,.05)
-        );
-
+      border-color:rgba(141,248,255,.42);
       box-shadow:
-        0 0 24px rgba(159,252,255,.10);
+        0 0 34px rgba(141,248,255,.13),
+        0 0 44px rgba(185,88,223,.10),
+        inset 0 0 22px rgba(141,248,255,.055);
     }
 
-    .navlinks a.active{
+    .paa-menu-button:hover::before,
+    .paa-menu-button[aria-expanded="true"]::before{ opacity:1; }
+
+    .paa-menu-bars{
+      width:24px;
+      height:18px;
+      display:grid;
+      align-content:space-between;
+    }
+
+    .paa-menu-bars span{
+      display:block;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--aqua), var(--violetBright));
+      box-shadow:0 0 12px rgba(141,248,255,.48);
+      transform-origin:center;
+      transition:transform .22s ease, opacity .18s ease;
+    }
+
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(2){ opacity:0; }
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+    .paa-menu-label{ display:inline-block; }
+
+    .paa-links{
+      position:absolute;
+      right:0;
+      top:calc(100% + 14px);
+      width:min(390px, calc(100vw - 32px));
+      display:grid;
+      gap:9px;
+      padding:14px;
+      border-radius:24px;
+      border:1px solid rgba(141,248,255,.18);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(141,248,255,.11), transparent 15rem),
+        radial-gradient(circle at 100% 10%, rgba(185,88,223,.14), transparent 16rem),
+        linear-gradient(180deg, rgba(7,12,26,.98), rgba(4,6,18,.98));
+      box-shadow:
+        0 28px 70px rgba(0,0,0,.50),
+        inset 0 0 26px rgba(141,248,255,.035);
+      opacity:0;
+      transform:translateY(-8px) scale(.985);
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .22s ease, transform .22s ease, visibility .22s ease;
+    }
+
+    .paa-menu-wrap.open .paa-links{
+      opacity:1;
+      transform:translateY(0) scale(1);
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .paa-menu-kicker{
+      padding:6px 10px 9px;
+      color:var(--aqua);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      border-bottom:1px solid rgba(141,248,255,.12);
+      margin-bottom:2px;
+    }
+
+    .paa-links a{
+      position:relative;
+      isolation:isolate;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:center;
+      min-height:48px;
+      padding:13px 14px;
+      border-radius:16px;
+      border:1px solid rgba(141,248,255,.11);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+      color:#d5e8f1;
+      font-family:var(--sans);
+      font-size:12px;
+      font-weight:850;
+      letter-spacing:.075em;
+      line-height:1.15;
+      text-transform:uppercase;
+      white-space:nowrap;
+      box-shadow:inset 0 0 18px rgba(141,248,255,.025);
+      transition:transform .22s ease, color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .paa-links a::after{
+      content:"→";
+      color:rgba(141,248,255,.78);
+      font-size:15px;
+      transform:translateX(-3px);
+      opacity:.64;
+      transition:transform .22s ease, opacity .22s ease;
+    }
+
+    .paa-links a:hover{
+      color:#f8fdff;
+      background:linear-gradient(180deg, rgba(141,248,255,.095), rgba(185,88,223,.055));
+      border-color:rgba(141,248,255,.30);
+      box-shadow:
+        0 0 24px rgba(141,248,255,.10),
+        inset 0 0 22px rgba(141,248,255,.045);
+      transform:translateY(-1px);
+    }
+
+    .paa-links a:hover::after{
+      transform:translateX(0);
+      opacity:1;
+    }
+
+    .paa-links a.active{
       color:#031116;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--turquoise),
-          var(--aqua)
-        );
-
-      border-color:rgba(159,252,255,.52);
-
+      background:linear-gradient(135deg, var(--turquoise), var(--aqua));
+      border-color:rgba(141,248,255,.58);
       box-shadow:
-        0 14px 34px rgba(51,223,207,.16);
+        0 14px 34px rgba(49,223,209,.18),
+        0 0 38px rgba(141,248,255,.12);
     }
 
-    /* =======================================================
-       HERO
-       ======================================================= */
+    .paa-links a.active::after{
+      color:#031116;
+      opacity:.8;
+    }
+
+    .paa-links a.paa-nav-cta{
+      color:#f9fdff;
+      border-color:rgba(185,88,223,.40);
+      background:linear-gradient(135deg, rgba(185,88,223,.30), rgba(49,223,209,.16));
+      box-shadow:
+        0 0 26px rgba(185,88,223,.12),
+        inset 0 0 18px rgba(141,248,255,.04);
+    }
+
+    .paa-links a.paa-nav-cta.active{
+      color:#031116;
+      background:linear-gradient(135deg, var(--violetBright), var(--aqua));
+      border-color:rgba(141,248,255,.60);
+    }
+
+    h1,h2,h3{
+      margin:0;
+      font-weight:400;
+      font-family:var(--serif);
+    }
 
     .hero{
-      padding:110px 0 74px;
+      padding:104px 0 64px;
       text-align:center;
       position:relative;
     }
@@ -295,42 +414,28 @@
       position:absolute;
       inset:0;
       pointer-events:none;
-
       background:
-        radial-gradient(circle at 50% 18%, rgba(159,252,255,.07), transparent 20rem),
-        radial-gradient(circle at 50% 0%, rgba(240,207,141,.08), transparent 28rem);
+        radial-gradient(circle at 50% 18%, rgba(141,248,255,.07), transparent 20rem),
+        radial-gradient(circle at 50% 0%, rgba(240,207,141,.07), transparent 28rem);
     }
+
+    .hero > *{ position:relative; }
 
     .eyebrow{
       color:var(--aqua);
-
       text-transform:uppercase;
-      letter-spacing:.24em;
-
+      letter-spacing:.25em;
       font-size:12px;
-
-      margin-bottom:26px;
+      margin-bottom:24px;
+      font-weight:800;
     }
 
     h1{
-      margin:0;
-
-      font-family:var(--serif);
-
-      font-size:clamp(58px, 10vw, 132px);
-      line-height:.88;
+      font-size:clamp(54px, 9vw, 118px);
+      line-height:.9;
       letter-spacing:.04em;
       text-transform:uppercase;
-
-      background:
-        linear-gradient(
-          180deg,
-          #ffffff 0%,
-          var(--gold) 22%,
-          var(--aqua) 62%,
-          #d7eeff 100%
-        );
-
+      background:linear-gradient(180deg,#fff 0%, var(--gold) 20%, var(--aqua) 58%, #d7eeff 100%);
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
@@ -338,86 +443,323 @@
 
     .hero-intro{
       max-width:920px;
-
       margin:30px auto 0;
-
       color:var(--muted);
-
-      font-size:clamp(18px,2vw,23px);
+      font-size:clamp(18px,2vw,22px);
       line-height:1.9;
     }
 
     .hero-intro strong{
       color:#f4fbff;
-      font-weight:700;
+      font-weight:750;
     }
 
-    /* =======================================================
-       GRID
-       ======================================================= */
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .button-link,
+    .filter-btn,
+    .detail-close{
+      border:0;
+      cursor:pointer;
+      text-decoration:none;
+    }
+
+    .button-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border-radius:18px;
+      font-family:var(--sans);
+      font-size:13px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      transition:transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .button-link:hover{ transform:translateY(-2px); }
+
+    .button-link.primary{
+      background:linear-gradient(135deg,var(--turquoise),var(--aqua));
+      color:#031116;
+      box-shadow:0 14px 40px rgba(49,223,209,.18);
+    }
+
+    .button-link.secondary{
+      background:transparent;
+      color:var(--aqua);
+      border:1px solid rgba(141,248,255,.28);
+      box-shadow:none;
+    }
+
+    .button-link.tertiary{
+      border:1px solid rgba(185,88,223,.36);
+      background:rgba(185,88,223,.1);
+      color:var(--ink);
+    }
+
+    .field-strip{
+      padding:0 0 34px;
+    }
+
+    .field-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(141,248,255,.10), transparent 18rem),
+        radial-gradient(circle at 88% 30%, rgba(185,88,223,.12), transparent 18rem),
+        linear-gradient(180deg, rgba(16,25,45,.76), rgba(6,10,20,.88));
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+
+    .field-card h2{
+      font-size:clamp(31px,4vw,52px);
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+      margin-bottom:16px;
+    }
+
+    .field-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    .filter-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .filter-btn{
+      min-height:40px;
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid rgba(141,248,255,.16);
+      background:rgba(255,255,255,.035);
+      color:#d7e9f2;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      transition:.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active{
+      color:#031116;
+      background:linear-gradient(135deg,var(--turquoise),var(--aqua));
+      border-color:rgba(141,248,255,.55);
+      box-shadow:0 12px 30px rgba(49,223,209,.12);
+      transform:translateY(-1px);
+    }
+
+    .selected-stage{
+      padding:0 0 46px;
+    }
+
+    .stage{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:22px;
+      align-items:stretch;
+      border:1px solid rgba(141,248,255,.14);
+      border-radius:34px;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(141,248,255,.10), transparent 18rem),
+        radial-gradient(circle at 92% 22%, rgba(185,88,223,.14), transparent 20rem),
+        linear-gradient(180deg,rgba(16,25,45,.88),rgba(6,10,20,.98));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .stage-orb{
+      min-height:430px;
+      display:grid;
+      place-items:center;
+      padding:34px;
+      border-right:1px solid rgba(141,248,255,.10);
+      background:
+        radial-gradient(circle at 50% 40%, rgba(141,248,255,.12), transparent 13rem),
+        radial-gradient(circle at 50% 60%, rgba(240,207,141,.08), transparent 13rem);
+    }
+
+    .stage-orb svg{
+      width:min(310px,100%);
+      height:auto;
+      overflow:visible;
+    }
+
+    .stage-copy{
+      padding:38px;
+      display:grid;
+      gap:20px;
+      align-content:center;
+    }
+
+    .stage-kicker{
+      color:var(--aqua);
+      text-transform:uppercase;
+      letter-spacing:.20em;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .stage-title{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:baseline;
+      gap:14px;
+    }
+
+    .stage-number{
+      font-family:var(--serif);
+      font-size:clamp(68px,8vw,108px);
+      line-height:.78;
+      color:var(--gold);
+      text-shadow:0 0 26px rgba(240,207,141,.18);
+    }
+
+    .stage-name{
+      font-family:var(--serif);
+      font-size:clamp(40px,5vw,74px);
+      line-height:.9;
+      letter-spacing:.04em;
+    }
+
+    .stage-shape{
+      color:var(--aqua);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .stage-oracle{
+      font-family:var(--serif);
+      font-size:clamp(25px,3vw,37px);
+      line-height:1.25;
+      color:#f4fbff;
+      margin:0;
+    }
+
+    .stage-text{
+      margin:0;
+      color:#bed2dd;
+      font-size:18px;
+      line-height:1.9;
+    }
+
+    .stage-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .mini-card{
+      border:1px solid rgba(141,248,255,.11);
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      padding:15px;
+    }
+
+    .mini-card strong{
+      display:block;
+      color:var(--aqua);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .mini-card span{
+      color:#e6f5fb;
+      font-size:15px;
+      line-height:1.55;
+    }
 
     .glyph-grid{
       display:grid;
       grid-template-columns:repeat(5,1fr);
-      gap:22px;
-
-      padding-bottom:120px;
+      gap:20px;
+      padding:0 0 56px;
     }
 
     .glyph-card{
       position:relative;
       overflow:hidden;
-
-      min-height:410px;
-
-      padding:28px;
-
-      border-radius:32px;
-
-      border:1px solid rgba(159,252,255,.11);
-
+      min-height:440px;
+      padding:24px;
+      border-radius:30px;
+      border:1px solid rgba(141,248,255,.11);
       background:
-        radial-gradient(circle at top right, rgba(203,116,255,.10), transparent 16rem),
-        radial-gradient(circle at bottom left, rgba(159,252,255,.06), transparent 18rem),
-        linear-gradient(
-          180deg,
-          rgba(15,22,38,.94),
-          rgba(7,11,20,.98)
-        );
-
+        radial-gradient(circle at top right, rgba(185,88,223,.10), transparent 16rem),
+        radial-gradient(circle at bottom left, rgba(141,248,255,.06), transparent 18rem),
+        linear-gradient(180deg, rgba(15,22,38,.94), rgba(7,11,20,.98));
       box-shadow:var(--shadow);
-
+      cursor:pointer;
       transition:
         transform .28s ease,
         border-color .28s ease,
-        box-shadow .28s ease;
+        box-shadow .28s ease,
+        opacity .2s ease,
+        filter .2s ease;
     }
 
     .glyph-card::before{
       content:'';
       position:absolute;
       inset:0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.04),
-          transparent 40%
-        );
-
+      background:linear-gradient(180deg, rgba(255,255,255,.04), transparent 40%);
       opacity:.65;
       pointer-events:none;
     }
 
-    .glyph-card:hover{
+    .glyph-card:hover,
+    .glyph-card:focus-visible{
+      outline:0;
       transform:translateY(-7px);
-
-      border-color:rgba(159,252,255,.28);
-
+      border-color:rgba(141,248,255,.32);
       box-shadow:
         0 34px 90px rgba(0,0,0,.55),
-        0 0 44px rgba(159,252,255,.08),
-        0 0 60px rgba(203,116,255,.06);
+        0 0 44px rgba(141,248,255,.08),
+        0 0 60px rgba(185,88,223,.06);
+    }
+
+    .glyph-card.active{
+      border-color:rgba(240,207,141,.45);
+      box-shadow:
+        0 34px 90px rgba(0,0,0,.55),
+        0 0 42px rgba(240,207,141,.10),
+        0 0 55px rgba(141,248,255,.09);
+    }
+
+    .glyph-card.hidden-by-filter{
+      display:none;
+    }
+
+    .glyph-card > *{ position:relative; z-index:1; }
+
+    .glyph-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
     }
 
     .glyph-number{
@@ -427,9 +769,19 @@
       color:var(--gold);
     }
 
+    .glyph-field{
+      max-width:120px;
+      text-align:right;
+      color:var(--aqua);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.15em;
+      line-height:1.35;
+      text-transform:uppercase;
+    }
+
     .glyph-name{
       margin-top:2px;
-
       font-family:var(--serif);
       font-size:34px;
       line-height:1;
@@ -437,21 +789,17 @@
 
     .glyph-shape{
       margin-top:10px;
-
       color:var(--aqua);
-
       font-size:11px;
-      font-weight:800;
+      font-weight:900;
       letter-spacing:.18em;
       text-transform:uppercase;
     }
 
     .glyph-wrap{
       height:170px;
-
       display:grid;
       place-items:center;
-
       margin:18px 0 14px;
     }
 
@@ -463,72 +811,81 @@
 
     .ring{
       fill:none;
-      stroke:rgba(159,252,255,.12);
+      stroke:rgba(141,248,255,.12);
       stroke-width:1.2;
+    }
+
+    .construction{
+      fill:none;
+      stroke:rgba(240,207,141,.13);
+      stroke-width:1;
+      stroke-dasharray:3 5;
     }
 
     .shape{
       fill:none;
-
       stroke:url(#glyphGradient);
-
       stroke-width:2.2;
-
       vector-effect:non-scaling-stroke;
-
-      filter:drop-shadow(0 0 12px rgba(159,252,255,.24));
+      filter:drop-shadow(0 0 12px rgba(141,248,255,.24));
     }
 
     .soft{
       fill:none;
-
       stroke:rgba(240,207,141,.18);
-
       stroke-width:1;
     }
 
-    .center-dot{
+    .center-dot,
+    .node-dot{
       fill:var(--gold);
-
       filter:drop-shadow(0 0 12px rgba(240,207,141,.52));
     }
 
+    .node-dot{ opacity:.9; }
+
     .glyph-brief{
       color:var(--muted);
-
       font-size:15px;
       line-height:1.7;
     }
 
+    .glyph-action{
+      margin-top:18px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#f3fbff;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+      opacity:.78;
+    }
+
+    .glyph-action::after{
+      content:"→";
+      color:var(--aqua);
+      transition:transform .2s ease;
+    }
+
+    .glyph-card:hover .glyph-action::after{ transform:translateX(3px); }
+
     .hover-panel{
       position:absolute;
-      left:18px;
-      right:18px;
-      bottom:18px;
-
-      padding:18px;
-
+      left:16px;
+      right:16px;
+      bottom:16px;
+      padding:16px;
       border-radius:22px;
-
-      border:1px solid rgba(159,252,255,.14);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(5,8,18,.88),
-          rgba(5,8,18,.97)
-        );
-
+      border:1px solid rgba(141,248,255,.14);
+      background:linear-gradient(180deg, rgba(5,8,18,.88), rgba(5,8,18,.97));
       backdrop-filter:blur(12px);
-
       opacity:0;
       transform:translateY(10px);
-
-      transition:
-        opacity .22s ease,
-        transform .22s ease;
-
+      transition:opacity .22s ease, transform .22s ease;
       pointer-events:none;
+      z-index:2;
     }
 
     .glyph-card:hover .hover-panel{
@@ -538,108 +895,293 @@
 
     .hover-panel strong{
       display:block;
-
       margin-bottom:8px;
-
       font-family:var(--serif);
-      font-size:28px;
-
+      font-size:25px;
       color:var(--gold);
     }
 
     .hover-panel span{
       color:#d8e7f2;
+      font-size:14px;
+      line-height:1.65;
+    }
 
-      font-size:15px;
-      line-height:1.75;
+    .method-section{
+      padding:0 0 80px;
+    }
+
+    .method-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .method-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:
+        radial-gradient(circle at top right, rgba(185,88,223,.09), transparent 14rem),
+        linear-gradient(180deg,rgba(16,25,45,.86),rgba(6,10,20,.98));
+      box-shadow:var(--shadow);
+      padding:30px;
+    }
+
+    .method-card h2{
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.02;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .method-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.9;
     }
 
     .footer-note{
       max-width:900px;
-
-      margin:0 auto 120px;
-
+      margin:0 auto 110px;
       text-align:center;
-
       color:var(--dim);
-
       line-height:1.9;
       font-size:16px;
     }
 
-    /* =======================================================
-       RESPONSIVE
-       ======================================================= */
-
-    @media(max-width:1180px){
-
-      .glyph-grid{
-        grid-template-columns:repeat(3,1fr);
-      }
+    .detail-overlay{
+      position:fixed;
+      inset:0;
+      z-index:1200;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background:rgba(1,4,10,.72);
+      backdrop-filter:blur(14px);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:.22s ease;
     }
 
-    @media(max-width:760px){
+    .detail-overlay.open{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
 
-      .hero{
-        padding-top:84px;
-      }
+    .detail-modal{
+      width:min(980px, 100%);
+      max-height:min(820px, calc(100vh - 48px));
+      overflow:auto;
+      border-radius:34px;
+      border:1px solid rgba(141,248,255,.18);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(141,248,255,.12), transparent 18rem),
+        radial-gradient(circle at 86% 20%, rgba(185,88,223,.16), transparent 20rem),
+        linear-gradient(180deg,rgba(12,18,32,.98),rgba(4,6,18,.99));
+      box-shadow:0 36px 100px rgba(0,0,0,.65);
+      transform:translateY(12px) scale(.985);
+      transition:.22s ease;
+    }
 
-      .glyph-grid{
+    .detail-overlay.open .detail-modal{
+      transform:translateY(0) scale(1);
+    }
+
+    .detail-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:24px 24px 0;
+    }
+
+    .detail-kicker{
+      color:var(--aqua);
+      text-transform:uppercase;
+      letter-spacing:.20em;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .detail-close{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:1px solid rgba(141,248,255,.18);
+      background:rgba(255,255,255,.035);
+      color:#eaffff;
+      font-size:26px;
+      line-height:1;
+      transition:.2s ease;
+    }
+
+    .detail-close:hover{
+      transform:rotate(90deg);
+      border-color:rgba(141,248,255,.38);
+      box-shadow:0 0 24px rgba(141,248,255,.10);
+    }
+
+    .detail-body{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:22px;
+      padding:24px;
+    }
+
+    .detail-visual{
+      display:grid;
+      place-items:center;
+      min-height:320px;
+      border-radius:26px;
+      border:1px solid rgba(141,248,255,.10);
+      background:
+        radial-gradient(circle at center, rgba(141,248,255,.10), transparent 15rem),
+        rgba(255,255,255,.025);
+    }
+
+    .detail-visual svg{
+      width:min(285px,100%);
+      height:auto;
+    }
+
+    .detail-content h2{
+      font-size:clamp(42px,6vw,82px);
+      line-height:.9;
+      letter-spacing:.04em;
+      margin-bottom:10px;
+    }
+
+    .detail-content p{
+      color:#bed2dd;
+      font-size:17px;
+      line-height:1.85;
+      margin:0 0 16px;
+    }
+
+    .detail-content strong{
+      color:#f5fbff;
+      font-weight:800;
+    }
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .detail-item{
+      border:1px solid rgba(141,248,255,.10);
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+      padding:16px;
+    }
+
+    .detail-item b{
+      display:block;
+      color:var(--aqua);
+      font-size:10px;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .detail-item span{
+      color:#e6f5fb;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    @media(max-width:1180px){
+      .glyph-grid{ grid-template-columns:repeat(3,1fr); }
+    }
+
+    @media(max-width:900px){
+      .stage,
+      .detail-body,
+      .method-grid{
         grid-template-columns:1fr;
       }
 
-      .glyph-card{
-        min-height:380px;
+      .stage-orb{
+        min-height:320px;
+        border-right:0;
+        border-bottom:1px solid rgba(141,248,255,.10);
       }
 
-      .navlinks{
-        justify-content:center;
-      }
-
-      .paa-nav{
-        flex-direction:column;
-      }
+      .stage-grid{ grid-template-columns:1fr; }
     }
 
+    @media(max-width:760px){
+      .hero{ padding-top:76px; }
+
+      .glyph-grid{ grid-template-columns:1fr; }
+
+      .glyph-card{ min-height:390px; }
+
+      .hero-actions{ flex-direction:column; }
+
+      .button-link{ width:100%; }
+
+      .stage-copy{ padding:28px; }
+
+      .field-card{ padding:24px; }
+
+      .detail-grid{ grid-template-columns:1fr; }
+    }
+
+    @media(max-width:640px){
+      .paa-nav{
+        gap:14px;
+        padding:12px 0;
+      }
+
+      .paa-brand-mark{
+        width:46px;
+        height:46px;
+      }
+
+      .paa-brand-text{
+        font-size:10px;
+        letter-spacing:.105em;
+      }
+
+      .paa-menu-button{
+        min-height:46px;
+        padding:10px 13px;
+      }
+
+      .paa-menu-label{
+        display:none;
+      }
+
+      .paa-links{
+        position:fixed;
+        left:16px;
+        right:16px;
+        top:78px;
+        width:auto;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <header class="paa-header">
-
   <div class="wrap paa-nav">
-
-    <a class="paa-brand" href="index.html">
-
-      <span class="paa-brand-mark">
-
+    <a class="paa-brand" href="index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
+      <span class="paa-brand-mark" aria-hidden="true">
         <span class="paa-tetractys">
-
-          <span class="paa-tetra-row">
-            <span class="paa-dot"></span>
-          </span>
-
-          <span class="paa-tetra-row">
-            <span class="paa-dot"></span>
-            <span class="paa-dot"></span>
-          </span>
-
-          <span class="paa-tetra-row">
-            <span class="paa-dot"></span>
-            <span class="paa-dot"></span>
-            <span class="paa-dot"></span>
-          </span>
-
-          <span class="paa-tetra-row">
-            <span class="paa-dot"></span>
-            <span class="paa-dot"></span>
-            <span class="paa-dot"></span>
-            <span class="paa-dot"></span>
-          </span>
-
+          <span class="paa-tetra-row"><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
         </span>
-
       </span>
 
       <span class="paa-brand-text">
@@ -647,27 +1189,34 @@
         <span>Arithmosophic</span>
         <span>Anamnesis</span>
       </span>
-
     </a>
 
-    <nav class="navlinks">
-      <a href="index.html">Home</a>
-      <a href="geometry.html" class="active">Geometry</a>
-      <a href="aboutpaa.html">What Is PAA?</a>
-      <a href="donate.html">Support PAA</a>
-    </nav>
+    <div class="paa-menu-wrap" data-paa-menu>
+      <button class="paa-menu-button" type="button" aria-label="Open primary navigation" aria-expanded="false" aria-controls="paa-primary-menu" data-paa-menu-button>
+        <span class="paa-menu-bars" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="paa-menu-label">Menu</span>
+      </button>
 
+      <nav id="paa-primary-menu" class="paa-links" aria-label="Primary navigation" data-paa-menu-panel>
+        <div class="paa-menu-kicker">Navigate</div>
+        <a href="index.html">Home</a>
+        <a href="geometry.html" class="active">Geometry</a>
+        <a href="relationships.html">Relationships</a>
+        <a href="aboutpaa.html">What Is PAA?</a>
+        <a href="donate.html" class="paa-nav-cta">Support PAA</a>
+      </nav>
+    </div>
   </div>
-
 </header>
 
-<main class="wrap">
+<main>
 
-  <section class="hero">
-
-    <div class="eyebrow">
-      Sacred Geometry of Number
-    </div>
+  <section class="hero wrap">
+    <div class="eyebrow">Sacred Geometry of Number</div>
 
     <h1>
       Geometry<br>
@@ -681,298 +1230,574 @@
       relation becoming geometry,
       geometry becoming metaphysical instruction.
       <br><br>
-      Each glyph below is a geometric condensation of principle:
-      Monad through Ennead,
-      and the destabilizing excess of the Undecad.
+      Select a glyph to reveal its
+      <strong>geometric law, structural pressure, distortion risk, and corrective discipline.</strong>
     </p>
 
+    <div class="hero-actions">
+      <a class="button-link primary" href="#glyphGrid">Enter the Glyphs</a>
+      <a class="button-link secondary" href="index.html#calculator">Find My Birth Root</a>
+    </div>
   </section>
 
-  <section class="glyph-grid" id="glyphGrid"></section>
+  <section class="selected-stage wrap" id="selectedGlyph" aria-live="polite">
+    <div class="stage">
+      <div class="stage-orb" id="stageOrb"></div>
 
-  <p class="footer-note">
-    Hover over each glyph to reveal its hidden instruction.
-    These forms are not ornamental diagrams,
-    but thresholds:
-    number rendered visible as law, tension, harmony, proportion, rupture, and return.
-  </p>
+      <div class="stage-copy">
+        <div class="stage-kicker" id="stageField">Selected Glyph</div>
+
+        <div class="stage-title">
+          <div class="stage-number" id="stageNumber">1</div>
+          <div>
+            <div class="stage-name" id="stageName">Monad</div>
+            <div class="stage-shape" id="stageShape">Point / Circle</div>
+          </div>
+        </div>
+
+        <p class="stage-oracle" id="stageOracle">
+          The center is not empty. It is the law before extension.
+        </p>
+
+        <p class="stage-text" id="stageText">
+          Select any glyph below to open its deeper geometric instruction.
+        </p>
+
+        <div class="stage-grid">
+          <div class="mini-card">
+            <strong>Geometry</strong>
+            <span id="stageGeometry">Center without division.</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>Pressure</strong>
+            <span id="stagePressure">To remain whole before relation.</span>
+          </div>
+
+          <div class="mini-card">
+            <strong>Correction</strong>
+            <span id="stageCorrection">Return to source before acting.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="glyph-grid wrap" id="glyphGrid" aria-label="Interactive number glyphs"></section>
+
+  <section class="method-section wrap">
+    <div class="method-grid">
+      <article class="method-card">
+        <h2>Geometric Insight</h2>
+        <p>
+          A number becomes intelligible when its relation is made visible:
+          the Monad as center, the Dyad as line, the Triad as plane,
+          the Tetrad as frame, the Pentad as living proportion,
+          the Hexad as reciprocity, the Heptad as resistant mystery,
+          the Octad as octave-return, the Ennead as completion, and the Undecad as excess beyond closure.
+        </p>
+      </article>
+
+      <article class="method-card">
+        <h2>How to Use This Page</h2>
+        <p>
+          Filter by field, select a glyph, read its geometry, then ask the diagnostic question:
+          what does this form permit, forbid, stabilize, rupture, or complete?
+          This is the beginning of structural literacy: not “what does it mean?” but “what pressure does it create?”
+        </p>
+      </article>
+    </div>
+  </section>
 
 </main>
 
+<div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+  <div class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="detail-head">
+      <div class="detail-kicker" id="detailKicker">Glyph Detail</div>
+      <button class="detail-close" type="button" aria-label="Close glyph detail" id="detailClose">×</button>
+    </div>
+
+    <div class="detail-body">
+      <div class="detail-visual" id="detailVisual"></div>
+
+      <div class="detail-content">
+        <h2 id="detailTitle">Monad</h2>
+        <p id="detailMain"></p>
+
+        <div class="detail-grid">
+          <div class="detail-item">
+            <b>Geometric Law</b>
+            <span id="detailLaw"></span>
+          </div>
+          <div class="detail-item">
+            <b>Diagnostic Question</b>
+            <span id="detailQuestion"></span>
+          </div>
+          <div class="detail-item">
+            <b>Distortion Risk</b>
+            <span id="detailDistortion"></span>
+          </div>
+          <div class="detail-item">
+            <b>Corrective Discipline</b>
+            <span id="detailDiscipline"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-
 const glyphs = [
-
-{
-  n:1,
-  name:"Monad",
-  shape:"Point / Circle",
-  brief:"Unity prior to division.",
-  hoverTitle:"The Source",
-  hover:"The Monad is indivisible origin: center before extension, identity before multiplicity, pure potential prior to manifestation.",
-  sides:1
-},
-
-{
-  n:2,
-  name:"Dyad",
-  shape:"Line",
-  brief:"Polarity, relation, and division.",
-  hoverTitle:"The First Separation",
-  hover:"The Dyad introduces otherness: tension, mirror, polarity, attraction, opposition, and the birth of relational awareness.",
-  sides:2
-},
-
-{
-  n:3,
-  name:"Triad",
-  shape:"Triangle",
-  brief:"Mediation and stable synthesis.",
-  hoverTitle:"The First Plane",
-  hover:"The Triad reconciles opposition through a third principle: harmony born from tension, and structure emerging from polarity.",
-  sides:3
-},
-
-{
-  n:4,
-  name:"Tetrad",
-  shape:"Square",
-  brief:"Foundation, structure, and order.",
-  hoverTitle:"The World-Frame",
-  hover:"The Tetrad establishes stable manifestation: the four directions, the four elements, and the architecture of embodied existence.",
-  sides:4
-},
-
-{
-  n:5,
-  name:"Pentad",
-  shape:"Pentagon / Pentagram",
-  brief:"Living proportion and adaptive motion.",
-  hoverTitle:"The Living Ratio",
-  hover:"The Pentad encodes organic growth and the golden proportion. It symbolizes life, adaptation, embodiment, and dynamic equilibrium.",
-  sides:5,
-  star:true
-},
-
-{
-  n:6,
-  name:"Hexad",
-  shape:"Hexagon",
-  brief:"Reciprocity and harmonic balance.",
-  hoverTitle:"The Marriage of Opposites",
-  hover:"The Hexad represents reciprocal coherence: spirit and matter, above and below, joined through symmetrical relation.",
-  sides:6,
-  inner:true
-},
-
-{
-  n:7,
-  name:"Heptad",
-  shape:"Heptagon",
-  brief:"Mystery and incomensurability.",
-  hoverTitle:"Incomensurability",
-  hover:"The regular heptagon resisted exact classical construction. The Heptad therefore became associated with sacred irregularity, mystery, initiation, and what exceeds rational reduction.",
-  sides:7
-},
-
-{
-  n:8,
-  name:"Octad",
-  shape:"Octagon",
-  brief:"Regeneration and octave-return.",
-  hoverTitle:"The Higher Return",
-  hover:"The Octad symbolizes renewal through recurrence: the same pattern returning transformed at a higher order of realization.",
-  sides:8
-},
-
-{
-  n:9,
-  name:"Ennead",
-  shape:"Nonagon",
-  brief:"Completion before return to unity.",
-  hoverTitle:"The Final Chamber",
-  hover:"The Ennead gathers the totality of the cycle before return into a renewed Monad. Fulfillment, culmination, and gestational completion.",
-  sides:9
-},
-
-{
-  n:11,
-  name:"Undecad",
-  shape:"Hendecagon",
-  brief:"Excess beyond the perfect ten.",
-  hoverTitle:"The Rupture Beyond Order",
-  hover:"The Undecad exceeds the completed Decad. It represents transgression, dangerous genius, overreach, revelation, instability, and breakthrough beyond closed systems.",
-  sides:11
-}
-
+  {
+    n:1,
+    name:"Monad",
+    shape:"Point / Circle",
+    field:"Source",
+    brief:"Unity prior to division.",
+    hoverTitle:"The Source",
+    oracle:"The center is not empty. It is the law before extension.",
+    hover:"The Monad is indivisible origin: center before extension, identity before multiplicity, pure potential prior to manifestation.",
+    geometry:"Center without division. Circumference without fragmentation.",
+    law:"A point becomes a world when it radiates without losing its center.",
+    pressure:"To remain whole before relation.",
+    correction:"Return to source before acting.",
+    question:"Where are you moving before you have recovered your center?",
+    distortion:"Isolation, inflation, false self-sufficiency, refusal of relation.",
+    discipline:"Practice beginning again from first principle, not from reaction.",
+    sides:1
+  },
+  {
+    n:2,
+    name:"Dyad",
+    shape:"Line",
+    field:"Tectonic Pillars",
+    brief:"Polarity, relation, and division.",
+    hoverTitle:"The First Separation",
+    oracle:"The line is the wound that makes relation possible.",
+    hover:"The Dyad introduces otherness: tension, mirror, polarity, attraction, opposition, and the birth of relational awareness.",
+    geometry:"Two points establish direction, opposition, and distance.",
+    law:"Relation begins when unity discovers another point of reference.",
+    pressure:"To hold difference without collapse into fusion or war.",
+    correction:"Name the polarity. Do not drown in it.",
+    question:"What opposition are you mistaking for an enemy rather than a necessary mirror?",
+    distortion:"Dependence, rivalry, projection, paralysis between poles.",
+    discipline:"Turn opposition into orientation. Let the line teach direction.",
+    sides:2
+  },
+  {
+    n:3,
+    name:"Triad",
+    shape:"Triangle",
+    field:"Harmonic Matrix",
+    brief:"Mediation and stable synthesis.",
+    hoverTitle:"The First Plane",
+    oracle:"The third point saves polarity from endless reflection.",
+    hover:"The Triad reconciles opposition through a third principle: harmony born from tension, and structure emerging from polarity.",
+    geometry:"The triangle is the first enclosed plane: relation becomes stable form.",
+    law:"Two forces require a third to become intelligible.",
+    pressure:"To express, mediate, and synthesize rather than scatter.",
+    correction:"Complete the circuit. Do not merely react between two points.",
+    question:"What third principle would reconcile the conflict you keep repeating?",
+    distortion:"Performance, over-expression, triangulation, endless motion without depth.",
+    discipline:"Speak only after the third point has appeared.",
+    sides:3
+  },
+  {
+    n:4,
+    name:"Tetrad",
+    shape:"Square",
+    field:"Tectonic Pillars",
+    brief:"Foundation, structure, and order.",
+    hoverTitle:"The World-Frame",
+    oracle:"The square teaches consequence: what stands must bear weight.",
+    hover:"The Tetrad establishes stable manifestation: the four directions, the four elements, and the architecture of embodied existence.",
+    geometry:"Equal sides and right angles create the field of measure, boundary, and foundation.",
+    law:"Manifestation requires limit. Without boundary, no world holds.",
+    pressure:"To build, contain, and stabilize.",
+    correction:"Make the boundary explicit. Then test whether it bears weight.",
+    question:"What structure are you avoiding because it would expose your lack of discipline?",
+    distortion:"Rigidity, control, dead order, fear of movement.",
+    discipline:"Build a frame strong enough to permit life, not imprison it.",
+    sides:4
+  },
+  {
+    n:5,
+    name:"Pentad",
+    shape:"Pentagon / Pentagram",
+    field:"Blade Field",
+    brief:"Living proportion and adaptive motion.",
+    hoverTitle:"The Living Ratio",
+    oracle:"Life is not stable because it is still. It is stable because it adapts.",
+    hover:"The Pentad encodes organic growth and the golden proportion. It symbolizes life, adaptation, embodiment, and dynamic equilibrium.",
+    geometry:"Pentagonal symmetry opens into the pentagram, recursively generating living proportion.",
+    law:"Organic order survives through adaptive recursion, not fixed repetition.",
+    pressure:"To move without losing proportion.",
+    correction:"Adapt consciously. Do not confuse motion with freedom.",
+    question:"What are you calling freedom that is actually patternless escape?",
+    distortion:"Restlessness, appetite, novelty addiction, rebellion without direction.",
+    discipline:"Bind motion to proportion. Let change serve form.",
+    sides:5,
+    star:true
+  },
+  {
+    n:6,
+    name:"Hexad",
+    shape:"Hexagon",
+    field:"Harmonic Matrix",
+    brief:"Reciprocity and harmonic balance.",
+    hoverTitle:"The Marriage of Opposites",
+    oracle:"Harmony is not agreement. It is reciprocal tension held cleanly.",
+    hover:"The Hexad represents reciprocal coherence: spirit and matter, above and below, joined through symmetrical relation.",
+    geometry:"The hexagon arises naturally from equal circles around a center; every radius becomes a side.",
+    law:"Perfect reciprocity emerges when the center and circumference share measure.",
+    pressure:"To harmonize without dissolving distinction.",
+    correction:"Restore reciprocity. What you take must return as structure.",
+    question:"Where has your desire for peace become avoidance of necessary tension?",
+    distortion:"People-pleasing, false balance, aesthetic harmony masking imbalance.",
+    discipline:"Let harmony include opposition. Balance is not blandness.",
+    sides:6,
+    inner:true
+  },
+  {
+    n:7,
+    name:"Heptad",
+    shape:"Heptagon",
+    field:"Blade Field",
+    brief:"Mystery and incommensurability.",
+    hoverTitle:"Incommensurability",
+    oracle:"The seven refuses to be domesticated by the ruler.",
+    hover:"The regular heptagon resisted exact classical construction. The Heptad therefore became associated with sacred irregularity, mystery, initiation, and what exceeds rational reduction.",
+    geometry:"The heptagon approximates what classical construction cannot easily command.",
+    law:"Not all truth yields to clean construction. Some truth initiates by resistance.",
+    pressure:"To discern mystery without falsifying it into easy order.",
+    correction:"Respect the remainder. The unsolved portion may be the gate.",
+    question:"What mystery are you forcing into a system because ambiguity humiliates you?",
+    distortion:"Obsession, secrecy, alienation, mistaking difficulty for depth.",
+    discipline:"Hold the unsolved without worshiping confusion.",
+    sides:7
+  },
+  {
+    n:8,
+    name:"Octad",
+    shape:"Octagon",
+    field:"Tectonic Pillars",
+    brief:"Regeneration and octave-return.",
+    hoverTitle:"The Higher Return",
+    oracle:"Return is not repetition when the level has changed.",
+    hover:"The Octad symbolizes renewal through recurrence: the same pattern returning transformed at a higher order of realization.",
+    geometry:"The octagon mediates square and circle: structure begins to rotate toward renewal.",
+    law:"The octave returns to the same name at a higher frequency.",
+    pressure:"To renew the structure rather than merely preserve it.",
+    correction:"Repeat consciously. Repetition becomes ascent only through refinement.",
+    question:"What cycle keeps returning because you have not changed levels?",
+    distortion:"Looping, mechanical recurrence, productivity without transformation.",
+    discipline:"Make recurrence instructional. Let the eighth turn become renewal.",
+    sides:8
+  },
+  {
+    n:9,
+    name:"Ennead",
+    shape:"Nonagon",
+    field:"Harmonic Matrix",
+    brief:"Completion before return to unity.",
+    hoverTitle:"The Final Chamber",
+    oracle:"Completion is the womb of return, not the throne of possession.",
+    hover:"The Ennead gathers the totality of the cycle before return into a renewed Monad. Fulfillment, culmination, and gestational completion.",
+    geometry:"The nonagon gathers the final single-digit chamber before the cycle turns back through ten.",
+    law:"Completion is not ownership. It is readiness to release into renewal.",
+    pressure:"To finish without clinging to the completed form.",
+    correction:"Seal the cycle. Then let it go.",
+    question:"What are you calling completion that is actually refusal to be reborn?",
+    distortion:"Sentimentality, closure addiction, savior-complex, spiritual over-fullness.",
+    discipline:"Complete cleanly. Do not make a home inside the ending.",
+    sides:9
+  },
+  {
+    n:11,
+    name:"Undecad",
+    shape:"Hendecagon",
+    field:"Blade Field",
+    brief:"Excess beyond the perfect ten.",
+    hoverTitle:"The Rupture Beyond Order",
+    oracle:"Beyond the completed order waits either genius or fracture.",
+    hover:"The Undecad exceeds the completed Decad. It represents transgression, dangerous genius, overreach, revelation, instability, and breakthrough beyond closed systems.",
+    geometry:"The eleven-sided form exceeds the classical Decad and breaks the comfort of completion.",
+    law:"After totality, excess appears: either revelation disciplined by form, or rupture without vessel.",
+    pressure:"To carry excess without becoming possessed by it.",
+    correction:"Give the surplus a vessel. Genius without form becomes fracture.",
+    question:"Where are you treating intensity as proof instead of testing whether it can incarnate?",
+    distortion:"Overreach, mania, transgression, contempt for limit, revelation without discipline.",
+    discipline:"Submit excess to form. Let breakthrough become architecture.",
+    sides:11
+  }
 ];
 
 function polygonPoints(sides, radius=58, cx=75, cy=75){
-
   if(sides === 1) return "";
-
-  if(sides === 2){
-    return `${cx-radius},${cy} ${cx+radius},${cy}`;
-  }
-
+  if(sides === 2) return `${cx-radius},${cy} ${cx+radius},${cy}`;
   const angleOffset = -Math.PI/2;
-
   return Array.from({length:sides},(_,i)=>{
-
     const angle = angleOffset + (i * 2 * Math.PI / sides);
-
     return `${cx + radius * Math.cos(angle)},${cy + radius * Math.sin(angle)}`;
-
   }).join(" ");
 }
 
-function starPoints(sides, step, radius=58, cx=75, cy=75){
+function nodeCircles(sides, radius=58, cx=75, cy=75){
+  if(sides < 3) return "";
+  const angleOffset = -Math.PI/2;
+  return Array.from({length:sides},(_,i)=>{
+    const angle = angleOffset + (i * 2 * Math.PI / sides);
+    const x = cx + radius * Math.cos(angle);
+    const y = cy + radius * Math.sin(angle);
+    return `<circle class="node-dot" cx="${x}" cy="${y}" r="2.6"></circle>`;
+  }).join("");
+}
 
+function starPoints(sides, step, radius=58, cx=75, cy=75){
   const pts = [];
   const base = [];
-
   for(let i=0;i<sides;i++){
-
     const angle = -Math.PI/2 + (i * 2 * Math.PI / sides);
-
     base.push([
       cx + radius * Math.cos(angle),
       cy + radius * Math.sin(angle)
     ]);
   }
-
   let index = 0;
-
   for(let i=0;i<=sides;i++){
-
     pts.push(base[index].join(","));
-
     index = (index + step) % sides;
   }
-
   return pts.join(" ");
 }
 
-function glyphSVG(g){
+function glyphSVG(g, large=false){
+  const ringRadius = large ? 64 : 62;
+  const radius = large ? 60 : 58;
 
   if(g.sides === 1){
-
     return `
-      <svg viewBox="0 0 150 150">
-
+      <svg viewBox="0 0 150 150" aria-hidden="true">
         <defs>
           <linearGradient id="glyphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#f0cf8d"/>
-            <stop offset="50%" stop-color="#9ffcff"/>
-            <stop offset="100%" stop-color="#cb74ff"/>
+            <stop offset="50%" stop-color="#8df8ff"/>
+            <stop offset="100%" stop-color="#b958df"/>
           </linearGradient>
         </defs>
-
         <circle class="ring" cx="75" cy="75" r="58"></circle>
-
+        <circle class="construction" cx="75" cy="75" r="34"></circle>
         <circle class="center-dot" cx="75" cy="75" r="8"></circle>
-
       </svg>
     `;
   }
 
   if(g.sides === 2){
-
     return `
-      <svg viewBox="0 0 150 150">
-
+      <svg viewBox="0 0 150 150" aria-hidden="true">
         <defs>
           <linearGradient id="glyphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#f0cf8d"/>
-            <stop offset="50%" stop-color="#9ffcff"/>
-            <stop offset="100%" stop-color="#cb74ff"/>
+            <stop offset="50%" stop-color="#8df8ff"/>
+            <stop offset="100%" stop-color="#b958df"/>
           </linearGradient>
         </defs>
-
         <circle class="ring" cx="75" cy="75" r="58"></circle>
-
+        <line class="construction" x1="75" y1="17" x2="75" y2="133"></line>
         <line class="shape" x1="18" y1="75" x2="132" y2="75"></line>
-
         <circle class="center-dot" cx="18" cy="75" r="4"></circle>
         <circle class="center-dot" cx="132" cy="75" r="4"></circle>
-
       </svg>
     `;
   }
 
   return `
-    <svg viewBox="0 0 150 150">
-
+    <svg viewBox="0 0 150 150" aria-hidden="true">
       <defs>
-
         <linearGradient id="glyphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#f0cf8d"/>
-          <stop offset="50%" stop-color="#9ffcff"/>
-          <stop offset="100%" stop-color="#cb74ff"/>
+          <stop offset="50%" stop-color="#8df8ff"/>
+          <stop offset="100%" stop-color="#b958df"/>
         </linearGradient>
-
       </defs>
 
-      <circle class="ring" cx="75" cy="75" r="62"></circle>
+      <circle class="ring" cx="75" cy="75" r="${ringRadius}"></circle>
+      <circle class="construction" cx="75" cy="75" r="${radius}"></circle>
 
-      <polygon
-        class="shape"
-        points="${polygonPoints(g.sides)}"
-      ></polygon>
+      <polygon class="shape" points="${polygonPoints(g.sides, radius)}"></polygon>
 
-      ${g.star
-        ? `<polyline class="shape" points="${starPoints(5,2)}"></polyline>`
-        : ''
-      }
+      ${g.star ? `<polyline class="shape" points="${starPoints(5,2,radius)}"></polyline>` : ''}
 
-      ${g.inner
-        ? `
-          <polyline class="soft" points="${starPoints(6,2)}"></polyline>
-          <polyline class="soft" points="${starPoints(6,4)}"></polyline>
-        `
-        : ''
-      }
+      ${g.inner ? `
+        <polyline class="soft" points="${starPoints(6,2,radius)}"></polyline>
+        <polyline class="soft" points="${starPoints(6,4,radius)}"></polyline>
+      ` : ''}
+
+      ${nodeCircles(g.sides, radius)}
 
       <circle class="center-dot" cx="75" cy="75" r="3.6"></circle>
-
     </svg>
   `;
 }
 
 const grid = document.getElementById('glyphGrid');
+const filterButtons = document.querySelectorAll('[data-filter]');
+const overlay = document.getElementById('detailOverlay');
+const detailClose = document.getElementById('detailClose');
 
-grid.innerHTML = glyphs.map(g => `
+function renderCards(){
+  grid.innerHTML = glyphs.map(g => `
+    <article class="glyph-card" tabindex="0" role="button" aria-label="Open ${g.name} glyph detail" data-glyph="${g.n}" data-field="${g.field}">
+      <div class="glyph-top">
+        <div class="glyph-number">${g.n}</div>
+        <div class="glyph-field">${g.field}</div>
+      </div>
 
-  <article class="glyph-card">
+      <div class="glyph-name">${g.name}</div>
+      <div class="glyph-shape">${g.shape}</div>
 
-    <div class="glyph-number">${g.n}</div>
+      <div class="glyph-wrap">
+        ${glyphSVG(g)}
+      </div>
 
-    <div class="glyph-name">${g.name}</div>
+      <div class="glyph-brief">${g.brief}</div>
+      <div class="glyph-action">Select Glyph</div>
 
-    <div class="glyph-shape">${g.shape}</div>
+      <div class="hover-panel">
+        <strong>${g.hoverTitle}</strong>
+        <span>${g.hover}</span>
+      </div>
+    </article>
+  `).join('');
 
-    <div class="glyph-wrap">
-      ${glyphSVG(g)}
-    </div>
+  document.querySelectorAll('.glyph-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const glyph = glyphs.find(g => String(g.n) === card.dataset.glyph);
+      selectGlyph(glyph, true);
+    });
 
-    <div class="glyph-brief">
-      ${g.brief}
-    </div>
+    card.addEventListener('keydown', event => {
+      if(event.key === 'Enter' || event.key === ' '){
+        event.preventDefault();
+        const glyph = glyphs.find(g => String(g.n) === card.dataset.glyph);
+        selectGlyph(glyph, true);
+      }
+    });
+  });
+}
 
-    <div class="hover-panel">
+function selectGlyph(g, openModal=false){
+  if(!g) return;
 
-      <strong>${g.hoverTitle}</strong>
+  document.querySelectorAll('.glyph-card').forEach(card => {
+    card.classList.toggle('active', String(g.n) === card.dataset.glyph);
+  });
 
-      <span>
-        ${g.hover}
-      </span>
+  document.getElementById('stageOrb').innerHTML = glyphSVG(g, true);
+  document.getElementById('stageField').textContent = g.field;
+  document.getElementById('stageNumber').textContent = g.n;
+  document.getElementById('stageName').textContent = g.name;
+  document.getElementById('stageShape').textContent = g.shape;
+  document.getElementById('stageOracle').textContent = g.oracle;
+  document.getElementById('stageText').textContent = g.hover;
+  document.getElementById('stageGeometry').textContent = g.geometry;
+  document.getElementById('stagePressure').textContent = g.pressure;
+  document.getElementById('stageCorrection').textContent = g.correction;
 
-    </div>
+  if(openModal){
+    openDetail(g);
+  }
+}
 
-  </article>
+function openDetail(g){
+  document.getElementById('detailKicker').textContent = `${g.field} · Glyph ${g.n}`;
+  document.getElementById('detailVisual').innerHTML = glyphSVG(g, true);
+  document.getElementById('detailTitle').textContent = `${g.n} · ${g.name}`;
+  document.getElementById('detailMain').innerHTML = `<strong>${g.oracle}</strong><br>${g.hover}`;
+  document.getElementById('detailLaw').textContent = g.law;
+  document.getElementById('detailQuestion').textContent = g.question;
+  document.getElementById('detailDistortion').textContent = g.distortion;
+  document.getElementById('detailDiscipline').textContent = g.discipline;
 
-`).join('');
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden','false');
+  document.body.classList.add('menu-open');
+  detailClose.focus();
+}
 
+function closeDetail(){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden','true');
+  document.body.classList.remove('menu-open');
+}
+
+detailClose.addEventListener('click', closeDetail);
+
+overlay.addEventListener('click', event => {
+  if(event.target === overlay) closeDetail();
+});
+
+document.addEventListener('keydown', event => {
+  if(event.key === 'Escape'){
+    closeDetail();
+    closePaaMenu();
+  }
+});
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    document.querySelectorAll('.glyph-card').forEach(card => {
+      const shouldShow = filter === 'all' || card.dataset.field === filter;
+      card.classList.toggle('hidden-by-filter', !shouldShow);
+    });
+
+    const firstVisible = [...document.querySelectorAll('.glyph-card:not(.hidden-by-filter)')][0];
+    if(firstVisible){
+      const glyph = glyphs.find(g => String(g.n) === firstVisible.dataset.glyph);
+      selectGlyph(g, false);
+    }
+  });
+});
+
+const paaMenuWrap = document.querySelector('[data-paa-menu]');
+const paaMenuButton = document.querySelector('[data-paa-menu-button]');
+
+function closePaaMenu() {
+  if (!paaMenuWrap || !paaMenuButton) return;
+  paaMenuWrap.classList.remove('open');
+  paaMenuButton.setAttribute('aria-expanded', 'false');
+  paaMenuButton.setAttribute('aria-label', 'Open primary navigation');
+}
+
+function togglePaaMenu() {
+  if (!paaMenuWrap || !paaMenuButton) return;
+  const isOpen = paaMenuWrap.classList.toggle('open');
+  paaMenuButton.setAttribute('aria-expanded', String(isOpen));
+  paaMenuButton.setAttribute('aria-label', isOpen ? 'Close primary navigation' : 'Open primary navigation');
+}
+
+paaMenuButton?.addEventListener('click', (event) => {
+  event.stopPropagation();
+  togglePaaMenu();
+});
+
+document.addEventListener('click', (event) => {
+  if (!paaMenuWrap?.contains(event.target)) closePaaMenu();
+});
+
+document.querySelectorAll('[data-paa-menu-panel] a').forEach((link) => {
+  link.addEventListener('click', closePaaMenu);
+});
+
+renderCards();
+selectGlyph(glyphs[0], false);
 </script>
 
 </body>
