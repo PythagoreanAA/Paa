@@ -4,445 +4,976 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Pythagorean Geometry of Number | PAA</title>
+  <title>PAA | Geometry of Number</title>
 
   <meta
     name="description"
-    content="A contemplative gallery of Pythagorean geometric glyphs from Monad through Ennead and the Undecad."
+    content="The geometric intelligences of number: Monad through Ennead and the Undecad rendered as sacred glyphic structure."
   />
+
+  <meta property="og:title" content="PAA | Geometry of Number" />
+  <meta
+    property="og:description"
+    content="Number as geometric principle. Geometry as visible metaphysics."
+  />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    :root {
-      --bg: #090806;
-      --panel: #12100c;
-      --panel-soft: #18150f;
-      --gold: #c8a968;
-      --gold-soft: #e8d7a2;
-      --text: #eee6d2;
-      --muted: #a79b82;
-      --line: rgba(200, 169, 104, 0.28);
-      --shadow: rgba(0, 0, 0, 0.45);
+
+    :root{
+
+      --bg:#03040a;
+      --bg2:#07111f;
+
+      --panel:#0d1524;
+      --panel2:#121c31;
+
+      --ink:#eef7ff;
+      --muted:#a4bac8;
+      --dim:#6f8795;
+
+      --aqua:#9ffcff;
+      --cyan:#5be7ff;
+      --turquoise:#33dfcf;
+
+      --violet:#7d34a3;
+      --violetBright:#cb74ff;
+
+      --gold:#f0cf8d;
+      --amber:#e8a84e;
+
+      --line:rgba(159,252,255,.12);
+
+      --radius:30px;
+
+      --shadow:
+        0 34px 90px rgba(0,0,0,.55);
+
+      --serif:'Cormorant Garamond', serif;
+      --sans:'Inter', sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
     }
 
-    body {
-      margin: 0;
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:var(--sans);
+
       background:
-        radial-gradient(circle at top, rgba(200, 169, 104, 0.16), transparent 34rem),
-        linear-gradient(180deg, #090806 0%, #050403 100%);
-      color: var(--text);
-      font-family: Inter, sans-serif;
-      min-height: 100vh;
+        radial-gradient(circle at top, rgba(125,52,163,.40), transparent 30rem),
+        radial-gradient(circle at 12% 18%, rgba(51,223,207,.10), transparent 24rem),
+        radial-gradient(circle at 85% 10%, rgba(240,207,141,.08), transparent 20rem),
+        radial-gradient(circle at 50% 120%, rgba(91,231,255,.08), transparent 40rem),
+        linear-gradient(180deg,#03040a 0%, #07111f 52%, #03040a 100%);
     }
 
-    main {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 72px 0 96px;
+    a{
+      color:inherit;
+      text-decoration:none;
     }
 
-    .hero {
-      text-align: center;
-      margin-bottom: 56px;
+    .wrap{
+      width:min(1260px, calc(100% - 34px));
+      margin:auto;
     }
 
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 0.74rem;
-      margin-bottom: 18px;
-    }
+    /* =======================================================
+       HEADER
+       ======================================================= */
 
-    h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3rem, 8vw, 6.8rem);
-      line-height: 0.9;
-      margin: 0;
-      font-weight: 600;
-      color: var(--gold-soft);
-    }
+    .paa-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
 
-    .hero p {
-      max-width: 760px;
-      margin: 28px auto 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      position: relative;
-      min-height: 320px;
-      padding: 24px;
-      border: 1px solid var(--line);
+      backdrop-filter:blur(18px) saturate(140%);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.035), transparent),
-        var(--panel);
-      border-radius: 26px;
-      box-shadow: 0 24px 60px var(--shadow);
-      overflow: hidden;
-      isolation: isolate;
-      transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+        linear-gradient(
+          180deg,
+          rgba(3,4,10,.88),
+          rgba(3,4,10,.66)
+        );
+
+      border-bottom:1px solid rgba(159,252,255,.10);
+
+      box-shadow:
+        0 18px 44px rgba(0,0,0,.28);
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(232, 215, 162, 0.68);
+    .paa-header::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+
       background:
-        radial-gradient(circle at center, rgba(200,169,104,0.12), transparent 65%),
-        var(--panel-soft);
+        radial-gradient(circle at 12% 50%, rgba(159,252,255,.09), transparent 16rem),
+        radial-gradient(circle at 80% 40%, rgba(203,116,255,.10), transparent 18rem);
     }
 
-    .number {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 3rem;
-      color: var(--gold-soft);
-      line-height: 1;
+    .paa-nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 0;
+      position:relative;
     }
 
-    .name {
-      margin-top: 5px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.65rem;
-      color: var(--text);
+    .paa-brand{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      align-items:center;
+      gap:14px;
+      min-width:max-content;
     }
 
-    .shape-name {
-      color: var(--gold);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-top: 8px;
+    .paa-brand-mark{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+
+      border:1px solid rgba(159,252,255,.24);
+
+      background:
+        radial-gradient(circle at 50% 35%, rgba(159,252,255,.18), transparent 58%),
+        linear-gradient(135deg, rgba(51,223,207,.14), rgba(203,116,255,.14));
+
+      box-shadow:
+        inset 0 0 24px rgba(159,252,255,.05),
+        0 0 32px rgba(159,252,255,.08),
+        0 0 48px rgba(203,116,255,.05);
     }
 
-    .glyph-wrap {
-      height: 145px;
-      display: grid;
-      place-items: center;
-      margin: 22px 0 18px;
+    .paa-tetractys{
+      width:34px;
+      height:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:4px;
     }
 
-    svg {
-      width: 132px;
-      height: 132px;
-      overflow: visible;
+    .paa-tetra-row{
+      display:flex;
+      justify-content:center;
+      gap:4px;
     }
 
-    .glyph-line {
-      fill: none;
-      stroke: var(--gold-soft);
-      stroke-width: 2.2;
-      vector-effect: non-scaling-stroke;
-      filter: drop-shadow(0 0 10px rgba(200,169,104,0.28));
+    .paa-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+
+      background:
+        linear-gradient(135deg, var(--aqua), var(--violetBright));
+
+      box-shadow:
+        0 0 14px rgba(159,252,255,.45);
     }
 
-    .glyph-soft {
-      fill: none;
-      stroke: rgba(200,169,104,0.24);
-      stroke-width: 1;
-      vector-effect: non-scaling-stroke;
+    .paa-brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      line-height:1.04;
+      font-size:11px;
+      font-weight:800;
     }
 
-    .dot {
-      fill: var(--gold-soft);
-      filter: drop-shadow(0 0 10px rgba(232,215,162,0.5));
+    .paa-brand-text span:nth-child(1){ color:#f4fbff; }
+    .paa-brand-text span:nth-child(2){ color:var(--aqua); }
+    .paa-brand-text span:nth-child(3){ color:var(--violetBright); }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
     }
 
-    .brief {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.55;
+    .navlinks a{
+      position:relative;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      min-height:42px;
+      padding:10px 16px;
+
+      border-radius:999px;
+
+      border:1px solid rgba(159,252,255,.11);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.015)
+        );
+
+      color:#d4e6f2;
+
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease,
+        background .22s ease;
     }
 
-    .hover {
-      position: absolute;
-      inset: auto 16px 16px 16px;
-      padding: 16px;
-      border: 1px solid rgba(232, 215, 162, 0.32);
-      border-radius: 18px;
-      background: rgba(9, 8, 6, 0.92);
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      transform: translateY(12px);
-      pointer-events: none;
-      transition: opacity 220ms ease, transform 220ms ease;
-      z-index: 3;
+    .navlinks a:hover{
+      transform:translateY(-1px);
+
+      border-color:rgba(159,252,255,.28);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(159,252,255,.08),
+          rgba(203,116,255,.05)
+        );
+
+      box-shadow:
+        0 0 24px rgba(159,252,255,.10);
     }
 
-    .card:hover .hover {
-      opacity: 1;
-      transform: translateY(0);
+    .navlinks a.active{
+      color:#031116;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--turquoise),
+          var(--aqua)
+        );
+
+      border-color:rgba(159,252,255,.52);
+
+      box-shadow:
+        0 14px 34px rgba(51,223,207,.16);
     }
 
-    .hover strong {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      color: var(--gold-soft);
-      font-size: 1.3rem;
-      margin-bottom: 6px;
+    /* =======================================================
+       HERO
+       ======================================================= */
+
+    .hero{
+      padding:110px 0 74px;
+      text-align:center;
+      position:relative;
     }
 
-    .hover span {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.55;
+    .hero::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+
+      background:
+        radial-gradient(circle at 50% 18%, rgba(159,252,255,.07), transparent 20rem),
+        radial-gradient(circle at 50% 0%, rgba(240,207,141,.08), transparent 28rem);
     }
 
-    .footer-note {
-      max-width: 820px;
-      margin: 42px auto 0;
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 0.95rem;
+    .eyebrow{
+      color:var(--aqua);
+
+      text-transform:uppercase;
+      letter-spacing:.24em;
+
+      font-size:12px;
+
+      margin-bottom:26px;
     }
 
-    @media (max-width: 1100px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
+    h1{
+      margin:0;
+
+      font-family:var(--serif);
+
+      font-size:clamp(58px, 10vw, 132px);
+      line-height:.88;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          var(--gold) 22%,
+          var(--aqua) 62%,
+          #d7eeff 100%
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-intro{
+      max-width:920px;
+
+      margin:30px auto 0;
+
+      color:var(--muted);
+
+      font-size:clamp(18px,2vw,23px);
+      line-height:1.9;
+    }
+
+    .hero-intro strong{
+      color:#f4fbff;
+      font-weight:700;
+    }
+
+    /* =======================================================
+       GRID
+       ======================================================= */
+
+    .glyph-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:22px;
+
+      padding-bottom:120px;
+    }
+
+    .glyph-card{
+      position:relative;
+      overflow:hidden;
+
+      min-height:410px;
+
+      padding:28px;
+
+      border-radius:32px;
+
+      border:1px solid rgba(159,252,255,.11);
+
+      background:
+        radial-gradient(circle at top right, rgba(203,116,255,.10), transparent 16rem),
+        radial-gradient(circle at bottom left, rgba(159,252,255,.06), transparent 18rem),
+        linear-gradient(
+          180deg,
+          rgba(15,22,38,.94),
+          rgba(7,11,20,.98)
+        );
+
+      box-shadow:var(--shadow);
+
+      transition:
+        transform .28s ease,
+        border-color .28s ease,
+        box-shadow .28s ease;
+    }
+
+    .glyph-card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.04),
+          transparent 40%
+        );
+
+      opacity:.65;
+      pointer-events:none;
+    }
+
+    .glyph-card:hover{
+      transform:translateY(-7px);
+
+      border-color:rgba(159,252,255,.28);
+
+      box-shadow:
+        0 34px 90px rgba(0,0,0,.55),
+        0 0 44px rgba(159,252,255,.08),
+        0 0 60px rgba(203,116,255,.06);
+    }
+
+    .glyph-number{
+      font-family:var(--serif);
+      font-size:58px;
+      line-height:1;
+      color:var(--gold);
+    }
+
+    .glyph-name{
+      margin-top:2px;
+
+      font-family:var(--serif);
+      font-size:34px;
+      line-height:1;
+    }
+
+    .glyph-shape{
+      margin-top:10px;
+
+      color:var(--aqua);
+
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .glyph-wrap{
+      height:170px;
+
+      display:grid;
+      place-items:center;
+
+      margin:18px 0 14px;
+    }
+
+    svg{
+      width:150px;
+      height:150px;
+      overflow:visible;
+    }
+
+    .ring{
+      fill:none;
+      stroke:rgba(159,252,255,.12);
+      stroke-width:1.2;
+    }
+
+    .shape{
+      fill:none;
+
+      stroke:url(#glyphGradient);
+
+      stroke-width:2.2;
+
+      vector-effect:non-scaling-stroke;
+
+      filter:drop-shadow(0 0 12px rgba(159,252,255,.24));
+    }
+
+    .soft{
+      fill:none;
+
+      stroke:rgba(240,207,141,.18);
+
+      stroke-width:1;
+    }
+
+    .center-dot{
+      fill:var(--gold);
+
+      filter:drop-shadow(0 0 12px rgba(240,207,141,.52));
+    }
+
+    .glyph-brief{
+      color:var(--muted);
+
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .hover-panel{
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:18px;
+
+      padding:18px;
+
+      border-radius:22px;
+
+      border:1px solid rgba(159,252,255,.14);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(5,8,18,.88),
+          rgba(5,8,18,.97)
+        );
+
+      backdrop-filter:blur(12px);
+
+      opacity:0;
+      transform:translateY(10px);
+
+      transition:
+        opacity .22s ease,
+        transform .22s ease;
+
+      pointer-events:none;
+    }
+
+    .glyph-card:hover .hover-panel{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .hover-panel strong{
+      display:block;
+
+      margin-bottom:8px;
+
+      font-family:var(--serif);
+      font-size:28px;
+
+      color:var(--gold);
+    }
+
+    .hover-panel span{
+      color:#d8e7f2;
+
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    .footer-note{
+      max-width:900px;
+
+      margin:0 auto 120px;
+
+      text-align:center;
+
+      color:var(--dim);
+
+      line-height:1.9;
+      font-size:16px;
+    }
+
+    /* =======================================================
+       RESPONSIVE
+       ======================================================= */
+
+    @media(max-width:1180px){
+
+      .glyph-grid{
+        grid-template-columns:repeat(3,1fr);
       }
     }
 
-    @media (max-width: 720px) {
-      main {
-        padding-top: 48px;
+    @media(max-width:760px){
+
+      .hero{
+        padding-top:84px;
       }
 
-      .grid {
-        grid-template-columns: 1fr;
+      .glyph-grid{
+        grid-template-columns:1fr;
       }
 
-      .card {
-        min-height: 300px;
+      .glyph-card{
+        min-height:380px;
+      }
+
+      .navlinks{
+        justify-content:center;
+      }
+
+      .paa-nav{
+        flex-direction:column;
       }
     }
+
   </style>
 </head>
 
 <body>
-  <main>
-    <section class="hero">
-      <div class="eyebrow">Pythagorean Arithmosophic Anamnesis</div>
-      <h1>The Geometry<br>of Number</h1>
-      <p>
-        Number is not merely quantity. It is form, relation, limit, proportion,
-        and intelligible pattern. Each glyph below presents number as a visible
-        principle: a threshold where arithmetic becomes geometry, and geometry
-        becomes metaphysics.
-      </p>
-    </section>
 
-    <section class="grid" id="glyphGrid"></section>
+<header class="paa-header">
 
-    <p class="footer-note">
-      Hover over each glyph to reveal its inner instruction. These are not decorative
-      symbols, but compressed diagrams of principle: number becoming visible as order.
+  <div class="wrap paa-nav">
+
+    <a class="paa-brand" href="index.html">
+
+      <span class="paa-brand-mark">
+
+        <span class="paa-tetractys">
+
+          <span class="paa-tetra-row">
+            <span class="paa-dot"></span>
+          </span>
+
+          <span class="paa-tetra-row">
+            <span class="paa-dot"></span>
+            <span class="paa-dot"></span>
+          </span>
+
+          <span class="paa-tetra-row">
+            <span class="paa-dot"></span>
+            <span class="paa-dot"></span>
+            <span class="paa-dot"></span>
+          </span>
+
+          <span class="paa-tetra-row">
+            <span class="paa-dot"></span>
+            <span class="paa-dot"></span>
+            <span class="paa-dot"></span>
+            <span class="paa-dot"></span>
+          </span>
+
+        </span>
+
+      </span>
+
+      <span class="paa-brand-text">
+        <span>Pythagorean</span>
+        <span>Arithmosophic</span>
+        <span>Anamnesis</span>
+      </span>
+
+    </a>
+
+    <nav class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="geometry.html" class="active">Geometry</a>
+      <a href="aboutpaa.html">What Is PAA?</a>
+      <a href="donate.html">Support PAA</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+
+    <div class="eyebrow">
+      Sacred Geometry of Number
+    </div>
+
+    <h1>
+      Geometry<br>
+      of Number
+    </h1>
+
+    <p class="hero-intro">
+      The ancients did not regard number as abstraction alone.
+      They perceived number as <strong>visible intelligibility</strong>:
+      proportion becoming form,
+      relation becoming geometry,
+      geometry becoming metaphysical instruction.
+      <br><br>
+      Each glyph below is a geometric condensation of principle:
+      Monad through Ennead,
+      and the destabilizing excess of the Undecad.
     </p>
-  </main>
 
-  <script>
-    const glyphs = [
-      {
-        n: 1,
-        name: "Monad",
-        shape: "Point / Circle",
-        brief: "Unity before division; the seed of all number.",
-        hoverTitle: "The One",
-        hover: "The Monad is origin, center, and indivisible source. It is not one thing among many, but the principle by which multiplicity may appear.",
-        sides: 1
-      },
-      {
-        n: 2,
-        name: "Dyad",
-        shape: "Line",
-        brief: "Polarity, relation, contrast, and the birth of otherness.",
-        hoverTitle: "The First Division",
-        hover: "The Dyad introduces distance: self and other, subject and object, above and below. It is the root of tension, perception, and desire.",
-        sides: 2
-      },
-      {
-        n: 3,
-        name: "Triad",
-        shape: "Triangle",
-        brief: "Mediation, harmony, synthesis, and first stable form.",
-        hoverTitle: "The First Plane",
-        hover: "The Triad reconciles opposition through a third. It is thesis, antithesis, and resolution: the first complete enclosure of space.",
-        sides: 3
-      },
-      {
-        n: 4,
-        name: "Tetrad",
-        shape: "Square",
-        brief: "Foundation, matter, order, structure, and embodiment.",
-        hoverTitle: "The World-Frame",
-        hover: "The Tetrad gives law to manifestation: four directions, four elements, fourfold stability. It is the architecture of the formed world.",
-        sides: 4
-      },
-      {
-        n: 5,
-        name: "Pentad",
-        shape: "Pentagon / Pentagram",
-        brief: "Life, proportion, adaptation, and organic intelligence.",
-        hoverTitle: "The Living Measure",
-        hover: "The Pentad bears the golden section and the signature of growth. It mediates heaven and earth through the living human form.",
-        sides: 5,
-        star: true
-      },
-      {
-        n: 6,
-        name: "Hexad",
-        shape: "Hexagon",
-        brief: "Union, beauty, reciprocity, and harmonic completion.",
-        hoverTitle: "The Marriage of Opposites",
-        hover: "The Hexad is equilibrium through interpenetration: above joined to below, masculine to feminine, spirit to matter. It is the seal of mutual coherence.",
-        sides: 6,
-        innerStar: true
-      },
-      {
-        n: 7,
-        name: "Heptad",
-        shape: "Heptagon",
-        brief: "Mystery, initiation, incomensurability, and sacred irregularity.",
-        hoverTitle: "Incomensurability",
-        hover: "The Heptad resists easy construction. It marks the threshold where rational measure meets mystery, and the soul learns reverence before what cannot be reduced.",
-        sides: 7
-      },
-      {
-        n: 8,
-        name: "Octad",
-        shape: "Octagon",
-        brief: "Regeneration, rhythm, balance, and the octave principle.",
-        hoverTitle: "The Return at a Higher Level",
-        hover: "The Octad is renewal through ordered recurrence. It is the octave: the same note reborn beyond itself, continuity transformed into ascent.",
-        sides: 8
-      },
-      {
-        n: 9,
-        name: "Ennead",
-        shape: "Nonagon",
-        brief: "Completion, culmination, gestation, and threshold before return.",
-        hoverTitle: "The Last Single Number",
-        hover: "The Ennead gathers the cycle before its return to unity. It is fullness, ripeness, and the final chamber before rebirth into a higher order.",
-        sides: 9
-      },
-      {
-        n: 11,
-        name: "Undecad",
-        shape: "Hendecagon",
-        brief: "Excess beyond the decad; transgression, revelation, and rupture.",
-        hoverTitle: "Beyond the Perfect Ten",
-        hover: "The Undecad exceeds the completed order of ten. It is the number of overstep: danger, genius, distortion, and the lightning of what breaks the closed system.",
-        sides: 11
+  </section>
+
+  <section class="glyph-grid" id="glyphGrid"></section>
+
+  <p class="footer-note">
+    Hover over each glyph to reveal its hidden instruction.
+    These forms are not ornamental diagrams,
+    but thresholds:
+    number rendered visible as law, tension, harmony, proportion, rupture, and return.
+  </p>
+
+</main>
+
+<script>
+
+const glyphs = [
+
+{
+  n:1,
+  name:"Monad",
+  shape:"Point / Circle",
+  brief:"Unity prior to division.",
+  hoverTitle:"The Source",
+  hover:"The Monad is indivisible origin: center before extension, identity before multiplicity, pure potential prior to manifestation.",
+  sides:1
+},
+
+{
+  n:2,
+  name:"Dyad",
+  shape:"Line",
+  brief:"Polarity, relation, and division.",
+  hoverTitle:"The First Separation",
+  hover:"The Dyad introduces otherness: tension, mirror, polarity, attraction, opposition, and the birth of relational awareness.",
+  sides:2
+},
+
+{
+  n:3,
+  name:"Triad",
+  shape:"Triangle",
+  brief:"Mediation and stable synthesis.",
+  hoverTitle:"The First Plane",
+  hover:"The Triad reconciles opposition through a third principle: harmony born from tension, and structure emerging from polarity.",
+  sides:3
+},
+
+{
+  n:4,
+  name:"Tetrad",
+  shape:"Square",
+  brief:"Foundation, structure, and order.",
+  hoverTitle:"The World-Frame",
+  hover:"The Tetrad establishes stable manifestation: the four directions, the four elements, and the architecture of embodied existence.",
+  sides:4
+},
+
+{
+  n:5,
+  name:"Pentad",
+  shape:"Pentagon / Pentagram",
+  brief:"Living proportion and adaptive motion.",
+  hoverTitle:"The Living Ratio",
+  hover:"The Pentad encodes organic growth and the golden proportion. It symbolizes life, adaptation, embodiment, and dynamic equilibrium.",
+  sides:5,
+  star:true
+},
+
+{
+  n:6,
+  name:"Hexad",
+  shape:"Hexagon",
+  brief:"Reciprocity and harmonic balance.",
+  hoverTitle:"The Marriage of Opposites",
+  hover:"The Hexad represents reciprocal coherence: spirit and matter, above and below, joined through symmetrical relation.",
+  sides:6,
+  inner:true
+},
+
+{
+  n:7,
+  name:"Heptad",
+  shape:"Heptagon",
+  brief:"Mystery and incomensurability.",
+  hoverTitle:"Incomensurability",
+  hover:"The regular heptagon resisted exact classical construction. The Heptad therefore became associated with sacred irregularity, mystery, initiation, and what exceeds rational reduction.",
+  sides:7
+},
+
+{
+  n:8,
+  name:"Octad",
+  shape:"Octagon",
+  brief:"Regeneration and octave-return.",
+  hoverTitle:"The Higher Return",
+  hover:"The Octad symbolizes renewal through recurrence: the same pattern returning transformed at a higher order of realization.",
+  sides:8
+},
+
+{
+  n:9,
+  name:"Ennead",
+  shape:"Nonagon",
+  brief:"Completion before return to unity.",
+  hoverTitle:"The Final Chamber",
+  hover:"The Ennead gathers the totality of the cycle before return into a renewed Monad. Fulfillment, culmination, and gestational completion.",
+  sides:9
+},
+
+{
+  n:11,
+  name:"Undecad",
+  shape:"Hendecagon",
+  brief:"Excess beyond the perfect ten.",
+  hoverTitle:"The Rupture Beyond Order",
+  hover:"The Undecad exceeds the completed Decad. It represents transgression, dangerous genius, overreach, revelation, instability, and breakthrough beyond closed systems.",
+  sides:11
+}
+
+];
+
+function polygonPoints(sides, radius=58, cx=75, cy=75){
+
+  if(sides === 1) return "";
+
+  if(sides === 2){
+    return `${cx-radius},${cy} ${cx+radius},${cy}`;
+  }
+
+  const angleOffset = -Math.PI/2;
+
+  return Array.from({length:sides},(_,i)=>{
+
+    const angle = angleOffset + (i * 2 * Math.PI / sides);
+
+    return `${cx + radius * Math.cos(angle)},${cy + radius * Math.sin(angle)}`;
+
+  }).join(" ");
+}
+
+function starPoints(sides, step, radius=58, cx=75, cy=75){
+
+  const pts = [];
+  const base = [];
+
+  for(let i=0;i<sides;i++){
+
+    const angle = -Math.PI/2 + (i * 2 * Math.PI / sides);
+
+    base.push([
+      cx + radius * Math.cos(angle),
+      cy + radius * Math.sin(angle)
+    ]);
+  }
+
+  let index = 0;
+
+  for(let i=0;i<=sides;i++){
+
+    pts.push(base[index].join(","));
+
+    index = (index + step) % sides;
+  }
+
+  return pts.join(" ");
+}
+
+function glyphSVG(g){
+
+  if(g.sides === 1){
+
+    return `
+      <svg viewBox="0 0 150 150">
+
+        <defs>
+          <linearGradient id="glyphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f0cf8d"/>
+            <stop offset="50%" stop-color="#9ffcff"/>
+            <stop offset="100%" stop-color="#cb74ff"/>
+          </linearGradient>
+        </defs>
+
+        <circle class="ring" cx="75" cy="75" r="58"></circle>
+
+        <circle class="center-dot" cx="75" cy="75" r="8"></circle>
+
+      </svg>
+    `;
+  }
+
+  if(g.sides === 2){
+
+    return `
+      <svg viewBox="0 0 150 150">
+
+        <defs>
+          <linearGradient id="glyphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f0cf8d"/>
+            <stop offset="50%" stop-color="#9ffcff"/>
+            <stop offset="100%" stop-color="#cb74ff"/>
+          </linearGradient>
+        </defs>
+
+        <circle class="ring" cx="75" cy="75" r="58"></circle>
+
+        <line class="shape" x1="18" y1="75" x2="132" y2="75"></line>
+
+        <circle class="center-dot" cx="18" cy="75" r="4"></circle>
+        <circle class="center-dot" cx="132" cy="75" r="4"></circle>
+
+      </svg>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 150 150">
+
+      <defs>
+
+        <linearGradient id="glyphGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f0cf8d"/>
+          <stop offset="50%" stop-color="#9ffcff"/>
+          <stop offset="100%" stop-color="#cb74ff"/>
+        </linearGradient>
+
+      </defs>
+
+      <circle class="ring" cx="75" cy="75" r="62"></circle>
+
+      <polygon
+        class="shape"
+        points="${polygonPoints(g.sides)}"
+      ></polygon>
+
+      ${g.star
+        ? `<polyline class="shape" points="${starPoints(5,2)}"></polyline>`
+        : ''
       }
-    ];
 
-    function polygonPoints(sides, radius = 54, cx = 66, cy = 66) {
-      if (sides === 1) return "";
-      if (sides === 2) return `${cx - radius},${cy} ${cx + radius},${cy}`;
-
-      const angleOffset = -Math.PI / 2;
-      return Array.from({ length: sides }, (_, i) => {
-        const angle = angleOffset + (i * 2 * Math.PI) / sides;
-        return `${cx + radius * Math.cos(angle)},${cy + radius * Math.sin(angle)}`;
-      }).join(" ");
-    }
-
-    function starPoints(sides, step, radius = 54, cx = 66, cy = 66) {
-      const points = [];
-      const base = [];
-
-      for (let i = 0; i < sides; i++) {
-        const angle = -Math.PI / 2 + (i * 2 * Math.PI) / sides;
-        base.push([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)]);
+      ${g.inner
+        ? `
+          <polyline class="soft" points="${starPoints(6,2)}"></polyline>
+          <polyline class="soft" points="${starPoints(6,4)}"></polyline>
+        `
+        : ''
       }
 
-      let index = 0;
-      const used = new Set();
+      <circle class="center-dot" cx="75" cy="75" r="3.6"></circle>
 
-      for (let i = 0; i <= sides; i++) {
-        points.push(base[index].join(","));
-        used.add(index);
-        index = (index + step) % sides;
-      }
+    </svg>
+  `;
+}
 
-      return points.join(" ");
-    }
+const grid = document.getElementById('glyphGrid');
 
-    function glyphSVG(g) {
-      if (g.sides === 1) {
-        return `
-          <svg viewBox="0 0 132 132" aria-hidden="true">
-            <circle class="glyph-soft" cx="66" cy="66" r="54"></circle>
-            <circle class="dot" cx="66" cy="66" r="7"></circle>
-          </svg>
-        `;
-      }
+grid.innerHTML = glyphs.map(g => `
 
-      if (g.sides === 2) {
-        return `
-          <svg viewBox="0 0 132 132" aria-hidden="true">
-            <circle class="glyph-soft" cx="66" cy="66" r="54"></circle>
-            <line class="glyph-line" x1="18" y1="66" x2="114" y2="66"></line>
-            <circle class="dot" cx="18" cy="66" r="4"></circle>
-            <circle class="dot" cx="114" cy="66" r="4"></circle>
-          </svg>
-        `;
-      }
+  <article class="glyph-card">
 
-      const outer = polygonPoints(g.sides);
-      const star = g.star ? `<polyline class="glyph-line" points="${starPoints(5, 2)}"></polyline>` : "";
-      const innerStar = g.innerStar ? `
-        <polyline class="glyph-soft" points="${starPoints(6, 2)}"></polyline>
-        <polyline class="glyph-soft" points="${starPoints(6, 4)}"></polyline>
-      ` : "";
+    <div class="glyph-number">${g.n}</div>
 
-      return `
-        <svg viewBox="0 0 132 132" aria-hidden="true">
-          <circle class="glyph-soft" cx="66" cy="66" r="58"></circle>
-          <polygon class="glyph-line" points="${outer}"></polygon>
-          ${star}
-          ${innerStar}
-          <circle class="dot" cx="66" cy="66" r="3.5"></circle>
-        </svg>
-      `;
-    }
+    <div class="glyph-name">${g.name}</div>
 
-    const grid = document.getElementById("glyphGrid");
+    <div class="glyph-shape">${g.shape}</div>
 
-    grid.innerHTML = glyphs.map(g => `
-      <article class="card" tabindex="0">
-        <div class="number">${g.n}</div>
-        <div class="name">${g.name}</div>
-        <div class="shape-name">${g.shape}</div>
+    <div class="glyph-wrap">
+      ${glyphSVG(g)}
+    </div>
 
-        <div class="glyph-wrap">
-          ${glyphSVG(g)}
-        </div>
+    <div class="glyph-brief">
+      ${g.brief}
+    </div>
 
-        <p class="brief">${g.brief}</p>
+    <div class="hover-panel">
 
-        <div class="hover">
-          <strong>${g.hoverTitle}</strong>
-          <span>${g.hover}</span>
-        </div>
-      </article>
-    `).join("");
-  </script>
+      <strong>${g.hoverTitle}</strong>
+
+      <span>
+        ${g.hover}
+      </span>
+
+    </div>
+
+  </article>
+
+`).join('');
+
+</script>
+
 </body>
 </html>
