@@ -438,7 +438,7 @@ h3 {
     <div class="header-actions">
       <div class="menu-wrap refined-menu" data-menu>
         <button class="menu-btn" data-menu-button type="button" aria-label="Open menu" aria-expanded="false">
-          <span class="bars" aria-hidden="true"><i></i><i></i><i></span>
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
           <span>Menu</span>
         </button>
         <nav class="menu-panel" aria-label="Primary navigation">
@@ -470,6 +470,141 @@ h3 {
         <div id="calcPath" class="calc-path"></div>
       </div>
      </div>
+  </section>
+
+
+  <section id="reading" class="reading wrap" aria-live="polite">
+    <div class="reading-top">
+      <div class="result-kicker">Birth Root Glyph</div>
+      <h2 class="result-title"><span id="glyphNumber">—</span> · <span id="glyphName">Awaiting Date</span></h2>
+      <div id="glyphSubtitle" class="result-sub"></div>
+      <div id="glyphPlanet" class="pill-row"></div>
+      <p id="piercing" class="result-piercing"></p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Glyph reading sections">
+      <button class="tab active" type="button" data-tab="overview">Overview</button>
+      <button class="tab" type="button" data-tab="pressure">Pressure</button>
+      <button class="tab" type="button" data-tab="eieia">EIEIA</button>
+      <button class="tab" type="button" data-tab="refinement">Refinement</button>
+      <button class="tab" type="button" data-tab="advanced">Advanced</button>
+    </div>
+
+    <div id="tab-overview" class="tab-panel active">
+      <div class="result-grid">
+        <article class="result-card">
+          <h3>Archetype</h3>
+          <p><strong id="archetypeValue"></strong></p>
+          <p id="archetypeMeaning"></p>
+        </article>
+        <article class="result-card">
+          <h3>Role</h3>
+          <p><strong id="roleValue"></strong></p>
+          <p id="roleMeaning"></p>
+        </article>
+        <article class="result-card">
+          <h3>Form</h3>
+          <p><strong id="formValue"></strong></p>
+          <p id="formMeaning"></p>
+        </article>
+        <article class="result-card">
+          <h3>Direction</h3>
+          <p><strong id="directionValue"></strong></p>
+          <p id="directionMeaning"></p>
+        </article>
+        <article class="result-card wide">
+          <h3>Core Reading</h3>
+          <p id="archetypeText"></p>
+        </article>
+        <article class="result-card good wide">
+          <h3>Wisdom</h3>
+          <p id="wisdom"></p>
+        </article>
+      </div>
+    </div>
+
+    <div id="tab-pressure" class="tab-panel">
+      <div class="result-grid">
+        <article class="result-card">
+          <h3>How It Emerges Under Pressure</h3>
+          <ul id="emergesList"></ul>
+        </article>
+        <article class="result-card danger">
+          <h3>Where It Strains</h3>
+          <ul id="breaksList"></ul>
+        </article>
+        <article class="result-card wide">
+          <h3>Trigger Pattern</h3>
+          <p id="trigger"></p>
+        </article>
+        <article class="result-card danger wide">
+          <h3>Distortion</h3>
+          <p id="distorted"></p>
+        </article>
+      </div>
+    </div>
+
+    <div id="tab-eieia" class="tab-panel">
+      <div class="result-grid">
+        <article class="result-card"><h3>Essence</h3><p id="essence"></p></article>
+        <article class="result-card"><h3>Impulse</h3><p id="impulse"></p></article>
+        <article class="result-card"><h3>Energy</h3><p id="energy"></p></article>
+        <article class="result-card"><h3>Intelligence</h3><p id="intelligence"></p></article>
+        <article class="result-card wide"><h3>Action</h3><p id="action"></p></article>
+      </div>
+    </div>
+
+    <div id="tab-refinement" class="tab-panel">
+      <div class="result-grid">
+        <article class="result-card"><h3>Relational Expression</h3><p id="relational"></p></article>
+        <article class="result-card good"><h3>Coherent Expression</h3><p id="coherent"></p></article>
+        <article class="result-card"><h3>Reliable In</h3><p id="reliable"></p></article>
+        <article class="result-card"><h3>Awareness Practice</h3><p id="awareness"></p></article>
+        <article class="result-card"><h3>Constraint</h3><p id="constraint"></p></article>
+        <article class="result-card"><h3>Feedback Question</h3><p id="feedback"></p></article>
+        <article class="result-card wide"><h3>Cost of Refinement</h3><p id="cost"></p></article>
+        <article class="result-card good wide"><h3>Reflection Test</h3><p id="testLine"></p></article>
+      </div>
+    </div>
+
+    <div id="tab-advanced" class="tab-panel">
+      <div class="advanced-lock">
+        <div id="advancedPreview" class="advanced-preview locked">
+          <div class="result-grid">
+            <article class="result-card wide">
+              <h3>Advanced Glyph Engine</h3>
+              <p>The advanced engine opens the reading as an initiatory diagnostic: archetype, pressure, distortion, relational pattern, and refinement practice held together as one living structure.</p>
+            </article>
+            <article class="result-card">
+              <h3>Primary Correction</h3>
+              <p id="feedback"></p>
+            </article>
+            <article class="result-card">
+              <h3>Embodied Test</h3>
+              <p id="testLine"></p>
+            </article>
+          </div>
+        </div>
+        <div id="lockOverlay" class="lock-overlay">
+          <div class="lock-card">
+            <h2>Advanced Reading Locked</h2>
+            <p>The public glyph is visible above. Unlocking reveals the deeper interpretive layer.</p>
+            <div class="lock-actions">
+              <button id="previewUnlock" class="btn purple" type="button">Preview Unlock</button>
+              <a class="btn secondary" href="donate.html">Support the Work</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="atlas" class="atlas wrap">
+    <div class="section-head">
+      <div class="section-kicker">Glyph Atlas</div>
+      <h2>Explore the nine structural roots.</h2>
+    </div>
+    <div id="atlasGrid" class="atlas-grid"></div>
   </section>
 
   <section id="method" class="method-band wrap">
@@ -539,14 +674,19 @@ h3 {
           <h2>Begin with the Birth Root Glyph.</h2>
           <p>The Birth Root Glyph is the first diagnostic entry point into PAA: a structural reading of what tends to hold, what tends to challenge, and what must be brought into conscious alignment.</p>
           <div class="hero-actions" style="justify-content:center;">
-            <a href="index.html#calculator" class="button primary">Reveal Your Birth Root Glyph</a>
+            <a href="index.html#diagnostic" class="button primary">Reveal Your Birth Root Glyph</a>
             <a href="donate.html" class="button secondary">Support the Work</a>
           </div>
         </div>
       </div>
     </section>
 </main>
-<footer><div class="wrap footer-grid"><span>© 2026 Pythagorean Arithmosophic Anamnesis LLC</span><span><a href="contact.html">Contact</a>
+<footer>
+  <div class="wrap footer-grid">
+    <span>© 2026 Pythagorean Arithmosophic Anamnesis LLC</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
 <script>
   const menuWrap = document.querySelector('[data-menu]');
   const menuBtn = document.querySelector('[data-menu-button]');
