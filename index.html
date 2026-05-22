@@ -81,6 +81,84 @@
     .method-band{padding:26px 0 46px}.method-band-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.method-band-card{border:1px solid rgba(141,248,255,.12);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));padding:22px}.method-band-card small{display:block;color:var(--aqua);font-size:11px;font-weight:950;letter-spacing:.18em;text-transform:uppercase}.method-band-card b{display:block;margin-top:8px;font-family:var(--serif);font-size:30px;color:#fff}.method-band-card p{margin:8px 0 0;color:#b9cdd8;line-height:1.62}
     @media(max-width:760px){.hero-gateway{padding:48px 0 38px;min-height:auto}.gateway-console-inner{grid-template-columns:1fr}.gateway-console .btn{width:100%;min-width:0}.gateway-steps,.method-band-grid{grid-template-columns:1fr}.gateway-kicker{letter-spacing:.12em}.gateway-kicker:before,.gateway-kicker:after{display:none}.gateway-title{font-size:clamp(44px,13vw,72px)}.gateway-subtitle{font-size:17px}.gateway-console{padding:12px;border-radius:26px}.gateway-console-inner{padding:14px;border-radius:20px}}
 
+    /* ===== Global Typography Correction ===== */
+
+html,
+body,
+p,
+span,
+div,
+article,
+section,
+li,
+a,
+button,
+label,
+input,
+small,
+strong,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal !important;
+}
+
+/* Keep serif elegance without italics */
+.serif,
+.hero h1,
+.hero-redesign h1,
+.hero-refined h1,
+.gateway-title,
+.section-title,
+.result-title,
+.result-piercing,
+.card-title,
+.lock-card h2,
+.cta-panel h2,
+.method-band-card b,
+.tri-card b,
+.atlas-card b,
+.logion,
+.hero-card-line,
+.result-sub {
+  font-style: normal !important;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* Remove browser default italic behavior */
+em,
+i {
+  font-style: normal;
+}
+
+/* Optional: preserve emphasis through weight/color instead */
+em {
+  color: var(--aqua);
+  font-weight: 700;
+}
+
+/* Improve readability globally */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cleaner paragraph rhythm */
+p {
+  line-height: 1.72;
+}
+
+/* Refined heading appearance */
+h1,
+h2,
+h3 {
+  letter-spacing: 0.01em;
+}
+    
   </style>
 </head>
 <body>
