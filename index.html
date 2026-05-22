@@ -159,6 +159,262 @@ h3 {
   letter-spacing: 0.01em;
 }
     
+
+    /* =========================================================
+       ABOUT-PAA TRANSPLANTED SECTION STYLES
+       Restores styling for the About/PAA sections now placed on index.html.
+       ========================================================= */
+
+    .section-head {
+      max-width:820px;
+      margin-bottom:26px;
+    }
+
+    .section-kicker {
+      color:var(--aqua);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.76rem;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .lead {
+      color:var(--muted);
+      font-size:clamp(1.08rem,2vw,1.28rem);
+      line-height:1.7;
+      margin-top:16px;
+    }
+
+    .card {
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(16,25,45,.92),rgba(6,10,20,.98));
+      box-shadow:var(--shadow);
+    }
+
+    .content-card,
+    .text-panel {
+      padding:clamp(26px,5vw,44px);
+    }
+
+    .content-card p,
+    .text-panel p {
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.72;
+    }
+
+    .content-card p:last-child,
+    .text-panel p:last-child {
+      margin-bottom:0;
+    }
+
+    .content-card strong,
+    .text-panel strong {
+      color:var(--ink);
+      font-weight:750;
+    }
+
+    .divider-line {
+      height:1px;
+      margin:28px 0;
+      background:linear-gradient(90deg,transparent,rgba(141,248,255,.35),rgba(185,88,223,.35),transparent);
+    }
+
+    #core-claim,
+    #structural-cycle,
+    #domains {
+      padding:44px 0;
+    }
+
+    #core-claim h2,
+    #structural-cycle h2,
+    #domains h2,
+    .cta h2 {
+      font-family:var(--serif);
+      font-size:clamp(2rem,4vw,3.2rem);
+      line-height:1.02;
+      letter-spacing:.01em;
+      font-weight:700;
+      text-transform:none;
+    }
+
+    .cycle-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .phase {
+      padding:24px;
+      border-radius:22px;
+      border:1px solid rgba(141,248,255,.14);
+      background:rgba(255,255,255,.035);
+      min-height:164px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .phase::after {
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      right:-60px;
+      top:-60px;
+      border-radius:50%;
+      background:rgba(141,248,255,.06);
+    }
+
+    .phase-number {
+      position:relative;
+      z-index:1;
+      font-size:2.15rem;
+      line-height:1;
+      font-weight:900;
+      color:var(--aqua);
+      letter-spacing:-.05em;
+    }
+
+    .phase-title {
+      position:relative;
+      z-index:1;
+      margin-top:13px;
+      color:var(--ink);
+      font-size:1.1rem;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+
+    .phase-text {
+      position:relative;
+      z-index:1;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:.96rem;
+      line-height:1.6;
+    }
+
+    .phase.eleven {
+      grid-column:span 3;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:22px;
+      align-items:center;
+      min-height:unset;
+      border-color:rgba(185,88,223,.36);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(185,88,223,.13), transparent 20rem),
+        rgba(255,255,255,.04);
+    }
+
+    .phase.eleven .phase-number {
+      color:var(--violet);
+      font-size:3.2rem;
+    }
+
+    .domain-grid {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:16px;
+    }
+
+    .domain {
+      padding:22px;
+      border-radius:22px;
+      border:1px solid rgba(141,248,255,.14);
+      background:rgba(255,255,255,.035);
+    }
+
+    .domain-title {
+      color:var(--ink);
+      font-weight:900;
+      display:block;
+      margin-bottom:8px;
+      line-height:1.25;
+    }
+
+    .domain-text {
+      color:var(--muted);
+      font-size:.96rem;
+      line-height:1.6;
+    }
+
+    .button {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border-radius:18px;
+      font-family:var(--sans);
+      font-size:14px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      transition:transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover { transform:translateY(-2px); }
+
+    .button.primary {
+      background:linear-gradient(135deg,var(--cyan),var(--aqua));
+      color:#031116;
+      box-shadow:0 14px 40px rgba(49,223,209,.18);
+    }
+
+    .button.secondary {
+      background:transparent;
+      color:var(--aqua);
+      border:1px solid rgba(141,248,255,.28);
+      box-shadow:none;
+    }
+
+    .cta {
+      padding:clamp(30px,5vw,46px);
+      text-align:center;
+      background:
+        linear-gradient(135deg,rgba(49,223,209,.11),rgba(185,88,223,.11)),
+        rgba(255,255,255,.035);
+    }
+
+    .cta p {
+      max-width:680px;
+      margin:18px auto 0;
+      color:var(--muted);
+      font-size:1.08rem;
+      line-height:1.72;
+    }
+
+    @media(max-width:900px){
+      .cycle-grid,
+      .domain-grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .phase.eleven {
+        grid-column:span 2;
+      }
+    }
+
+    @media(max-width:620px){
+      .cycle-grid,
+      .domain-grid {
+        grid-template-columns:1fr;
+      }
+
+      .phase.eleven {
+        grid-column:span 1;
+        grid-template-columns:1fr;
+      }
+
+      .hero-actions .button {
+        width:100%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -200,8 +456,8 @@ h3 {
 <main>
   <section id="diagnostic" class="hero-gateway wrap">
     <div class="gateway-inner">
-      <div class="gateway-kicker">Birthdate Reading · Structural Pattern Diagnostic</div>
-      <h1 class="gateway-title">Your life repeats a pattern. Read it.</h1>
+      <div class="gateway-kicker">Structural Pattern Diagnostics</div>
+      <h1 class="gateway-title">Your life runs on a pattern. Discover yours with PAA.</h1>
        <div class="gateway-console" aria-label="Birth Root Glyph diagnostic input">
         <div class="gateway-console-inner">
           <div class="field gateway-field">
@@ -229,38 +485,18 @@ h3 {
       <div class="definition-grid">
         <div><h2 class="section-title">The public claim.</h2><p class="section-intro">PAA translates number into usable self-knowledge. The system is designed for people who want clear language for recurring patterns: founders, artists, couples, teachers, teams, seekers, skeptics, and anyone looking for insight that can become practice.</p><div class="logion">Your life has recurring patterns. This helps you see them clearly.</div></div>
         <div class="definition-copy">
-          <article><h3>Pythagorean</h3><p>Number is treated as structure: relation, proportion, sequence, tension, and form.</p></article>
-          <article><h3>Arithmosophic</h3><p>Number is interpreted as wisdom: not arithmetic alone, but the qualitative pattern carried by number.</p></article>
-          <article><h3>Anamnesis</h3><p>Recognition. The moment a person sees a pattern already active in life and can begin working with it consciously.</p></article>
+          <article><h3>Pythagorean</h3><p>Number as structure. Relation, proportion, sequence, tension, and form.</p></article>
+          <article><h3>Arithmosophic</h3><p>Number as wisdom. Not arithmetic alone, but the qualitative patterns encoded by number.</p></article>
+          <article><h3>Anamnesis</h3><p>Remembrance. The moment a person sees a pattern already active in life and can begin working with it consciously.</p></article>
         </div>
-      </div>
-      <div class="triskelion" aria-label="Triskelion Doctrine">
-        <article class="tri-card"><b>3–6–9</b><small>Harmonic Matrix</small><p>Expression, repair, completion. The field of rhythm, relation, beauty, synthesis, and return.</p></article>
-        <article class="tri-card"><b>5–7–11</b><small>Blade Field</small><p>Disruption, discernment, amplification. The field of rupture, investigation, signal, and initiation.</p></article>
-        <article class="tri-card"><b>2–4–8</b><small>Tectonic Pillars</small><p>Bond, structure, power. The field of foundation, boundary, responsibility, scale, and consequence.</p></article>
       </div>
     </div>
   </section>
 
- <section id="core-claim">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="section-kicker">I. The Core Claim</div>
-          <h2>Number is treated as structure, not decoration.</h2>
-        </div>
-        <div class="card content-card">
-          <p>Pythagorean Arithmosophic Anamnesis proposes that recurring processes — biological, psychological, social, organizational, and civilizational — tend to move through recognizable structural phases.</p>
-          <p>These phases correspond to the qualitative archetypes of the numbers <strong>1–9</strong>, with <strong>11</strong> representing recursive emergence beyond the completed cycle.</p>
-          <div class="divider-line"></div>
-          <p>In PAA, numbers are not treated merely as quantities. They are treated as <strong>structural principles</strong>.</p>
-        </div>
-      </div>
-    </section>
-
     <section id="structural-cycle">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-kicker">II. The Structural Cycle</div>
+          <div class="section-kicker">I. The Structural Cycle</div>
           <h2>Every complex process can be read through recurring states.</h2>
           <p class="lead">The sequence is not a rigid clock. It is a diagnostic lens for observing how systems develop, stabilize, break, and renew.</p>
         </div>
@@ -283,7 +519,7 @@ h3 {
     <section id="domains">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-kicker">III. Where the Pattern Appears</div>
+          <div class="section-kicker">II. Where the Pattern Appears</div>
           <h2>The same structural grammar can be applied across domains.</h2>
         </div>
 
@@ -301,7 +537,7 @@ h3 {
       <div class="wrap">
         <div class="card cta">
           <h2>Begin with the Birth Root Glyph.</h2>
-          <p>The Birth Root Glyph is the first diagnostic entry point into PAA: a structural reading of what tends to hold, what tends to challenge, and what must be brought into conscious discipline.</p>
+          <p>The Birth Root Glyph is the first diagnostic entry point into PAA: a structural reading of what tends to hold, what tends to challenge, and what must be brought into conscious alignment.</p>
           <div class="hero-actions" style="justify-content:center;">
             <a href="index.html#calculator" class="button primary">Reveal Your Birth Root Glyph</a>
             <a href="donate.html" class="button secondary">Support the Work</a>
