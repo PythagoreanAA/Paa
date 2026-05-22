@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAA | Birth Root Glyph Reading</title>
+  <meta name="description" content="PAA is a practical self-reading system that uses birthdate reduction to reveal recurring patterns in choice, strength, pressure, and growth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060812;
+      --bg-soft: #0b1224;
+      --panel: rgba(13, 21, 38, .82);
+      --panel-strong: rgba(17, 27, 49, .94);
+      --ink: #f7fbff;
+      --text: #d9e6ee;
+      --muted: #9fb3c3;
+      --line: rgba(255,255,255,.13);
+      --cyan: #64f4ff;
+      --mint: #6dffc9;
+      --rose: #ff6fae;
+      --amber: #ffd166;
+      --orange: #ff9f45;
+      --blue: #7aa8ff;
+      --violet: #bc7aff;
+      --green: #76f7a5;
+      --shadow: 0 28px 90px rgba(0,0,0,.45);
+      --radius: 24px;
+      --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: "Manrope", var(--sans);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(100,244,255,.22), transparent 24rem),
+        radial-gradient(circle at 92% 6%, rgba(255,111,174,.20), transparent 25rem),
+        radial-gradient(circle at 74% 72%, rgba(255,209,102,.12), transparent 26rem),
+        linear-gradient(180deg, #050711 0%, #101735 48%, #060812 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .32;
+      background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, black, transparent 82%);
+      pointer-events: none;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 7, 17, .72);
+      backdrop-filter: blur(18px) saturate(150%);
+    }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.18);
+      background:
+        linear-gradient(135deg, rgba(100,244,255,.20), rgba(255,111,174,.18)),
+        rgba(255,255,255,.04);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 18px 42px rgba(100,244,255,.10);
+    }
+
+    .tetractys { display: grid; gap: 4px; }
+    .tetra-row { display: flex; justify-content: center; gap: 4px; }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--rose), var(--amber));
+      box-shadow: 0 0 14px rgba(100,244,255,.65);
+    }
+
+    .brand-name {
+      display: block;
+      font-family: var(--display);
+      font-size: 13px;
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-links a,
+    .btn {
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: 12px 15px;
+      color: #eef9ff;
+      background: rgba(255,255,255,.055);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .nav-links a:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(100,244,255,.55);
+      box-shadow: 0 18px 38px rgba(100,244,255,.12);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 82px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 58px;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      width: min(920px, 92vw);
+      height: min(920px, 92vw);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background:
+        conic-gradient(from 210deg, transparent, rgba(100,244,255,.16), rgba(255,111,174,.16), rgba(255,209,102,.14), transparent),
+        radial-gradient(circle, rgba(255,255,255,.08), transparent 58%);
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before,
+    .kicker::after {
+      content: "";
+      width: 24px;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--cyan), var(--rose));
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 0;
+      font-family: var(--display);
+      font-size: clamp(48px, 8vw, 116px);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-wrap: balance;
+      background: linear-gradient(120deg, #fff 0%, var(--cyan) 28%, var(--mint) 46%, var(--amber) 64%, var(--rose) 82%, var(--violet) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 790px;
+      margin: 26px auto 0;
+      color: var(--text);
+      font-size: clamp(18px, 1.8vw, 22px);
+      line-height: 1.65;
+      text-wrap: balance;
+    }
+
+    .console {
+      width: min(880px, 100%);
+      margin: 38px auto 0;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(100,244,255,.13), rgba(255,111,174,.11), rgba(255,209,102,.09));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    .console-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: end;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(6, 10, 24, .88);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--mint);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      height: 58px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 16px;
+      padding: 0 16px;
+      color: var(--ink);
+      background: #070d1d;
+      color-scheme: dark;
+      outline: none;
+    }
+
+    input[type="date"]:focus {
+      border-color: rgba(100,244,255,.66);
+      box-shadow: 0 0 0 4px rgba(100,244,255,.10);
+    }
+
+    .btn {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      color: #041018;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--cyan), var(--mint), var(--amber));
+      box-shadow: 0 20px 48px rgba(100,244,255,.17);
+    }
+
+    .btn.secondary {
+      color: var(--ink);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: none;
+    }
+
+    .error,
+    .calc-path {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      text-align: left;
+      line-height: 1.55;
+    }
+
+    .error {
+      color: #ffe3ec;
+      border: 1px solid rgba(255,111,174,.35);
+      background: rgba(255,111,174,.12);
+    }
+
+    .calc-path {
+      border: 1px solid rgba(100,244,255,.18);
+      background: rgba(6, 10, 24, .74);
+    }
+
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+    }
+
+    .calc-line:last-child { border-bottom: 0; }
+    .calc-line strong { color: var(--ink); }
+
+    .color-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin: 28px auto 0;
+      width: min(760px, 100%);
+    }
+
+    .swatch {
+      height: 7px;
+      border-radius: 999px;
+      box-shadow: 0 0 28px currentColor;
+    }
+
+    .swatch:nth-child(1) { color: var(--cyan); background: var(--cyan); }
+    .swatch:nth-child(2) { color: var(--mint); background: var(--mint); }
+    .swatch:nth-child(3) { color: var(--amber); background: var(--amber); }
+    .swatch:nth-child(4) { color: var(--orange); background: var(--orange); }
+    .swatch:nth-child(5) { color: var(--rose); background: var(--rose); }
+    .swatch:nth-child(6) { color: var(--violet); background: var(--violet); }
+
+    .section { padding: 54px 0; }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel-strong), rgba(7, 12, 27, .92));
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 4vw, 42px);
+    }
+
+    .section-title {
+      margin-bottom: 14px;
+      font-family: var(--display);
+      font-size: clamp(32px, 4.8vw, 62px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .section-intro {
+      max-width: 820px;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.72;
+    }
+
+    .method-grid,
+    .atlas-grid,
+    .result-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .method-grid { grid-template-columns: repeat(3, 1fr); }
+    .atlas-grid { grid-template-columns: repeat(5, 1fr); margin-top: 24px; }
+    .result-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .card,
+    .atlas-card,
+    .result-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      padding: 20px;
+    }
+
+    .card::before,
+    .result-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--mint), var(--amber), var(--rose), var(--violet));
+    }
+
+    .card small,
+    .result-card h3 {
+      display: block;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .card b {
+      display: block;
+      margin-top: 10px;
+      font-family: var(--display);
+      font-size: 26px;
+      line-height: 1.08;
+    }
+
+    .card p,
+    .result-card p,
+    .result-card li {
+      color: var(--text);
+      line-height: 1.68;
+    }
+
+    .definition-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .quote {
+      margin-top: 24px;
+      color: var(--amber);
+      font-family: var(--display);
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.18;
+      font-weight: 800;
+    }
+
+    .definition-copy { display: grid; gap: 14px; }
+    .reading { display: none; padding-top: 22px; }
+
+    .reading-top {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .orb {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255,209,102,.42), transparent 28%),
+        radial-gradient(circle at 38% 44%, rgba(100,244,255,.55), transparent 34%),
+        radial-gradient(circle at 65% 58%, rgba(255,111,174,.38), transparent 36%),
+        #070d1d;
+      box-shadow: 0 0 90px rgba(100,244,255,.18);
+    }
+
+    .orb span {
+      font-family: var(--display);
+      font-size: 76px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .result-title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: .94;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .result-sub {
+      margin-top: 10px;
+      color: var(--mint);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: rgba(255,255,255,.055);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 26px 0;
+    }
+
+    .tab {
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 999px;
+      padding: 12px 14px;
+      color: var(--ink);
+      background: rgba(255,255,255,.05);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .tab.active {
+      color: #041018;
+      background: linear-gradient(135deg, var(--mint), var(--cyan), var(--amber));
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .wide { grid-column: 1 / -1; }
+
+    .atlas-card {
+      width: 100%;
+      text-align: left;
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .atlas-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(100,244,255,.55);
+      background: rgba(255,255,255,.075);
+    }
+
+    .atlas-num {
+      display: block;
+      font-family: var(--display);
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--amber);
+    }
+
+    .atlas-card b {
+      display: block;
+      margin-top: 8px;
+      font-size: 18px;
+    }
+
+    .atlas-card span:last-child {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 54px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      .nav-links { display: none; }
+      .brand-tagline { display: none; }
+      .console-inner,
+      .definition-grid,
+      .method-grid,
+      .result-grid { grid-template-columns: 1fr; }
+      .atlas-grid { grid-template-columns: repeat(2, 1fr); }
+      .wide { grid-column: auto; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .nav { height: 72px; }
+      .brand-mark { width: 46px; height: 46px; }
+      .brand-name { font-size: 10px; }
+      .hero { min-height: auto; padding: 48px 0 38px; }
+      h1 { font-size: clamp(42px, 13vw, 68px); }
+      .kicker::before,
+      .kicker::after { display: none; }
+      .console { padding: 12px; border-radius: 24px; }
+      .console-inner { padding: 14px; border-radius: 18px; }
+      .btn { width: 100%; }
+      .atlas-grid { grid-template-columns: 1fr; }
+      .calc-line { display: block; }
+      .calc-line span:last-child,
+      .calc-line strong:last-child { display: block; margin-top: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#diagnostic" aria-label="PAA home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="tetractys">
+            <span class="tetra-row"><span class="dot"></span></span>
+            <span class="tetra-row"><span class="dot"></span><span class="dot"></span></span>
+            <span class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+            <span class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+          </span>
+        </span>
+        <span>
+          <span class="brand-name">Pythagorean Arithmosophic Anamnesis</span>
+          <span class="brand-tagline">Pattern recognition for human growth</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#method">Method</a>
+        <a href="#claim">Claim</a>
+        <a href="#atlas">Atlas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="diagnostic" class="hero wrap">
+      <div class="hero-inner">
+        <div class="kicker">Birthdate Reading · Structural Pattern Diagnostic</div>
+        <h1>Your life repeats a pattern. Read it.</h1>
+        <p class="hero-copy">PAA translates your birthdate into a clear symbolic reading for recurring patterns in choice, strength, pressure, and growth.</p>
+        <div class="console" aria-label="Birth Root Glyph diagnostic input">
+          <div class="console-inner">
+            <div>
+              <label for="birthdate">Enter birthdate</label>
+              <input id="birthdate" type="date" />
+            </div>
+            <button id="revealBtn" class="btn" type="button">Reveal My Birth Root</button>
+          </div>
+          <div id="errorBox" class="error"></div>
+          <div id="calcPath" class="calc-path"></div>
+        </div>
+        <div class="color-strip" aria-hidden="true">
+          <span class="swatch"></span><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="section wrap">
+      <div class="method-grid">
+        <article class="card"><small>Structure</small><b>What repeats</b><p>The reading names the pattern that tends to organize action, perception, and response across situations.</p></article>
+        <article class="card"><small>Pressure</small><b>What reveals</b><p>Stress exposes the structure more clearly than preference. PAA reads what appears when comfort is removed.</p></article>
+        <article class="card"><small>Practice</small><b>What corrects</b><p>A reading becomes useful through clearer choices, better restraint, and conscious refinement.</p></article>
+      </div>
+    </section>
+
+    <section id="claim" class="section wrap">
+      <div class="panel">
+        <div class="definition-grid">
+          <div>
+            <h2 class="section-title">The public claim.</h2>
+            <p class="section-intro">PAA translates number into usable self-knowledge for founders, artists, couples, teachers, teams, seekers, skeptics, and anyone looking for insight that can become practice.</p>
+            <div class="quote">Your life has recurring patterns. This helps you see them clearly.</div>
+          </div>
+          <div class="definition-copy">
+            <article class="card"><small>Pythagorean</small><b>Number as structure</b><p>Relation, proportion, sequence, tension, and form.</p></article>
+            <article class="card"><small>Arithmosophic</small><b>Number as wisdom</b><p>Not arithmetic alone, but the qualitative pattern carried by number.</p></article>
+            <article class="card"><small>Anamnesis</small><b>Recognition</b><p>The moment a person sees a pattern already active in life and can begin working with it consciously.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reading" class="reading wrap" aria-live="polite">
+      <div class="reading-top">
+        <div class="orb"><span id="glyphNumber"></span></div>
+        <h2 id="glyphName" class="result-title"></h2>
+        <div id="glyphSubtitle" class="result-sub"></div>
+        <div id="glyphPlanet" class="pill-row"></div>
+        <div class="pill-row">
+          <span id="archetypeValue" class="pill"></span>
+          <span id="roleValue" class="pill"></span>
+          <span id="formValue" class="pill"></span>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Reading sections">
+        <button class="tab active" data-tab="overview" type="button">Overview</button>
+        <button class="tab" data-tab="pressure" type="button">Pressure</button>
+        <button class="tab" data-tab="practice" type="button">Practice</button>
+      </div>
+
+      <section class="panel tab-panel active" id="tab-overview">
+        <div class="result-grid">
+          <article class="result-card wide"><h3>Core Structure</h3><p id="archetypeText"></p></article>
+          <article class="result-card"><h3>Gift</h3><p id="giftText"></p></article>
+          <article class="result-card"><h3>Wisdom</h3><p id="wisdom"></p></article>
+        </div>
+      </section>
+
+      <section class="panel tab-panel" id="tab-pressure">
+        <div class="result-grid">
+          <article class="result-card"><h3>Under Pressure</h3><ul id="pressureList"></ul></article>
+          <article class="result-card"><h3>Growth Edge</h3><p id="growthEdge"></p></article>
+        </div>
+      </section>
+
+      <section class="panel tab-panel" id="tab-practice">
+        <div class="result-grid">
+          <article class="result-card"><h3>Helpful Practice</h3><p id="practice"></p></article>
+          <article class="result-card"><h3>Reflection Question</h3><p id="question"></p></article>
+        </div>
+      </section>
+    </section>
+
+    <section id="atlas" class="section wrap">
+      <div class="panel">
+        <h2 class="section-title">Root Glyph Atlas</h2>
+        <p class="section-intro">Explore the glyphs. Click any card to load a sample reading. The goal is not to pick a favorite, but to learn the language of recurring patterns.</p>
+        <div id="atlasGrid" class="atlas-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <span>© 2026 Pythagorean Arithmosophic Anamnesis LLC</span>
+      <span>Pattern recognition for human growth</span>
+    </div>
+  </footer>
+
+  <script>
+    const glyphs = {
+      "1": ["The Monad", "The Originator", "Sun - Apollo", "The Initiator", "The Pioneer", "The Point", "Your gift is initiative: learning to begin with confidence while staying open to support.", "The Monad is will becoming direction. It begins before permission is granted and creates the path others later call obvious.", "The refined 1 leads without making every moment a test of worth.", ["You move first, then justify the movement.", "Delay feels costly.", "Complexity compresses into a clear choice."], "Independence can harden into isolation.", "Practice shared leadership and let support reach you.", "Where could I invite support without losing my own center?"],
+      "2": ["The Dyad", "The Mirror", "Moon - Artemis", "The Relational Witness", "The Harmonizer", "The Line", "Your gift is attunement: honoring the bond without disappearing inside it.", "The Dyad reads tone, distance, atmosphere, and response. It detects the bond before it names the self inside the bond.", "Harmony becomes mature when it includes honesty.", ["You track subtle changes in tone.", "Conflict activates repair.", "You may mirror before stating your own position."], "Peacekeeping can replace truth.", "State your own position before adapting to another person's position.", "What do I want before I adjust to what someone else needs?"],
+      "3": ["The Triad", "The Signal", "Jupiter - Hermes", "The Expressor", "The Storyteller", "The Triangle", "Your gift is expression: letting creativity and presence reveal what is true.", "The Triad turns inner movement into language, image, story, humor, symbol, and communicable pattern.", "Expression is strongest when it clarifies reality.", ["You generate options and reframes.", "Tension becomes speech or image.", "Response helps verify the signal landed."], "Performance can replace embodiment.", "Complete one meaningful thing before beginning several new ones.", "What wants to be expressed clearly, simply, and all the way through?"],
+      "4": ["The Tetrad", "The Stone", "Earth - Demeter", "The Builder", "The Architect", "The Square", "Your gift is structure: building what lasts while keeping space for life to move.", "The Tetrad asks whether a vision can bear weather, time, burden, and use.", "True structure is ordered flexibility.", ["You seek procedure and boundaries.", "Chaos becomes repeatable structure.", "Responsibility becomes personal."], "Strength can become rigidity.", "Keep the principle, but allow the form to breathe.", "What structure would support life here without narrowing it?"],
+      "5": ["The Pentad", "The Wind", "Mercury - Hermes", "The Adventurer", "The Explorer", "The Pentagon", "Your gift is movement: seeking freedom in a way that honors continuity and care.", "The Pentad detects stagnation, opens enclosure, introduces movement, and invites life to keep adapting.", "Freedom grows when movement survives commitment.", ["You find exits and alternate routes.", "Novelty becomes oxygen.", "Stagnant systems get disrupted."], "Escape can disguise itself as freedom.", "Complete one full cycle before opening the next door.", "What commitment would make my freedom stronger rather than smaller?"],
+      "6": ["The Hexad", "The Hearth", "Venus - Aphrodite", "The Nurturer", "The Caretaker", "The Hexagon", "Your gift is care: loving in a way that strengthens others.", "The Hexad gathers fragments, restores beauty, protects the vulnerable, and turns care into an organizing force.", "Care matures when it restores dignity and responsibility.", ["You restore balance across the system.", "Unmet needs become visible.", "You maintain what others overlook."], "Care can become quiet control.", "Let others carry their rightful burden.", "What would care look like if it strengthened both of us?"],
+      "7": ["The Heptad", "The Veil", "Neptune - Athena", "The Seeker", "The Philosopher", "The Heptagon", "Your gift is discernment: seeking depth while returning to warmth and participation.", "The Heptad descends beneath appearance, severs false certainty, and searches for what remains true.", "Insight becomes mature when it returns to life in usable form.", ["You withdraw to reduce noise.", "Surface explanations get questioned.", "Contradictions become loud."], "Depth can become a hiding place.", "Bring one insight back into a concrete act or conversation.", "What truth can I bring back into relationship today?"],
+      "8": ["The Ogdoad", "The Tower", "Saturn - Kronos", "The Ruler", "The Executive", "The Octagon", "Your gift is power: leading and influencing with principle, stewardship, and trust.", "The Ogdoad handles leverage, authority, resources, command, and the ethical burden of scale.", "Mature power protects and builds capacity in others.", ["You consolidate control or resources.", "Weak leadership becomes intolerable.", "Emotion may become strategy."], "Control can replace trust.", "Submit force to principle before outcome.", "Where can I use strength to create trust rather than control?"],
+      "9": ["The Ennead", "The River", "Mars - Sophia", "The Humanitarian", "The Sage-Healer", "The Enneagram", "Your gift is wholeness: including yourself in the compassion you extend to others.", "The Ennead gathers fragments, feels the whole field, and knows when a cycle must end.", "Compassion is strongest when it has boundaries.", ["You move toward closure.", "Fragments gather into a larger picture.", "The unfinished asks to be released."], "Service can become self-erasure.", "Let compassion include you. Name the boundary.", "What needs completion so a healthier beginning can appear?"],
+      "11": ["The Undecad", "The Amplifier", "Uranus - Prometheus", "The Visionary Initiate", "The Lightning Rod", "Twin Pillars", "Your gift is heightened perception: grounding intensity into service and steadiness.", "The Undecad amplifies subtle charge into visible pattern. The vessel must become strong enough for the current it receives.", "The 11 matures through embodiment, not more intensity.", ["Input arrives with unusual charge.", "Meaning appears quickly.", "Intensity asks for translation."], "Signal without vessel becomes fragmentation.", "Ground every signal through body, craft, routine, action, or service.", "How can this insight become grounded, helpful, and shareable?"]
+    };
+
+    const qs = selector => document.querySelector(selector);
+    const qsa = selector => [...document.querySelectorAll(selector)];
+    const setText = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value || ""; };
+
+    function digitSum(value) {
+      return String(value).split("").map(Number).reduce((a, b) => a + b, 0);
+    }
+
+    function reduceBirthdate(dateString) {
+      const digits = dateString.replace(/\D/g, "").split("").map(Number);
+      const first = digits.reduce((a, b) => a + b, 0);
+      const steps = [first];
+      let current = first;
+      while (current > 9 && current !== 11) {
+        current = digitSum(current);
+        steps.push(current);
+      }
+      return { digits, first, steps, root: current };
+    }
+
+    function showError(message) {
+      const box = qs("#errorBox");
+      box.textContent = message;
+      box.style.display = "block";
+    }
+
+    function clearError() {
+      const box = qs("#errorBox");
+      box.textContent = "";
+      box.style.display = "none";
+    }
+
+    function renderCalculation(result) {
+      const el = qs("#calcPath");
+      el.innerHTML = `
+        <div class="calc-line"><span>Birthdate digits</span><span>${result.digits.join(" + ")}</span></div>
+        <div class="calc-line"><span>Initial sum</span><span>${result.first}</span></div>
+        <div class="calc-line"><span>Reduction path</span><span>${result.steps.join(" -> ")}</span></div>
+        <div class="calc-line"><strong>Birth Root Glyph</strong><strong>${result.root}</strong></div>`;
+      el.style.display = "block";
+    }
+
+    function activateTab(name) {
+      qsa(".tab").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === name));
+      qsa(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${name}`));
+    }
+
+    function fillList(id, items) {
+      const el = document.getElementById(id);
+      el.innerHTML = "";
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        el.appendChild(li);
+      });
+    }
+
+    function renderGlyph(root, result = null) {
+      const g = glyphs[root];
+      if (!g) {
+        showError("This birthdate reduced to an unsupported glyph. Check the date and try again.");
+        return;
+      }
+
+      setText("glyphNumber", root);
+      setText("glyphName", g[0]);
+      setText("glyphSubtitle", g[1]);
+      qs("#glyphPlanet").innerHTML = `<span class="pill">${g[2]}</span>`;
+      setText("archetypeValue", g[3]);
+      setText("roleValue", g[4]);
+      setText("formValue", g[5]);
+      setText("giftText", g[6]);
+      setText("archetypeText", g[7]);
+      setText("wisdom", g[8]);
+      fillList("pressureList", g[9]);
+      setText("growthEdge", g[10]);
+      setText("practice", g[11]);
+      setText("question", g[12]);
+
+      if (result) renderCalculation(result);
+      qs("#reading").style.display = "block";
+      activateTab("overview");
+      qs("#reading").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function revealFromDate(date) {
+      clearError();
+      if (!date) {
+        showError("Enter your birthdate first.");
+        return;
+      }
+      const selected = new Date(`${date}T00:00:00`);
+      const today = new Date();
+      today.setHours(23, 59, 59, 999);
+      if (selected > today) {
+        showError("Enter a birthdate that is not in the future.");
+        return;
+      }
+      const result = reduceBirthdate(date);
+      renderGlyph(result.root, result);
+    }
+
+    function buildAtlas() {
+      const grid = qs("#atlasGrid");
+      Object.entries(glyphs).forEach(([num, g]) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "atlas-card";
+        card.innerHTML = `<span class="atlas-num">${num}</span><b>${g[0]}</b><span>${g[1]}</span>`;
+        card.addEventListener("click", () => renderGlyph(num));
+        grid.appendChild(card);
+      });
+    }
+
+    qs("#revealBtn").addEventListener("click", () => revealFromDate(qs("#birthdate").value));
+    qsa(".tab").forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
+    buildAtlas();
+  </script>
+</body>
+</html>
