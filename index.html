@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAA | Birth Root Glyph Reading</title>
+  <meta name="description" content="Reveal your Birth Root Glyph through Pythagorean Arithmosophic Anamnesis: a practical diagnostic for structure, pressure, coherence, and refinement." />
+  <meta property="og:title" content="PAA | Birth Root Glyph Reading" />
+  <meta property="og:description" content="A practical diagnostic for reading the recurring structure beneath choice, pressure, collapse, and renewal." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.jpg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #040612;
+      --bg2: #08111f;
+      --panel: rgba(15, 24, 43, .88);
+      --panel2: rgba(8, 13, 27, .94);
+      --ink: #f2fbff;
+      --text: #d8e7ef;
+      --muted: #9eb5c4;
+      --dim: #708796;
+      --aqua: #8df8ff;
+      --cyan: #5be7ff;
+      --turquoise: #31dfd1;
+      --violet: #b958df;
+      --purple: #7c2a91;
+      --gold: #f0cf8d;
+      --amber: #e8a84e;
+      --rose: #ff7aa8;
+      --green: #70f2b0;
+      --line: rgba(141,248,255,.15);
+      --line2: rgba(185,88,223,.24);
+      --shadow: 0 30px 90px rgba(0,0,0,.48);
+      --radius: 24px;
+      --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: "Manrope", var(--sans);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 50% -8%, rgba(185,88,223,.34), transparent 31rem),
+        radial-gradient(circle at 14% 19%, rgba(49,223,209,.14), transparent 24rem),
+        radial-gradient(circle at 88% 16%, rgba(240,207,141,.10), transparent 22rem),
+        radial-gradient(circle at 70% 92%, rgba(255,122,168,.08), transparent 28rem),
+        linear-gradient(180deg, #030711 0%, #08111f 49%, #040612 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(141,248,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(141,248,255,.06) 1px, transparent 1px);
+      background-size: 76px 76px;
+      mask-image: linear-gradient(180deg, black, transparent 82%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    h1, h2, h3, p { margin-top: 0; }
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin-inline: auto; }
+
+    .paa-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px) saturate(135%);
+      -webkit-backdrop-filter: blur(18px) saturate(135%);
+      background: linear-gradient(180deg, rgba(4,6,18,.90), rgba(4,6,18,.70));
+      border-bottom: 1px solid rgba(141,248,255,.14);
+      box-shadow: 0 18px 44px rgba(0,0,0,.28);
+    }
+
+    .paa-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(141,248,255,.52), rgba(185,88,223,.38), transparent);
+      opacity: .68;
+      pointer-events: none;
+    }
+
+    .paa-nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 14px 0;
+    }
+
+    .paa-brand {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 14px;
+      min-width: max-content;
+    }
+
+    .paa-brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(141,248,255,.26);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(141,248,255,.18), transparent 58%),
+        linear-gradient(135deg, rgba(49,223,209,.13), rgba(185,88,223,.14));
+      box-shadow: inset 0 0 22px rgba(141,248,255,.055), 0 0 30px rgba(141,248,255,.08), 0 0 46px rgba(185,88,223,.055);
+    }
+
+    .paa-tetractys { width: 34px; height: 32px; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
+    .paa-tetra-row { display: flex; justify-content: center; gap: 4px; line-height: 0; }
+    .paa-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--aqua), var(--violet));
+      box-shadow: 0 0 13px rgba(141,248,255,.46);
+    }
+
+    .paa-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      line-height: 1.02;
+      text-transform: uppercase;
+      letter-spacing: .145em;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .paa-brand-text span:nth-child(1) { color: #f4fbff; }
+    .paa-brand-text span:nth-child(2) { color: var(--aqua); }
+    .paa-brand-text span:nth-child(3) { color: var(--violet); }
+
+    .paa-menu-wrap { position: relative; display: flex; align-items: center; justify-content: flex-end; }
+    .paa-menu-button {
+      position: relative;
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(141,248,255,.22);
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)), radial-gradient(circle at 35% 0%, rgba(141,248,255,.12), transparent 70%);
+      color: #e7f8ff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      box-shadow: 0 0 28px rgba(141,248,255,.08), inset 0 0 20px rgba(141,248,255,.04);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .paa-menu-button:hover,
+    .paa-menu-button[aria-expanded="true"] {
+      transform: translateY(-1px);
+      border-color: rgba(141,248,255,.42);
+      box-shadow: 0 0 34px rgba(141,248,255,.13), 0 0 44px rgba(185,88,223,.10), inset 0 0 22px rgba(141,248,255,.055);
+    }
+
+    .paa-menu-bars { width: 24px; height: 18px; display: grid; align-content: space-between; }
+    .paa-menu-bars span {
+      display: block;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--aqua), var(--violet));
+      box-shadow: 0 0 12px rgba(141,248,255,.48);
+      transform-origin: center;
+      transition: transform .22s ease, opacity .18s ease;
+    }
+
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(2) { opacity: 0; }
+    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .paa-links {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 14px);
+      width: min(390px, calc(100vw - 32px));
+      display: grid;
+      gap: 9px;
+      padding: 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(141,248,255,.18);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(141,248,255,.11), transparent 15rem),
+        radial-gradient(circle at 100% 10%, rgba(185,88,223,.14), transparent 16rem),
+        linear-gradient(180deg, rgba(7,12,26,.98), rgba(4,6,18,.98));
+      box-shadow: 0 28px 70px rgba(0,0,0,.50), inset 0 0 26px rgba(141,248,255,.035);
+      opacity: 0;
+      transform: translateY(-8px) scale(.985);
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+    }
+
+    .paa-menu-wrap.open .paa-links {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .paa-menu-kicker {
+      padding: 6px 10px 9px;
+      color: var(--aqua);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(141,248,255,.12);
+      margin-bottom: 2px;
+    }
+
+    .paa-links a {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      min-height: 48px;
+      padding: 13px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(141,248,255,.11);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+      color: #d5e8f1;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .075em;
+      line-height: 1.15;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: transform .22s ease, color .22s ease, background .22s ease, border-color .22s ease;
+    }
+
+    .paa-links a::after { content: "->"; color: rgba(141,248,255,.78); font-size: 13px; opacity: .72; }
+    .paa-links a:hover {
+      color: #f8fdff;
+      background: linear-gradient(180deg, rgba(141,248,255,.095), rgba(185,88,223,.055));
+      border-color: rgba(141,248,255,.30);
+      transform: translateY(-1px);
+    }
+
+    .paa-links a.active {
+      color: #031116;
+      background: linear-gradient(135deg, var(--turquoise), var(--aqua));
+      border-color: rgba(141,248,255,.58);
+      box-shadow: 0 14px 34px rgba(49,223,209,.18), 0 0 38px rgba(141,248,255,.12);
+    }
+
+    .paa-links a.active::after { color: #031116; }
+    .paa-links a.paa-nav-cta {
+      color: #f9fdff;
+      border-color: rgba(185,88,223,.40);
+      background: linear-gradient(135deg, rgba(185,88,223,.30), rgba(49,223,209,.16));
+    }
+
+    .hero {
+      position: relative;
+      padding: 86px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .96fr) minmax(380px, .84fr);
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--aqua);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--aqua), transparent);
+    }
+
+    h1 {
+      margin-bottom: 0;
+      font-family: var(--display);
+      font-size: clamp(46px, 7vw, 98px);
+      line-height: .93;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-wrap: balance;
+      background: linear-gradient(130deg, #fff 0%, var(--gold) 20%, var(--aqua) 48%, var(--turquoise) 68%, var(--violet) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: var(--text);
+      font-size: clamp(17px, 1.55vw, 21px);
+      line-height: 1.7;
+    }
+
+    .hero-copy strong { color: #fff; font-weight: 850; }
+
+    .hero-actions,
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button,
+    .tool-button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 16px;
+      padding: 0 18px;
+      background: linear-gradient(135deg, var(--turquoise), var(--aqua));
+      color: #031116;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 40px rgba(49,223,209,.18);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover,
+    .tool-button:hover { transform: translateY(-2px); }
+
+    .button.secondary,
+    .tool-button.secondary {
+      color: var(--aqua);
+      border: 1px solid rgba(141,248,255,.28);
+      background: rgba(255,255,255,.035);
+      box-shadow: none;
+    }
+
+    .studio-card,
+    .panel,
+    .mini-card,
+    .result-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at top right, rgba(185,88,223,.12), transparent 18rem),
+        linear-gradient(180deg, var(--panel), var(--panel2));
+      box-shadow: var(--shadow);
+    }
+
+    .studio-card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+    }
+
+    .studio-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      pointer-events: none;
+      background: conic-gradient(from 220deg, transparent, rgba(141,248,255,.22), transparent, rgba(240,207,141,.18), transparent, rgba(185,88,223,.20), transparent);
+      opacity: .7;
+      filter: blur(20px);
+    }
+
+    .studio-card > * { position: relative; }
+
+    .studio-top {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(141,248,255,.12);
+      margin-bottom: 18px;
+    }
+
+    .studio-orb {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(141,248,255,.24);
+      background:
+        radial-gradient(circle at 50% 32%, rgba(240,207,141,.34), transparent 28%),
+        radial-gradient(circle at 38% 48%, rgba(141,248,255,.45), transparent 35%),
+        radial-gradient(circle at 65% 58%, rgba(185,88,223,.42), transparent 40%),
+        #050b16;
+      box-shadow: 0 0 70px rgba(141,248,255,.12);
+    }
+
+    .studio-orb span {
+      font-family: var(--display);
+      font-size: 44px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .studio-card h2,
+    .section-title {
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .studio-card p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--aqua);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      height: 58px;
+      border: 1px solid rgba(141,248,255,.22);
+      border-radius: 16px;
+      padding: 0 16px;
+      color: var(--ink);
+      background: #050b16;
+      outline: 0;
+      color-scheme: dark;
+      font-size: 17px;
+    }
+
+    input[type="date"]:focus {
+      border-color: rgba(141,248,255,.62);
+      box-shadow: 0 0 0 4px rgba(141,248,255,.08);
+    }
+
+    .calculator-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: end;
+      margin-top: 18px;
+    }
+
+    .error,
+    .calc-path {
+      display: none;
+      margin-top: 14px;
+      border-radius: 16px;
+      padding: 14px 16px;
+      line-height: 1.55;
+    }
+
+    .error {
+      color: #ffe3ec;
+      border: 1px solid rgba(255,122,168,.35);
+      background: rgba(255,122,168,.12);
+    }
+
+    .calc-path {
+      border: 1px solid rgba(141,248,255,.13);
+      background: rgba(255,255,255,.035);
+      color: var(--muted);
+    }
+
+    .calc-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(141,248,255,.08);
+    }
+
+    .calc-line:last-child { border-bottom: 0; }
+    .calc-line strong { color: #fff; }
+
+    .method-strip {
+      padding: 18px 0 42px;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .mini-card {
+      position: relative;
+      overflow: hidden;
+      padding: 18px;
+      min-height: 148px;
+      background: rgba(255,255,255,.035);
+      box-shadow: none;
+    }
+
+    .mini-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--aqua), var(--gold), var(--violet));
+    }
+
+    .mini-card b {
+      display: block;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .mini-card span {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .reading {
+      display: none;
+      padding: 34px 0 68px;
+    }
+
+    .result-shell {
+      display: grid;
+      grid-template-columns: minmax(310px, .72fr) minmax(0, 1.28fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .result-summary {
+      position: sticky;
+      top: 104px;
+      padding: 26px;
+      overflow: hidden;
+    }
+
+    .result-summary::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(141,248,255,.14), transparent 66%);
+      pointer-events: none;
+    }
+
+    .result-orb {
+      width: 172px;
+      height: 172px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(141,248,255,.28);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(240,207,141,.42), transparent 27%),
+        radial-gradient(circle at 38% 44%, rgba(141,248,255,.48), transparent 34%),
+        radial-gradient(circle at 65% 60%, rgba(185,88,223,.46), transparent 38%),
+        #050b16;
+      box-shadow: inset 0 0 42px rgba(141,248,255,.08), 0 0 96px rgba(49,223,209,.13);
+    }
+
+    .result-orb span {
+      font-family: var(--display);
+      font-size: 86px;
+      line-height: 1;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .result-summary h2 {
+      margin: 0;
+      text-align: center;
+      font-family: var(--display);
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: .98;
+      text-transform: uppercase;
+    }
+
+    .result-subtitle {
+      margin-top: 8px;
+      text-align: center;
+      color: var(--gold);
+      font-weight: 850;
+      font-size: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      border: 1px solid rgba(141,248,255,.16);
+      border-radius: 999px;
+      padding: 8px 11px;
+      background: rgba(255,255,255,.04);
+      color: #d6e8ef;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .summary-line {
+      margin: 22px 0 0;
+      color: #eaf6fa;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tab {
+      min-height: 44px;
+      border: 1px solid rgba(141,248,255,.16);
+      border-radius: 999px;
+      padding: 0 15px;
+      color: var(--ink);
+      background: rgba(255,255,255,.035);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .tab.active {
+      color: #031116;
+      border-color: rgba(141,248,255,.58);
+      background: linear-gradient(135deg, var(--turquoise), var(--aqua));
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .result-card {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.022));
+      box-shadow: none;
+    }
+
+    .result-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--aqua), var(--gold), var(--rose), var(--violet));
+    }
+
+    .result-card h3 {
+      margin: 0 0 11px;
+      color: var(--aqua);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .result-card p,
+    .result-card li {
+      margin: 0;
+      color: var(--text);
+      line-height: 1.72;
+      font-size: 16px;
+    }
+
+    .result-card ul { margin: 0; padding-left: 20px; }
+    .result-card li { margin: 7px 0; }
+    .wide { grid-column: 1 / -1; }
+    .good { border-color: rgba(112,242,176,.24); background: linear-gradient(180deg, rgba(112,242,176,.08), rgba(255,255,255,.02)); }
+    .warn { border-color: rgba(255,122,168,.28); background: linear-gradient(180deg, rgba(255,122,168,.09), rgba(255,255,255,.02)); }
+
+    .section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      color: var(--aqua);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      margin-bottom: 14px;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .doctrine-grid,
+    .atlas-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .doctrine-grid { grid-template-columns: repeat(3, 1fr); }
+    .atlas-grid { grid-template-columns: repeat(5, 1fr); }
+
+    .atlas-card {
+      width: 100%;
+      min-height: 196px;
+      padding: 18px;
+      text-align: left;
+      color: var(--ink);
+      transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+
+    .atlas-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(141,248,255,.38);
+      background: rgba(255,255,255,.06);
+    }
+
+    .atlas-num {
+      display: block;
+      color: var(--gold);
+      font-family: var(--display);
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .atlas-card b {
+      display: block;
+      margin-top: 9px;
+      font-family: var(--display);
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .atlas-card span:last-child {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 1200;
+      transform: translate(-50%, 120%);
+      opacity: 0;
+      border: 1px solid rgba(141,248,255,.22);
+      border-radius: 999px;
+      padding: 12px 16px;
+      background: rgba(4, 6, 18, .92);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      transition: transform .22s ease, opacity .22s ease;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
+    footer {
+      padding: 38px 0 70px;
+      border-top: 1px solid rgba(141,248,255,.10);
+      color: var(--dim);
+      font-size: 14px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .result-shell { grid-template-columns: 1fr; }
+      .result-summary { position: relative; top: auto; }
+      .method-grid { grid-template-columns: repeat(3, 1fr); }
+      .atlas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 760px) {
+      .paa-nav { gap: 14px; padding: 12px 0; }
+      .paa-brand-mark { width: 46px; height: 46px; }
+      .paa-brand-text { font-size: 10px; letter-spacing: .105em; }
+      .paa-menu-button { min-height: 46px; padding: 10px 13px; }
+      .paa-menu-label { display: none; }
+      .paa-links { position: fixed; left: 16px; right: 16px; top: 78px; width: auto; }
+      .hero { padding: 54px 0 28px; }
+      .calculator-actions { grid-template-columns: 1fr; }
+      .button, .tool-button { width: 100%; }
+      .method-grid,
+      .doctrine-grid,
+      .result-grid,
+      .atlas-grid { grid-template-columns: 1fr; }
+      .wide { grid-column: auto; }
+      .calc-line { display: block; }
+      .calc-line span:last-child,
+      .calc-line strong:last-child { display: block; margin-top: 4px; }
+      .result-orb { width: 142px; height: 142px; }
+      .result-orb span { font-size: 72px; }
+      .footer-grid { display: grid; }
+    }
+
+    @media print {
+      .paa-header, .hero, .method-strip, .tabs, .action-row, .section, footer, .toast { display: none !important; }
+      body { background: #fff; color: #111; }
+      .wrap { width: 100%; }
+      .reading { display: block !important; padding: 0; }
+      .result-shell { display: block; }
+      .result-summary, .result-card { box-shadow: none; border: 1px solid #ddd; background: #fff; color: #111; break-inside: avoid; }
+      .tab-panel { display: block !important; margin-top: 16px; }
+      .result-card p, .result-card li, .summary-line { color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="paa-header">
+    <div class="wrap paa-nav">
+      <a class="paa-brand" href="index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
+        <span class="paa-brand-mark" aria-hidden="true">
+          <span class="paa-tetractys">
+            <span class="paa-tetra-row"><span class="paa-dot"></span></span>
+            <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span></span>
+            <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+            <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+          </span>
+        </span>
+        <span class="paa-brand-text">
+          <span>Pythagorean</span>
+          <span>Arithmosophic</span>
+          <span>Anamnesis</span>
+        </span>
+      </a>
+
+      <div class="paa-menu-wrap" data-paa-menu>
+        <button class="paa-menu-button" type="button" aria-label="Open primary navigation" aria-expanded="false" aria-controls="paa-primary-menu" data-paa-menu-button>
+          <span class="paa-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="paa-menu-label">Menu</span>
+        </button>
+        <nav id="paa-primary-menu" class="paa-links" aria-label="Primary navigation" data-paa-menu-panel>
+          <div class="paa-menu-kicker">Navigate</div>
+          <a href="index.html" class="active">Home</a>
+          <a href="geometry.html">Geometry</a>
+          <a href="relationships.html">Relationships</a>
+          <a href="aboutpaa.html">What Is PAA?</a>
+          <a href="donate.html" class="paa-nav-cta">Support PAA</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="calculator">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Birth Root Glyph Studio</div>
+          <h1>Read the structure beneath your pattern.</h1>
+          <p class="hero-copy">
+            PAA begins with the Birth Root Glyph: a Pythagorean reduction of your birthdate into a symbolic diagnostic of <strong>essence, impulse, energy, intelligence, and archetypal action</strong>.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#calculator">Start Reading</a>
+            <a class="button secondary" href="aboutpaa.html">What Is PAA?</a>
+          </div>
+        </div>
+
+        <article class="studio-card" aria-label="Birth Root Glyph calculator">
+          <div class="studio-top">
+            <div class="studio-orb" aria-hidden="true"><span>?</span></div>
+            <div>
+              <h2>Reveal your glyph</h2>
+              <p>Enter a birthdate. The calculator preserves master number 11 and reduces all other sums to a single root glyph.</p>
+            </div>
+          </div>
+
+          <label for="birthdate">Birthdate</label>
+          <input id="birthdate" type="date" />
+          <div class="calculator-actions">
+            <button id="revealBtn" class="button" type="button">Reveal Birth Root</button>
+            <button id="sampleBtn" class="button secondary" type="button">Sample</button>
+          </div>
+          <div id="errorBox" class="error"></div>
+          <div id="calcPath" class="calc-path"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="method-strip wrap" aria-label="EIEIA diagnostic sequence">
+      <div class="method-grid">
+        <article class="mini-card"><b>Essence</b><span>What it is before performance, strategy, mood, or circumstance.</span></article>
+        <article class="mini-card"><b>Impulse</b><span>What moves first under pressure, temptation, or spontaneity.</span></article>
+        <article class="mini-card"><b>Energy</b><span>The style, tempo, rhythm, and charge of movement.</span></article>
+        <article class="mini-card"><b>Intelligence</b><span>How reality is read, organized, judged, and sometimes misread.</span></article>
+        <article class="mini-card"><b>Action</b><span>The role-pattern that appears when the first four converge.</span></article>
+      </div>
+    </section>
+
+    <section id="reading" class="reading wrap" aria-live="polite">
+      <div class="result-shell">
+        <aside class="panel result-summary">
+          <div class="result-orb"><span id="glyphNumber"></span></div>
+          <h2 id="glyphName"></h2>
+          <div id="glyphSubtitle" class="result-subtitle"></div>
+          <div class="pill-row">
+            <span id="planetValue" class="pill"></span>
+            <span id="archetypeValue" class="pill"></span>
+            <span id="formValue" class="pill"></span>
+          </div>
+          <p id="piercing" class="summary-line"></p>
+          <div class="action-row">
+            <button id="copySummary" class="tool-button" type="button">Copy Summary</button>
+            <button id="printReading" class="tool-button secondary" type="button">Print</button>
+          </div>
+        </aside>
+
+        <div>
+          <div class="tabs" role="tablist" aria-label="Reading sections">
+            <button class="tab active" data-tab="overview" type="button">Overview</button>
+            <button class="tab" data-tab="eieia" type="button">EIEIA</button>
+            <button class="tab" data-tab="pressure" type="button">Pressure</button>
+            <button class="tab" data-tab="refinement" type="button">Refinement</button>
+          </div>
+
+          <section class="tab-panel active" id="tab-overview">
+            <div class="result-grid">
+              <article class="result-card wide"><h3>Number Archetype</h3><p id="archetypeText"></p></article>
+              <article class="result-card"><h3>Deep Wisdom</h3><p id="wisdom"></p></article>
+              <article class="result-card"><h3>Reliable In</h3><p id="reliable"></p></article>
+              <article class="result-card"><h3>Growth Cycle</h3><p id="growthCycle"></p></article>
+              <article class="result-card"><h3>Virtue</h3><p id="virtue"></p></article>
+              <article class="result-card warn"><h3>Vice / Shadow</h3><p id="shadow"></p></article>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="tab-eieia">
+            <div class="result-grid">
+              <article class="result-card"><h3>Essence</h3><p id="essence"></p></article>
+              <article class="result-card"><h3>Impulse</h3><p id="impulse"></p></article>
+              <article class="result-card"><h3>Energy</h3><p id="energy"></p></article>
+              <article class="result-card"><h3>Intelligence</h3><p id="intelligence"></p></article>
+              <article class="result-card wide"><h3>Archetypal Action</h3><p id="action"></p></article>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="tab-pressure">
+            <div class="result-grid">
+              <article class="result-card"><h3>Must Under Pressure</h3><ul id="mustList"></ul></article>
+              <article class="result-card warn"><h3>Cannot Sustain</h3><ul id="cannotList"></ul></article>
+              <article class="result-card warn"><h3>Distortion Trigger</h3><p id="trigger"></p></article>
+              <article class="result-card warn"><h3>Distorted Expression</h3><p id="distorted"></p></article>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="tab-refinement">
+            <div class="result-grid">
+              <article class="result-card good"><h3>Coherent Expression</h3><p id="coherent"></p></article>
+              <article class="result-card"><h3>Awareness</h3><p id="awareness"></p></article>
+              <article class="result-card"><h3>Constraint</h3><p id="constraint"></p></article>
+              <article class="result-card"><h3>Feedback</h3><p id="feedback"></p></article>
+              <article class="result-card warn wide"><h3>Cost of Unchecked Distortion</h3><p id="cost"></p></article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <div class="section-kicker">Foundational Map</div>
+        <h2 class="section-title">The Triskelion Doctrine</h2>
+        <p class="section-intro">The glyphs are not isolated symbols. They sit inside three interacting pattern-fields used across the PAA site: Harmonic Matrix, Blade Field, and Tectonic Pillars.</p>
+      </div>
+      <div class="doctrine-grid">
+        <article class="mini-card"><b>3 - 6 - 9</b><span>Harmonic Matrix: expression, reciprocity, completion, rhythm, and cyclic coherence.</span></article>
+        <article class="mini-card"><b>5 - 7 - 11</b><span>Blade Field: living proportion, rupture, initiation, discernment, and breakthrough.</span></article>
+        <article class="mini-card"><b>2 - 4 - 8</b><span>Tectonic Pillars: polarity, boundary, frame, foundation, structural weight, and renewal.</span></article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="atlas">
+      <div class="section-head">
+        <div class="section-kicker">Root Glyph Atlas</div>
+        <h2 class="section-title">Explore the glyphs</h2>
+        <p class="section-intro">Click any card to load a sample reading. The atlas gives a quick view of the public glyph language used throughout PAA.</p>
+      </div>
+      <div id="atlasGrid" class="atlas-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <span>© 2026 Pythagorean Arithmosophic Anamnesis LLC</span>
+      <span><a href="geometry.html">Geometry</a> · <a href="relationships.html">Relationships</a> · <a href="donate.html">Support</a></span>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const glyphs = {
+      "1": {
+        name: "The Spark",
+        title: "Monad - Initiator",
+        planet: "Sun - Apollo",
+        archetype: "The Initiator",
+        role: "The Pioneer / The Sovereign Individual",
+        form: "The Point",
+        virtue: "Will, independence, originality, courage, self-direction",
+        shadow: "Arrogance, isolation, domination disguised as autonomy",
+        piercing: "Your gift is initiative: learning to begin with confidence while staying open to support.",
+        archetypeText: "The Monad is the original impulse: pure will condensed into a single point of light. Where 1 appears, existence begins. It does not ask permission; it declares itself into being.",
+        wisdom: "True initiation is not domination of the world but the courage to begin again. To be One is not to be alone; it is to be the source.",
+        growthCycle: "The beginning of every cycle. Seed-point of intention. Governs first steps, new ventures, and the moment of I Am.",
+        reliable: "Decisive action, self-starting energy, fearless initiation, and natural leadership in uncharted territory.",
+        must: ["Collapse to singular decision authority.", "Initiate action without consensus.", "Prioritize direction over harmony.", "Reduce complexity into go or do not go."],
+        cannot: ["Long-term equal collaboration without hierarchy.", "Indecision or prolonged hesitation.", "External dependency for direction.", "Passive observation when action is required."],
+        essence: "Pure origination: the singular beginning that precedes all sequence.",
+        impulse: "To exist, initiate, and declare selfhood.",
+        energy: "Linear, penetrating, solar, direct, and unapologetic.",
+        intelligence: "Reads openings, vacuums, and potentials where others see walls.",
+        action: "The Initiator: the one whose first act makes all subsequent acts possible.",
+        coherent: "Visionary leadership, courageous initiative, and authentic self-expression that inspires without demanding conformity.",
+        trigger: "Fear of irrelevance, loss of autonomy, being subsumed into the collective, or being made dependent.",
+        distorted: "Domineering control, compulsive need to be first, refusal to receive guidance, and isolation disguised as strength.",
+        awareness: "Notice when independence becomes compulsive and help feels like a threat.",
+        constraint: "Practice deliberate followership. Allow another to lead without internal rebellion.",
+        feedback: "Seek honest mirrors who will tell you when your fire burns others rather than lights the way.",
+        cost: "Unchecked, the Spark burns itself out in spectacular but lonely brilliance. The cost is connection."
+      },
+      "2": {
+        name: "The Mirror",
+        title: "Dyad - Relational Field",
+        planet: "Moon - Artemis",
+        archetype: "The Relational Mirror",
+        role: "The Harmonizer / The Emotional Barometer",
+        form: "The Line",
+        virtue: "Sensitivity, empathy, attunement, cooperation, emotional intelligence",
+        shadow: "Over-dependence, emotional volatility, passive manipulation, loss of self",
+        piercing: "Your gift is attunement: honoring the bond without disappearing inside it.",
+        archetypeText: "The Dyad is the first division that does not destroy unity. Where 1 asserts, 2 responds. It is sensitivity, reflection, and relational intelligence.",
+        wisdom: "Two teaches that perception is participation. The task is not to feel less. The task is to differentiate without disconnecting.",
+        growthCycle: "Begins in dependence, moves through entanglement, and matures into conscious relational discernment.",
+        reliable: "Reading emotional tone, diffusing conflict, creating connection, and sensing misalignment before it surfaces.",
+        must: ["Seek alignment with another.", "Mirror emotional or behavioral states.", "Attempt to repair connection.", "Track subtle shifts in interpersonal tone."],
+        cannot: ["Isolated unilateral decision-making.", "Prolonged conflict without repair attempts.", "Emotional disconnection from environment.", "Acting without relational impact."],
+        essence: "Relational awareness: reality known through reflection and interaction.",
+        impulse: "To connect, harmonize, and reduce tension between forces.",
+        energy: "Fluid, adaptive, responsive, and shaped by the environment it enters.",
+        intelligence: "Reads feedback, feeling, unsaid tension, and the state of connection.",
+        action: "The Relational Mirror: the one who reflects truth back through presence.",
+        coherent: "Emotional attunement with boundaries. Connection without collapse.",
+        trigger: "Fear of rejection, abandonment, disconnection, or not being needed.",
+        distorted: "People-pleasing, dependency, indirect control through sensitivity, and resentment masked as care.",
+        awareness: "Notice when your emotional state is entirely determined by someone else's presence or absence.",
+        constraint: "Name your own position before adapting.",
+        feedback: "Ask directly: Am I being clear, or am I just trying to keep things smooth?",
+        cost: "Loss of identity. The Mirror shatters into fragments of others."
+      },
+      "3": {
+        name: "The Creative Communicator",
+        title: "Triad - Expressor",
+        planet: "Jupiter - Zeus",
+        archetype: "The Expressor",
+        role: "The Storyteller / The Creative Catalyst",
+        form: "The Triangle",
+        virtue: "Creativity, joy, expressive power, synthesis, social magnetism",
+        shadow: "Superficiality, scattered attention, performance without substance",
+        piercing: "Your gift is expression: letting creativity and presence reveal what is true.",
+        archetypeText: "The Triad is synthesis: where tension finds a third form. Where 3 appears, expression demands form.",
+        wisdom: "True creativity is not mere self-expression but self-transcendence through expression. Creation requires both spark and containment.",
+        growthCycle: "The phase of first expression and manifestation. Governs creative output and the translation of inner vision into outer form.",
+        reliable: "Inspiring communication, creative problem-solving, synthesis, and lifting collective mood.",
+        must: ["Generate multiple pathways.", "Reframe tension into possibility.", "Introduce a third option.", "Convert conflict into expression."],
+        cannot: ["Static single-path thinking.", "Binary rigidity.", "Silence under tension.", "Long-term suppression of creative output."],
+        essence: "Creative synthesis: the principle by which opposites produce a third thing.",
+        impulse: "To express, synthesize, and make visible.",
+        energy: "Radiant, warm, verbal, quickening, and expressive.",
+        intelligence: "Reads combinations, audience, creative possibility, and unexpressed potential.",
+        action: "The Expressor: the one who gives form to the formless.",
+        coherent: "Authentic expression that moves others and translates complex truths into accessible forms.",
+        trigger: "Fear of being ignored, ordinary, emotionally irrelevant, or trapped in silence.",
+        distorted: "Compulsive performance, scattered creative energy, emotional spectacle, and charm as a substitute for depth.",
+        awareness: "Notice when you are performing rather than expressing.",
+        constraint: "Practice completion over novelty. Finish one thing before beginning three.",
+        feedback: "Seek critique from those who love you enough to say: this is not your best work.",
+        cost: "Unchecked, the Fire burns bright but leaves no lasting warmth. The cost is depth."
+      },
+      "4": {
+        name: "The Stone",
+        title: "Tetrad - Builder",
+        planet: "Earth - Demeter",
+        archetype: "The Builder",
+        role: "The Architect / The Foundation-Keeper",
+        form: "The Square",
+        virtue: "Structure, discipline, reliability, patience, methodical mastery",
+        shadow: "Rigidity, excessive control, fear of the unplanned, emotional suppression",
+        piercing: "Your gift is structure: building what lasts while keeping space for life to move.",
+        archetypeText: "The Tetrad is manifestation: where spirit meets matter and form becomes stable. The Stone does not dream; it builds.",
+        wisdom: "True structure is ordered flexibility: the skeleton that allows the body to dance.",
+        growthCycle: "The phase of consolidation and foundation-building. Governs systems creation and material establishment.",
+        reliable: "Systematic execution, long-term planning, stable structures, and transforming vision into material reality.",
+        must: ["Seek order, system, or procedure.", "Reinforce boundaries and rules.", "Slow down action to stabilize foundation.", "Convert chaos into repeatable structure."],
+        cannot: ["Rapid unstructured change.", "Ambiguity without parameters.", "Undefined roles.", "Acting without a plan or framework."],
+        essence: "Material stability: form requires constraint.",
+        impulse: "To build, order, preserve, and make lasting.",
+        energy: "Dense, gravitational, rhythmic, and accumulative.",
+        intelligence: "Reads load-bearing structures, weak foundations, efficiency, and endurance.",
+        action: "The Builder: the one who makes dreams inhabitable through disciplined sequence.",
+        coherent: "Patient craftsmanship, reliable follow-through, and systems that serve life.",
+        trigger: "Fear of chaos, unpredictability, loss of control, or wasted foundational work.",
+        distorted: "Obsessive control, workaholism as identity, emotional rigidity, and confusing the map for the territory.",
+        awareness: "Notice when discipline becomes punishment and rest feels like failure.",
+        constraint: "Practice deliberate unstructured time. Let one container breathe.",
+        feedback: "Ask loved ones: Do you feel safe or surveilled in my presence?",
+        cost: "Unchecked, the Stone becomes the tomb. The cost is spontaneity and joy."
+      },
+      "5": {
+        name: "The Wind",
+        title: "Pentad - Adventurer",
+        planet: "Mercury - Hermes",
+        archetype: "The Adventurer",
+        role: "The Explorer / The Trickster-Teacher",
+        form: "The Pentagon / Pentagram",
+        virtue: "Adaptability, freedom, curiosity, versatility, courage to change",
+        shadow: "Impulsiveness, novelty addiction, irresponsibility, chronic restlessness",
+        piercing: "Your gift is movement: seeking freedom in a way that honors continuity and care.",
+        archetypeText: "The Pentad is dynamic change: the disruption that prevents stagnation. Where 5 appears, the known world cracks open.",
+        wisdom: "True freedom is not the absence of commitment but the presence of choice within commitment.",
+        growthCycle: "The phase of disruption and midpoint crisis. Governs breakdowns, course corrections, and fertile chaos.",
+        reliable: "Catalyzing change, breaking stagnation, cross-pollinating ideas, and rapid adaptation to crisis.",
+        must: ["Introduce change or movement.", "Break from confinement.", "Seek freedom through new input.", "Destabilize stagnant systems."],
+        cannot: ["Prolonged restriction or monotony.", "Fixed identity without evolution.", "Total predictability.", "Complete submission to rigid control."],
+        essence: "Dynamic change: life survives by adapting, mutating, and moving.",
+        impulse: "To move, test, liberate, cross boundaries, and locate the exit.",
+        energy: "Mercurial, electric, restless, mobile, and catalytic.",
+        intelligence: "Reads stagnation, hidden pathways, social openings, and what must be disrupted.",
+        action: "The Adventurer: the one who crosses boundaries and returns with usable knowledge.",
+        coherent: "Adaptive intelligence, vitality, meaningful exploration, and motion joined to responsibility.",
+        trigger: "Fear of confinement, monotony, surveillance, over-control, or dead repetition.",
+        distorted: "Escape disguised as freedom, impulsiveness, unfinished cycles, and intensity mistaken for intimacy.",
+        awareness: "Notice whether you are moving toward aliveness or away from consequence.",
+        constraint: "Complete one full cycle before opening the next door.",
+        feedback: "Ask: Is this choice expanding life, or simply escaping discomfort?",
+        cost: "Unchecked, the Wind scatters its own gifts. The cost is mastery."
+      },
+      "6": {
+        name: "The Hearth",
+        title: "Hexad - Nurturer",
+        planet: "Venus - Aphrodite",
+        archetype: "The Nurturer",
+        role: "The Caretaker / The Aesthetic Harmonizer",
+        form: "The Hexagon",
+        virtue: "Care, harmony, loyalty, aesthetic cultivation, protection",
+        shadow: "Overgiving, obligation, moral pressure, control through care",
+        piercing: "Your gift is care: loving in a way that strengthens others.",
+        archetypeText: "The Hexad is harmony: responsibility chosen rather than imposed, love as a daily practice rather than a peak experience.",
+        wisdom: "Care matures when it restores dignity, responsibility, and beauty without creating hidden obligation.",
+        growthCycle: "The phase of responsibility and integration. Governs community formation and aesthetic refinement.",
+        reliable: "Hospitality, repair, emotional labor, protection, and restoring broken trust.",
+        must: ["Restore balance across the system.", "Protect what is vulnerable.", "Maintain what others neglect.", "Create conditions for flourishing."],
+        cannot: ["Neglect of duty or care.", "Open fracture with no repair.", "Chaotic environments with no center.", "Selfishness that damages the whole."],
+        essence: "Harmonic wholeness: fragments seeking rightful relation within a living pattern.",
+        impulse: "To heal, protect, beautify, restore, and make the neglected whole.",
+        energy: "Warm, magnetic, enveloping, and centering.",
+        intelligence: "Reads need, imbalance, aesthetic dissonance, and invisible maintenance labor.",
+        action: "The Nurturer: the one who creates conditions for others to flourish.",
+        coherent: "Protective love, mature devotion, restorative beauty, and care that strengthens.",
+        trigger: "Fear of neglect, ingratitude, disharmony, relational fracture, or feeling unneeded.",
+        distorted: "Overgiving, invisible ledgers, perfectionism, and care that quietly becomes control.",
+        awareness: "Notice when giving carries an unspoken expectation of repayment.",
+        constraint: "Let others carry their rightful burden.",
+        feedback: "Ask: Does my care make this person stronger, freer, and more responsible?",
+        cost: "Unchecked, the Hearth becomes obligation. The cost is desire."
+      },
+      "7": {
+        name: "The Veil",
+        title: "Heptad - Seeker",
+        planet: "Neptune - Poseidon",
+        archetype: "The Seeker",
+        role: "The Philosopher / The Sacred Investigator",
+        form: "The Heptagon",
+        virtue: "Wisdom, introspection, analytical depth, spiritual perception",
+        shadow: "Withdrawal, cynicism, analysis paralysis, superiority through distance",
+        piercing: "Your gift is discernment: seeking depth while returning to warmth and participation.",
+        archetypeText: "The Heptad is mystery: the reminder that not everything can be known through accumulation of facts.",
+        wisdom: "True wisdom is not the accumulation of knowledge but humility before what cannot be fully known.",
+        growthCycle: "The phase of reflection and inner work. Governs sabbatical periods, spiritual deepening, and integration.",
+        reliable: "Deep analysis, pattern recognition, spiritual discernment, research, and finding hidden truths.",
+        must: ["Withdraw to analyze.", "Seek hidden structure.", "Reduce noise to refine signal.", "Question assumptions and contradictions."],
+        cannot: ["Constant external engagement.", "Blind acceptance of surface explanations.", "Rapid action without understanding.", "Shallow interaction as primary mode."],
+        essence: "Irreducible mystery: reality always exceeds the map.",
+        impulse: "To understand, penetrate, discern, and see behind appearance.",
+        energy: "Still, penetrating, oceanic, quiet on the surface and immense beneath.",
+        intelligence: "Reads hidden structures, subtle contradictions, false premises, and questions others stopped asking.",
+        action: "The Seeker: the one who enters the cave of unknowing and returns with fragments of truth.",
+        coherent: "Discernment without dismissiveness. Solitude without exile. Precision joined to warmth.",
+        trigger: "Fear of superficiality, exposure of ignorance, emotional vulnerability, or noise.",
+        distorted: "Intellectual arrogance, emotional withdrawal, complexity as a weapon, and distance mistaken for wisdom.",
+        awareness: "Notice when depth becomes a hiding place.",
+        constraint: "Bring one insight back into a concrete act, conversation, or practice.",
+        feedback: "Ask: Am I wise, or am I distant?",
+        cost: "Unchecked, the Veil becomes a shroud. The cost is warmth and intimacy."
+      },
+      "8": {
+        name: "The Tower",
+        title: "Ogdoad - Ruler",
+        planet: "Saturn - Kronos",
+        archetype: "The Ruler",
+        role: "The Executive / The Power-Wielder",
+        form: "The Octagon",
+        virtue: "Power, mastery, material intelligence, strategic vision",
+        shadow: "Domination, greed, ruthlessness, using power for its own sake",
+        piercing: "Your gift is power: leading and influencing with principle, stewardship, and trust.",
+        archetypeText: "The Ogdoad is power under consequence. Where 8 appears, stakes are raised and consequences multiply.",
+        wisdom: "True power is not domination but circulation: the capacity to receive and give in equal measure.",
+        growthCycle: "The phase of mastery and manifestation at scale. Governs achievement, power dynamics, and consequence.",
+        reliable: "Strategic execution, resource management, scaling systems, and navigating power dynamics.",
+        must: ["Consolidate control or resources.", "Evaluate systems by leverage and outcome.", "Enforce chain of command.", "Act decisively to secure position."],
+        cannot: ["Power vacuums.", "Inefficiency that wastes resources.", "Subordination without influence.", "Systems without measurable output."],
+        essence: "Regenerative power: authority integrated with wisdom becomes stewardship.",
+        impulse: "To master, build at scale, command, protect, and wield force toward outcome.",
+        energy: "Dense, magnetic, strategic, and commanding.",
+        intelligence: "Reads leverage, hierarchy, stakes, resources, weakness, and hidden influence.",
+        action: "The Ruler: the one who builds structures others inhabit.",
+        coherent: "Stewardship of resources, authority that empowers others, and power as circulation rather than hoarding.",
+        trigger: "Fear of powerlessness, dependency, poverty, disrespect, or being subject to weak authority.",
+        distorted: "Hoarding, domination, utility-based relationships, guardedness, and inability to be vulnerable.",
+        awareness: "Notice when control becomes a substitute for trust.",
+        constraint: "Practice generosity without strategic calculation.",
+        feedback: "Ask those under your influence: Do you feel empowered or diminished?",
+        cost: "Unchecked, the Tower becomes the prison of its own height. The cost is humility and play."
+      },
+      "9": {
+        name: "The River",
+        title: "Ennead - Humanitarian",
+        planet: "Mars - Sophia",
+        archetype: "The Humanitarian",
+        role: "The Sage-Healer / The Compassionate Completer",
+        form: "The Enneagram",
+        virtue: "Compassion, universality, wisdom through completion, service",
+        shadow: "Self-neglect, martyrdom without boundaries, spiritual bypassing",
+        piercing: "Your gift is wholeness: including yourself in the compassion you extend to others.",
+        archetypeText: "The Ennead is completion: the last single digit containing memory of the whole cycle.",
+        wisdom: "True completion is the moment of ripeness before the next beginning. To give fully, you must first be full.",
+        growthCycle: "The phase of completion, integration, release, harvest, legacy, and renewal.",
+        reliable: "Holding universal perspective, completing cycles, mercy, humanitarian service, and teaching through lived wisdom.",
+        must: ["Move toward closure.", "Integrate fragments into a whole.", "Release what is no longer necessary.", "Absorb and process the total field."],
+        cannot: ["Endless cycles without conclusion.", "Fragmentation without integration.", "Refusal to let go.", "Narrow self-contained perspective."],
+        essence: "Universal completion: the end understood as the beginning returning to consciousness.",
+        impulse: "To complete, release, forgive, serve, and widen beyond the personal self.",
+        energy: "Flowing, warm, encompassing, and riverlike.",
+        intelligence: "Reads the whole picture, collective suffering, endings, and what must be released.",
+        action: "The Humanitarian: the one who serves from fullness rather than obligation.",
+        coherent: "Wise generosity, compassion with boundaries, graceful endings, and service without self-erasure.",
+        trigger: "Fear of meaninglessness, universal suffering, unfinished grief, or actually completing one's work.",
+        distorted: "Savior complex, chronic self-neglect, bypassing personal needs, and compassion without boundaries.",
+        awareness: "Notice when your compassion excludes yourself.",
+        constraint: "Practice bounded generosity. Name the boundary before service becomes depletion.",
+        feedback: "Ask your body: Am I tired?",
+        cost: "Unchecked, the River drowns its own banks. The cost is personal happiness and health."
+      },
+      "11": {
+        name: "The Blade",
+        title: "Undecad - Visionary Initiate",
+        planet: "Uranus - Prometheus",
+        archetype: "The Visionary Initiate",
+        role: "The Lightning Rod / The Prophetic Witness",
+        form: "Twin Pillars",
+        virtue: "Heightened intuition, visionary perception, prophetic insight",
+        shadow: "Nervous instability, psychic overwhelm, spiritual grandiosity",
+        piercing: "Your gift is heightened perception: grounding intensity into service, craft, and steadiness.",
+        archetypeText: "Eleven is the first master number: a threshold between ordinary and numinous perception.",
+        wisdom: "The master number does not confer superiority. It confers intensity. Heightened perception is a responsibility, not a privilege.",
+        growthCycle: "Not a phase but a persistent condition: integrating heightened perception with daily life.",
+        reliable: "Visionary inspiration, intuitive guidance, holding paradox, and serving as a bridge between seen and unseen.",
+        must: ["Receive amplified signal.", "Translate intensity into service.", "Move between vision and embodiment.", "Give surplus perception a vessel."],
+        cannot: ["Dead practicality with no symbolic dimension.", "No grounding rhythm.", "Suppression of vision.", "Stable low-intensity equilibrium for too long."],
+        essence: "Threshold illumination: liminal perception wired to receive beyond ordinary awareness.",
+        impulse: "To illuminate, reveal, awaken, and channel.",
+        energy: "Electric, flickering, high-frequency, brilliant, and difficult to sustain.",
+        intelligence: "Reads what is pressing against the membrane of ordinary awareness.",
+        action: "The Visionary Initiate: the one who stands at the threshold and holds the door open.",
+        coherent: "Channeled inspiration stabilized through discipline and translated into accessible wisdom.",
+        trigger: "Overstimulation, lack of grounding, identification with the vision, or spiritual inflation.",
+        distorted: "Nervous collapse, grandiose prophetic identity, fragility as identity, and chosen-one isolation.",
+        awareness: "Notice when sensitivity becomes identity rather than a challenge to manage.",
+        constraint: "Ground relentlessly through physical practice, routine, craft, and mundane action.",
+        feedback: "Ask: Am I transmitting something useful, or performing spiritual intensity?",
+        cost: "Unchecked, the Blade severs the wielder from reality. The cost is stability and relationship."
+      }
+    };
+
+    const STORAGE_KEY = "paaLastBirthdate";
+    const qs = selector => document.querySelector(selector);
+    const qsa = selector => [...document.querySelectorAll(selector)];
+    const setText = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value || "";
+    };
+
+    function digitSum(value) {
+      return String(value).split("").map(Number).reduce((a, b) => a + b, 0);
+    }
+
+    function reduceBirthdate(dateString) {
+      const digits = dateString.replace(/\D/g, "").split("").map(Number);
+      const first = digits.reduce((a, b) => a + b, 0);
+      const steps = [first];
+      let current = first;
+      while (current > 9 && current !== 11) {
+        current = digitSum(current);
+        steps.push(current);
+      }
+      return { digits, first, steps, root: current };
+    }
+
+    function showToast(message) {
+      const toast = qs("#toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    function showError(message) {
+      const box = qs("#errorBox");
+      box.textContent = message;
+      box.style.display = "block";
+    }
+
+    function clearError() {
+      const box = qs("#errorBox");
+      box.textContent = "";
+      box.style.display = "none";
+    }
+
+    function fillList(id, items) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.innerHTML = "";
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        el.appendChild(li);
+      });
+    }
+
+    function renderCalculation(result) {
+      const el = qs("#calcPath");
+      el.innerHTML = `
+        <div class="calc-line"><span>Birthdate digits</span><span>${result.digits.join(" + ")}</span></div>
+        <div class="calc-line"><span>Initial sum</span><span>${result.first}</span></div>
+        <div class="calc-line"><span>Reduction path</span><span>${result.steps.join(" -> ")}</span></div>
+        <div class="calc-line"><strong>Birth Root Glyph</strong><strong>${result.root}</strong></div>`;
+      el.style.display = "block";
+    }
+
+    function activateTab(name) {
+      qsa(".tab").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === name));
+      qsa(".tab-panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${name}`));
+    }
+
+    function currentSummaryText() {
+      const num = qs("#glyphNumber")?.textContent || "";
+      const name = qs("#glyphName")?.textContent || "";
+      const subtitle = qs("#glyphSubtitle")?.textContent || "";
+      const piercing = qs("#piercing")?.textContent || "";
+      const wisdom = qs("#wisdom")?.textContent || "";
+      return `PAA Birth Root Glyph: ${num} - ${name}\n${subtitle}\n\n${piercing}\n\nDeep Wisdom: ${wisdom}`;
+    }
+
+    async function copyReadingSummary() {
+      const text = currentSummaryText();
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("Reading summary copied.");
+      } catch (error) {
+        showToast("Copy unavailable in this browser.");
+      }
+    }
+
+    function renderGlyph(root, result = null) {
+      const g = glyphs[root];
+      if (!g) {
+        showError("This birthdate reduced to an unsupported glyph. Check the date and try again.");
+        return false;
+      }
+
+      setText("glyphNumber", root);
+      setText("glyphName", g.name);
+      setText("glyphSubtitle", g.title);
+      setText("planetValue", g.planet);
+      setText("archetypeValue", g.archetype);
+      setText("formValue", g.form);
+      setText("piercing", g.piercing);
+      setText("archetypeText", g.archetypeText);
+      setText("wisdom", g.wisdom);
+      setText("reliable", g.reliable);
+      setText("growthCycle", g.growthCycle);
+      setText("virtue", g.virtue);
+      setText("shadow", g.shadow);
+      setText("essence", g.essence);
+      setText("impulse", g.impulse);
+      setText("energy", g.energy);
+      setText("intelligence", g.intelligence);
+      setText("action", g.action);
+      fillList("mustList", g.must);
+      fillList("cannotList", g.cannot);
+      setText("trigger", g.trigger);
+      setText("distorted", g.distorted);
+      setText("coherent", g.coherent);
+      setText("awareness", g.awareness);
+      setText("constraint", g.constraint);
+      setText("feedback", g.feedback);
+      setText("cost", g.cost);
+
+      if (result) renderCalculation(result);
+      qs("#reading").style.display = "block";
+      activateTab("overview");
+      history.replaceState(null, "", `#glyph-${root}`);
+      qs("#reading").scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    }
+
+    function revealFromDate(date) {
+      clearError();
+      if (!date) {
+        showError("Enter your birthdate first.");
+        return;
+      }
+
+      const selected = new Date(`${date}T00:00:00`);
+      const today = new Date();
+      today.setHours(23, 59, 59, 999);
+      if (selected > today) {
+        showError("Enter a birthdate that is not in the future.");
+        return;
+      }
+
+      const result = reduceBirthdate(date);
+      if (renderGlyph(result.root, result)) {
+        localStorage.setItem(STORAGE_KEY, date);
+      }
+    }
+
+    function buildAtlas() {
+      const grid = qs("#atlasGrid");
+      if (!grid) return;
+      grid.innerHTML = Object.entries(glyphs).map(([num, g]) => `
+        <button type="button" class="atlas-card mini-card" data-root="${num}">
+          <span class="atlas-num">${num}</span>
+          <b>${g.name}</b>
+          <span>${g.title}<br>${g.form} · ${g.archetype}</span>
+        </button>
+      `).join("");
+      qsa(".atlas-card").forEach(card => {
+        card.addEventListener("click", () => renderGlyph(card.dataset.root));
+      });
+    }
+
+    const paaMenuWrap = qs("[data-paa-menu]");
+    const paaMenuButton = qs("[data-paa-menu-button]");
+
+    function closePaaMenu() {
+      if (!paaMenuWrap || !paaMenuButton) return;
+      paaMenuWrap.classList.remove("open");
+      paaMenuButton.setAttribute("aria-expanded", "false");
+      paaMenuButton.setAttribute("aria-label", "Open primary navigation");
+    }
+
+    function togglePaaMenu() {
+      if (!paaMenuWrap || !paaMenuButton) return;
+      const isOpen = paaMenuWrap.classList.toggle("open");
+      paaMenuButton.setAttribute("aria-expanded", String(isOpen));
+      paaMenuButton.setAttribute("aria-label", isOpen ? "Close primary navigation" : "Open primary navigation");
+    }
+
+    paaMenuButton?.addEventListener("click", event => {
+      event.stopPropagation();
+      togglePaaMenu();
+    });
+
+    document.addEventListener("click", event => {
+      if (!paaMenuWrap?.contains(event.target)) closePaaMenu();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closePaaMenu();
+    });
+
+    qsa("[data-paa-menu-panel] a").forEach(link => link.addEventListener("click", closePaaMenu));
+    qs("#revealBtn")?.addEventListener("click", () => revealFromDate(qs("#birthdate")?.value));
+    qs("#sampleBtn")?.addEventListener("click", () => {
+      qs("#birthdate").value = "1998-05-05";
+      revealFromDate("1998-05-05");
+    });
+    qs("#copySummary")?.addEventListener("click", copyReadingSummary);
+    qs("#printReading")?.addEventListener("click", () => window.print());
+    qsa(".tab").forEach(btn => btn.addEventListener("click", () => activateTab(btn.dataset.tab)));
+
+    buildAtlas();
+
+    (function restoreFromHashOrStorage() {
+      const hashMatch = location.hash.match(/^#glyph-(1|2|3|4|5|6|7|8|9|11)$/);
+      if (hashMatch) {
+        renderGlyph(hashMatch[1]);
+        return;
+      }
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored && qs("#birthdate")) {
+        qs("#birthdate").value = stored;
+      }
+    })();
+  </script>
+</body>
+</html>
