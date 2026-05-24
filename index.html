@@ -40,11 +40,11 @@
     .triskelion{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}.tri-card{position:relative;overflow:hidden;padding:24px;border:1px solid rgba(141,248,255,.12);border-radius:24px;background:rgba(255,255,255,.035)}.tri-card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--aqua),var(--violet))}.tri-card b{font-family:var(--serif);font-size:30px;color:#fff}.tri-card small{display:block;color:var(--aqua);font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin:8px 0 12px}.tri-card p{color:#bfd3dd;line-height:1.68;margin:0}
     .reading{display:none;padding:48px 0 72px}.reading-top{text-align:center;margin-bottom:24px}.result-kicker{color:var(--aqua);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}.result-title{margin-top:10px;font-family:var(--serif);font-size:clamp(52px,8vw,96px);line-height:.9;text-transform:uppercase}.result-sub{margin-top:12px;color:#cfe1e9;font-family:var(--serif);font-size:28px}.result-piercing{max-width:900px;margin:26px auto 0;font-family:var(--serif);font-size:clamp(30px,4.4vw,56px);line-height:1.12;color:#fff}.pill-row{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}.pill{border:1px solid rgba(141,248,255,.16);background:rgba(255,255,255,.04);color:#cfe3eb;border-radius:999px;padding:9px 13px;font-size:13px}
     .tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:30px 0}.tab{border:1px solid rgba(141,248,255,.18);background:rgba(255,255,255,.035);color:#d8edf5;border-radius:999px;padding:12px 14px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;font-size:12px;cursor:pointer}.tab.active{background:linear-gradient(135deg,var(--cyan),var(--aqua));color:#031116;border-color:rgba(141,248,255,.5)}.tab-panel{display:none}.tab-panel.active{display:block}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.result-card{padding:24px;border:1px solid rgba(141,248,255,.12);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));line-height:1.72}.result-card h3{color:var(--aqua);font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:900;margin-bottom:10px}.result-card p{margin:0;color:#e4f1f6;font-size:17px}.result-card ul{margin:0;padding-left:20px;color:#e4f1f6}.result-card li{margin:8px 0}.wide{grid-column:1/-1}.danger{border-color:rgba(255,104,124,.28);background:linear-gradient(180deg,rgba(105,18,32,.28),rgba(255,255,255,.018))}.good{border-color:rgba(81,232,191,.22);background:linear-gradient(180deg,rgba(18,105,80,.20),rgba(255,255,255,.018))}.advanced-lock{position:relative;overflow:hidden}.advanced-preview.locked{filter:blur(5px);opacity:.52;user-select:none;pointer-events:none}.lock-overlay{position:absolute;inset:0;display:grid;place-items:center;padding:24px;background:linear-gradient(180deg,rgba(3,6,17,.20),rgba(3,6,17,.92))}.lock-card{width:min(760px,100%);text-align:center;border:1px solid var(--line);border-radius:28px;background:rgba(5,9,20,.90);box-shadow:var(--shadow);padding:34px}.lock-card h2{font-family:var(--serif);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:.95}.lock-card p{color:#c7dbe4;line-height:1.75;font-size:18px}.lock-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .atlas{padding:50px 0}.atlas-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}.atlas-card{border:1px solid rgba(141,248,255,.12);border-radius:22px;background:rgba(255,255,255,.035);padding:18px;transition:.2s ease;cursor:pointer}.atlas-card:hover{transform:translateY(-3px);border-color:rgba(141,248,255,.36);box-shadow:0 18px 42px rgba(0,0,0,.22)}.atlas-num{font-family:var(--serif);font-size:44px;color:var(--aqua);line-height:1}.atlas-card b{display:block;font-family:var(--serif);font-size:23px;color:#fff;margin-top:6px}.atlas-card span{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:6px}
+
     .cta-section{padding:56px 0 88px}.cta-panel{text-align:center;border:1px solid var(--line);border-radius:36px;background:radial-gradient(circle at 50% 0%,rgba(141,248,255,.12),transparent 24rem),linear-gradient(135deg,rgba(49,223,209,.08),rgba(185,88,223,.12));box-shadow:var(--shadow);padding:52px 28px}.cta-panel h2{font-family:var(--serif);font-size:clamp(42px,6vw,78px);line-height:.95;text-transform:uppercase}.cta-panel p{max-width:760px;margin:18px auto 0;color:#c7dbe5;font-size:19px;line-height:1.75}
     footer{border-top:1px solid var(--line);padding:34px 0 60px;color:#728692}.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-grid a{color:#b8cbd5}.hidden{display:none!important}
-    @media(max-width:980px){.desktop-links{display:none}.menu-wrap{display:block}.hero-grid,.calculator,.definition-grid{grid-template-columns:1fr}.proof-row,.triskelion{grid-template-columns:1fr}.atlas-grid{grid-template-columns:repeat(2,1fr)}.method-grid,.result-grid{grid-template-columns:1fr}.wide{grid-column:auto}.diagnostic-card{max-width:620px;margin-inline:auto}}
-    @media(max-width:640px){.wrap{width:min(100% - 24px,1180px)}.nav{height:72px}.brand-mark{width:46px;height:46px;border-radius:16px}.brand-text{font-size:9.5px;letter-spacing:.10em}.menu-panel{position:fixed;left:12px;right:12px;top:78px;width:auto}.hero{padding-top:58px}.hero-actions .btn{width:100%}.proof-row{grid-template-columns:1fr}.calc-panel,.panel,.big-panel{padding:24px}.atlas-grid{grid-template-columns:1fr}.orb{width:140px;height:140px}.orb span{font-size:74px}.calc-line{display:block}.calc-line span:last-child,.calc-line strong:last-child{display:block;margin-top:4px}.footer-grid{display:grid}}
+    @media(max-width:980px){.desktop-links{display:none}.menu-wrap{display:block}.hero-grid,.calculator,.definition-grid{grid-template-columns:1fr}.proof-row,.triskelion{grid-template-columns:1fr}.method-grid,.result-grid{grid-template-columns:1fr}.wide{grid-column:auto}.diagnostic-card{max-width:620px;margin-inline:auto}}
+    @media(max-width:640px){.wrap{width:min(100% - 24px,1180px)}.nav{height:72px}.brand-mark{width:46px;height:46px;border-radius:16px}.brand-text{font-size:9.5px;letter-spacing:.10em}.menu-panel{position:fixed;left:12px;right:12px;top:78px;width:auto}.hero{padding-top:58px}.hero-actions .btn{width:100%}.proof-row{grid-template-columns:1fr}.calc-panel,.panel,.big-panel{padding:24px}.orb{width:140px;height:140px}.orb span{font-size:74px}.calc-line{display:block}.calc-line span:last-child,.calc-line strong:last-child{display:block;margin-top:4px}.footer-grid{display:grid}}
 
 
     /* Hero redesign: cleaner first screen, clearer public copy, stronger conversion path */
@@ -597,14 +597,6 @@ h3 {
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="atlas" class="atlas wrap">
-    <div class="section-head">
-      <div class="section-kicker">Glyph Atlas</div>
-      <h2>Explore the nine structural roots.</h2>
-    </div>
-    <div id="atlasGrid" class="atlas-grid"></div>
   </section>
 
   <section id="method" class="method-band wrap">
@@ -1203,8 +1195,6 @@ const glyphs = {
   qs('#sampleBtn')?.addEventListener('click', ()=> { qs('#birthdate').value = '1998-05-05'; revealFromDate('1998-05-05'); });
   qsa('.tab').forEach(btn => btn.addEventListener('click', ()=> activateTab(btn.dataset.tab)));
   qs('#previewUnlock')?.addEventListener('click', ()=> { localStorage.setItem(STORAGE_KEY,'true'); lockOrUnlockAdvanced(); });
-  function buildAtlas(){ const grid = qs('#atlasGrid'); if(!grid)return; Object.entries(glyphs).forEach(([num,g]) => { const card = document.createElement('button'); card.type='button'; card.className='atlas-card'; card.innerHTML = `<span class="atlas-num">${num}</span><b>${g.name}</b><span>${g.title}</span>`; card.addEventListener('click',()=>{ renderGlyph(num,null); }); grid.appendChild(card); }); }
-  buildAtlas();
   (function handleReturn(){ const params = new URLSearchParams(location.search); if(params.get('advanced')==='unlocked'){ localStorage.setItem(STORAGE_KEY,'true'); history.replaceState({},document.title,location.pathname + location.hash); const stored = localStorage.getItem(LAST_DATE_KEY); if(stored){ qs('#birthdate').value = stored; revealFromDate(stored); activateTab('advanced'); } } lockOrUnlockAdvanced(); })();
 </script>
   <!-- PAA Newsletter Popup -->
@@ -1352,9 +1342,9 @@ const glyphs = {
 
     <div class="paa-newsletter-text">
       Receive weekly insights, essays, and structural observations
-      from Pythagorean Arithmosophic Anamnesis.
+      from the Pythagorean Arithmosophic Anamnesis paradigm.
       <br><br>
-      Signal over noise. Clarity over Chaos.
+      Discern signal from noise. Clarity amidst chaos.
     </div>
 
     <form
@@ -1376,7 +1366,7 @@ const glyphs = {
     </form>
 
     <div class="paa-newsletter-note">
-      One initiatory threshold per week. Never spam.
+      Initiatory thresholds and thoughtforms sent weekly
     </div>
 
   </div>
