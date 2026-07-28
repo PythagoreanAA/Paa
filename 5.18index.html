@@ -3,1856 +3,684 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Pythagorean Arithmosophic Anamnesis | Birth Root Glyph</title>
-
-  <meta
-    name="description"
-    content="Reveal your Birth Root Glyph: a structural diagnostic of archetype, pressure pattern, distortion, coherence, and conscious refinement."
-  />
-
-  <meta property="og:title" content="Pythagorean Arithmosophic Anamnesis" />
-  <meta
-    property="og:description"
-    content="Number as structure. Structure as tendency. Tendency as consequence unless brought into consciousness."
-  />
+  <title>PAA | Birth Root Glyph Reading</title>
+  <meta name="description" content="PAA is a practical self-reading system that uses birthdate reduction to reveal recurring patterns in choice, strength, pressure, and growth." />
+  <meta property="og:title" content="PAA | Birth Root Glyph Reading" />
+  <meta property="og:description" content="See the pattern beneath your life. PAA helps you recognize what supports you, what challenges you, and what can be refined." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/preview.jpg" />
-
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-
     :root{
-      --bg:#040612;
-      --bg2:#08111f;
-      --panel:#0d1526;
-      --panel2:#10192d;
-      --ink:#edf7ff;
-      --muted:#9eb4c2;
-      --dim:#6f8792;
-      --aqua:#8df8ff;
-      --turquoise:#31dfd1;
-      --teal:#16b3a4;
-      --violet:#7c2a91;
-      --violetBright:#b958df;
-      --violet2:#36105a;
-      --danger:#c24d60;
-      --line:rgba(141,248,255,.13);
-      --shadow:0 30px 80px rgba(0,0,0,.45);
-      --radius:28px;
-      --serif:'Cormorant Garamond', serif;
-      --sans:'Inter', sans-serif;
+      --bg:#030611; --bg2:#07111e; --panel:#0b1323; --panel2:#101b31; --ink:#f3fbff; --text:#d9e8ef;
+      --muted:#93a8b5; --dim:#6e8290; --line:rgba(142,246,255,.16); --line2:rgba(185,88,223,.24);
+      --aqua:#8df8ff; --cyan:#3ee6e1; --teal:#11b7a7; --purple:#7c2a91; --violet:#bd64e7; --gold:#f2d17d;
+      --danger:#ff687c; --good:#51e8bf; --shadow:0 28px 90px rgba(0,0,0,.46); --radius:28px;
+      --serif:'Cormorant Garamond',serif; --sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 50% -10%,rgba(185,88,223,.32),transparent 34rem),radial-gradient(circle at 12% 15%,rgba(62,230,225,.16),transparent 26rem),radial-gradient(circle at 90% 4%,rgba(141,248,255,.10),transparent 20rem),linear-gradient(180deg,#030611 0%,#07111e 48%,#030611 100%)}
+    body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.23;background-image:linear-gradient(rgba(141,248,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(141,248,255,.06) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(circle at top,black,transparent 76%)}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 32px));margin-inline:auto}.serif{font-family:var(--serif)}
+    .site-header{position:sticky;top:0;z-index:999;backdrop-filter:blur(20px) saturate(140%);background:linear-gradient(180deg,rgba(3,6,17,.91),rgba(3,6,17,.72));border-bottom:1px solid var(--line);box-shadow:0 18px 52px rgba(0,0,0,.28)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:14px;min-width:max-content}.brand-mark{width:52px;height:52px;border:1px solid rgba(141,248,255,.28);border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(49,223,209,.14),rgba(185,88,223,.16));box-shadow:inset 0 0 28px rgba(141,248,255,.04),0 0 34px rgba(49,223,209,.08)}
+    .tetractys{display:grid;gap:4px}.tetra-row{display:flex;justify-content:center;gap:4px}.dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--aqua),var(--violet));box-shadow:0 0 12px rgba(141,248,255,.5)}
+    .brand-text{display:flex;flex-direction:column;text-transform:uppercase;font-weight:900;letter-spacing:.14em;font-size:11px;line-height:1.08}.brand-text span:nth-child(1){color:#fff}.brand-text span:nth-child(2){color:var(--aqua)}.brand-text span:nth-child(3){color:var(--violet)}
+    .desktop-links{display:flex;align-items:center;gap:8px}.desktop-links a,.menu-panel a{font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.08em;color:#cfe4ed;border:1px solid rgba(141,248,255,.12);background:rgba(255,255,255,.035);border-radius:999px;padding:12px 15px;transition:.2s ease}.desktop-links a:hover,.desktop-links a.active{color:#031116;background:linear-gradient(135deg,var(--cyan),var(--aqua));border-color:rgba(141,248,255,.52);transform:translateY(-1px)}.desktop-links .cta{color:#fff;background:linear-gradient(135deg,rgba(185,88,223,.32),rgba(49,223,209,.14));border-color:rgba(185,88,223,.38)}
+    .menu-wrap{display:none;position:relative}.menu-btn{display:grid;grid-template-columns:auto auto;gap:10px;align-items:center;border:1px solid rgba(141,248,255,.24);background:rgba(255,255,255,.05);color:#fff;border-radius:999px;padding:12px 14px;font-weight:900;text-transform:uppercase;letter-spacing:.11em;cursor:pointer}.bars{width:22px;height:16px;display:grid;align-content:space-between}.bars i{display:block;height:2px;border-radius:9px;background:linear-gradient(90deg,var(--aqua),var(--violet))}.menu-panel{position:absolute;right:0;top:calc(100% + 14px);width:min(390px,calc(100vw - 32px));display:grid;gap:10px;padding:14px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(8,14,28,.98),rgba(3,6,17,.98));box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.2s ease}.menu-wrap.open .menu-panel{opacity:1;visibility:visible;transform:translateY(0)}.menu-panel a{border-radius:16px;padding:14px 15px}.menu-kicker{font-size:11px;color:var(--aqua);letter-spacing:.22em;text-transform:uppercase;font-weight:900;padding:4px 6px 10px;border-bottom:1px solid var(--line)}
+    .hero{padding:88px 0 34px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;gap:10px;align-items:center;color:var(--aqua);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px}.eyebrow:before{content:"";width:42px;height:1px;background:linear-gradient(90deg,var(--aqua),transparent)}
+    h1,h2,h3{margin:0}.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(54px,8vw,112px);line-height:.88;letter-spacing:.025em;text-transform:uppercase;background:linear-gradient(180deg,#fff 0%,var(--aqua) 58%,#b987ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-lead{margin:26px 0 0;max-width:770px;font-size:clamp(18px,2vw,23px);line-height:1.72;color:#bfd4de}.hero-lead strong{color:#fff}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}.btn{border:0;border-radius:18px;padding:16px 20px;background:linear-gradient(135deg,var(--cyan),var(--aqua));color:#031116;font-size:13px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 44px rgba(49,223,209,.16);transition:.2s ease;display:inline-flex;align-items:center;justify-content:center;gap:10px}.btn:hover{transform:translateY(-2px)}.btn.secondary{background:rgba(255,255,255,.04);color:var(--aqua);border:1px solid rgba(141,248,255,.25);box-shadow:none}.btn.purple{background:linear-gradient(135deg,var(--violet),var(--aqua));color:#06101a}.btn.full{width:100%}
+    .proof-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}.proof{padding:16px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.03)}.proof b{display:block;color:#fff;font-size:20px}.proof span{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.10em;margin-top:5px;line-height:1.45}
+    .diagnostic-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:34px;background:radial-gradient(circle at top,rgba(141,248,255,.09),transparent 18rem),linear-gradient(180deg,rgba(16,27,49,.92),rgba(5,9,20,.98));box-shadow:var(--shadow);padding:28px}.diagnostic-card:before{content:"";position:absolute;inset:-2px;background:conic-gradient(from 220deg,transparent,var(--aqua),transparent,var(--violet),transparent);opacity:.18;filter:blur(18px)}.diagnostic-card>*{position:relative}.orb{width:170px;height:170px;margin:0 auto 20px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(141,248,255,.32);background:radial-gradient(circle at 50% 35%,rgba(185,88,223,.56),rgba(5,9,20,.98) 64%);box-shadow:inset 0 0 42px rgba(141,248,255,.08),0 0 92px rgba(49,223,209,.12)}.orb span{font-family:var(--serif);font-size:88px;color:var(--aqua)}.card-title{text-align:center;font-family:var(--serif);font-size:38px;line-height:1.05}.card-sub{text-align:center;color:var(--muted);line-height:1.7;margin:12px auto 22px;max-width:420px}.mini-list{display:grid;gap:10px}.mini-item{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid rgba(141,248,255,.10);background:rgba(255,255,255,.035);border-radius:16px}.mini-item i{width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 16px rgba(141,248,255,.55);margin-top:8px;flex:0 0 auto}.mini-item span{color:#c9dce5;line-height:1.55;font-size:14px}
+    .calculator-section{padding:34px 0 50px}.calculator{display:grid;grid-template-columns:.82fr 1.18fr;gap:22px;align-items:stretch}.calc-panel,.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(15,25,45,.90),rgba(5,9,20,.97));box-shadow:var(--shadow);padding:30px}.calc-panel h2,.panel h2,.section-title{font-family:var(--serif);font-size:clamp(34px,4.8vw,62px);line-height:.98;text-transform:uppercase;letter-spacing:.06em}.calc-panel p,.section-intro{color:#b9cdd8;font-size:18px;line-height:1.75}.field{margin-top:22px}label{display:block;color:var(--aqua);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}input[type="date"],input[type="text"]{width:100%;border:1px solid rgba(141,248,255,.18);background:#050b16;color:#f3fbff;border-radius:18px;padding:17px 16px;font-size:17px;outline:none;color-scheme:dark}input:focus{border-color:rgba(141,248,255,.55);box-shadow:0 0 0 4px rgba(141,248,255,.07)}.calc-actions{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}.error{display:none;margin-top:14px;color:#ffd4dc;background:rgba(255,104,124,.12);border:1px solid rgba(255,104,124,.26);padding:14px;border-radius:16px}.calc-path{display:none;margin-top:18px;border:1px solid rgba(141,248,255,.10);border-radius:18px;background:rgba(255,255,255,.03);padding:16px}.calc-line{display:flex;justify-content:space-between;gap:18px;padding:10px 0;border-bottom:1px solid rgba(141,248,255,.08);color:var(--muted);line-height:1.5}.calc-line:last-child{border-bottom:0}.calc-line strong{color:#fff}.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.method{padding:18px;border-radius:20px;border:1px solid rgba(141,248,255,.11);background:rgba(255,255,255,.03)}.method b{display:block;font-family:var(--serif);font-size:25px;color:#fff}.method span{display:block;color:#aFC2cc;line-height:1.6;margin-top:8px}.method:nth-child(3){grid-column:1 / -1;background:linear-gradient(90deg,rgba(185,88,223,.14),rgba(49,223,209,.05))}
+    .definition{padding:42px 0}.big-panel{border:1px solid var(--line);border-radius:34px;background:radial-gradient(circle at top right,rgba(185,88,223,.12),transparent 22rem),linear-gradient(180deg,rgba(16,27,49,.70),rgba(5,9,20,.96));padding:42px;box-shadow:var(--shadow)}.definition-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;align-items:start}.definition-copy{display:grid;gap:14px}.definition-copy article{padding:20px;border-radius:22px;border:1px solid rgba(141,248,255,.11);background:rgba(255,255,255,.03)}.definition-copy h3{font-size:12px;color:var(--aqua);letter-spacing:.18em;text-transform:uppercase;font-weight:900}.definition-copy p{margin:10px 0 0;color:#c7dbe5;line-height:1.72}.logion{margin-top:24px;font-family:var(--serif);font-size:clamp(26px,3vw,38px);line-height:1.25;color:#fff}
+    .triskelion{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}.tri-card{position:relative;overflow:hidden;padding:24px;border:1px solid rgba(141,248,255,.12);border-radius:24px;background:rgba(255,255,255,.035)}.tri-card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--aqua),var(--violet))}.tri-card b{font-family:var(--serif);font-size:30px;color:#fff}.tri-card small{display:block;color:var(--aqua);font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin:8px 0 12px}.tri-card p{color:#bfd3dd;line-height:1.68;margin:0}
+    .reading{display:none;padding:48px 0 72px}.reading-top{text-align:center;margin-bottom:24px}.result-kicker{color:var(--aqua);font-size:12px;font-weight:900;letter-spacing:.22em;text-transform:uppercase}.result-title{margin-top:10px;font-family:var(--serif);font-size:clamp(52px,8vw,96px);line-height:.9;text-transform:uppercase}.result-sub{margin-top:12px;color:#cfe1e9;font-family:var(--serif);font-size:28px}.result-piercing{max-width:900px;margin:26px auto 0;font-family:var(--serif);font-size:clamp(30px,4.4vw,56px);line-height:1.12;color:#fff}.pill-row{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}.pill{border:1px solid rgba(141,248,255,.16);background:rgba(255,255,255,.04);color:#cfe3eb;border-radius:999px;padding:9px 13px;font-size:13px}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:30px 0}.tab{border:1px solid rgba(141,248,255,.18);background:rgba(255,255,255,.035);color:#d8edf5;border-radius:999px;padding:12px 14px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;font-size:12px;cursor:pointer}.tab.active{background:linear-gradient(135deg,var(--cyan),var(--aqua));color:#031116;border-color:rgba(141,248,255,.5)}.tab-panel{display:none}.tab-panel.active{display:block}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.result-card{padding:24px;border:1px solid rgba(141,248,255,.12);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));line-height:1.72}.result-card h3{color:var(--aqua);font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:900;margin-bottom:10px}.result-card p{margin:0;color:#e4f1f6;font-size:17px}.result-card ul{margin:0;padding-left:20px;color:#e4f1f6}.result-card li{margin:8px 0}.wide{grid-column:1/-1}.danger{border-color:rgba(255,104,124,.28);background:linear-gradient(180deg,rgba(105,18,32,.28),rgba(255,255,255,.018))}.good{border-color:rgba(81,232,191,.22);background:linear-gradient(180deg,rgba(18,105,80,.20),rgba(255,255,255,.018))}.advanced-lock{position:relative;overflow:hidden}.advanced-preview.locked{filter:blur(5px);opacity:.52;user-select:none;pointer-events:none}.lock-overlay{position:absolute;inset:0;display:grid;place-items:center;padding:24px;background:linear-gradient(180deg,rgba(3,6,17,.20),rgba(3,6,17,.92))}.lock-card{width:min(760px,100%);text-align:center;border:1px solid var(--line);border-radius:28px;background:rgba(5,9,20,.90);box-shadow:var(--shadow);padding:34px}.lock-card h2{font-family:var(--serif);font-size:clamp(34px,5vw,58px);text-transform:uppercase;line-height:.95}.lock-card p{color:#c7dbe4;line-height:1.75;font-size:18px}.lock-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+
+    .cta-section{padding:56px 0 88px}.cta-panel{text-align:center;border:1px solid var(--line);border-radius:36px;background:radial-gradient(circle at 50% 0%,rgba(141,248,255,.12),transparent 24rem),linear-gradient(135deg,rgba(49,223,209,.08),rgba(185,88,223,.12));box-shadow:var(--shadow);padding:52px 28px}.cta-panel h2{font-family:var(--serif);font-size:clamp(42px,6vw,78px);line-height:.95;text-transform:uppercase}.cta-panel p{max-width:760px;margin:18px auto 0;color:#c7dbe5;font-size:19px;line-height:1.75}
+    footer{border-top:1px solid var(--line);padding:34px 0 60px;color:#728692}.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-grid a{color:#b8cbd5}.hidden{display:none!important}
+    @media(max-width:980px){.desktop-links{display:none}.menu-wrap{display:block}.hero-grid,.calculator,.definition-grid{grid-template-columns:1fr}.proof-row,.triskelion{grid-template-columns:1fr}.method-grid,.result-grid{grid-template-columns:1fr}.wide{grid-column:auto}.diagnostic-card{max-width:620px;margin-inline:auto}}
+    @media(max-width:640px){.wrap{width:min(100% - 24px,1180px)}.nav{height:72px}.brand-mark{width:46px;height:46px;border-radius:16px}.brand-text{font-size:9.5px;letter-spacing:.10em}.menu-panel{position:fixed;left:12px;right:12px;top:78px;width:auto}.hero{padding-top:58px}.hero-actions .btn{width:100%}.proof-row{grid-template-columns:1fr}.calc-panel,.panel,.big-panel{padding:24px}.orb{width:140px;height:140px}.orb span{font-size:74px}.calc-line{display:block}.calc-line span:last-child,.calc-line strong:last-child{display:block;margin-top:4px}.footer-grid{display:grid}}
+
+
+    /* Hero redesign: cleaner first screen, clearer public copy, stronger conversion path */
+    .hero-redesign{padding:96px 0 56px;min-height:calc(100vh - 82px);display:grid;align-items:center}
+    .hero-grid-redesign{grid-template-columns:minmax(0,1.02fr) minmax(420px,.78fr);gap:64px;align-items:center}
+    .hero-copy{max-width:820px}.hero-redesign h1{font-family:var(--serif);font-weight:700;font-size:clamp(58px,7.8vw,118px);line-height:.86;letter-spacing:.012em;text-transform:uppercase;max-width:860px;background:linear-gradient(180deg,#ffffff 0%,#dffcff 36%,var(--aqua) 70%,#aa8fff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-redesign .hero-lead{margin:28px 0 0;max-width:720px;font-size:clamp(18px,1.8vw,22px);line-height:1.62;color:#c9dce5}.secondary-lead{margin-top:14px!important;color:#9fb3c0!important}.secondary-lead strong{color:#ffffff;font-weight:800}.hero-redesign .hero-actions{margin-top:34px}.hero-proof{max-width:720px;margin-top:34px}.hero-proof .proof{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.022));border-color:rgba(141,248,255,.14)}.hero-proof .proof b{font-family:var(--serif);font-size:34px;color:var(--aqua);line-height:1}.hero-proof .proof span{color:#b7cbd5}.hero-diagnostic-panel{padding:0;border-radius:36px;background:radial-gradient(circle at 28% 12%,rgba(141,248,255,.16),transparent 16rem),radial-gradient(circle at 75% 22%,rgba(189,100,231,.16),transparent 18rem),linear-gradient(180deg,rgba(16,27,49,.88),rgba(5,9,20,.98))}.hero-diagnostic-panel:before{opacity:.22}.diagnostic-shell{position:relative;padding:38px;min-height:560px;display:flex;flex-direction:column;justify-content:center}.hero-orb{width:156px;height:156px;margin:0 auto 28px;background:radial-gradient(circle at 50% 32%,rgba(189,100,231,.62),rgba(5,9,20,.98) 66%)}.hero-orb span{font-size:82px}.hero-diagnostic-panel .card-title{font-size:clamp(36px,3.6vw,50px);line-height:.98;max-width:420px;margin:0 auto}.hero-diagnostic-panel .card-sub{max-width:440px;margin:18px auto 28px;font-size:17px;line-height:1.68;color:#aebfcb}.upgraded-mini-list{max-width:470px;margin:0 auto}.upgraded-mini-list .mini-item{padding:15px 16px;background:rgba(255,255,255,.045);border-color:rgba(141,248,255,.13)}.upgraded-mini-list .mini-item span{font-size:14.5px;color:#d4e5ec}.upgraded-mini-list .mini-item strong{color:#ffffff;font-weight:850}.hero-card-line{margin:26px auto 0;max-width:430px;padding-top:20px;border-top:1px solid rgba(141,248,255,.13);font-family:var(--serif);font-size:25px;line-height:1.18;text-align:center;color:#ffffff}
+    @media(max-width:980px){.hero-redesign{min-height:auto;padding:72px 0 42px}.hero-grid-redesign{grid-template-columns:1fr;gap:38px}.hero-copy{text-align:left}.hero-diagnostic-panel{max-width:680px;margin-inline:auto}.diagnostic-shell{min-height:auto;padding:34px 26px}}
+    @media(max-width:640px){.hero-redesign{padding:54px 0 34px}.hero-redesign h1{font-size:clamp(46px,15vw,72px)}.hero-redesign .hero-lead{font-size:17px;line-height:1.6}.hero-proof{grid-template-columns:1fr}.hero-diagnostic-panel .card-title{font-size:34px}.hero-card-line{font-size:22px}}
+  
+
+    /* Header + Hero Refinement — public-facing, cleaner, immediate */
+    .nav-refined{height:86px}.brand-refined{gap:16px}.brand-lockup{display:flex;flex-direction:column;gap:7px}.brand-tagline{font-size:11px;color:#8fb3bf;letter-spacing:.08em;font-weight:750;text-transform:none;white-space:nowrap}.header-actions{display:flex;align-items:center;gap:12px;margin-left:auto}.desktop-links{display:none!important}.menu-wrap.refined-menu{display:block}.nav-quick{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(141,248,255,.22);background:linear-gradient(135deg,rgba(62,230,225,.16),rgba(189,100,231,.12));color:#eaffff;font-size:12px;font-weight:950;letter-spacing:.09em;text-transform:uppercase;transition:.2s ease}.nav-quick:hover{transform:translateY(-1px);border-color:rgba(141,248,255,.48);box-shadow:0 14px 34px rgba(62,230,225,.11)}.refined-menu .menu-btn{min-height:46px;padding:0 16px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.035));border-color:rgba(141,248,255,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}.refined-menu .menu-btn:hover{border-color:rgba(141,248,255,.52);transform:translateY(-1px)}.refined-menu .menu-panel{width:min(430px,calc(100vw - 32px));gap:8px;padding:16px;border-radius:26px;border-color:rgba(141,248,255,.22);background:radial-gradient(circle at 20% 0%,rgba(141,248,255,.11),transparent 16rem),linear-gradient(180deg,rgba(9,17,33,.985),rgba(3,6,17,.985));box-shadow:0 34px 110px rgba(0,0,0,.62)}.refined-menu .menu-panel a{display:grid;gap:4px;text-transform:none;letter-spacing:0;border-radius:18px;padding:15px 16px;background:rgba(255,255,255,.038);border-color:rgba(141,248,255,.11)}.refined-menu .menu-panel a strong{font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:#fff}.refined-menu .menu-panel a span{font-size:13px;line-height:1.35;color:#9fb3bf;font-weight:650}.refined-menu .menu-panel a:hover,.refined-menu .menu-panel a.active{color:#031116;background:linear-gradient(135deg,rgba(62,230,225,.95),rgba(141,248,255,.86));border-color:rgba(141,248,255,.55);transform:translateX(2px)}.refined-menu .menu-panel a:hover strong,.refined-menu .menu-panel a:hover span,.refined-menu .menu-panel a.active strong,.refined-menu .menu-panel a.active span{color:#031116}.refined-menu .menu-panel .menu-support{background:linear-gradient(135deg,rgba(189,100,231,.20),rgba(62,230,225,.075));border-color:rgba(189,100,231,.30)}
+    .hero-refined{padding:86px 0 62px;min-height:calc(100vh - 86px);position:relative}.hero-refined:before{content:"";position:absolute;inset:18px auto auto 48%;width:42vw;height:42vw;max-width:620px;max-height:620px;border-radius:50%;background:radial-gradient(circle,rgba(141,248,255,.11),transparent 66%);filter:blur(10px);pointer-events:none}.hero-grid-refined{position:relative;grid-template-columns:minmax(0,1.02fr) minmax(390px,.82fr);gap:58px}.hero-refined .eyebrow{letter-spacing:.18em;color:#9afaff}.hero-refined h1{font-size:clamp(52px,7.25vw,106px);line-height:.91;letter-spacing:.004em;max-width:860px}.hero-refined .hero-lead{max-width:730px;font-size:clamp(18px,1.55vw,21px);line-height:1.66;color:#d0e3ea}.hero-refined .secondary-lead{max-width:700px;color:#a9bfca!important}.hero-actions-refined{align-items:center}.hero-refined .btn{min-height:54px;border-radius:17px;padding-inline:22px}.hero-refined .btn.secondary{background:rgba(255,255,255,.035)}.hero-refined .hero-proof{grid-template-columns:repeat(3,minmax(0,1fr));max-width:740px}.hero-refined .hero-proof .proof{position:relative;overflow:hidden;min-height:96px}.hero-refined .hero-proof .proof:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--aqua),transparent)}.hero-refined .hero-proof .proof b{font-size:31px}.hero-diagnostic-panel{isolation:isolate}.preview-badge{width:max-content;margin:0 auto 22px;padding:8px 12px;border:1px solid rgba(141,248,255,.20);border-radius:999px;background:rgba(141,248,255,.07);color:#9afaff;font-size:11px;font-weight:950;letter-spacing:.15em;text-transform:uppercase}.hero-card-line{color:#f6fdff}.hero-card-line:after{content:"";display:block;width:86px;height:1px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--aqua),transparent)}
+    @media(max-width:980px){.nav-quick{display:none}.brand-tagline{display:none}.hero-grid-refined{grid-template-columns:1fr}.hero-refined:before{inset:auto -120px 120px auto;width:520px;height:520px}.hero-refined .hero-proof{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:640px){.nav-refined{height:74px}.brand-refined{gap:10px}.brand-text{font-size:9px}.refined-menu .menu-btn span:last-child{display:none}.refined-menu .menu-btn{width:48px;padding:0;place-content:center}.hero-refined{padding:46px 0 34px;min-height:auto}.hero-refined h1{font-size:clamp(42px,13.5vw,68px);line-height:.94}.hero-actions-refined .btn{width:100%}.hero-refined .hero-proof{grid-template-columns:1fr}.diagnostic-shell{padding:30px 20px}.preview-badge{font-size:10px}.refined-menu .menu-panel{position:fixed;top:78px;left:12px;right:12px;width:auto}.brand-mark{width:44px;height:44px}}
+
+
+
+    /* Gateway landing screen — replaces the split hero with one integrated diagnostic threshold */
+    .hero-gateway{position:relative;min-height:calc(100vh - 86px);padding:72px 0 58px;display:grid;align-items:center;overflow:hidden}
+    .hero-gateway:before{content:"";position:absolute;left:50%;top:46%;width:min(980px,92vw);height:min(980px,92vw);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at center,rgba(141,248,255,.13),transparent 34%),radial-gradient(circle at center,rgba(189,100,231,.10),transparent 52%),conic-gradient(from 180deg,transparent,rgba(141,248,255,.12),transparent,rgba(189,100,231,.14),transparent);filter:blur(4px);opacity:.85;pointer-events:none}
+    .hero-gateway:after{content:"";position:absolute;left:50%;top:47%;width:min(720px,82vw);height:min(720px,82vw);transform:translate(-50%,-50%);border:1px solid rgba(141,248,255,.10);border-radius:50%;box-shadow:0 0 0 72px rgba(141,248,255,.018),0 0 0 144px rgba(189,100,231,.012);pointer-events:none}
+    .gateway-inner{position:relative;z-index:1;text-align:center;max-width:1050px;margin-inline:auto}
+    .gateway-kicker{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;padding:9px 14px;border:1px solid rgba(141,248,255,.18);border-radius:999px;background:rgba(255,255,255,.035);color:#9afaff;font-size:11px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 18px 54px rgba(0,0,0,.18)}
+    .gateway-kicker:before,.gateway-kicker:after{content:"";width:28px;height:1px;background:linear-gradient(90deg,transparent,var(--aqua))}.gateway-kicker:after{background:linear-gradient(90deg,var(--aqua),transparent)}
+    .gateway-title{font-family:var(--serif);font-weight:700;font-size:clamp(54px,8.7vw,124px);line-height:.86;letter-spacing:.006em;text-transform:uppercase;margin:0 auto;max-width:980px;background:linear-gradient(180deg,#ffffff 0%,#e8fdff 34%,var(--aqua) 66%,#b987ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
+    .gateway-subtitle{margin:26px auto 0;max-width:780px;color:#c7dce5;font-size:clamp(18px,1.7vw,22px);line-height:1.62;text-wrap:balance}.gateway-subtitle strong{color:#fff;font-weight:850}
+    .gateway-console{width:min(860px,100%);margin:38px auto 0;padding:18px;border:1px solid rgba(141,248,255,.18);border-radius:34px;background:linear-gradient(135deg,rgba(141,248,255,.08),rgba(189,100,231,.08));box-shadow:0 30px 110px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.08)}
+    .gateway-console-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:14px;align-items:end;padding:18px;border:1px solid rgba(255,255,255,.075);border-radius:25px;background:linear-gradient(180deg,rgba(4,10,23,.88),rgba(6,12,26,.97))}
+    .gateway-field{text-align:left;margin:0}.gateway-field label{margin-bottom:9px;color:#9afaff}.gateway-field input[type="date"]{height:58px;border-radius:17px;font-size:18px;background:#040a15;border-color:rgba(141,248,255,.24)}
+    .gateway-console .btn{height:58px;min-width:240px;border-radius:17px}.gateway-note{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px auto 0;color:#8fa5b2;font-size:13px;line-height:1.45}.gateway-note span{display:inline-flex;align-items:center;gap:8px}.gateway-note span:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--aqua);box-shadow:0 0 14px rgba(141,248,255,.55)}
+    .hero-gateway .error{max-width:820px;margin:14px auto 0;text-align:left}.hero-gateway .calc-path{max-width:820px;margin:14px auto 0;text-align:left;background:rgba(3,6,17,.78)}
+    .gateway-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:min(860px,100%);margin:26px auto 0}.gateway-step{position:relative;overflow:hidden;padding:17px 18px;border:1px solid rgba(141,248,255,.12);border-radius:20px;background:rgba(255,255,255,.034);text-align:left}.gateway-step:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--aqua),transparent)}.gateway-step b{display:block;font-family:var(--serif);font-size:31px;line-height:1;color:#8df8ff}.gateway-step span{display:block;margin-top:7px;color:#bdd0d9;font-size:13px;line-height:1.45;font-weight:750}.gateway-line{margin:30px auto 0;font-family:var(--serif);font-size:clamp(24px,3vw,38px);line-height:1.18;color:#fff;text-wrap:balance}.gateway-line em{font-style:normal;color:var(--aqua)}
+    .method-band{padding:26px 0 46px}.method-band-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.method-band-card{border:1px solid rgba(141,248,255,.12);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));padding:22px}.method-band-card small{display:block;color:var(--aqua);font-size:11px;font-weight:950;letter-spacing:.18em;text-transform:uppercase}.method-band-card b{display:block;margin-top:8px;font-family:var(--serif);font-size:30px;color:#fff}.method-band-card p{margin:8px 0 0;color:#b9cdd8;line-height:1.62}
+    @media(max-width:760px){.hero-gateway{padding:48px 0 38px;min-height:auto}.gateway-console-inner{grid-template-columns:1fr}.gateway-console .btn{width:100%;min-width:0}.gateway-steps,.method-band-grid{grid-template-columns:1fr}.gateway-kicker{letter-spacing:.12em}.gateway-kicker:before,.gateway-kicker:after{display:none}.gateway-title{font-size:clamp(44px,13vw,72px)}.gateway-subtitle{font-size:17px}.gateway-console{padding:12px;border-radius:26px}.gateway-console-inner{padding:14px;border-radius:20px}}
+
+    /* ===== Global Typography Correction ===== */
+
+html,
+body,
+p,
+span,
+div,
+article,
+section,
+li,
+a,
+button,
+label,
+input,
+small,
+strong,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-style: normal !important;
+}
+
+/* Keep serif elegance without italics */
+.serif,
+.hero h1,
+.hero-redesign h1,
+.hero-refined h1,
+.gateway-title,
+.section-title,
+.result-title,
+.result-piercing,
+.card-title,
+.lock-card h2,
+.cta-panel h2,
+.method-band-card b,
+.tri-card b,
+.atlas-card b,
+.logion,
+.hero-card-line,
+.result-sub {
+  font-style: normal !important;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* Remove browser default italic behavior */
+em,
+i {
+  font-style: normal;
+}
+
+/* Optional: preserve emphasis through weight/color instead */
+em {
+  color: var(--aqua);
+  font-weight: 700;
+}
+
+/* Improve readability globally */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cleaner paragraph rhythm */
+p {
+  line-height: 1.72;
+}
+
+/* Refined heading appearance */
+h1,
+h2,
+h3 {
+  letter-spacing: 0.01em;
+}
+    
+
+    /* =========================================================
+       ABOUT-PAA TRANSPLANTED SECTION STYLES
+       Restores styling for the About/PAA sections now placed on index.html.
+       ========================================================= */
+
+    .section-head {
+      max-width:820px;
+      margin-bottom:26px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      margin:0;
-      color:var(--ink);
-      font-family:var(--sans);
-
-      background:
-        radial-gradient(circle at top, rgba(124,42,145,.46), transparent 28rem),
-        radial-gradient(circle at 18% 22%, rgba(49,223,209,.12), transparent 24rem),
-        radial-gradient(circle at 80% 14%, rgba(141,248,255,.07), transparent 22rem),
-        linear-gradient(180deg, #030711 0%, #08111f 48%, #040612 100%);
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .wrap{
-      width:min(1120px, calc(100% - 32px));
-      margin:auto;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      backdrop-filter:blur(14px);
-      background:rgba(4,6,18,.76);
-      border-bottom:1px solid rgba(141,248,255,.13);
-    }
-
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:16px 0;
-      gap:18px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      font-size:12px;
-      color:#8df8ff;
-      flex:0 0 auto;
-    }
-
-    .brand span{
-      line-height:1.45;
-    }
-
-    .brand .brand-line-1{ color:#edf7ff; }
-    .brand .brand-line-2{ color:#8df8ff; }
-    .brand .brand-line-3{ color:#b958df; }
-
-    .brand-sigil{
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      border:1px solid rgba(141,248,255,.24);
-      background:
-        radial-gradient(circle at 50% 35%, rgba(141,248,255,.18), transparent 58%),
-        linear-gradient(135deg, rgba(49,223,209,.12), rgba(185,88,223,.12));
-      box-shadow:
-        inset 0 0 18px rgba(141,248,255,.05),
-        0 0 28px rgba(141,248,255,.08);
-      flex:0 0 auto;
-    }
-
-    .tetractys{
-      width:46px;
-      height:40px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:4px;
-      flex:0 0 auto;
-    }
-
-    .tetra-row{
-      display:flex;
-      justify-content:center;
-      gap:5px;
-      line-height:0;
-    }
-
-    .dot{
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:linear-gradient(135deg,#8df8ff,#b958df);
-      box-shadow:0 0 14px rgba(141,248,255,.42);
-    }
-
-    .navlinks{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      gap:6px;
-      flex-wrap:wrap;
-    }
-
-    .navlinks a{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid transparent;
-      color:#aebbd0;
-      font-size:14px;
-      font-weight:500;
-      letter-spacing:-.01em;
-      white-space:nowrap;
-      transition:
-        color .22s ease,
-        background .22s ease,
-        border-color .22s ease,
-        transform .22s ease,
-        box-shadow .22s ease;
-    }
-
-    .navlinks a:hover{
-      color:#f4fcff;
-      background:rgba(141,248,255,.07);
-      border-color:rgba(141,248,255,.18);
-      box-shadow:
-        0 0 22px rgba(141,248,255,.08),
-        inset 0 0 18px rgba(141,248,255,.035);
-      transform:translateY(-1px);
-    }
-
-    .navlinks a.active{
-      color:#8df8ff;
-    }
-
-    .navlinks a.nav-cta{
-      margin-left:8px;
-      padding:10px 18px;
-      min-height:46px;
-      color:#8df8ff;
-      border:1px solid rgba(141,248,255,.26);
-      background:rgba(141,248,255,.07);
-      box-shadow:
-        inset 0 0 18px rgba(141,248,255,.035),
-        0 0 22px rgba(141,248,255,.06);
-    }
-
-    .navlinks a.nav-cta:hover,
-    .navlinks a.nav-cta.active{
-      color:#031116;
-      background:linear-gradient(135deg,#31dfd1,#8df8ff);
-      border-color:rgba(141,248,255,.5);
-      box-shadow:
-        0 14px 34px rgba(49,223,209,.16),
-        0 0 38px rgba(141,248,255,.10);
-    }
-
-    h1,h2,h3 {
-      margin:0;
-      font-weight:400;
-      font-family:var(--serif);
-    }
-
-
-    /* PRIMARY NAVIGATION — REFINED */
-
-    nav,
-    .navlinks{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    nav a,
-    .navlinks a{
-      position:relative;
-      isolation:isolate;
-
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      min-height:42px;
-      padding:10px 16px;
-
-      border-radius:999px;
-      border:1px solid rgba(141,248,255,.11);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.045),
-          rgba(255,255,255,.015)
-        );
-
-      color:#c8dce8;
-
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.055em;
-      text-transform:uppercase;
-
-      white-space:nowrap;
-
-      box-shadow:
-        inset 0 0 18px rgba(141,248,255,.025);
-
-      transition:
-        color .22s ease,
-        background .22s ease,
-        border-color .22s ease,
-        transform .22s ease,
-        box-shadow .22s ease;
-    }
-
-    nav a::before,
-    .navlinks a::before{
-      content:'';
-      position:absolute;
-      inset:-1px;
-      border-radius:inherit;
-      z-index:-1;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(141,248,255,.28),
-          rgba(185,88,223,.28)
-        );
-
-      opacity:0;
-      transition:opacity .22s ease;
-    }
-
-    nav a::after,
-    .navlinks a::after{
-      content:'';
-      position:absolute;
-      left:18px;
-      right:18px;
-      bottom:7px;
-      height:1px;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(141,248,255,.85),
-          transparent
-        );
-
-      opacity:0;
-      transition:opacity .22s ease;
-    }
-
-    nav a:hover,
-    .navlinks a:hover{
-      color:#f8fdff;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(141,248,255,.09),
-          rgba(185,88,223,.055)
-        );
-
-      border-color:rgba(141,248,255,.28);
-
-      box-shadow:
-        0 0 24px rgba(141,248,255,.10),
-        inset 0 0 22px rgba(141,248,255,.045);
-
-      transform:translateY(-1px);
-    }
-
-    nav a:hover::before,
-    .navlinks a:hover::before{
-      opacity:1;
-    }
-
-    nav a:hover::after,
-    .navlinks a:hover::after{
-      opacity:1;
-    }
-
-    nav a.active,
-    .navlinks a.active{
-      color:#031116;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--turquoise),
-          var(--aqua)
-        );
-
-      border-color:rgba(141,248,255,.55);
-
-      box-shadow:
-        0 14px 34px rgba(49,223,209,.17),
-        0 0 38px rgba(141,248,255,.12);
-    }
-
-    nav a.active::after,
-    .navlinks a.active::after{
-      opacity:0;
-    }
-
-    nav a.nav-cta,
-    .navlinks a.nav-cta{
-      color:#f8fdff;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(185,88,223,.28),
-          rgba(49,223,209,.16)
-        );
-
-      border-color:rgba(185,88,223,.38);
-
-      box-shadow:
-        0 0 26px rgba(185,88,223,.12),
-        inset 0 0 18px rgba(141,248,255,.04);
-    }
-
-    nav a.nav-cta:hover,
-    .navlinks a.nav-cta:hover{
-      border-color:rgba(141,248,255,.42);
-
-      box-shadow:
-        0 0 30px rgba(141,248,255,.14),
-        0 0 36px rgba(185,88,223,.12),
-        inset 0 0 22px rgba(141,248,255,.05);
-    }
-
-    nav a.nav-cta.active,
-    .navlinks a.nav-cta.active{
-      color:#031116;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--violetBright),
-          var(--aqua)
-        );
-
-      border-color:rgba(141,248,255,.58);
-    }
-
-    h1,h2,h3{
-      margin:0;
-      font-weight:400;
-      font-family:var(--serif);
-    }
-
-    .hero{
-      padding:92px 0 42px;
-      text-align:center;
-    }
-
-    .eyebrow{
+    .section-kicker {
       color:var(--aqua);
       text-transform:uppercase;
-      letter-spacing:.25em;
-      font-size:12px;
-      margin-bottom:24px;
+      letter-spacing:.18em;
+      font-size:.76rem;
+      font-weight:900;
+      margin-bottom:10px;
     }
 
-    h1{
-      font-size:clamp(50px, 9vw, 110px);
-      line-height:.92;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-
-      background:linear-gradient(
-        180deg,
-        #fff 0%,
-        var(--aqua) 55%,
-        #b8e8ff 100%
-      );
-
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .hero-intro{
-      max-width:760px;
-      margin:26px auto 0;
-      font-size:clamp(18px,2vw,22px);
+    .lead {
       color:var(--muted);
-      line-height:1.8;
+      font-size:clamp(1.08rem,2vw,1.28rem);
+      line-height:1.7;
+      margin-top:16px;
     }
 
-    .hero-cta{
-      margin-top:38px;
-    }
-
-    .calculator{
-      position:relative;
-      overflow:hidden;
-
-      margin:0 auto 80px;
-      max-width:900px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(14,22,38,.94),
-          rgba(7,11,22,.98)
-        );
-
+    .card {
       border:1px solid var(--line);
       border-radius:var(--radius);
-      padding:38px;
+      background:linear-gradient(180deg,rgba(16,25,45,.92),rgba(6,10,20,.98));
       box-shadow:var(--shadow);
     }
 
-    .calculator::before{
-      content:'';
-      position:absolute;
-      inset:0;
-
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(141,248,255,.06),
-          transparent 55%
-        );
-
-      pointer-events:none;
+    .content-card,
+    .text-panel {
+      padding:clamp(26px,5vw,44px);
     }
 
-    .calculator-topline{
-      text-align:center;
-      font-family:var(--serif);
-      font-size:clamp(24px,3vw,34px);
-      line-height:1.45;
-      color:#edf7ff;
-      margin-bottom:34px;
-    }
-
-    .formgrid{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:14px;
-      align-items:end;
-    }
-
-    label{
-      display:block;
-      margin-bottom:10px;
+    .content-card p,
+    .text-panel p {
+      margin:0 0 18px;
       color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:12px;
+      font-size:1.08rem;
+      line-height:1.72;
     }
 
-    input[type="date"]{
-      width:100%;
-      background:#050b16;
-      border:1px solid rgba(141,248,255,.18);
+    .content-card p:last-child,
+    .text-panel p:last-child {
+      margin-bottom:0;
+    }
+
+    .content-card strong,
+    .text-panel strong {
       color:var(--ink);
-      border-radius:18px;
-      padding:18px;
-      font-size:18px;
-      color-scheme:dark;
+      font-weight:750;
     }
 
-    button,
-    .button-link{
-      border:none;
-      cursor:pointer;
-      border-radius:18px;
-      padding:18px 24px;
+    .divider-line {
+      height:1px;
+      margin:28px 0;
+      background:linear-gradient(90deg,transparent,rgba(141,248,255,.35),rgba(185,88,223,.35),transparent);
+    }
 
+    #core-claim,
+    #structural-cycle,
+    #domains {
+      padding:44px 0;
+    }
+
+    #core-claim h2,
+    #structural-cycle h2,
+    #domains h2,
+    .cta h2 {
+      font-family:var(--serif);
+      font-size:clamp(2rem,4vw,3.2rem);
+      line-height:1.02;
+      letter-spacing:.01em;
+      font-weight:700;
+      text-transform:none;
+    }
+
+    .cycle-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .phase {
+      padding:24px;
+      border-radius:22px;
+      border:1px solid rgba(141,248,255,.14);
+      background:rgba(255,255,255,.035);
+      min-height:164px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .phase::after {
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      right:-60px;
+      top:-60px;
+      border-radius:50%;
+      background:rgba(141,248,255,.06);
+    }
+
+    .phase-number {
+      position:relative;
+      z-index:1;
+      font-size:2.15rem;
+      line-height:1;
+      font-weight:900;
+      color:var(--aqua);
+      letter-spacing:-.05em;
+    }
+
+    .phase-title {
+      position:relative;
+      z-index:1;
+      margin-top:13px;
+      color:var(--ink);
+      font-size:1.1rem;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+
+    .phase-text {
+      position:relative;
+      z-index:1;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:.96rem;
+      line-height:1.6;
+    }
+
+    .phase.eleven {
+      grid-column:span 3;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:22px;
+      align-items:center;
+      min-height:unset;
+      border-color:rgba(185,88,223,.36);
       background:
-        linear-gradient(
-          135deg,
-          var(--turquoise),
-          var(--aqua)
-        );
+        radial-gradient(circle at 0% 0%, rgba(185,88,223,.13), transparent 20rem),
+        rgba(255,255,255,.04);
+    }
 
-      color:#031116;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
+    .phase.eleven .phase-number {
+      color:var(--violet);
+      font-size:3.2rem;
+    }
 
-      box-shadow:
-        0 14px 40px rgba(49,223,209,.18);
+    .domain-grid {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:16px;
+    }
 
-      transition:.2s ease;
+    .domain {
+      padding:22px;
+      border-radius:22px;
+      border:1px solid rgba(141,248,255,.14);
+      background:rgba(255,255,255,.035);
+    }
 
-      display:inline-block;
-      text-align:center;
+    .domain-title {
+      color:var(--ink);
+      font-weight:900;
+      display:block;
+      margin-bottom:8px;
+      line-height:1.25;
+    }
+
+    .domain-text {
+      color:var(--muted);
+      font-size:.96rem;
+      line-height:1.6;
+    }
+
+    .button {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border-radius:18px;
       font-family:var(--sans);
       font-size:14px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      transition:transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
     }
 
-    button:hover,
-    .button-link:hover{
-      transform:translateY(-2px);
+    .button:hover { transform:translateY(-2px); }
+
+    .button.primary {
+      background:linear-gradient(135deg,var(--cyan),var(--aqua));
+      color:#031116;
+      box-shadow:0 14px 40px rgba(49,223,209,.18);
     }
 
-    button.secondary,
-    .button-link.secondary{
+    .button.secondary {
       background:transparent;
       color:var(--aqua);
       border:1px solid rgba(141,248,255,.28);
       box-shadow:none;
     }
 
-    .error{
-      display:none;
-      margin-top:16px;
-      color:#ffd4dc;
-      background:rgba(194,77,96,.13);
-      border:1px solid rgba(194,77,96,.28);
-      padding:14px 16px;
-      border-radius:16px;
-    }
-
-    .calc-path{
-      margin-top:26px;
-      padding:22px;
-      border-radius:18px;
-      background:rgba(255,255,255,.035);
-      color:var(--muted);
-      line-height:1.8;
-      display:none;
-    }
-
-    .calc-path strong{
-      color:var(--ink);
-    }
-
-    .calc-line{
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      border-bottom:1px solid rgba(141,248,255,.08);
-      padding:8px 0;
-    }
-
-    .calc-line:last-child{
-      border-bottom:0;
-    }
-
-    .definition-section{
-      padding:24px 0 80px;
-    }
-
-    .definition-header{
+    .cta {
+      padding:clamp(30px,5vw,46px);
       text-align:center;
-      max-width:820px;
-      margin:0 auto 40px;
-    }
-
-    .definition-header h2{
-      font-size:clamp(34px,5vw,62px);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      margin-bottom:18px;
-    }
-
-    .definition-header p{
-      color:var(--muted);
-      font-size:20px;
-      line-height:1.9;
-    }
-
-    .hero-definition{
-      max-width:850px;
-      margin:34px auto 0;
-      display:grid;
-      gap:14px;
-      text-align:left;
-    }
-
-    .hero-definition p{
-      margin:0;
-      padding:18px 20px;
-
-      border:1px solid rgba(141,248,255,.11);
-      border-left:3px solid rgba(185,88,223,.72);
-
-      border-radius:20px;
-
       background:
-        linear-gradient(
-          90deg,
-          rgba(185,88,223,.13),
-          rgba(49,223,209,.045) 48%,
-          rgba(255,255,255,.018)
-        );
-
-      box-shadow:
-        inset 0 0 24px rgba(141,248,255,.025);
-
-      color:#bfd1dc;
-
-      font-size:clamp(16px,1.55vw,19px);
-      line-height:1.75;
-    }
-
-    .hero-definition strong{
-      display:inline-block;
-      margin-right:.35em;
-      font-family:var(--sans);
-      font-size:.86em;
-      font-weight:800;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-
-      background:
-        linear-gradient(
-          135deg,
-          #f2d7ff 0%,
-          #b958df 42%,
-          #7deff4 100%
-        );
-
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .telos{
-      max-width:850px;
-      margin:40px auto 0;
-      text-align:center;
-      color:#dbeaf4;
-      font-size:20px;
-      line-height:1.9;
-    }
-
-    .threshold{
-      margin-top:48px;
-      text-align:center;
-      font-family:var(--serif);
-      font-size:clamp(26px,3vw,38px);
-      color:#dfefff;
-      font-style:italic;
-      opacity:.92;
-    }
-
-    .reading{
-      display:none;
-      padding-bottom:112px;
-    }
-
-    .glyph-hero{
-      text-align:center;
-      margin-bottom:46px;
-    }
-
-    .orb{
-      width:190px;
-      height:190px;
-      margin:auto auto 28px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      border:1px solid rgba(141,248,255,.35);
-
-      background:
-        radial-gradient(
-          circle at 50% 35%,
-          rgba(124,42,145,.65),
-          rgba(6,11,24,.98)
-        );
-
-      box-shadow:
-        inset 0 0 40px rgba(141,248,255,.08),
-        0 0 100px rgba(49,223,209,.12);
-    }
-
-    .orb span{
-      font-family:var(--serif);
-      font-size:92px;
-      color:var(--aqua);
-    }
-
-    .piercing{
-      max-width:900px;
-      margin:0 auto 28px;
-      font-family:var(--serif);
-      font-size:clamp(32px,4vw,54px);
-      line-height:1.2;
-      color:#f5fbff;
-    }
-
-    .glyph-title{
-      font-size:clamp(40px,6vw,72px);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .glyph-subtitle{
-      margin-top:8px;
-      color:var(--aqua);
-      font-size:26px;
-      font-family:var(--serif);
-      font-style:italic;
-    }
-
-    .planet{
-      margin-top:10px;
-      color:#9eb4c2;
-      letter-spacing:.08em;
-    }
-
-    .glyph-meta{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:22px;
-    }
-
-    .pill{
-      border:1px solid rgba(141,248,255,.16);
-      background:rgba(255,255,255,.035);
-      color:#c7dae4;
-      border-radius:999px;
-      padding:9px 13px;
-      font-size:13px;
-    }
-
-
-
-    .glyph-keys{
-      margin:26px auto 0;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-      text-align:left;
-    }
-
-    .glyph-key-card{
-      position:relative;
-      overflow:hidden;
-      padding:24px;
-      border-radius:24px;
-      border:1px solid rgba(141,248,255,.13);
-      background:
-        radial-gradient(circle at top right, rgba(185,88,223,.10), transparent 13rem),
+        linear-gradient(135deg,rgba(49,223,209,.11),rgba(185,88,223,.11)),
         rgba(255,255,255,.035);
-      box-shadow:inset 0 0 24px rgba(141,248,255,.018);
     }
 
-    .glyph-key-card::before{
-      content:'';
-      position:absolute;
-      left:0;
-      top:22px;
-      bottom:22px;
-      width:3px;
-      background:linear-gradient(180deg,var(--aqua),var(--violetBright));
-      opacity:.72;
-    }
-
-    .glyph-key-kicker{
-      color:var(--aqua);
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      font-size:11px;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-
-    .glyph-key-value{
-      font-family:var(--serif);
-      color:#f5fbff;
-      font-size:clamp(24px,2.5vw,34px);
-      line-height:1.1;
-      margin-bottom:12px;
-    }
-
-    .glyph-key-meaning{
-      color:#bfd1dc;
-      font-size:17px;
-      line-height:1.78;
-    }
-
-    .section{
-      margin:28px 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(16,25,45,.92),
-          rgba(6,10,20,.98)
-        );
-
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:42px;
-      box-shadow:var(--shadow);
-    }
-
-    .section-title{
-      margin-bottom:24px;
-      font-size:clamp(30px,4vw,50px);
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .lead{
-      font-family:var(--serif);
-      font-size:clamp(24px,3vw,32px);
-      line-height:1.62;
-      color:#dde9f1;
-    }
-
-    .mini{
-      margin-top:22px;
+    .cta p {
+      max-width:680px;
+      margin:18px auto 0;
       color:var(--muted);
-      line-height:1.8;
-      font-size:18px;
-    }
-
-    .reveal-btn{
-      margin-top:28px;
-    }
-
-    .hidden{
-      display:none;
-    }
-
-    .grid2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .grid5{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-    }
-
-    .card{
-      padding:22px;
-      border-radius:24px;
-      background:rgba(255,255,255,.035);
-      border:1px solid rgba(141,248,255,.10);
-      line-height:1.7;
-    }
-
-    .card h3,
-    .callout h3{
-      margin:0 0 10px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      font-size:12px;
-      color:var(--aqua);
-      font-family:var(--sans);
-      font-weight:700;
-    }
-
-    .card p,
-    .callout p{
-      margin:0;
-      color:#e9edf1;
-      font-size:18px;
-      line-height:1.75;
-    }
-
-    .callout{
-      margin-top:22px;
-      padding:24px;
-      border-radius:24px;
-      line-height:1.8;
-    }
-
-    .coherent{
-      background:rgba(22,179,164,.10);
-      border:1px solid rgba(49,223,209,.18);
-    }
-
-    .distorted{
-      background:
-        linear-gradient(
-          180deg,
-          rgba(68,12,20,.45),
-          rgba(25,8,14,.8)
-        );
-
-      border:1px solid rgba(194,77,96,.28);
-
-      box-shadow:
-        inset 0 0 24px rgba(194,77,96,.08);
-    }
-
-    .list{
-      margin:0;
-      padding-left:20px;
-      color:#e6f5fb;
-      line-height:1.7;
-    }
-
-    .list li{
-      margin:8px 0;
-    }
-
-    .test-box{
-      border-left:3px solid var(--aqua);
-      padding:20px 22px;
-      background:rgba(141,248,255,.055);
-      border-radius:18px;
-      margin-top:22px;
-      color:#d8e8f3;
-      font-size:20px;
-      line-height:1.75;
-      font-family:var(--serif);
-    }
-
-
-    .advanced-block{
-      margin-bottom:42px;
-    }
-
-    .advanced-block:last-child{
-      margin-bottom:0;
-    }
-
-    .advanced-lock{
-      position:relative;
-      overflow:hidden;
-      border:1px solid rgba(185,88,223,.25);
-
-      background:
-        radial-gradient(circle at 18% 20%, rgba(185,88,223,.16), transparent 22rem),
-        linear-gradient(180deg,rgba(16,25,45,.92),rgba(6,10,20,.98));
-    }
-
-    .advanced-preview{
-      filter:blur(5px);
-      user-select:none;
-      pointer-events:none;
-      opacity:.55;
-    }
-
-    .advanced-lock.unlocked .advanced-preview{
-      filter:none;
-      user-select:auto;
-      pointer-events:auto;
-      opacity:1;
-    }
-
-    .advanced-lock.unlocked .lock-overlay{
-      display:none;
-    }
-    
-    .lock-overlay{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-      padding:28px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(4,6,18,.25),
-          rgba(4,6,18,.88)
-        );
-    }
-
-    .lock-card{
-      width:min(760px,100%);
-      text-align:center;
-      padding:34px;
-      border-radius:28px;
-
-      background:rgba(4,9,20,.88);
-
-      border:1px solid rgba(141,248,255,.20);
-
-      box-shadow:var(--shadow);
-    }
-
-    .lock-card h2{
-      font-size:clamp(32px,4vw,52px);
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      margin-bottom:14px;
-    }
-
-    .lock-card p{
-      color:#c9dbe5;
-      line-height:1.8;
-      font-size:18px;
-      margin:0 auto 22px;
-      max-width:650px;
-    }
-
-    .lock-actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .author{
-      text-align:center;
-      padding:92px 0 112px;
-    }
-
-    .author h2{
-      font-size:clamp(38px,5vw,64px);
-      margin-bottom:20px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .author p{
-      max-width:820px;
-      margin:auto;
-      color:var(--muted);
-      line-height:2;
-      font-size:20px;
-    }
-
-    footer{
-      padding:40px 0 80px;
-      text-align:center;
-      color:#6f8792;
-      font-size:14px;
+      font-size:1.08rem;
+      line-height:1.72;
     }
 
     @media(max-width:900px){
-      .grid5{
-        grid-template-columns:1fr 1fr;
+      .cycle-grid,
+      .domain-grid {
+        grid-template-columns:repeat(2,1fr);
       }
 
-      .grid2{
-        grid-template-columns:1fr;
+      .phase.eleven {
+        grid-column:span 2;
       }
     }
 
-    @media(max-width:760px){
-
-      .formgrid{
+    @media(max-width:620px){
+      .cycle-grid,
+      .domain-grid {
         grid-template-columns:1fr;
       }
 
-      button,
-      .button-link{
+      .phase.eleven {
+        grid-column:span 1;
+        grid-template-columns:1fr;
+      }
+
+      .hero-actions .button {
         width:100%;
       }
-
-      .section{
-        padding:28px;
-      }
-
-      .orb{
-        width:150px;
-        height:150px;
-      }
-
-      .orb span{
-        font-size:72px;
-      }
-
-      .nav{
-        align-items:flex-start;
-      }
-
-      nav,
-      .navlinks{
-        width:100%;
-        justify-content:center;
-        gap:8px;
-      }
-
-      nav a,
-      .navlinks a{
-        flex:1 1 calc(50% - 8px);
-        min-width:140px;
-        padding:11px 12px;
-        font-size:11px;
-        letter-spacing:.045em;
-      }
-
-      nav a.nav-cta,
-      .navlinks a.nav-cta{
-        flex-basis:100%;
-      }
-
-      .brand{
-        letter-spacing:.10em;
-        font-size:10px;
-      }
-
-      .grid5,
-      .glyph-keys{
-        grid-template-columns:1fr;
-      }
-
-      .calc-line{
-        display:block;
-      }
-
-      .calc-line span:last-child{
-        display:block;
-        margin-top:4px;
-        color:var(--ink);
-      }
-
-      .lock-card{
-        padding:26px;
-      }
     }
 
-  
-    .impact-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
-    .impact-card{padding:16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);text-align:center}
-    .impact-value{display:block;font-size:1.6rem;font-weight:800;color:var(--aqua)}
-    .impact-label{font-size:.83rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-    @media (max-width:760px){.impact-strip{grid-template-columns:1fr;}}
-
-
-    /* =========================================================
-       CANONICAL PAA HEADER — compact nested menu navigation
-       ========================================================= */
-    .paa-header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(18px) saturate(135%);
-      -webkit-backdrop-filter:blur(18px) saturate(135%);
-      background:
-        linear-gradient(180deg, rgba(4,6,18,.90), rgba(4,6,18,.70));
-      border-bottom:1px solid rgba(141,248,255,.14);
-      box-shadow:0 18px 44px rgba(0,0,0,.28);
-    }
-
-    .paa-header::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(circle at 16% 50%, rgba(141,248,255,.10), transparent 16rem),
-        radial-gradient(circle at 72% 40%, rgba(185,88,223,.11), transparent 18rem);
-      opacity:.8;
-    }
-
-    .paa-header::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:-1px;
-      height:1px;
-      pointer-events:none;
-      background:linear-gradient(90deg, transparent, rgba(141,248,255,.52), rgba(185,88,223,.38), transparent);
-      opacity:.62;
-    }
-
-    .paa-nav{
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:22px;
-      padding:14px 0;
-    }
-
-    .paa-brand{
-      display:grid;
-      grid-template-columns:auto 1fr;
-      align-items:center;
-      gap:14px;
-      min-width:max-content;
-      color:var(--ink);
-      text-decoration:none;
-    }
-
-    .paa-brand-mark{
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      border:1px solid rgba(141,248,255,.26);
-      background:
-        radial-gradient(circle at 50% 35%, rgba(141,248,255,.18), transparent 58%),
-        linear-gradient(135deg, rgba(49,223,209,.13), rgba(185,88,223,.14));
-      box-shadow:
-        inset 0 0 22px rgba(141,248,255,.055),
-        0 0 30px rgba(141,248,255,.08),
-        0 0 46px rgba(185,88,223,.055);
-    }
-
-    .paa-tetractys{
-      width:34px;
-      height:32px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:4px;
-    }
-
-    .paa-tetra-row{
-      display:flex;
-      justify-content:center;
-      gap:4px;
-      line-height:0;
-    }
-
-    .paa-dot{
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:linear-gradient(135deg, var(--aqua), var(--violetBright));
-      box-shadow:0 0 13px rgba(141,248,255,.46);
-    }
-
-    .paa-brand-text{
-      display:flex;
-      flex-direction:column;
-      gap:1px;
-      line-height:1.02;
-      text-transform:uppercase;
-      letter-spacing:.145em;
-      font-size:11px;
-      font-weight:800;
-    }
-
-    .paa-brand-text span:nth-child(1){ color:#f4fbff; }
-    .paa-brand-text span:nth-child(2){ color:var(--aqua); }
-    .paa-brand-text span:nth-child(3){ color:var(--violetBright); }
-
-    .paa-menu-wrap{
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-    }
-
-    .paa-menu-button{
-      position:relative;
-      isolation:isolate;
-      display:inline-grid;
-      grid-template-columns:auto auto;
-      align-items:center;
-      gap:12px;
-      min-height:48px;
-      padding:10px 16px;
-      border-radius:999px;
-      border:1px solid rgba(141,248,255,.22);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018)),
-        radial-gradient(circle at 35% 0%, rgba(141,248,255,.12), transparent 70%);
-      color:#e7f8ff;
-      font-family:var(--sans);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      cursor:pointer;
-      box-shadow:
-        0 0 28px rgba(141,248,255,.08),
-        inset 0 0 20px rgba(141,248,255,.04);
-      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
-    }
-
-    .paa-menu-button::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      border-radius:inherit;
-      z-index:-1;
-      background:linear-gradient(135deg, rgba(141,248,255,.32), rgba(185,88,223,.34));
-      opacity:.55;
-      transition:opacity .22s ease;
-    }
-
-    .paa-menu-button:hover,
-    .paa-menu-button[aria-expanded="true"]{
-      transform:translateY(-1px);
-      border-color:rgba(141,248,255,.42);
-      box-shadow:
-        0 0 34px rgba(141,248,255,.13),
-        0 0 44px rgba(185,88,223,.10),
-        inset 0 0 22px rgba(141,248,255,.055);
-    }
-
-    .paa-menu-button:hover::before,
-    .paa-menu-button[aria-expanded="true"]::before{
-      opacity:1;
-    }
-
-    .paa-menu-bars{
-      width:24px;
-      height:18px;
-      display:grid;
-      align-content:space-between;
-    }
-
-    .paa-menu-bars span{
-      display:block;
-      height:2px;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--aqua), var(--violetBright));
-      box-shadow:0 0 12px rgba(141,248,255,.48);
-      transform-origin:center;
-      transition:transform .22s ease, opacity .18s ease;
-    }
-
-    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
-    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(2){ opacity:0; }
-    .paa-menu-button[aria-expanded="true"] .paa-menu-bars span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
-
-    .paa-menu-label{
-      display:inline-block;
-    }
-
-    .paa-links{
-      position:absolute;
-      right:0;
-      top:calc(100% + 14px);
-      width:min(390px, calc(100vw - 32px));
-      display:grid;
-      gap:9px;
-      padding:14px;
-      border-radius:24px;
-      border:1px solid rgba(141,248,255,.18);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(141,248,255,.11), transparent 15rem),
-        radial-gradient(circle at 100% 10%, rgba(185,88,223,.14), transparent 16rem),
-        linear-gradient(180deg, rgba(7,12,26,.98), rgba(4,6,18,.98));
-      box-shadow:
-        0 28px 70px rgba(0,0,0,.50),
-        inset 0 0 26px rgba(141,248,255,.035);
-      opacity:0;
-      transform:translateY(-8px) scale(.985);
-      visibility:hidden;
-      pointer-events:none;
-      transition:opacity .22s ease, transform .22s ease, visibility .22s ease;
-    }
-
-    .paa-menu-wrap.open .paa-links{
-      opacity:1;
-      transform:translateY(0) scale(1);
-      visibility:visible;
-      pointer-events:auto;
-    }
-
-    .paa-menu-kicker{
-      padding:6px 10px 9px;
-      color:var(--aqua);
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      border-bottom:1px solid rgba(141,248,255,.12);
-      margin-bottom:2px;
-    }
-
-    .paa-links a{
-      position:relative;
-      isolation:isolate;
-      display:grid;
-      grid-template-columns:1fr auto;
-      align-items:center;
-      min-height:48px;
-      padding:13px 14px;
-      border-radius:16px;
-      border:1px solid rgba(141,248,255,.11);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
-      color:#d5e8f1;
-      font-family:var(--sans);
-      font-size:12px;
-      font-weight:850;
-      letter-spacing:.075em;
-      line-height:1.15;
-      text-transform:uppercase;
-      white-space:nowrap;
-      box-shadow:inset 0 0 18px rgba(141,248,255,.025);
-      transition:transform .22s ease, color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
-    }
-
-    .paa-links a::after{
-      content:"→";
-      color:rgba(141,248,255,.78);
-      font-size:15px;
-      transform:translateX(-3px);
-      opacity:.64;
-      transition:transform .22s ease, opacity .22s ease;
-    }
-
-    .paa-links a:hover{
-      color:#f8fdff;
-      background:linear-gradient(180deg, rgba(141,248,255,.095), rgba(185,88,223,.055));
-      border-color:rgba(141,248,255,.30);
-      box-shadow:
-        0 0 24px rgba(141,248,255,.10),
-        inset 0 0 22px rgba(141,248,255,.045);
-      transform:translateY(-1px);
-    }
-
-    .paa-links a:hover::after{
-      transform:translateX(0);
-      opacity:1;
-    }
-
-    .paa-links a.active{
-      color:#031116;
-      background:linear-gradient(135deg, var(--turquoise), var(--aqua));
-      border-color:rgba(141,248,255,.58);
-      box-shadow:
-        0 14px 34px rgba(49,223,209,.18),
-        0 0 38px rgba(141,248,255,.12);
-    }
-
-    .paa-links a.active::after{
-      color:#031116;
-      opacity:.8;
-    }
-
-    .paa-links a.paa-nav-cta{
-      color:#f9fdff;
-      border-color:rgba(185,88,223,.40);
-      background:linear-gradient(135deg, rgba(185,88,223,.30), rgba(49,223,209,.16));
-      box-shadow:
-        0 0 26px rgba(185,88,223,.12),
-        inset 0 0 18px rgba(141,248,255,.04);
-    }
-
-    .paa-links a.paa-nav-cta.active{
-      color:#031116;
-      background:linear-gradient(135deg, var(--violetBright), var(--aqua));
-      border-color:rgba(141,248,255,.60);
-    }
-
-    @media(max-width:640px){
-      .paa-nav{
-        gap:14px;
-        padding:12px 0;
-      }
-
-      .paa-brand-mark{
-        width:46px;
-        height:46px;
-      }
-
-      .paa-brand-text{
-        font-size:10px;
-        letter-spacing:.105em;
-      }
-
-      .paa-menu-button{
-        min-height:46px;
-        padding:10px 13px;
-      }
-
-      .paa-menu-label{
-        display:none;
-      }
-
-      .paa-links{
-        position:fixed;
-        left:16px;
-        right:16px;
-        top:78px;
-        width:auto;
-      }
-    }
-
-</style>
+  </style>
 </head>
-  
 <body>
-
-<header class="paa-header">
-  <div class="wrap paa-nav">
-    <a class="paa-brand" href="index.html" aria-label="Pythagorean Arithmosophic Anamnesis home">
-      <span class="paa-brand-mark" aria-hidden="true">
-        <span class="paa-tetractys">
-          <span class="paa-tetra-row"><span class="paa-dot"></span></span>
-          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span></span>
-          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
-          <span class="paa-tetra-row"><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span><span class="paa-dot"></span></span>
+<header class="site-header">
+  <div class="wrap nav nav-refined">
+    <a class="brand brand-refined" href="index.html" aria-label="PAA home">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="tetractys">
+          <span class="tetra-row"><span class="dot"></span></span>
+          <span class="tetra-row"><span class="dot"></span><span class="dot"></span></span>
+          <span class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+          <span class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
         </span>
       </span>
-
-      <span class="paa-brand-text">
-        <span>Pythagorean</span>
-        <span>Arithmosophic</span>
-        <span>Anamnesis</span>
-      </span>
+      <span class="brand-lockup">
+        <span class="brand-text"><span>Pythagorean</span><span>Arithmosophic</span><span>Anamnesis</span></span>
+       </span>
     </a>
 
-    <div class="paa-menu-wrap" data-paa-menu>
-      <button class="paa-menu-button" type="button" aria-label="Open primary navigation" aria-expanded="false" aria-controls="paa-primary-menu" data-paa-menu-button>
-        <span class="paa-menu-bars" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span class="paa-menu-label">Menu</span>
-      </button>
-
-      <nav id="paa-primary-menu" class="paa-links" aria-label="Primary navigation" data-paa-menu-panel>
-        <div class="paa-menu-kicker">Navigate</div>
-        <a href="index.html" class="active">Home</a>
-        <a href="geometry.html">Geometry</a>
-        <a href="relationships.html">Relationships</a>
-        <a href="aboutpaa.html">What Is PAA?</a>
-        <a href="donate.html" class="paa-nav-cta">Support PAA</a>
-      </nav>
+    <div class="header-actions">
+      <div class="menu-wrap refined-menu" data-menu>
+        <button class="menu-btn" data-menu-button type="button" aria-label="Open menu" aria-expanded="false">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Menu</span>
+        </button>
+        <nav class="menu-panel" aria-label="Primary navigation">
+          <div class="menu-kicker">PAA Navigation</div>
+          <a class="active" href="index.html"><strong>Home</strong><span>Birth Root Glyph reading</span></a>
+          <a href="aboutpaa.html"><strong>What Is PAA?</strong><span>The method, claim, and public explanation</span></a>
+          <a href="geometry.html"><strong>Geometry</strong><span>Number, form, and structural meaning</span></a>
+          <a href="relationships.html"><strong>Relationships</strong><span>Compare patterns across people and bonds</span></a>
+          <a class="menu-support" href="donate.html"><strong>Support PAA</strong><span>Help build the work</span></a>
+        </nav>
+      </div>
     </div>
   </div>
 </header>
-
 <main>
-
-  <section class="hero wrap">
-
-    <div class="eyebrow">
-      Pythagorean Arithmosophic Anamnesis
-    </div>
-
-  </section>
-
-  <section id="calculator" class="calculator wrap">
-
-    <div class="calculator-topline">
-      Reveal your Birth Root Glyph:
-      a structural diagnostic of recurring pressure,
-      distortion, relational pattern,
-      coherence, and conscious refinement.
-    </div>
-
-    <div class="formgrid">
-
-      <div>
-        <label for="birthdate">Enter Birthdate</label>
-        <input id="birthdate" type="date">
+  <section id="diagnostic" class="hero-gateway wrap">
+    <div class="gateway-inner">
+      <div class="gateway-kicker">Structural Pattern Diagnostics</div>
+      <h1 class="gateway-title">Your life runs on a pattern.</h1> <h2>Discover yours with PAA.</h2>
+       <div class="gateway-console" aria-label="Birth Root Glyph diagnostic input">
+        <div class="gateway-console-inner">
+          <div class="field gateway-field">
+            <label for="fullName">Full name at birth</label>
+            <input id="fullName" type="text" autocomplete="name" placeholder="First Middle Last" />
+          </div>
+          <div class="field gateway-field">
+            <label for="birthdate">Enter birthdate</label>
+            <input id="birthdate" type="date" />
+          </div>
+          <button id="revealBtn" class="btn" type="button">Reveal My Birth Root</button>
+        </div>
+        <div id="errorBox" class="error"></div>
+        <div id="calcPath" class="calc-path"></div>
       </div>
-
-      <button id="revealBtn">
-        Reveal My Birth Root
-      </button>
-
-    </div>
-
-    <div id="errorBox" class="error"></div>
-    <div id="calcPath" class="calc-path"></div>
-
+     </div>
   </section>
 
-  <section class="definition-section wrap">
-
-    <div class="definition-header">
-
-      <h2>The Foundation</h2>
-
-      <p>
-        PAA does not treat number as entertainment,
-        affirmation, or personality theatre.
-      </p>
-
-    </div>
-
-    <div class="hero-definition">
-
-      <p>
-        <strong>Pythagorean</strong>
-        means number is regarded as archetypal structure: the sacred geometric grammar governing relation, tension, harmony, order and consequence.
-      </p>
-
-      <p>
-        <strong>Arithmosophic</strong>
-        means wisdom through number:
-        the disciplined recognition of number as fields of constraint, qualitative essence, archetypal tendency, and symbolic structure.
-      </p>
-
-      <p>
-        <strong>Anamnesis</strong>
-        means remembering:
-        recovering the pattern already operating beneath conscious awareness.
-      </p>
-
-    </div>
-
-    <p class="telos">
-      The aim of PAA is Hieroanamnesis —
-      sacred remembrance through structural recognition.
-      Understanding your Birth Root Glyph is the first threshold.
-    </p>
-
-    <div class="threshold">
-      What repeats reveals pattern.
-      Pattern recognized can be refined.
-    </div>
-
-  </section>
 
   <section id="reading" class="reading wrap" aria-live="polite">
+    <div class="reading-top">
+      <div class="result-kicker">Birth Root Glyph</div>
+      <h2 class="result-title"><span id="glyphNumber">—</span> · <span id="glyphName">Awaiting Date</span></h2>
+      <div id="glyphSubtitle" class="result-sub"></div>
+      <div id="glyphPlanet" class="pill-row"></div>
+      <p id="piercing" class="result-piercing"></p>
+    </div>
 
-    <div class="glyph-hero">
-      <div class="orb"><span id="glyphNumber"></span></div>
-      <div id="piercing" class="piercing"></div>
-      <h2 id="glyphName" class="glyph-title"></h2>
-      <div id="glyphSubtitle" class="glyph-subtitle"></div>
-      <div id="glyphPlanet" class="planet"></div>
+    <div class="tabs" role="tablist" aria-label="Glyph reading sections">
+      <button class="tab active" type="button" data-tab="overview">Overview</button>
+      <button class="tab" type="button" data-tab="pressure">Pressure</button>
+      <button class="tab" type="button" data-tab="eieia">EIEIA</button>
+      <button class="tab" type="button" data-tab="refinement">Refinement</button>
+      <button class="tab" type="button" data-tab="advanced">Advanced</button>
+    </div>
 
-      <div class="glyph-keys" aria-label="Glyph key definitions">
-        <article class="glyph-key-card">
-          <div class="glyph-key-kicker">Archetype</div>
-          <div id="archetypeValue" class="glyph-key-value"></div>
-          <div id="archetypeMeaning" class="glyph-key-meaning"></div>
+    <div id="tab-overview" class="tab-panel active">
+      <div class="result-grid">
+        <article class="result-card">
+          <h3>Archetype</h3>
+          <p><strong id="archetypeValue"></strong></p>
+          <p id="archetypeMeaning"></p>
         </article>
-
-        <article class="glyph-key-card">
-          <div class="glyph-key-kicker">Role</div>
-          <div id="roleValue" class="glyph-key-value"></div>
-          <div id="roleMeaning" class="glyph-key-meaning"></div>
+        <article class="result-card">
+          <h3>Role</h3>
+          <p><strong id="roleValue"></strong></p>
+          <p id="roleMeaning"></p>
         </article>
-
-        <article class="glyph-key-card">
-          <div class="glyph-key-kicker">Sacred Form</div>
-          <div id="formValue" class="glyph-key-value"></div>
-          <div id="formMeaning" class="glyph-key-meaning"></div>
+        <article class="result-card">
+          <h3>Form</h3>
+          <p><strong id="formValue"></strong></p>
+          <p id="formMeaning"></p>
         </article>
-
-        <article class="glyph-key-card">
-          <div class="glyph-key-kicker">Directional Current</div>
-          <div id="directionValue" class="glyph-key-value"></div>
-          <div id="directionMeaning" class="glyph-key-meaning"></div>
+        <article class="result-card">
+          <h3>Direction</h3>
+          <p><strong id="directionValue"></strong></p>
+          <p id="directionMeaning"></p>
+        </article>
+        <article class="result-card wide">
+          <h3>Core Reading</h3>
+          <p id="archetypeText"></p>
+        </article>
+        <article class="result-card good wide">
+          <h3>Wisdom</h3>
+          <p id="wisdom"></p>
         </article>
       </div>
     </div>
 
-    <section class="section">
-      <h2 class="section-title">Core Structure</h2>
-      <p id="archetypeText" class="lead"></p>
-      <p id="wisdom" class="mini"></p>
-      <button id="revealPressureBtn" class="reveal-btn secondary">Reveal Pressure Signature</button>
-    </section>
-
-    <section id="pressureSection" class="section hidden">
-      <h2 class="section-title">Pressure Signature</h2>
-      <div class="grid2">
-        <div class="card">
-          <h3>What Usually Emerges Under Pressure</h3>
-          <ul id="emergesList" class="list"></ul>
-        </div>
-        <div class="card">
-          <h3>What Strains / Distorts The Structure</h3>
-          <ul id="breaksList" class="list"></ul>
-        </div>
+    <div id="tab-pressure" class="tab-panel">
+      <div class="result-grid">
+        <article class="result-card">
+          <h3>How It Emerges Under Pressure</h3>
+          <ul id="emergesList"></ul>
+        </article>
+        <article class="result-card danger">
+          <h3>Where It Strains</h3>
+          <ul id="breaksList"></ul>
+        </article>
+        <article class="result-card wide">
+          <h3>Trigger Pattern</h3>
+          <p id="trigger"></p>
+        </article>
+        <article class="result-card danger wide">
+          <h3>Distortion</h3>
+          <p id="distorted"></p>
+        </article>
       </div>
-      <div id="testLine" class="test-box"></div>
-      <button id="revealAdvancedBtn" class="reveal-btn secondary">Unlock Hidden Architecture</button>
-    </section>
+    </div>
 
-    <section id="advancedSection" class="section advanced-lock hidden">
-      <div class="advanced-preview">
-        <section class="advanced-block">
-          <h2 class="section-title">Hidden Architecture</h2>
-          <div class="grid5">
-            <div class="card"><h3>Essence</h3><p id="essence"></p></div>
-            <div class="card"><h3>Impulse</h3><p id="impulse"></p></div>
-            <div class="card"><h3>Energy</h3><p id="energy"></p></div>
-            <div class="card"><h3>Intelligence</h3><p id="intelligence"></p></div>
-            <div class="card"><h3>Archetypal Action</h3><p id="action"></p></div>
-          </div>
-        </section>
-
-        <section class="advanced-block">
-          <h2 class="section-title">Distortion Vector</h2>
-          <div class="callout distorted">
-            <h3>Fracture Threshold</h3>
-            <p id="trigger"></p>
-          </div>
-          <div class="callout distorted">
-            <h3>Corrupted Pattern</h3>
-            <p id="distorted"></p>
-          </div>
-        </section>
-
-        <section class="advanced-block">
-          <h2 class="section-title">Relational Pattern</h2>
-          <div class="callout">
-            <h3>How The Structure Moves Through Bond</h3>
-            <p id="relational"></p>
-          </div>
-        </section>
-
-        <section class="advanced-block">
-          <h2 class="section-title">Coherent Pattern</h2>
-          <div class="callout coherent">
-            <h3>Coherence</h3>
-            <p id="coherent"></p>
-          </div>
-          <div class="callout coherent">
-            <h3>Reliable Function</h3>
-            <p id="reliable"></p>
-          </div>
-        </section>
-
-        <section class="advanced-block">
-          <h2 class="section-title">Disciplines of Refinement</h2>
-          <div class="grid2">
-            <div class="card"><h3>Awareness</h3><p id="awareness"></p></div>
-            <div class="card"><h3>Corrective Constraint</h3><p id="constraint"></p></div>
-            <div class="card"><h3>Diagnostic Question</h3><p id="feedback"></p></div>
-            <div class="card"><h3>Cost of Non-Refinement</h3><p id="cost"></p></div>
-          </div>
-        </section>
+    <div id="tab-eieia" class="tab-panel">
+      <div class="result-grid">
+        <article class="result-card"><h3>Essence</h3><p id="essence"></p></article>
+        <article class="result-card"><h3>Impulse</h3><p id="impulse"></p></article>
+        <article class="result-card"><h3>Energy</h3><p id="energy"></p></article>
+        <article class="result-card"><h3>Intelligence</h3><p id="intelligence"></p></article>
+        <article class="result-card wide"><h3>Action</h3><p id="action"></p></article>
       </div>
+    </div>
 
-      <div class="lock-overlay">
-        <div class="lock-card">
-          <h2>Advanced Reading</h2>
-          <p>
-            The advanced layer opens the hidden architecture: essence, impulse, energy, intelligence, action, relational pattern, distortion vector, coherent function, and disciplines of refinement.
-          </p>
-          <div class="lock-actions">
-            <a
-              class="button-link"
-              href="https://buy.stripe.com/5kQcN46YA7tZ4Wq8eYcEw04"
-            >
-              Unlock Advanced Patterns
-            </a>
+    <div id="tab-refinement" class="tab-panel">
+      <div class="result-grid">
+        <article class="result-card"><h3>Relational Expression</h3><p id="relational"></p></article>
+        <article class="result-card good"><h3>Coherent Expression</h3><p id="coherent"></p></article>
+        <article class="result-card"><h3>Reliable In</h3><p id="reliable"></p></article>
+        <article class="result-card"><h3>Awareness Practice</h3><p id="awareness"></p></article>
+        <article class="result-card"><h3>Constraint</h3><p id="constraint"></p></article>
+        <article class="result-card"><h3>Feedback Question</h3><p id="feedback"></p></article>
+        <article class="result-card wide"><h3>Cost of Refinement</h3><p id="cost"></p></article>
+        <article class="result-card good wide"><h3>Reflection Test</h3><p id="testLine"></p></article>
+      </div>
+    </div>
+
+    <div id="tab-advanced" class="tab-panel">
+      <div class="advanced-lock">
+        <div id="advancedPreview" class="advanced-preview locked">
+          <div id="advancedReadingOutput" class="result-grid">
+            <article class="result-card wide"><h3>Advanced Glyph Engine</h3><p>Your generated reading will appear here after payment verification.</p></article>
+          </div>
+        </div>
+        <div id="lockOverlay" class="lock-overlay">
+          <div class="lock-card">
+            <h2>Advanced Reading Locked</h2>
+            <p>The public Birth Root is visible above. Purchase the advanced reading to generate your Birth Root → Full Name Glyph interpretation.</p>
+            <div class="lock-actions">
+              <button id="purchaseReading" class="btn purple" type="button">Unlock Advanced Reading</button>
+              <a class="btn secondary" href="donate.html">Support the Work</a>
+            </div>
+            <p id="advancedStatus" class="gateway-note" aria-live="polite"></p>
           </div>
         </div>
       </div>
-    </section>
-
+    </div>
   </section>
 
-</main>
+  <section id="method" class="method-band wrap">
+    <div class="method-band-grid">
+      <article class="method-band-card"><small>Structure</small><b>What repeats</b><p>The reading names the pattern that tends to organize action, perception, and response across situations.</p></article>
+      <article class="method-band-card"><small>Pressure</small><b>What reveals</b><p>Stress exposes the structure more clearly than preference. PAA reads what appears when comfort is removed.</p></article>
+      <article class="method-band-card"><small>Practice</small><b>What corrects</b><p>A reading matters only when it becomes usable: clearer choices, better restraint, and conscious refinement.</p></article>
+    </div>
+  </section>
 
+  <section class="definition wrap">
+    <div class="big-panel">
+      <div class="definition-grid">
+        <div><h2 class="section-title">The public claim.</h2><p class="section-intro">PAA translates number into usable self-knowledge. The system is designed for people who want clear language for recurring patterns: founders, artists, couples, teachers, teams, seekers, skeptics, and anyone looking for insight that can become practice.</p><div class="logion">Your life has recurring patterns. This helps you see them clearly.</div></div>
+        <div class="definition-copy">
+          <article><h3>Pythagorean</h3><p>Number as structure. Relation, proportion, sequence, tension, and form.</p></article>
+          <article><h3>Arithmosophic</h3><p>Number as wisdom. Not arithmetic alone, but the qualitative patterns encoded by number.</p></article>
+          <article><h3>Anamnesis</h3><p>Remembrance. The moment a person sees a pattern already active in life and can begin working with it consciously.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section id="structural-cycle">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">I. The Structural Cycle</div>
+          <h2>Every complex process can be read through recurring states.</h2>
+          <p class="lead">The sequence is not a rigid clock. It is a diagnostic lens for observing how systems develop, stabilize, break, and renew.</p>
+        </div>
+
+        <div class="cycle-grid">
+          <article class="phase"><div class="phase-number">1</div><div class="phase-title">Emergence</div><div class="phase-text">The first impulse. The beginning. The assertion of being.</div></article>
+          <article class="phase"><div class="phase-number">2</div><div class="phase-title">Polarity</div><div class="phase-text">Tension, relation, opposition, reflection, and dependence.</div></article>
+          <article class="phase"><div class="phase-number">3</div><div class="phase-title">Pattern</div><div class="phase-text">Expression, movement, communication, and relational form.</div></article>
+          <article class="phase"><div class="phase-number">4</div><div class="phase-title">Structure</div><div class="phase-text">Stabilization, boundary, discipline, and foundation.</div></article>
+          <article class="phase"><div class="phase-number">5</div><div class="phase-title">Variation</div><div class="phase-text">Experimentation, adaptation, disruption, and motion.</div></article>
+          <article class="phase"><div class="phase-number">6</div><div class="phase-title">Integration</div><div class="phase-text">Harmony, responsibility, restoration, and relational coherence.</div></article>
+          <article class="phase"><div class="phase-number">7</div><div class="phase-title">Threshold</div><div class="phase-text">Crisis, rupture, discernment, initiation, and severance.</div></article>
+          <article class="phase"><div class="phase-number">8</div><div class="phase-title">Expansion</div><div class="phase-text">Power, force, consequence, amplification, and material command.</div></article>
+          <article class="phase"><div class="phase-number">9</div><div class="phase-title">Completion</div><div class="phase-text">Exhaustion, fulfillment, culmination, and release.</div></article>
+          <article class="phase eleven"><div class="phase-number">11</div><div><div class="phase-title">Recursive Emergence</div><div class="phase-text">The completed cycle becomes conscious of itself and begins again at a higher order.</div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="domains">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">II. Where the Pattern Appears</div>
+          <h2>The same structural grammar can be applied across domains.</h2>
+        </div>
+
+        <div class="domain-grid">
+          <article class="domain"><div class="domain-title">Individual Life</div><div class="domain-text">Birth, identity formation, experimentation, maturity, crisis, and renewal.</div></article>
+          <article class="domain"><div class="domain-title">Organizations</div><div class="domain-text">Founding, internal tension, process formation, innovation, fracture, and reform.</div></article>
+          <article class="domain"><div class="domain-title">Civilizations</div><div class="domain-text">Emergence, consolidation, expansion, decadence, collapse, and transformation.</div></article>
+          <article class="domain"><div class="domain-title">Ideas</div><div class="domain-text">Discovery, debate, formalization, orthodoxy, rebellion, and synthesis.</div></article>
+          <article class="domain"><div class="domain-title">Biology</div><div class="domain-text">Variation, selection, stabilization, mutation, extinction, and emergence.</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="card cta">
+          <h2>Begin with the Birth Root Glyph.</h2>
+          <p>The Birth Root Glyph is the first diagnostic entry point into PAA: a structural reading of what tends to hold, what tends to challenge, and what must be brought into conscious alignment.</p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a href="index.html#diagnostic" class="button primary">Reveal Your Birth Root Glyph</a>
+            <a href="donate.html" class="button secondary">Support the Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+</main>
 <footer>
-  © 2026 Pythagorean Arithmosophic Anamnesis LLC
+  <div class="wrap footer-grid">
+    <span>© 2026 Pythagorean Arithmosophic Anamnesis LLC</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
 </footer>
 <script>
+  const menuWrap = document.querySelector('[data-menu]');
+  const menuBtn = document.querySelector('[data-menu-button]');
+  function setMenu(open){ if(!menuWrap||!menuBtn)return; menuWrap.classList.toggle('open',open); menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+  menuBtn?.addEventListener('click', e => { e.stopPropagation(); setMenu(!menuWrap.classList.contains('open')); });
+  document.addEventListener('click', e => { if(menuWrap && !menuWrap.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') setMenu(false); });
 
-  const paaMenuWrap = document.querySelector('[data-paa-menu]');
-  const paaMenuButton = document.querySelector('[data-paa-menu-button]');
-
-  function closePaaMenu() {
-    if (!paaMenuWrap || !paaMenuButton) return;
-    paaMenuWrap.classList.remove('open');
-    paaMenuButton.setAttribute('aria-expanded', 'false');
-    paaMenuButton.setAttribute('aria-label', 'Open primary navigation');
-  }
-
-  function togglePaaMenu() {
-    if (!paaMenuWrap || !paaMenuButton) return;
-    const isOpen = paaMenuWrap.classList.toggle('open');
-    paaMenuButton.setAttribute('aria-expanded', String(isOpen));
-    paaMenuButton.setAttribute('aria-label', isOpen ? 'Close primary navigation' : 'Open primary navigation');
-  }
-
-  paaMenuButton?.addEventListener('click', (event) => {
-    event.stopPropagation();
-    togglePaaMenu();
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!paaMenuWrap?.contains(event.target)) closePaaMenu();
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closePaaMenu();
-  });
-
-  document.querySelectorAll('[data-paa-menu-panel] a').forEach((link) => {
-    link.addEventListener('click', closePaaMenu);
-  });
-
-  const glyphs = {
+const glyphs = {
   "1": {
     "name": "The Monad",
     "title": "The Originator",
@@ -1862,12 +690,12 @@
     "form": "The Point",
     "direction": "Outward from center into manifestation",
     "archetypeMeaning": "This is the prime movement of will: the part of the structure that begins, asserts, chooses, and risks standing alone. It reveals how identity forms when no outside permission is given.",
-    "roleMeaning": "The Pioneer cuts the first path; the Sovereign Individual must learn to lead without requiring every space to become a throne. This role carries initiative, decision, and the burden of first motion.",
-    "formMeaning": "The Point is pure origin before extension. It teaches concentration, singularity, seed-force, and the hidden danger of reducing the whole world to one private center.",
-    "directionMeaning": "This current moves outward from the center into manifestation. It presses essence into action, but must learn that projection without reception becomes isolation.",
-    "piercing": "You do not fear failure as much as you fear being unnecessary.",
+    "roleMeaning": "The Pioneer cuts the first path; the Sovereign Individual is invited to learn to lead without requiring every space to become a throne. This role carries initiative, decision, and the burden of first motion.",
+    "formMeaning": "The Point is pure origin before extension. It teaches concentration, singularity, seed-force, and the hidden learning edge of reducing the whole world to one private center.",
+    "directionMeaning": "This current moves outward from the center into manifestation. It presses essence into action, but is invited to learn that projection without reception becomes isolation.",
+    "piercing": "Your gift is initiative: learning to begin with confidence while still staying open to support.",
     "archetypeText": "The Monad is the first incision in the undifferentiated field: will becoming direction. Where 1 appears, something begins before permission is granted. This structure does not wait for consensus to discover whether it exists. It acts, and by acting, creates the road others later call obvious.",
-    "wisdom": "The refined 1 begins without needing to conquer. The unrefined 1 turns every beginning into a throne room.",
+    "wisdom": "The refined 1 begins with courage and leads without needing every moment to become a test of worth.",
     "pressure": [
       "Decision compresses into a single center: I will decide.",
       "Delay becomes intolerable because hesitation feels like decay.",
@@ -1889,16 +717,16 @@
       "intelligence": "Sees openings, vacuums, and unclaimed territory before others name them.",
       "action": "To initiate the first act that makes all subsequent acts possible."
     },
-    "trigger": "Irrelevance, dependency, loss of autonomy, public diminishment, or being absorbed into a faceless collective.",
-    "distorted": "Domination, isolation, compulsive self-proving, refusal of correction, contempt for hesitation, and confusing leadership with existential proof.",
-    "relational": "The 1 often enters relationship as direction, not reception. It may offer protection, certainty, and movement, yet struggle when another will does not organize itself around its axis. Its refinement begins when intimacy is no longer treated as a threat to sovereignty.",
-    "coherent": "Decisive leadership that opens a path without demanding worship from those who walk it.",
+    "trigger": "This pattern may feel strained by dependency, unclear authority, loss of autonomy, or environments where initiative is not welcomed.",
+    "distorted": "When unbalanced, the 1 may become overly self-reliant, impatient with slower processes, resistant to feedback, or pressured to prove itself through control.",
+    "relational": "In relationship, the 1 often brings direction, protection, and momentum. Its growth is learning that receiving, collaborating, and being influenced can strengthen sovereignty rather than diminish it.",
+    "coherent": "Decisive leadership that opens a path without invitationing worship from those who walk it.",
     "reliable": "First moves, crisis-direction, self-starting effort, uncharted territory, and situations requiring courage before certainty.",
-    "awareness": "Notice when independence becomes compulsion: when receiving help feels like being reduced.",
-    "constraint": "Practice deliberate followership. Let another lead without silently prosecuting them.",
-    "feedback": "Ask: Am I creating movement, or am I trying to prove I deserve existence?",
-    "cost": "Left unrefined, the Monad stands alone at the center of what it created and calls the loneliness strength.",
-    "test": "Test this: do you lead because the moment requires direction, or because not leading feels like nonexistence?"
+    "awareness": "Notice when independence starts to feel like the only safe option.",
+    "constraint": "Practice shared leadership. Let another person lead sometimes, and observe what support becomes possible.",
+    "feedback": "Ask: Am I creating movement because the moment needs it, or because stillness makes me uneasy?",
+    "cost": "Refinement protects the 1 from carrying everything alone and mistaking isolation for strength.",
+    "test": "Reflection prompt: Where could I invite support without losing my own center?"
   },
   "2": {
     "name": "The Dyad",
@@ -1909,12 +737,12 @@
     "form": "The Line",
     "direction": "Horizontal attunement across relationship",
     "archetypeMeaning": "This is the principle of relational perception: the structure that detects tone, bond, distance, atmosphere, and the invisible condition between self and other.",
-    "roleMeaning": "The Harmonizer senses imbalance before others can name it; the Emotional Barometer registers shifts in the field. This role carries sensitivity, mediation, and the danger of self-erasure.",
+    "roleMeaning": "The Harmonizer senses imbalance before others can name it; the Emotional Barometer registers shifts in the field. This role carries sensitivity, mediation, and the learning edge of self-erasure.",
     "formMeaning": "The Line is the first extension from unity into relationship. It teaches polarity, contact, opposition, reflection, and the tension created when one becomes two.",
-    "directionMeaning": "This current moves horizontally across relationship. It seeks attunement between beings, but must learn that harmony without truth eventually becomes resentment.",
-    "piercing": "You often know what others feel before you know what you want.",
+    "directionMeaning": "This current moves horizontally across relationship. It seeks attunement between beings, but is invited to learn that harmony without truth eventually becomes resentment.",
+    "piercing": "Your gift is attunement: learning to honor the bond without disappearing inside it.",
     "archetypeText": "The Dyad is the first division that preserves relation. It is the One discovering itself through the Other. Where 2 appears, the field is read through tone, tension, proximity, absence, and response. This structure detects the bond before it names the self inside the bond.",
-    "wisdom": "Harmony without truth becomes concealment. Peace purchased through self-erasure eventually returns as resentment.",
+    "wisdom": "Harmony becomes mature when it includes honesty. Peace is strongest when the self remains present.",
     "pressure": [
       "Attention moves immediately toward the state of the bond.",
       "You mirror emotional temperature before stating your own position.",
@@ -1927,7 +755,7 @@
       "Conflict with no path toward repair.",
       "Emotional opacity in people you depend on.",
       "Mechanical environments where feeling is treated as noise.",
-      "Being forced to act without considering interpersonal consequence."
+      "Being pressured to act without considering interpersonal consequence."
     ],
     "eieia": {
       "essence": "Relational awareness: reality known through reflection, contrast, and response.",
@@ -1936,16 +764,16 @@
       "intelligence": "Reads tone, feedback, unsaid feeling, and the hidden condition of relationship.",
       "action": "To reveal the field through response rather than declaration."
     },
-    "trigger": "Rejection, abandonment, emotional distance, relational ambiguity, or being unwanted when honest.",
-    "distorted": "People-pleasing, indirect control through sensitivity, dependency, delayed resentment, emotional merging, and calling fear compassion.",
-    "relational": "The 2 can become indispensable by becoming agreeable. It often carries the atmosphere of the relationship and then quietly suffers when the other fails to notice the labor. The task is not to love less; it is to stop disappearing in order to be loved.",
+    "trigger": "This pattern may feel strained by rejection, emotional distance, relational ambiguity, or conflict with no clear path toward repair.",
+    "distorted": "When unbalanced, the 2 may over-adapt, delay honesty, absorb too much emotional atmosphere, or confuse keeping peace with staying connected.",
+    "relational": "In relationship, the 2 often senses subtle changes before they are spoken. Its growth is learning to name its own needs directly, not only the needs of the bond.",
     "coherent": "Attunement with boundaries: empathy without self-erasure, softness without concealment.",
     "reliable": "Emotional reading, mediation, relational continuity, conflict softening, and sensing misalignment before it becomes visible.",
-    "awareness": "Notice when your nervous system is being governed by someone else’s presence, absence, mood, or approval.",
-    "constraint": "Name your own position before adapting to the other person’s needs.",
-    "feedback": "Ask directly: Am I being clear, or am I just trying to keep things smooth?",
-    "cost": "Left unrefined, the Mirror becomes fragments of others: no center, only reflection.",
-    "test": "Test this: when you call it compassion, is it truth-bearing care or fear wearing a gentle face?"
+    "awareness": "Notice when another person’s mood begins to determine your entire inner state.",
+    "constraint": "State your own position before adapting to the other person’s position.",
+    "feedback": "Ask: Am I being gentle and clear, or gentle instead of clear?",
+    "cost": "Refinement protects the 2 from becoming only a reflection of others while losing contact with its own center.",
+    "test": "Reflection prompt: What do I want, before I adjust to what someone else needs?"
   },
   "3": {
     "name": "The Triad",
@@ -1956,12 +784,12 @@
     "form": "The Triangle",
     "direction": "Expansive synthesis toward audience and resonance",
     "archetypeMeaning": "This is the principle of expression and synthesis: the structure that turns inner movement into language, image, story, humor, symbol, and communicable pattern.",
-    "roleMeaning": "The Storyteller gives form to experience; the Creative Catalyst introduces the third option when a field is trapped in sterile duality. This role carries charm, translation, and the danger of performance replacing embodiment.",
-    "formMeaning": "The Triangle is the first stable plane: two forces reconciled by a third. It teaches mediation, pattern, articulation, and the birth of meaning from tension.",
-    "directionMeaning": "This current expands toward audience and resonance. It seeks contact through expression, but must learn that being heard is not the same as being true.",
-    "piercing": "You sometimes perform clarity before you have actually embodied it.",
+    "roleMeaning": "The Storyteller gives form to experience; the Creative Catalyst introduces the third option when a field is trapped in sterile duality. This role carries charm, translation, and the learning edge of performance replacing embodiment.",
+    "formMeaning": "The Triangle is the first stable plane: two invites reconciled by a third. It teaches mediation, pattern, articulation, and the birth of meaning from tension.",
+    "directionMeaning": "This current expands toward audience and resonance. It seeks contact through expression, but is invited to learn that being heard is not the same as being true.",
+    "piercing": "Your gift is expression: learning to let your words, creativity, and presence reveal what is true.",
     "archetypeText": "The Triad is synthesis: the third form born when opposition becomes communicable. Where 3 appears, pressure seeks language, image, gesture, humor, pattern, or performance. This structure turns inner weather into signal and makes the invisible socially transmissible.",
-    "wisdom": "Expression becomes sacred when it clarifies reality. It becomes distortion when stimulation replaces truth.",
+    "wisdom": "Expression is most powerful when it clarifies reality and gives form to what others could not yet say.",
     "pressure": [
       "You generate options, language, metaphors, and reframes.",
       "Tension is converted into speech, humor, image, or output.",
@@ -1971,7 +799,7 @@
     ],
     "strain": [
       "Static, single-path thinking with no room for reinterpretation.",
-      "Silence demanded when expression is necessary.",
+      "Silence invitationed when expression is necessary.",
       "Pure obedience without symbolic participation.",
       "Emotional pressure with no creative outlet.",
       "Long-term suppression of voice, image, movement, or play."
@@ -1983,16 +811,16 @@
       "intelligence": "Perceives narrative openings, combinations, mood, audience, and unspoken potential.",
       "action": "To transform pressure into communicable pattern."
     },
-    "trigger": "Being ignored, trapped in silence, emotionally irrelevant, ordinary, unseen, or unable to transmit what is moving inside.",
-    "distorted": "Performance without embodiment, charm without depth, scattered production, emotional spectacle, unfinished ideas, and needing response to stabilize identity.",
-    "relational": "The 3 often brings brightness into relationship, but may use wit, eloquence, or charisma to avoid plain vulnerability. It can speak beautifully around the wound instead of from the wound. The task is to let expression become contact, not escape.",
+    "trigger": "This pattern may feel strained by being ignored, silenced, unseen, creatively blocked, or unable to communicate what is alive inside.",
+    "distorted": "When unbalanced, the 3 may over-perform, scatter attention, chase response, or use charm and creativity to avoid deeper embodiment.",
+    "relational": "In relationship, the 3 brings brightness, humor, language, and possibility. Its growth is letting expression become genuine contact rather than a beautiful way to avoid vulnerability.",
     "coherent": "Precise communication, joyful intelligence, symbolic clarity, and expression rooted in lived truth.",
     "reliable": "Inspiration, reframing, teaching, storytelling, creative problem-solving, and lifting the field when morale collapses.",
-    "awareness": "Notice when speaking becomes escape from direct encounter with reality.",
-    "constraint": "Finish one thing before beginning three. Let completion become the proof of expression.",
-    "feedback": "Ask: Did I reveal truth, or merely create stimulation?",
-    "cost": "Left unrefined, the Signal becomes noise: admired briefly, trusted rarely.",
-    "test": "Test this: did the expression clarify what is true, or did it only protect you from the silence?"
+    "awareness": "Notice when speaking, joking, creating, or explaining becomes a way to move around the feeling rather than through it.",
+    "constraint": "Complete one meaningful thing before beginning several new ones.",
+    "feedback": "Ask: Did my expression clarify something true, or simply create stimulation?",
+    "cost": "Refinement protects the 3 from becoming scattered, overextended, or admired without being deeply trusted.",
+    "test": "Reflection prompt: What wants to be expressed clearly, simply, and all the way through?"
   },
   "4": {
     "name": "The Tetrad",
@@ -2003,12 +831,12 @@
     "form": "The Square",
     "direction": "Downward and inward into durable form",
     "archetypeMeaning": "This is the principle of durable form: the structure that orders, grounds, stabilizes, disciplines, protects, and tests whether a vision can actually bear weight.",
-    "roleMeaning": "The Architect designs what can hold; the Foundation-Keeper preserves continuity when others become intoxicated by novelty. This role carries reliability, craft, and the danger of confusing rigidity with strength.",
+    "roleMeaning": "The Architect designs what can hold; the Foundation-Keeper preserves continuity when others become intoxicated by novelty. This role carries reliability, craft, and the learning edge of confusing rigidity with strength.",
     "formMeaning": "The Square is boundary, base, wall, floor, and measure. It teaches containment, sequence, responsibility, and the cost of making safety too narrow to breathe inside.",
-    "directionMeaning": "This current moves downward and inward into durable form. It compresses possibility into structure, but must learn that permanence without adaptability becomes a tomb.",
-    "piercing": "You trust what holds more than what dazzles.",
+    "directionMeaning": "This current moves downward and inward into durable form. It compresses possibility into structure, but is invited to learn that permanence without adaptability becomes a closed structure.",
+    "piercing": "Your gift is structure: learning to build what lasts while keeping enough space for life to move.",
     "archetypeText": "The Tetrad is manifestation: limit, corner, boundary, weight, and repeatable form. Where 4 appears, chaos is asked to become accountable. This structure does not merely dream the temple; it asks whether the foundation can bear weather, time, burden, and use.",
-    "wisdom": "True structure is not rigidity. It is ordered flexibility: the skeleton that permits life to move without collapsing.",
+    "wisdom": "True structure is not rigidity. It is ordered flexibility: a foundation strong enough to support growth.",
     "pressure": [
       "You seek procedure, sequence, rule, schedule, or boundary.",
       "Chaos is converted into repeatable structure.",
@@ -2030,16 +858,16 @@
       "intelligence": "Reads weak foundations, load-bearing points, procedural gaps, and what will endure.",
       "action": "To make vision inhabitable through disciplined sequence."
     },
-    "trigger": "Instability, irresponsibility, disorder, unpredictability, wasted labor, or watching careless people damage what required discipline to build.",
-    "distorted": "Rigidity, punitive control, emotional shutdown, work as identity, moralizing productivity, and confusing safety with immobility.",
-    "relational": "The 4 tries to create safety through reliability. It may love by fixing, providing, scheduling, and stabilizing, then feel wounded when this is not recognized as devotion. Its refinement begins when order serves life rather than quietly prosecuting it.",
-    "coherent": "Patient craftsmanship, dependable stewardship, grounded leadership, and structures that protect life without imprisoning it.",
+    "trigger": "This pattern may feel strained by disorder, unpredictability, wasted effort, unclear roles, or responsibility that no one seems willing to carry.",
+    "distorted": "When unbalanced, the 4 may become rigid, overly serious, controlling, emotionally closed, or unable to rest without feeling unproductive.",
+    "relational": "In relationship, the 4 often loves through reliability, provision, planning, and repair. Its growth is remembering that order should serve life, not quietly measure it.",
+    "coherent": "Patient craftsmanship, dependable stewardship, grounded leadership, and structures that protect life without imenclosureing it.",
     "reliable": "Execution, planning, maintenance, logistical clarity, long-term commitments, and turning vision into durable form.",
-    "awareness": "Notice when discipline becomes punishment and rest begins to feel like moral failure.",
-    "constraint": "Practice deliberate unstructured time. Preserve principle without fossilizing form.",
-    "feedback": "Ask: Do people feel safe in my order, or surveilled by it?",
-    "cost": "Left unrefined, the Stone becomes a tomb: stable, impressive, and spiritually airless.",
-    "test": "Test this: are you protecting the foundation, or worshiping the weight because movement frightens you?"
+    "awareness": "Notice when discipline starts to feel like punishment, or when rest starts to feel undeserved.",
+    "constraint": "Practice flexible structure. Keep the principle, but allow the form to breathe.",
+    "feedback": "Ask: Does my order help people feel safe and supported, or tense and monitored?",
+    "cost": "Refinement protects the 4 from building a stable life that has too little openness, play, or emotional air.",
+    "test": "Reflection prompt: What structure would support life here without narrowing it?"
   },
   "5": {
     "name": "The Pentad",
@@ -2049,13 +877,13 @@
     "role": "The Explorer / The Disruptor",
     "form": "The Pentagon / Pentagram",
     "direction": "Centrifugal spiral through variation and risk",
-    "archetypeMeaning": "This is the principle of variation and release: the structure that detects stagnation, breaks enclosure, introduces movement, and forces life to keep adapting.",
-    "roleMeaning": "The Explorer crosses boundaries to gather usable knowledge; the Disruptor prevents systems from mistaking repetition for life. This role carries adaptability, risk, and the danger of escape disguised as freedom.",
+    "archetypeMeaning": "This is the principle of variation and release: the structure that detects stagnation, opens enclosure, introduces movement, and invites life to keep adapting.",
+    "roleMeaning": "The Explorer crosses boundaries to gather usable knowledge; the Disruptor prevents systems from mistaking repetition for life. This role carries adaptability, risk, and the learning edge of escape disguised as freedom.",
     "formMeaning": "The Pentagon and Pentagram encode living proportion, organic growth, and the restless geometry of adaptation. They teach motion, embodiment, experiment, and the peril of scattering the center.",
-    "directionMeaning": "This current moves as a centrifugal spiral through variation and risk. It seeks oxygen, novelty, and expansion, but must learn that mastery begins when movement survives commitment.",
-    "piercing": "You periodically destroy stability just to feel movement again.",
+    "directionMeaning": "This current moves as a centrifugal spiral through variation and risk. It seeks oxygen, novelty, and expansion, but is invited to learn that mastery begins when movement survives commitment.",
+    "piercing": "Your gift is movement: learning to seek freedom in a way that still honors continuity and care.",
     "archetypeText": "The Pentad is dynamic change: adaptation, disruption, appetite, risk, and the refusal of stagnation. Where 5 appears, life searches for exits, openings, alternate routes, forbidden doors, and fresh air. This structure does not deteriorate through motion; it deteriorates when motion becomes escape.",
-    "wisdom": "Freedom is not the absence of commitment. It is the ability to remain or depart without compulsion.",
+    "wisdom": "Freedom is not the absence of commitment. It is the ability to move, stay, choose, and adapt without compulsion.",
     "pressure": [
       "You introduce change before the room admits it needs change.",
       "Confinement activates escape routes, experiments, and pivots.",
@@ -2067,8 +895,8 @@
       "Monotony with no meaningful variation.",
       "Fixed identity without evolution.",
       "Total predictability.",
-      "Surveillance, overcontrol, or forced compliance.",
-      "Commitment presented as imprisonment rather than chosen form."
+      "Surveillance, overcontrol, or pressured compliance.",
+      "Commitment presented as imenclosurement rather than chosen form."
     ],
     "eieia": {
       "essence": "Dynamic change: life survives by adapting, mutating, and moving.",
@@ -2077,16 +905,16 @@
       "intelligence": "Reads stagnation, hidden pathways, social openings, and what must be disrupted.",
       "action": "To cross the boundary and return with usable knowledge."
     },
-    "trigger": "Boredom, confinement, routine, surveillance, overcontrol, or the slow death of predictability.",
-    "distorted": "Impulsivity, addiction to novelty, seduction, abandonment of people and projects, unfinished cycles, and fear of rootedness disguised as freedom.",
-    "relational": "The 5 brings vitality, surprise, humor, and possibility into relationship, but may panic when love becomes expectation. It often mistakes being known for being trapped. The task is learning that depth is not a cage; it is freedom surviving repetition.",
+    "trigger": "This pattern may feel strained by monotony, confinement, over-control, surveillance, or routines that leave no room for meaningful variation.",
+    "distorted": "When unbalanced, the 5 may become restless, impulsive, easily bored, unfinished, or tempted to leave before discomfort has finished teaching.",
+    "relational": "In relationship, the 5 brings vitality, surprise, humor, and possibility. Its growth is discovering that depth is not a cage; it is freedom that survives repetition.",
     "coherent": "Adaptive intelligence, embodied vitality, meaningful exploration, and motion joined to responsibility.",
     "reliable": "Catalyzing change, cross-pollinating ideas, navigating uncertainty, rapid adaptation, and breaking stagnation.",
-    "awareness": "Notice whether you are running toward life or away from consequence.",
-    "constraint": "Complete one full cycle before beginning the next escape.",
-    "feedback": "Count the unfinished things in your life. Each one has a cost that compounds.",
-    "cost": "Left unrefined, the Wind scatters everything it touches, including itself.",
-    "test": "Test this: is this freedom, or merely refusal to let discomfort finish its work?"
+    "awareness": "Notice whether you are moving toward aliveness or away from consequence.",
+    "constraint": "Complete one full cycle before opening the next door.",
+    "feedback": "Ask: Is this choice expanding life, or simply escaping discomfort?",
+    "cost": "Refinement protects the 5 from scattering energy across too many exits and losing the deeper freedom of mastery.",
+    "test": "Reflection prompt: What commitment would make my freedom stronger rather than smaller?"
   },
   "6": {
     "name": "The Hexad",
@@ -2097,12 +925,12 @@
     "form": "The Hexagon",
     "direction": "Centripetal gathering toward center",
     "archetypeMeaning": "This is the principle of harmonic repair: the structure that gathers fragments, restores beauty, protects the vulnerable, and turns care into an organizing force.",
-    "roleMeaning": "The Caretaker preserves the living bond; the Aesthetic Harmonizer senses ugliness, imbalance, and relational fracture. This role carries devotion, hospitality, and the danger of control through care.",
+    "roleMeaning": "The Caretaker preserves the living bond; the Aesthetic Harmonizer senses ugliness, imbalance, and relational fracture. This role carries devotion, hospitality, and the learning edge of control through care.",
     "formMeaning": "The Hexagon is efficient harmony: the cell, the hive, the pattern where parts interlock without wasted space. It teaches proportion, stewardship, relational order, and the burden of maintaining the whole.",
-    "directionMeaning": "This current moves centripetally toward center. It gathers, repairs, and beautifies, but must learn that love which removes another’s burden may also remove their strength.",
-    "piercing": "You can become resentful when others fail to appreciate care they never asked you to carry.",
+    "directionMeaning": "This current moves centripetally toward center. It gathers, repairs, and beautifies, but is invited to learn that love which removes another’s burden may also remove their strength.",
+    "piercing": "Your gift is care: learning to love in a way that strengthens others without carrying what is theirs to carry.",
     "archetypeText": "The Hexad is harmony made functional: beauty, obligation, repair, devotion, and the intelligence of the whole. Where 6 appears, scattered pieces are gathered toward belonging. This structure senses what is neglected and instinctively moves to restore proportion.",
-    "wisdom": "Care becomes distortion when helping others replaces allowing them to become responsible.",
+    "wisdom": "Care becomes most mature when it restores dignity, responsibility, and beauty without creating hidden obligation.",
     "pressure": [
       "You attempt to restore balance across the system.",
       "Tension is absorbed so the whole can continue functioning.",
@@ -2124,16 +952,16 @@
       "intelligence": "Reads need, imbalance, aesthetic dissonance, and invisible maintenance labor.",
       "action": "To create conditions in which life can flourish."
     },
-    "trigger": "Ingratitude, ugliness, neglect, relational fracture, disorder in the home-field, or feeling unneeded.",
-    "distorted": "Martyrdom, guilt-based control, over-involvement, perfectionism, invisible ledgers, and love that creates obligation rather than freedom.",
-    "relational": "The 6 often tries to prevent abandonment by becoming indispensable. It may call this love, but the body knows when care has become control. The task is to give without binding and to receive without earning.",
+    "trigger": "This pattern may feel strained by neglect, ingratitude, ugliness, relational fracture, disorder in the home-field, or feeling unneeded.",
+    "distorted": "When unbalanced, the 6 may over-give, over-manage, keep invisible ledgers, pursue perfection, or turn care into quiet control.",
+    "relational": "In relationship, the 6 often creates warmth, repair, and belonging. Its growth is giving without binding and receiving without needing to earn love through usefulness.",
     "coherent": "Protective love, restorative beauty, mature devotion, and care that strengthens rather than absorbs.",
     "reliable": "Hospitality, repair, emotional labor, aesthetic order, protection, community care, and restoring broken trust.",
-    "awareness": "Notice when giving has strings attached and invisible accounts are being kept.",
-    "constraint": "Allow others to carry their rightful burden. Do not rescue them from the consequence that would mature them.",
-    "feedback": "Ask: Do you feel free in my love, or obligated by it?",
-    "cost": "Left unrefined, the Hearth becomes a shrine to resentment.",
-    "test": "Test this: are you loving them, or managing them so you do not have to feel disorder?"
+    "awareness": "Notice when giving begins to carry an unspoken expectation of repayment or recognition.",
+    "constraint": "Let others carry their rightful burden. Support growth without removing every consequence.",
+    "feedback": "Ask: Does my care help this person become stronger, freer, and more responsible?",
+    "cost": "Refinement protects the 6 from resentment, exhaustion, and love that quietly becomes obligation.",
+    "test": "Reflection prompt: What would care look like if it strengthened both of us?"
   },
   "7": {
     "name": "The Heptad",
@@ -2144,12 +972,12 @@
     "form": "The Heptagon",
     "direction": "Inward and downward toward hidden structure",
     "archetypeMeaning": "This is the principle of hidden structure and sacred severance: the part of consciousness that withdraws from noise to find what survives examination.",
-    "roleMeaning": "The Philosopher questions the given world; the Sacred Investigator descends beneath appearances until easy answers collapse. This role carries discernment, solitude, and the danger of exile mistaken for wisdom.",
+    "roleMeaning": "The Philosopher questions the given world; the Sacred Investigator descends beneath appearances until easy answers collapse. This role carries discernment, solitude, and the learning edge of exile mistaken for wisdom.",
     "formMeaning": "The Heptagon resists easy construction. It teaches irreducible mystery, incompletion before the infinite, and the humility required when reality exceeds the instrument of measurement.",
-    "directionMeaning": "This current moves inward and downward toward hidden structure. It seeks depth, signal, and truth beneath surface, but must learn to return from the cave with warmth still intact.",
-    "piercing": "You retreat into understanding because participation can feel less safe than analysis.",
-    "archetypeText": "The Heptad is irreducible mystery: the prime that refuses easy construction, the threshold where surface explanations fail. Where 7 appears, the obvious becomes suspect. This structure descends beneath appearance, severs false certainty, and searches for what remains true after illusion burns away.",
-    "wisdom": "The 7 cuts. Then it must ask whether the severance was discernment or fear.",
+    "directionMeaning": "This current moves inward and downward toward hidden structure. It seeks depth, signal, and truth beneath surface, but is invited to learn to return from the cave with warmth still intact.",
+    "piercing": "Your gift is discernment: learning to seek depth while still returning to connection, warmth, and lived participation.",
+    "archetypeText": "The Heptad is irreducible mystery: the prime that refuses easy construction, the threshold where surface explanations fail. Where 7 appears, the obvious becomes suspect. This structure descends beneath appearance, severs false certainty, and searches for what remains true after illusion falls away.",
+    "wisdom": "The 7 sees beneath the surface. Its maturity is bringing insight back into life in a form others can receive and use.",
     "pressure": [
       "You withdraw to isolate variables and reduce noise.",
       "Surface explanations are interrogated until they crack.",
@@ -2160,8 +988,8 @@
     "strain": [
       "Constant external engagement without reflection.",
       "Pressure to accept what has not been examined.",
-      "Noise, shallow interaction, forced conformity, or performative certainty.",
-      "Rapid action demanded before understanding.",
+      "Noise, shallow interaction, pressured conformity, or performative certainty.",
+      "Rapid action invitationed before understanding.",
       "People who confuse confidence with truth."
     ],
     "eieia": {
@@ -2171,16 +999,16 @@
       "intelligence": "Reads hidden structures, subtle contradictions, false premises, and questions others stopped asking.",
       "action": "To enter the cave of unknowing and return with usable fragments of truth."
     },
-    "trigger": "Deception, superficiality, forced conformity, exposure of ignorance, or being pressured to accept unexamined claims.",
-    "distorted": "Isolation, elitism, contempt, emotional severance, analysis as armor, complexity weaponized against others, and exile mistaken for wisdom.",
-    "relational": "The 7 needs distance to process experience, but others may experience this as disappearance. It may secretly desire intimacy while testing whether anyone can survive its silence. The task is to return from the depths before distance becomes abandonment.",
-    "coherent": "Discernment without contempt. Solitude without exile. Precision joined to living warmth.",
+    "trigger": "This pattern may feel strained by deception, superficiality, pressured certainty, noise, conformity, or pressure to accept what has not been examined.",
+    "distorted": "When unbalanced, the 7 may withdraw too far, become overly skeptical, mistake distance for wisdom, or use analysis to avoid being touched by life.",
+    "relational": "In relationship, the 7 needs space to process and understand. Its growth is learning to communicate that need clearly and return before distance feels like disappearance.",
+    "coherent": "Discernment without dismissiveness. Solitude without exile. Precision joined to living warmth.",
     "reliable": "Deep analysis, pattern recognition, spiritual discernment, research, hidden truth, and separating signal from noise.",
-    "awareness": "Notice when depth becomes a hiding place and understanding substitutes for experiencing.",
-    "constraint": "Return from reflection with something usable. Insight must descend into life.",
-    "feedback": "Ask someone you respect: Am I wise, or am I distant?",
-    "cost": "Left unrefined, the Veil becomes a shroud: accurate, sharp, and unreachable.",
-    "test": "Test this: did you reveal truth, or did distance merely protect you from being touched?"
+    "awareness": "Notice when depth becomes a hiding place and understanding substitutes for experience.",
+    "constraint": "Bring one insight back into a concrete act, conversation, or practice.",
+    "feedback": "Ask: Is this solitude helping me return with clarity, or helping me avoid contact?",
+    "cost": "Refinement protects the 7 from becoming accurate but unreachable, perceptive but lonely.",
+    "test": "Reflection prompt: What truth can I bring back into relationship today?"
   },
   "8": {
     "name": "The Ogdoad",
@@ -2191,12 +1019,12 @@
     "form": "The Octagon",
     "direction": "Ascending spiral through consequence and scale",
     "archetypeMeaning": "This is the principle of force under consequence: the structure that handles power, leverage, authority, resources, command, and the ethical burden of scale.",
-    "roleMeaning": "The Executive converts intention into outcome; the Power-Wielder must decide whether force will protect life or feed domination. This role carries strategy, authority, and the danger of existing only through control.",
+    "roleMeaning": "The Executive converts intention into outcome; the Power-Wielder is asked to decide whether force will protect life or feed domination. This role carries strategy, authority, and the learning edge of existing only through control.",
     "formMeaning": "The Octagon is the mediating form between square and circle: matter disciplined toward higher order. It teaches containment of force, transitional authority, and consequence made visible.",
-    "directionMeaning": "This current ascends through consequence and scale. It gathers power into structure, but must learn that command without stewardship becomes imprisonment at the top.",
-    "piercing": "You unconsciously convert vulnerability into control.",
+    "directionMeaning": "This current ascends through consequence and scale. It gathers power into structure, but is invited to learn that command without stewardship becomes imenclosurement at the top.",
+    "piercing": "Your gift is power: learning to lead, build, and influence with principle, stewardship, and trust.",
     "archetypeText": "The Ogdoad is power under consequence: leverage, authority, hierarchy, resource, strategy, and command. Where 8 appears, stakes multiply. Weakness in structure becomes expensive, and intention must prove itself through outcome.",
-    "wisdom": "Power itself is not corruption. Unconscious power is.",
+    "wisdom": "Power itself is not the problem. Unconscious power is. Mature power protects, circulates, and builds capacity in others.",
     "pressure": [
       "You consolidate control, resources, authority, or leverage.",
       "The field is evaluated by outcome, efficiency, and consequence.",
@@ -2218,16 +1046,16 @@
       "intelligence": "Reads leverage, hierarchy, stakes, resources, weakness, and hidden influence.",
       "action": "To build structures others inhabit, for flourishing or ruin."
     },
-    "trigger": "Powerlessness, disrespect, betrayal, incompetence, instability, or being subject to weak authority.",
-    "distorted": "Domination, intimidation, work addiction, emotional hardness, hoarding, strategic generosity, and measuring people by utility.",
-    "relational": "The 8 tests strength before offering trust. It may protect fiercely, but can also make vulnerability feel like a negotiation for power. Its refinement begins when tenderness is no longer treated as loss of command.",
+    "trigger": "This pattern may feel strained by powerlessness, disrespect, betrayal, instability, incompetence, or being subject to weak authority.",
+    "distorted": "When unbalanced, the 8 may become controlling, intimidating, overly strategic, emotionally guarded, or too focused on utility and outcome.",
+    "relational": "In relationship, the 8 often protects fiercely and values strength. Its growth is allowing tenderness, trust, and vulnerability to exist without feeling like a loss of command.",
     "coherent": "Ethical leadership, disciplined ambition, protective strength, and stewardship governed by principle rather than appetite.",
     "reliable": "Strategy, resource management, executive decision, scaling systems, command under pressure, and navigating power dynamics.",
-    "awareness": "Notice when mastery makes you unable to be a beginner.",
+    "awareness": "Notice when control becomes a substitute for trust.",
     "constraint": "Submit force to principle before outcome. Practice generosity without strategic calculation.",
-    "feedback": "Ask those under your influence: Do you feel empowered or diminished in my presence?",
-    "cost": "Left unrefined, the Tower becomes the prison of its own height.",
-    "test": "Test this: are you stewarding power, or feeding the fear of becoming small?"
+    "feedback": "Ask: Do people under my influence feel stronger, safer, and more capable?",
+    "cost": "Refinement protects the 8 from becoming powerful but guarded, successful but difficult to approach.",
+    "test": "Reflection prompt: Where can I use strength to create trust rather than control?"
   },
   "9": {
     "name": "The Ennead",
@@ -2238,12 +1066,12 @@
     "form": "The Enneagram",
     "direction": "Omnidirectional completion and release",
     "archetypeMeaning": "This is the principle of completion and release: the structure that perceives the whole field, gathers the fragments, feels the suffering, and knows when a cycle must end.",
-    "roleMeaning": "The Sage-Healer carries compassion through lived understanding; the Compassionate Completer helps unfinished things reach closure. This role carries mercy, synthesis, and the danger of drowning inside the whole.",
+    "roleMeaning": "The Sage-Healer carries compassion through lived understanding; the Compassionate Completer helps unfinished things reach closure. This role carries mercy, synthesis, and the learning edge of overextension inside the whole.",
     "formMeaning": "The Enneagram is the map of completion, recurrence, and return. It teaches wholeness, circulation, integration, and the mystery by which endings feed beginnings.",
-    "directionMeaning": "This current moves omnidirectionally through completion and release. It widens beyond the personal, but must learn that universal compassion without boundary destroys the instrument of service.",
-    "piercing": "You can perceive everyone’s suffering except the exhaustion accumulating inside your own body.",
+    "directionMeaning": "This current moves omnidirectionally through completion and release. It widens beyond the personal, but is invited to learn that universal compassion without boundary overwhelms the instrument of service.",
+    "piercing": "Your gift is wholeness: learning to include yourself in the compassion you so readily extend to others.",
     "archetypeText": "The Ennead is completion: the final single digit carrying memory of the whole cycle. Where 9 appears, the personal widens toward the universal. Endings, forgiveness, grief, service, and release become unavoidable. This structure feels the total field, sometimes before it can locate its own boundary inside it.",
-    "wisdom": "Compassion without boundary becomes drowning.",
+    "wisdom": "Compassion is strongest when it has boundaries. Service becomes sustainable when the servant remains whole.",
     "pressure": [
       "You move toward closure, reconciliation, or release.",
       "Fragments are gathered into a larger picture.",
@@ -2265,16 +1093,16 @@
       "intelligence": "Reads the whole picture, collective suffering, endings, and what must be released.",
       "action": "To serve from fullness rather than depletion."
     },
-    "trigger": "Cruelty, exclusion, unresolved suffering, unfinished grief, meaninglessness, or the terror of completing the work.",
-    "distorted": "Martyrdom, savior complex, self-neglect, emotional flooding, spiritual bypassing, vagueness, and dissolving personal responsibility into universal feeling.",
-    "relational": "The 9 often gives spaciousness, mercy, and perspective, but may disappear into others’ suffering. It can forgive before it has told the truth. The task is to let compassion include the self as one of the beings under care.",
+    "trigger": "This pattern may feel strained by cruelty, exclusion, unresolved suffering, unfinished grief, meaninglessness, or cycles that never reach closure.",
+    "distorted": "When unbalanced, the 9 may over-absorb, self-neglect, avoid necessary endings, forgive before truth is spoken, or dissolve personal responsibility into universal feeling.",
+    "relational": "In relationship, the 9 brings mercy, spaciousness, and perspective. Its growth is letting compassion include honest boundaries and clear self-location.",
     "coherent": "Integrated wisdom, compassionate clarity, graceful endings, and service without self-erasure.",
     "reliable": "Completing cycles, holding universal perspective, teaching through lived wisdom, grief work, mercy, and humanitarian service.",
-    "awareness": "Notice when your compassion excludes yourself.",
-    "constraint": "Practice bounded generosity. Make compassion concrete, local, and embodied.",
-    "feedback": "Ask your body: Am I tired? If yes, rest is maintenance of the instrument.",
-    "cost": "Left unrefined, the River drowns its own banks.",
-    "test": "Test this: are you serving truth, or escaping into vastness because the immediate task is too plain?"
+    "awareness": "Notice when you are holding everyone’s suffering while ignoring the exhaustion in your own body.",
+    "constraint": "Let compassion include you. Name the boundary before service becomes depletion.",
+    "feedback": "Ask: What ending, boundary, or truth would allow care to become sustainable?",
+    "cost": "Refinement protects the 9 from overextending, dissolving, or serving from depletion rather than fullness.",
+    "test": "Reflection prompt: What needs completion so a healthier beginning can appear?"
   },
   "11": {
     "name": "The Undecad",
@@ -2284,19 +1112,19 @@
     "role": "The Lightning Rod / The Prophetic Witness",
     "form": "Twin Pillars",
     "direction": "Vertical oscillation between vision and embodiment",
-    "archetypeMeaning": "This is the principle of amplified signal: the structure that receives subtle charge, intensifies pattern, and forces hidden meaning into conscious recognition.",
-    "roleMeaning": "The Lightning Rod attracts voltage from the field; the Prophetic Witness must translate intensity into service rather than identity. This role carries vision, sensitivity, and the danger of mistaking charge for truth.",
-    "formMeaning": "Twin Pillars indicate doubled polarity: two vertical channels between above and below. They teach transmission, tension, threshold, and the demand that voltage be given a vessel.",
-    "directionMeaning": "This current oscillates vertically between vision and embodiment. It receives from above and must ground below, because revelation that cannot descend becomes nervous fire.",
-    "piercing": "You often experience symbolic intensity faster than practical integration.",
+    "archetypeMeaning": "This is the principle of amplified signal: the structure that receives subtle charge, intensifies pattern, and invites hidden meaning into conscious recognition.",
+    "roleMeaning": "The Lightning Rod attracts voltage from the field; the Prophetic Witness must translate intensity into service rather than identity. This role carries vision, sensitivity, and the learning edge of mistaking charge for truth.",
+    "formMeaning": "Twin Pillars indicate doubled polarity: two vertical channels between above and below. They teach transmission, tension, threshold, and the invitation that voltage be given a vessel.",
+    "directionMeaning": "This current oscillates vertically between vision and embodiment. It receives from above and must ground below, because revelation that cannot descend becomes ungrounded intensity.",
+    "piercing": "Your gift is heightened perception: learning to ground intensity into service, craft, and steadiness.",
     "archetypeText": "The Undecad is not merely an enlarged Dyad. It is relational signal intensified into voltage. Where 2 mirrors the field, 11 amplifies it. Ordinary input becomes charged pattern. Subtle feeling becomes revelation or overwhelm. The vessel must become strong enough for the current it receives.",
-    "wisdom": "The Undecad does not confer superiority. It confers voltage. The task is not to become more intense, but more useful without shattering the vessel.",
+    "wisdom": "The 11 carries amplified signal. Its maturity is not more intensity, but clearer embodiment and more useful transmission.",
     "pressure": [
       "Input arrives with unusual symbolic or emotional charge.",
       "You oscillate between connection, overwhelm, inspiration, and withdrawal.",
       "The field is amplified through your nervous system.",
       "Meaning appears faster than ordinary explanation can contain.",
-      "Intensity demands translation into speech, art, service, or embodied discipline."
+      "Intensity invitations translation into speech, art, service, or embodied discipline."
     ],
     "strain": [
       "Dead practicality with no symbolic dimension.",
@@ -2312,316 +1140,234 @@
       "intelligence": "Reads symbolic pressure, emotional charge, threshold moments, and signals others miss.",
       "action": "To ground intensity into service before it becomes fragmentation."
     },
-    "trigger": "Overstimulation, symbolic overload, emotional saturation, suppressed vision, or environments demanding dead practicality from a charged nervous system.",
-    "distorted": "Prophetic inflation, nervous instability, fragmentation, grandiosity, sensitivity used as exemption, and intensity treated as proof of truth.",
-    "relational": "The 11 can awaken others, but may overwhelm them with ungrounded charge. It may confuse being deeply affected with being deeply accurate. Its refinement begins when the signal becomes service rather than identity.",
+    "trigger": "This pattern may feel strained by overstimulation, symbolic overload, emotional saturation, suppressed vision, or environments with no room for meaningful depth.",
+    "distorted": "When unbalanced, the 11 may become overstimulated, inflated, fragmented, unstable, or tempted to treat intensity as proof of accuracy.",
+    "relational": "In relationship, the 11 can awaken perception and name subtle patterns. Its growth is translating intensity gently enough that others can receive it and trust it.",
     "coherent": "Grounded inspiration, disciplined receptivity, catalytic speech, and heightened perception translated into usable form.",
     "reliable": "Intuitive pattern detection, symbolic translation, threshold moments, visionary synthesis, and awakening dormant perception.",
-    "awareness": "Notice when being charged becomes more important than being accurate.",
-    "constraint": "Ground every signal through body, craft, routine, action, or service. Revelation that cannot descend becomes noise.",
-    "feedback": "Ask: Did I transmit something useful, or did I amplify my own nervous system?",
-    "cost": "Left unrefined, the Amplifier becomes voltage without vessel: signal remains, but trust and stability disappear.",
-    "test": "Test this: did the vision become service, or did it become identity?"
+    "awareness": "Notice when being charged begins to feel more important than being clear, kind, or accurate.",
+    "constraint": "Ground every signal through body, craft, routine, action, or service.",
+    "feedback": "Ask: Did I transmit something useful, or simply amplify what I was feeling?",
+    "cost": "Refinement protects the 11 from becoming signal without vessel: vivid, but hard to stabilize or trust.",
+    "test": "Reflection prompt: How can this insight become something grounded, helpful, and shareable?"
   }
 };
 
-
-  const ADVANCED_UNLOCK_PARAM = 'advanced';
-  const ADVANCED_UNLOCK_VALUE = 'unlocked';
-  const ADVANCED_UNLOCK_STORAGE_KEY = 'paaAdvancedUnlocked';
-  const LAST_BIRTHDATE_STORAGE_KEY = 'paaLastBirthdate';
-
-  function digitSum(value) {
-    return String(value)
-      .split('')
-      .map(Number)
-      .reduce((a, b) => a + b, 0);
+  const LAST_DATE_KEY = 'paaLastBirthdate';
+  const LAST_NAME_KEY = 'paaLastFullName';
+  const qs = s => document.querySelector(s);
+  const qsa = s => [...document.querySelectorAll(s)];
+  const setText = (id, value) => { const el=document.getElementById(id); if(el) el.textContent=value||''; };
+  function digitSum(value){ return String(value).split('').map(Number).reduce((a,b)=>a+b,0); }
+  function reduceBirthdate(dateString){ const digits=dateString.replace(/\D/g,'').split('').map(Number); const first=digits.reduce((a,b)=>a+b,0); const steps=[first]; let current=first; while(current>9&&current!==11){ current=digitSum(current); steps.push(current); } return {digits,first,steps,root:current}; }
+  function showError(msg){ const box=qs('#errorBox'); if(!box)return; box.textContent=msg; box.style.display='block'; }
+  function clearError(){ const box=qs('#errorBox'); if(!box)return; box.textContent=''; box.style.display='none'; }
+  function fillList(id,items){ const el=document.getElementById(id); if(!el)return; el.innerHTML=''; (items||[]).forEach(item=>{const li=document.createElement('li');li.textContent=item;el.appendChild(li);}); }
+  function renderCalculation(result){ const el=qs('#calcPath'); if(!el)return; el.innerHTML=`<div class="calc-line"><span>Birthdate digits</span><span>${result.digits.join(' + ')}</span></div><div class="calc-line"><span>Initial sum</span><span>${result.first}</span></div><div class="calc-line"><span>Reduction path</span><span>${result.steps.join(' → ')}</span></div><div class="calc-line"><strong>Birth Root Glyph</strong><strong>${result.root}</strong></div>`; el.style.display='block'; }
+  function activateTab(name){ qsa('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name)); qsa('.tab-panel').forEach(p=>p.classList.toggle('active',p.id===`tab-${name}`)); }
+  function renderGlyph(root,result){ const g=glyphs[String(root)]; if(!g){showError('No glyph doctrine exists for that result.');return false;} setText('glyphNumber',root);setText('glyphName',g.name);setText('glyphSubtitle',g.title);setText('piercing',g.piercing); const planet=qs('#glyphPlanet');if(planet)planet.innerHTML=`<span class="pill">${g.planet}</span>`; setText('archetypeValue',g.archetype);setText('roleValue',g.role);setText('formValue',g.form);setText('directionValue',g.direction);setText('archetypeMeaning',g.archetypeMeaning);setText('roleMeaning',g.roleMeaning);setText('formMeaning',g.formMeaning);setText('directionMeaning',g.directionMeaning);setText('archetypeText',g.archetypeText);setText('wisdom',g.wisdom);fillList('emergesList',g.pressure);fillList('breaksList',g.strain);setText('testLine',g.test);setText('essence',g.eieia.essence);setText('impulse',g.eieia.impulse);setText('energy',g.eieia.energy);setText('intelligence',g.eieia.intelligence);setText('action',g.eieia.action);setText('trigger',g.trigger);setText('distorted',g.distorted);setText('relational',g.relational);setText('coherent',g.coherent);setText('reliable',g.reliable);setText('awareness',g.awareness);setText('constraint',g.constraint);setText('feedback',g.feedback);setText('cost',g.cost);if(result)renderCalculation(result);activateTab('overview');const reading=qs('#reading');reading.style.display='block';reading.scrollIntoView({behavior:'smooth',block:'start'});return true; }
+  function revealFromDate(date){ clearError();const fullName=qs('#fullName')?.value.trim();if(!fullName){showError('Enter your full birth name first.');return;}if(!date){showError('Enter your birthdate first.');return;}const selected=new Date(`${date}T00:00:00`);const today=new Date();today.setHours(23,59,59,999);if(selected>today){showError('Enter a birthdate that is not in the future.');return;}const result=reduceBirthdate(date);if(renderGlyph(result.root,result)){sessionStorage.setItem(LAST_DATE_KEY,date);sessionStorage.setItem(LAST_NAME_KEY,fullName);} }
+  function setAdvancedStatus(message){ const el=qs('#advancedStatus');if(el)el.textContent=message||''; }
+  function renderAdvancedReading(payload){ const out=qs('#advancedReadingOutput');if(!out)return;const reading=payload.reading||{};const labels={structuralSignature:'Structural Signature',birthRoot:'Birth Root',nameGlyph:'Name Glyph',orderedRelationship:'Ordered Relationship',eieia:'EIEIA Analysis',pressureGate:'Pressure Gate',failurePattern:'Failure Pattern',regulationPractice:'Regulation Practice',integrationTask:'Integration Task',hieroanamneticQuestion:'Hieroanamnetic Question'};out.innerHTML='';Object.entries(labels).forEach(([key,label])=>{const value=reading[key];if(value==null)return;const article=document.createElement('article');article.className=`result-card ${['structuralSignature','orderedRelationship','hieroanamneticQuestion'].includes(key)?'wide':''}`;const h=document.createElement('h3');h.textContent=label;article.appendChild(h);const p=document.createElement('p');p.textContent=typeof value==='string'?value:JSON.stringify(value,null,2);article.appendChild(p);out.appendChild(article);});if(!out.children.length){const p=document.createElement('p');p.textContent=reading.raw||'The reading returned no displayable sections.';out.appendChild(p);}qs('#advancedPreview')?.classList.remove('locked');const overlay=qs('#lockOverlay');if(overlay)overlay.style.display='none';activateTab('advanced'); }
+  async function beginCheckout(){ clearError();const fullName=qs('#fullName')?.value.trim();const birthDate=qs('#birthdate')?.value;if(!fullName||!birthDate){showError('Enter your full birth name and birthdate before continuing.');return;}sessionStorage.setItem(LAST_NAME_KEY,fullName);sessionStorage.setItem(LAST_DATE_KEY,birthDate);setAdvancedStatus('Opening secure checkout…');try{const response=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});const data=await response.json();if(!response.ok||!data.url)throw new Error(data.error||'Checkout could not be opened.');location.href=data.url;}catch(error){setAdvancedStatus('');showError(error.message||'Checkout could not be opened.');} }
+  async function generatePaidReading(sessionId){const fullName=sessionStorage.getItem(LAST_NAME_KEY);const birthDate=sessionStorage.getItem(LAST_DATE_KEY);if(!fullName||!birthDate){showError('Your saved name or birthdate is missing. Enter both again, then reopen the advanced reading.');return;}qs('#fullName').value=fullName;qs('#birthdate').value=birthDate;revealFromDate(birthDate);activateTab('advanced');setAdvancedStatus('Payment verified. Forging your reading…');try{const response=await fetch('/api/generate-reading',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fullName,birthDate,sessionId,tier:'paid'})});const data=await response.json();if(!response.ok)throw new Error(data.error||'The reading could not be generated.');renderAdvancedReading(data);setAdvancedStatus('');history.replaceState({},document.title,location.pathname+'#reading');}catch(error){showError(error.message||'The reading could not be generated.');setAdvancedStatus('');} }
+  qs('#revealBtn')?.addEventListener('click',()=>revealFromDate(qs('#birthdate')?.value));
+  qs('#purchaseReading')?.addEventListener('click',beginCheckout);
+  qsa('.tab').forEach(btn=>btn.addEventListener('click',()=>activateTab(btn.dataset.tab)));
+  (function restore(){const n=sessionStorage.getItem(LAST_NAME_KEY),d=sessionStorage.getItem(LAST_DATE_KEY);if(n)qs('#fullName').value=n;if(d)qs('#birthdate').value=d;const params=new URLSearchParams(location.search);if(params.get('checkout')==='success'&&params.get('session_id'))generatePaidReading(params.get('session_id'));if(params.get('checkout')==='cancelled'){setAdvancedStatus('Checkout was cancelled. No reading was generated.');history.replaceState({},document.title,location.pathname+'#reading');}})();
+</script>
+  <!-- PAA Newsletter Popup -->
+<style>
+  .paa-newsletter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 20, 0.72);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
   }
 
-  function reduceBirthdate(dateString) {
-    const digits = dateString.replace(/\D/g, '').split('').map(Number);
-    const first = digits.reduce((a, b) => a + b, 0);
-    const steps = [first];
-    let current = first;
-
-    while (current > 9 && current !== 11) {
-      current = digitSum(current);
-      steps.push(current);
-    }
-
-    return { digits, first, steps, root: current };
+  .paa-newsletter-overlay.active {
+    opacity: 1;
+    visibility: visible;
   }
 
-  function showError(message) {
-    const box = document.getElementById('errorBox');
-    if (!box) return;
-
-    box.textContent = message;
-    box.style.display = 'block';
+  .paa-newsletter-box {
+    width: min(92%, 520px);
+    background: linear-gradient(
+      145deg,
+      rgba(18, 24, 45, 0.96),
+      rgba(12, 14, 28, 0.98)
+    );
+    border: 1px solid rgba(120, 180, 255, 0.18);
+    border-radius: 24px;
+    padding: 42px 34px;
+    box-shadow:
+      0 20px 80px rgba(0,0,0,0.45),
+      0 0 40px rgba(86, 160, 255, 0.08);
+    color: white;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
   }
 
-  function clearError() {
-    const box = document.getElementById('errorBox');
-    if (!box) return;
-
-    box.textContent = '';
-    box.style.display = 'none';
+  .paa-newsletter-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top right,
+      rgba(0, 212, 255, 0.10),
+      transparent 40%);
+    pointer-events: none;
   }
 
-  function setText(id, text) {
-    const element = document.getElementById(id);
-    if (element) element.textContent = text || '';
+  .paa-newsletter-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.2s ease;
   }
 
-  function fillList(id, items) {
-    const element = document.getElementById(id);
-    if (!element) return;
-
-    element.innerHTML = '';
-
-    items.forEach((item) => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      element.appendChild(li);
-    });
+  .paa-newsletter-close:hover {
+    color: white;
+    transform: scale(1.08);
   }
 
-  function isAdvancedUnlocked() {
-    return localStorage.getItem(ADVANCED_UNLOCK_STORAGE_KEY) === 'true';
+  .paa-newsletter-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.03em;
   }
 
-  function lockAdvancedReading() {
-    const advancedSection = document.getElementById('advancedSection');
-    if (!advancedSection) return;
-
-    advancedSection.classList.remove('unlocked');
-
-    const overlay = advancedSection.querySelector('.lock-overlay');
-    const preview = advancedSection.querySelector('.advanced-preview');
-
-    if (overlay) overlay.style.display = 'grid';
-
-    if (preview) {
-      preview.style.filter = 'blur(5px)';
-      preview.style.pointerEvents = 'none';
-      preview.style.userSelect = 'none';
-      preview.style.opacity = '.55';
-    }
+  .paa-newsletter-text {
+    color: rgba(255,255,255,0.78);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    font-size: 1rem;
   }
 
-  function unlockAdvancedReading() {
-    const advancedSection = document.getElementById('advancedSection');
-    if (!advancedSection) return;
-
-    localStorage.setItem(ADVANCED_UNLOCK_STORAGE_KEY, 'true');
-
-    advancedSection.classList.add('unlocked');
-
-    const overlay = advancedSection.querySelector('.lock-overlay');
-    const preview = advancedSection.querySelector('.advanced-preview');
-
-    if (overlay) overlay.style.display = 'none';
-
-    if (preview) {
-      preview.style.filter = 'none';
-      preview.style.pointerEvents = 'auto';
-      preview.style.userSelect = 'auto';
-      preview.style.opacity = '1';
-    }
+  .paa-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
 
-  function resetAdvancedLock() {
-    if (isAdvancedUnlocked()) {
-      unlockAdvancedReading();
-    } else {
-      lockAdvancedReading();
-    }
+  .paa-newsletter-input {
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.25s ease;
   }
 
-  function revealSection(id, options = {}) {
-    const section = document.getElementById(id);
-    if (!section) return;
-
-    section.classList.remove('hidden');
-
-    if (id === 'advancedSection') {
-      resetAdvancedLock();
-    }
-
-    if (options.scroll !== false) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  .paa-newsletter-input:focus {
+    border-color: rgba(100, 180, 255, 0.5);
+    background: rgba(255,255,255,0.08);
   }
 
-  function resetRevealSections() {
-    ['pressureSection', 'advancedSection'].forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) section.classList.add('hidden');
-    });
+  .paa-newsletter-button {
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(
+      135deg,
+      #4da3ff,
+      #7b61ff
+    );
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.25s ease;
   }
 
-  function renderCalculation(result) {
-    const calc = document.getElementById('calcPath');
-    if (!calc) return;
-
-    const stepText = result.steps.length > 1
-      ? result.steps.join(' → ')
-      : String(result.first);
-
-    calc.innerHTML = `
-      <div class="calc-line"><span>Birthdate digits</span><span>${result.digits.join(' + ')}</span></div>
-      <div class="calc-line"><span>Initial sum</span><span>${result.first}</span></div>
-      <div class="calc-line"><span>Reduction path</span><span>${stepText}</span></div>
-      <div class="calc-line"><strong>Birth Root Glyph</strong><strong>${result.root}</strong></div>
-    `;
-
-    calc.style.display = 'block';
+  .paa-newsletter-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(77,163,255,0.25);
   }
 
-  function renderGlyph(root, result) {
-    const g = glyphs[root];
-
-    if (!g) {
-      showError('This birthdate reduced to an unsupported glyph. Check the date and try again.');
-      return false;
-    }
-
-    resetRevealSections();
-    resetAdvancedLock();
-
-    setText('glyphNumber', root);
-    setText('piercing', g.piercing);
-    setText('glyphName', g.name);
-    setText('glyphSubtitle', g.title);
-    setText('glyphPlanet', g.planet);
-    setText('archetypeValue', g.archetype);
-    setText('roleValue', g.role);
-    setText('formValue', g.form);
-    setText('directionValue', g.direction);
-    setText('archetypeMeaning', g.archetypeMeaning);
-    setText('roleMeaning', g.roleMeaning);
-    setText('formMeaning', g.formMeaning);
-    setText('directionMeaning', g.directionMeaning);
-    setText('archetypeText', g.archetypeText);
-    setText('wisdom', g.wisdom);
-
-    fillList('emergesList', g.pressure);
-    fillList('breaksList', g.strain);
-
-    setText('testLine', g.test);
-    setText('essence', g.eieia.essence);
-    setText('impulse', g.eieia.impulse);
-    setText('energy', g.eieia.energy);
-    setText('intelligence', g.eieia.intelligence);
-    setText('action', g.eieia.action);
-    setText('trigger', g.trigger);
-    setText('distorted', g.distorted);
-    setText('relational', g.relational);
-    setText('coherent', g.coherent);
-    setText('reliable', g.reliable);
-    setText('awareness', g.awareness);
-    setText('constraint', g.constraint);
-    setText('feedback', g.feedback);
-    setText('cost', g.cost);
-
-    renderCalculation(result);
-
-    const reading = document.getElementById('reading');
-
-    if (reading) {
-      reading.style.display = 'block';
-      reading.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    return true;
+  .paa-newsletter-note {
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
   }
+</style>
 
-  function revealGlyphFromDate(dateString, options = {}) {
-    clearError();
+<div class="paa-newsletter-overlay" id="paaNewsletter">
+  <div class="paa-newsletter-box">
+    
+    <button class="paa-newsletter-close" id="closeNewsletter">
+      ×
+    </button>
 
-    if (!dateString) {
-      showError('Enter your birthdate first.');
-      return false;
-    }
+    <div class="paa-newsletter-title">
+      Join the PAA Community
+    </div>
 
-    const selected = new Date(`${dateString}T00:00:00`);
-    const today = new Date();
-    today.setHours(23, 59, 59, 999);
+    <div class="paa-newsletter-text">
+      Receive insights, essays, and observations from Pythagorean Arithmosophic Anamnesis.
+    </div>
 
-    if (selected > today) {
-      showError('Enter a birthdate that is not in the future.');
-      return false;
-    }
+    <form
+      class="paa-newsletter-form"
+      action="https://formspree.io/f/xdajldbq"
+      method="POST"
+    >
+      <input
+        type="email"
+        name="email"
+        class="paa-newsletter-input"
+        placeholder="Enter your email"
+        required
+      >
 
-    const result = reduceBirthdate(dateString);
-    const rendered = renderGlyph(result.root, result);
+      <button type="submit" class="paa-newsletter-button">
+        Join the PAA Community
+      </button>
+    </form>
 
-    if (rendered) {
-      localStorage.setItem(LAST_BIRTHDATE_STORAGE_KEY, dateString);
-      const birthdateInput = document.getElementById('birthdate');
-      if (birthdateInput) birthdateInput.value = dateString;
+    <div class="paa-newsletter-note">
+      Initiatory thoughtforms from the threshold, sent monthly
+    </div>
 
-      if (options.revealPressure) {
-        revealSection('pressureSection', { scroll: false });
-      }
+  </div>
+</div>
 
-      if (options.revealAdvanced) {
-        revealSection('advancedSection', { scroll: false });
-        unlockAdvancedReading();
+<script>
+  const newsletterPopup = document.getElementById("paaNewsletter");
+  const closeNewsletter = document.getElementById("closeNewsletter");
 
-        const advancedSection = document.getElementById('advancedSection');
-        if (advancedSection) {
-          advancedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }
+  // Show popup after 30 seconds
+  setTimeout(() => {
+    newsletterPopup.classList.add("active");
+  }, 30000);
 
-    return rendered;
-  }
-
-  function handleStripeReturn() {
-    const params = new URLSearchParams(window.location.search);
-    const advancedWasUnlocked =
-      params.get(ADVANCED_UNLOCK_PARAM) === ADVANCED_UNLOCK_VALUE;
-
-    if (!advancedWasUnlocked) return;
-
-    localStorage.setItem(ADVANCED_UNLOCK_STORAGE_KEY, 'true');
-
-    const cleanPath = `${window.location.pathname}${window.location.hash || ''}`;
-    window.history.replaceState({}, document.title, cleanPath);
-
-    const storedBirthdate = localStorage.getItem(LAST_BIRTHDATE_STORAGE_KEY);
-
-    if (storedBirthdate) {
-      revealGlyphFromDate(storedBirthdate, {
-        revealPressure: true,
-        revealAdvanced: true
-      });
-    } else {
-      unlockAdvancedReading();
-      const calculator = document.getElementById('calculator');
-      if (calculator) {
-        calculator.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-  }
-
-  document.getElementById('revealPressureBtn')?.addEventListener('click', () => {
-    revealSection('pressureSection');
+  // Close popup
+  closeNewsletter.addEventListener("click", () => {
+    newsletterPopup.classList.remove("active");
   });
 
-  document.getElementById('revealAdvancedBtn')?.addEventListener('click', () => {
-    revealSection('advancedSection');
+  // Optional: close when clicking outside
+  newsletterPopup.addEventListener("click", (e) => {
+    if (e.target === newsletterPopup) {
+      newsletterPopup.classList.remove("active");
+    }
   });
-
-  document.getElementById('revealBtn')?.addEventListener('click', () => {
-    const date = document.getElementById('birthdate')?.value;
-    revealGlyphFromDate(date);
-  });
-
-  handleStripeReturn();
-
 </script>
 </body>
 </html>
