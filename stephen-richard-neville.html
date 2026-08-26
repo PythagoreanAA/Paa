@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stephen Richard Neville | Founder of Pythagorean Arithmosophic Anamnesis</title>
+  <meta name="description" content="Stephen Richard Neville is the founder and architect of Pythagorean Arithmosophic Anamnesis (PAA), a framework investigating number as an operational grammar of relation, transformation, and human behavior.">
+  <meta name="author" content="Stephen Richard Neville">
+  <meta name="robots" content="index,follow">
+
+  <!-- Replace with your live canonical URL once deployed -->
+  <link rel="canonical" href="https://pythagoreanaa.com/stephen-richard-neville.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Stephen Richard Neville | Founder of PAA">
+  <meta property="og:description" content="Founder and architect of Pythagorean Arithmosophic Anamnesis (PAA), investigating number as an operational grammar of relation, transformation, and human behavior.">
+  <meta property="og:url" content="https://pythagoreanaa.com/stephen-richard-neville.html">
+  <meta property="og:site_name" content="Pythagorean Arithmosophic Anamnesis">
+
+  <!-- Optional: replace with the actual social-preview image path -->
+  <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stephen Richard Neville | Founder of PAA">
+  <meta name="twitter:description" content="Founder and architect of Pythagorean Arithmosophic Anamnesis (PAA).">
+  <meta name="twitter:image" content="https://pythagoreanaa.com/preview.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg-soft:#f6f9fb;
+      --ink:#0b1a2b;
+      --ink-soft:#3c5064;
+      --lapis:#1b3a6b;
+      --lapis-deep:#0c2140;
+      --turquoise:#1fb2c2;
+      --tyrian:#641b46;
+      --gold:#b8933a;
+      --line:rgba(27,58,107,.14);
+      --shadow:0 24px 60px -30px rgba(12,33,64,.35);
+      --maxw:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'EB Garamond',Georgia,serif;
+      font-size:19px;
+      line-height:1.68;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:var(--lapis)}
+    a:hover{color:var(--tyrian)}
+    ::selection{background:#a9e6ec;color:var(--lapis-deep)}
+
+    .wrap{
+      width:min(calc(100% - 40px),var(--maxw));
+      margin:0 auto;
+    }
+
+    header.nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.90);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+
+    .brand{
+      font-family:'Cinzel',serif;
+      font-size:15px;
+      font-weight:600;
+      letter-spacing:.055em;
+      text-decoration:none;
+      color:var(--lapis-deep);
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--ink-soft);
+      text-decoration:none;
+    }
+
+    nav a[aria-current="page"]{
+      color:var(--tyrian);
+      font-weight:600;
+    }
+
+    .hero{
+      padding:104px 0 76px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(31,178,194,.10), transparent 30%),
+        radial-gradient(circle at 20% 10%, rgba(100,27,70,.06), transparent 28%);
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      font-family:'IBM Plex Mono',monospace;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:12px;
+      color:var(--tyrian);
+      margin-bottom:18px;
+    }
+
+    h1,h2,h3{
+      font-family:'Cinzel',serif;
+      color:var(--lapis-deep);
+      line-height:1.16;
+      margin-top:0;
+    }
+
+    h1{
+      font-size:clamp(42px,7vw,78px);
+      max-width:880px;
+      margin-bottom:20px;
+    }
+
+    .dek{
+      max-width:820px;
+      font-size:25px;
+      line-height:1.45;
+      color:var(--ink-soft);
+      margin:0;
+    }
+
+    .identity-strip{
+      margin-top:40px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.75);
+      border-radius:999px;
+      padding:8px 12px;
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;
+      letter-spacing:.05em;
+      color:var(--lapis-deep);
+    }
+
+    main section{
+      padding:72px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.45fr) minmax(260px,.55fr);
+      gap:54px;
+      align-items:start;
+    }
+
+    h2{
+      font-size:clamp(30px,4vw,46px);
+      margin-bottom:22px;
+    }
+
+    h3{
+      font-size:21px;
+      margin-bottom:12px;
+    }
+
+    p{
+      margin:0 0 1.05em;
+    }
+
+    .lead{
+      font-size:23px;
+      color:var(--ink-soft);
+    }
+
+    .card{
+      border:1px solid var(--line);
+      background:var(--bg-soft);
+      box-shadow:var(--shadow);
+      padding:26px;
+      border-radius:18px;
+    }
+
+    .card dl{
+      margin:0;
+    }
+
+    .card dt{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      color:var(--ink-soft);
+      margin-top:16px;
+    }
+
+    .card dt:first-child{margin-top:0}
+    .card dd{
+      margin:4px 0 0;
+      color:var(--lapis-deep);
+    }
+
+    .quote{
+      border-left:3px solid var(--gold);
+      padding:8px 0 8px 24px;
+      margin:28px 0;
+      font-size:27px;
+      line-height:1.4;
+      color:var(--lapis-deep);
+      font-style:italic;
+    }
+
+    .operator-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px 28px;
+      margin-top:28px;
+    }
+
+    .operator{
+      padding:14px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .operator strong{
+      font-family:'Cinzel',serif;
+      color:var(--lapis-deep);
+      font-size:16px;
+    }
+
+    .operator span{
+      display:block;
+      color:var(--ink-soft);
+      margin-top:4px;
+      font-size:17px;
+    }
+
+    .method-chain{
+      margin:28px 0;
+      padding:22px;
+      background:var(--lapis-deep);
+      color:white;
+      border-radius:14px;
+      font-family:'IBM Plex Mono',monospace;
+      font-size:13px;
+      letter-spacing:.025em;
+      line-height:1.75;
+    }
+
+    ul{
+      padding-left:22px;
+    }
+
+    li{
+      margin:.45em 0;
+    }
+
+    footer{
+      padding:46px 0 60px;
+      color:var(--ink-soft);
+      font-size:16px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      flex-wrap:wrap;
+    }
+
+    .mono{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:12px;
+      letter-spacing:.05em;
+    }
+
+    @media (max-width:820px){
+      .grid{grid-template-columns:1fr}
+      .operator-grid{grid-template-columns:1fr}
+      .hero{padding-top:72px}
+      nav{display:none}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://pythagoreanaa.com/#stephen-richard-neville",
+        "name": "Stephen Richard Neville",
+        "url": "https://pythagoreanaa.com/stephen-richard-neville.html",
+        "jobTitle": "Founder and Architect of Pythagorean Arithmosophic Anamnesis",
+        "description": "Stephen Richard Neville is the founder and architect of Pythagorean Arithmosophic Anamnesis (PAA), a framework investigating number as an operational grammar of relation, transformation, and human behavior.",
+        "knowsAbout": [
+          "Pythagorean Arithmosophic Anamnesis",
+          "Philosophy of number",
+          "Arithmosophy",
+          "Operational grammar",
+          "Behavioral interpretation",
+          "Pythagorean philosophy"
+        ],
+        "founder": {
+          "@id": "https://pythagoreanaa.com/#paa"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://pythagoreanaa.com/#paa",
+        "name": "Pythagorean Arithmosophic Anamnesis",
+        "alternateName": "PAA",
+        "url": "https://pythagoreanaa.com/",
+        "founder": {
+          "@id": "https://pythagoreanaa.com/#stephen-richard-neville"
+        },
+        "description": "An independently developed philosophical and analytical framework investigating number as an operational grammar of relation, transformation, and human behavior."
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://pythagoreanaa.com/stephen-richard-neville.html#page",
+        "url": "https://pythagoreanaa.com/stephen-richard-neville.html",
+        "name": "Stephen Richard Neville | Founder of Pythagorean Arithmosophic Anamnesis",
+        "mainEntity": {
+          "@id": "https://pythagoreanaa.com/#stephen-richard-neville"
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://pythagoreanaa.com/#website",
+          "name": "Pythagorean Arithmosophic Anamnesis",
+          "url": "https://pythagoreanaa.com/"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">PYTHAGOREAN ARITHMOSOPHIC ANAMNESIS</a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html">PAA</a>
+        <a href="index.html#grammar">The Grammar</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#library">Library</a>
+        <a href="stephen-richard-neville.html" aria-current="page">Founder</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Founder · Architect · Independent Researcher</div>
+        <h1>Stephen Richard Neville</h1>
+        <p class="dek">
+          Founder and architect of <strong>Pythagorean Arithmosophic Anamnesis (PAA)</strong>,
+          a framework investigating number as an operational grammar of relation,
+          transformation, and human behavior.
+        </p>
+
+        <div class="identity-strip" aria-label="Identity descriptors">
+          <span class="chip">Stephen Richard Neville</span>
+          <span class="chip">Founder of PAA</span>
+          <span class="chip">Pythagorean Arithmosophic Anamnesis</span>
+          <span class="chip">Philosophy of Number</span>
+          <span class="chip">Operational Grammar</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid">
+        <div>
+          <div class="eyebrow">The governing question</div>
+          <h2>What does number do?</h2>
+          <p class="lead">
+            Neville's work begins by shifting attention away from inherited symbolic meanings
+            and toward operation, structure, relation, and transformation.
+          </p>
+
+          <div class="quote">
+            “What does this number symbolize?” becomes secondary to “What does this number do?”
+          </div>
+
+          <p>
+            This shift forms the methodological foundation of Pythagorean Arithmosophic
+            Anamnesis. PAA examines number not merely as quantity, nor merely as symbol,
+            but as a possible grammar through which structures, boundaries, relations,
+            transformations, tests, amplifications, and completions can be described.
+          </p>
+        </div>
+
+        <aside class="card">
+          <h3>Canonical Identity</h3>
+          <dl>
+            <dt>Name</dt>
+            <dd>Stephen Richard Neville</dd>
+
+            <dt>Primary Role</dt>
+            <dd>Founder and Architect</dd>
+
+            <dt>Project</dt>
+            <dd>Pythagorean Arithmosophic Anamnesis</dd>
+
+            <dt>Abbreviation</dt>
+            <dd>PAA</dd>
+
+            <dt>Primary Field</dt>
+            <dd>Philosophy and operational study of number</dd>
+
+            <dt>Canonical Website</dt>
+            <dd><a href="https://pythagoreanaa.com/">PythagoreanAA.com</a></dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">Pythagorean Arithmosophic Anamnesis</div>
+        <h2>The Arithmosophic Grammar of Operation</h2>
+        <p class="lead">
+          PAA proposes that number can be investigated as a sequence of distinguishable
+          operations rather than treated only as a catalog of symbolic meanings.
+        </p>
+
+        <div class="operator-grid">
+          <div class="operator"><strong>1 · Posit</strong><span>Establishes a term or position.</span></div>
+          <div class="operator"><strong>2 · Distinguish</strong><span>Produces difference, polarity, or opposition.</span></div>
+          <div class="operator"><strong>3 · Relate</strong><span>Establishes relation between differentiated terms.</span></div>
+          <div class="operator"><strong>4 · Bound</strong><span>Frames relation within a structure.</span></div>
+          <div class="operator"><strong>5 · Breach</strong><span>Crosses or reconfigures an established boundary.</span></div>
+          <div class="operator"><strong>6 · Restore</strong><span>Integrates plurality into renewed coherence.</span></div>
+          <div class="operator"><strong>7 · Test</strong><span>Interrogates the validity of a coherence or claim.</span></div>
+          <div class="operator"><strong>8 · Magnify</strong><span>Amplifies what survives examination.</span></div>
+          <div class="operator"><strong>9 · Consequence</strong><span>Carries a trajectory toward fulfillment or result.</span></div>
+          <div class="operator"><strong>10 · Systematize</strong><span>Gathers a completed sequence into a transmissible model.</span></div>
+          <div class="operator"><strong>11 · Exceed</strong><span>Treats the completed model as an object and passes beyond its closure.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid">
+        <div>
+          <div class="eyebrow">Method</div>
+          <h2>From structure to hypothesis</h2>
+          <p>
+            Neville's approach attempts to distinguish mathematical derivation from symbolic
+            association. A proposed interpretation should not be accepted merely because it
+            resembles an inherited meaning.
+          </p>
+
+          <div class="method-chain">
+            Arithmetic fact → structural consequence → abstract operation → behavioral hypothesis → observable discriminator / falsifier
+          </div>
+
+          <p>
+            This sequence is intended to make the framework inspectable: claims can be traced
+            backward toward their structural basis and forward toward consequences that may
+            eventually be tested, challenged, revised, or rejected.
+          </p>
+        </div>
+
+        <aside class="card">
+          <h3>Research Distinctions</h3>
+          <p>PAA distinguishes among:</p>
+          <ul>
+            <li>historical evidence</li>
+            <li>mathematical fact</li>
+            <li>structural inference</li>
+            <li>philosophical interpretation</li>
+            <li>behavioral hypothesis</li>
+            <li>empirical finding</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">Human Behavior</div>
+        <h2>The Behavioral Operator Instrument</h2>
+        <p class="lead">
+          A developing branch of PAA investigates whether the operational grammar can provide
+          a useful language for describing transformations performed through human behavior.
+        </p>
+
+        <p>
+          The experimental <strong>Behavioral Operator Instrument (BOI)</strong> does not begin
+          by asking how a behavior appears, what intention a person reports, or which personality
+          label seems to fit. It asks what transformation the behavior performed upon what object.
+        </p>
+
+        <div class="method-chain">
+          CONDITION → OBJECT → ACTION → TRANSFORMATION → RESULT
+        </div>
+
+        <p>
+          The BOI is a developing experimental framework. It should not be represented as a
+          clinically validated psychological diagnostic instrument.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap grid">
+        <div>
+          <div class="eyebrow">Intellectual Orientation</div>
+          <h2>Ancient question, contemporary formulation</h2>
+          <p>
+            PAA draws inspiration from the ancient Pythagorean proposition that number possesses
+            qualitative structure as well as quantitative function, while attempting to formulate
+            contemporary claims in explicit, inspectable terms.
+          </p>
+          <p>
+            Neville's work engages Pythagorean and Platonic traditions, arithmology, philosophy of
+            number, symbolic systems, mathematical structure, systems thinking, and behavioral
+            interpretation.
+          </p>
+          <p>
+            PAA does not claim that historical Pythagoreans formulated the modern operational
+            grammar presented here. Historical sources and contemporary PAA derivations should
+            therefore be distinguished rather than conflated.
+          </p>
+        </div>
+
+        <aside class="card">
+          <h3>Principal PAA Works</h3>
+          <ul>
+            <li>Arithmosophic Grammar of Operation</li>
+            <li>Atlas of Number</li>
+            <li>Behavioral Operator Instrument</li>
+            <li>PAA Reasoning Record</li>
+            <li>Ennead of Initiation</li>
+            <li>Operational Hermeneutic</li>
+            <li>Law of Non-Reduction</li>
+            <li>Three Fields / Triskelion framework</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">Authorship & Attribution</div>
+        <h2>A citable body of work</h2>
+        <p>
+          Unless otherwise indicated, original PAA terminology, models, diagrams, specifications,
+          and publications hosted on this website are works of <strong>Stephen Richard Neville</strong>.
+          Historical philosophical and mathematical traditions discussed throughout PAA remain
+          attributable to their respective sources and traditions.
+        </p>
+
+        <div class="card" style="margin-top:28px;">
+          <h3>Suggested General Attribution</h3>
+          <p style="margin-bottom:0;">
+            Neville, Stephen Richard. <em>Pythagorean Arithmosophic Anamnesis (PAA).</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="eyebrow">About the Founder</div>
+        <h2>Stephen Richard Neville</h2>
+        <p class="lead">
+          Stephen Richard Neville is an independent researcher, writer, and systems-builder
+          focused on the relationship between number, structure, transformation, symbolic thought,
+          and human behavior.
+        </p>
+        <p>
+          He founded Pythagorean Arithmosophic Anamnesis as an attempt to develop a systematic
+          grammar capable of asking not only what numbers represent, but what transformations
+          their structures may permit us to describe. His ongoing work concerns the formalization,
+          testing, documentation, teaching, and application of that grammar.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>
+        <strong>Stephen Richard Neville</strong><br>
+        Founder & Architect · Pythagorean Arithmosophic Anamnesis
+      </div>
+      <div class="mono">
+        <a href="index.html">Return to PAA</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
