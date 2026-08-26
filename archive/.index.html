@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pythagorean Arithmosophic Anamnesis | Birth Root Glyph</title>
+  <meta name="description" content="Reveal your Birth Root Glyph through Pythagorean Arithmosophic Anamnesis: archetype, social role, sacred form, EIEIA, distortion pattern, and regulation mechanics." />
+  <meta property="og:title" content="Pythagorean Arithmosophic Anamnesis" />
+  <meta property="og:description" content="A structural reading of your Birth Root Glyph: what holds, what fails, what must be corrected." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/preview.jpg" />
+  <link rel="icon" href="/favicon.svg" />
+  <style>
+    :root {
+      --bg: #040612;
+      --panel: #0a1020;
+      --panel-2: #11132a;
+      --ink: #f2fbff;
+      --muted: #a8c2cc;
+      --dim: #6f8792;
+
+      /* Primary design field: no gold. Teal, turquoise, aqua, Tyrian purple. */
+      --teal: #14b8a6;
+      --turquoise: #2de1d1;
+      --aqua: #7df9ff;
+      --aqua-soft: rgba(125, 249, 255, .13);
+      --teal-soft: rgba(20, 184, 166, .15);
+      --turquoise-soft: rgba(45, 225, 209, .14);
+      --tyrian: #4b0f4f;
+      --tyrian-2: #6f1d78;
+      --tyrian-soft: rgba(111, 29, 120, .24);
+      --violet-line: rgba(125, 249, 255, .18);
+
+      --accent: var(--aqua);
+      --accent-soft: var(--aqua-soft);
+      --purple: var(--tyrian-2);
+      --purple-soft: var(--tyrian-soft);
+
+      --red: #c24d60;
+      --red-soft: rgba(194, 77, 96, .12);
+      --blue: #4ca3e6;
+      --blue-soft: rgba(76, 163, 230, .12);
+      --line: rgba(125,249,255,.11);
+      --radius: 28px;
+      --shadow: 0 24px 80px rgba(0,0,0,.52);
+      --glow-aqua: 0 0 42px rgba(125,249,255,.20);
+      --glow-teal: 0 0 58px rgba(45,225,209,.14);
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(75,15,79,.58), transparent 34rem),
+        radial-gradient(circle at 18% 18%, rgba(45,225,209,.16), transparent 28rem),
+        radial-gradient(circle at 84% 10%, rgba(125,249,255,.08), transparent 24rem),
+        linear-gradient(180deg, #030712 0%, #07101c 45%, #040612 100%);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 34px)); margin: 0 auto; }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(16px);
+      background: rgba(4,6,18,.78);
+      z-index: 5;
+    }
+    .nav { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+    .brand { display: flex; gap: 12px; align-items: center; letter-spacing: .16em; text-transform: uppercase; font-size: 13px; color: var(--aqua); }
+    .tetractys { width: 38px; height: 32px; position: relative; flex: 0 0 auto; filter: drop-shadow(0 0 16px rgba(45,225,209,.35)); }
+    .tetractys span { position:absolute; width:6px; height:6px; border-radius:50%; background: radial-gradient(circle, var(--aqua) 0%, var(--turquoise) 62%, var(--tyrian-2) 100%); box-shadow: 0 0 14px rgba(125,249,255,.55); }
+    .tetractys span:nth-child(1) { left:16px; top:0; }
+    .tetractys span:nth-child(2) { left:10px; top:9px; }
+    .tetractys span:nth-child(3) { left:22px; top:9px; }
+    .tetractys span:nth-child(4) { left:4px; top:18px; }
+    .tetractys span:nth-child(5) { left:16px; top:18px; }
+    .tetractys span:nth-child(6) { left:28px; top:18px; }
+    .tetractys span:nth-child(7) { left:0; top:27px; }
+    .tetractys span:nth-child(8) { left:11px; top:27px; }
+    .tetractys span:nth-child(9) { left:22px; top:27px; }
+    .tetractys span:nth-child(10) { left:33px; top:27px; }
+    .navlinks { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover { color: var(--ink); }
+
+    .hero { padding: 86px 0 54px; text-align: center; }
+    .eyebrow { color: var(--accent); letter-spacing: .24em; text-transform: uppercase; font-size: 12px; margin-bottom: 18px; }
+    h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; }
+    h1 { font-size: clamp(44px, 8vw, 90px); line-height: .98; letter-spacing: .06em; text-transform: uppercase; }
+    h1 {
+      background: linear-gradient(180deg, #ffffff 0%, var(--aqua) 42%, #c7f7ff 68%, #b88bd0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 46px rgba(45,225,209,.08);
+    }
+
+    .hero p { max-width: 770px; margin: 26px auto 0; color: var(--muted); font-size: clamp(18px, 2vw, 22px); }
+    .oracle-line { margin-top: 28px; color: var(--ink); font-family: var(--serif); font-size: 24px; font-style: italic; }
+
+    .calculator {
+      margin: 34px auto 70px;
+      max-width: 860px;
+      background: linear-gradient(180deg, rgba(17,19,42,.94), rgba(6,11,24,.97));
+      border: 1px solid var(--violet-line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .formgrid { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: end; }
+    label { display: block; color: var(--muted); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; margin-bottom: 8px; }
+    input[type="date"] {
+      width: 100%;
+      background: #050a16;
+      border: 1px solid rgba(125,249,255,.18);
+      border-radius: 18px;
+      color: var(--ink);
+      padding: 18px 18px;
+      font-size: 18px;
+    }
+    button {
+      border: 0;
+      border-radius: 18px;
+      padding: 18px 24px;
+      background: linear-gradient(135deg, var(--turquoise), var(--aqua) 55%, #c4ffff);
+      color: #031116;
+      box-shadow: 0 12px 38px rgba(45,225,209,.18);
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    button:hover { transform: translateY(-1px); }
+    .calc-path { margin-top: 20px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.035); color: var(--muted); display:none; }
+    .calc-path strong { color: var(--ink); }
+
+    .reading { display: none; padding-bottom: 90px; }
+    .glyph-hero { text-align:center; margin: 0 auto 40px; }
+    .orb {
+      width: 190px; height: 190px; margin: 0 auto 22px;
+      border-radius: 50%;
+      border: 2px solid rgba(125,249,255,.42);
+      background: radial-gradient(circle at 50% 38%, rgba(111,29,120,.58), rgba(6,11,24,.96));
+      display: grid; place-items: center;
+      box-shadow: inset 0 0 38px rgba(125,249,255,.08), 0 0 95px rgba(45,225,209,.14);
+      position: relative;
+    }
+    .orb span { font-family: var(--serif); font-size: 88px; color: var(--accent); }
+    .orb:after { content:""; position:absolute; bottom: 28px; width:52px; height:5px; border-radius:10px; background: rgba(255,255,255,.46); }
+    .glyph-title { font-size: clamp(40px, 7vw, 74px); text-transform: uppercase; letter-spacing: .12em; }
+    .subtitle { color: var(--accent); font-family: var(--serif); font-size: 24px; font-style: italic; margin-top: 10px; }
+    .planet { color: #9c97bd; font-size: 22px; letter-spacing: .08em; margin-top: 10px; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(17,19,42,.92), rgba(5,9,21,.97));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 48px);
+      margin: 26px 0;
+      box-shadow: var(--shadow);
+    }
+    .section-title { display:flex; gap:18px; align-items:center; margin-bottom:30px; }
+    .sigil { color: var(--accent); font-size: 28px; line-height:1; }
+    .section-title h2 { font-size: clamp(28px, 4vw, 44px); letter-spacing: .18em; text-transform: uppercase; }
+    .lead { font-family: var(--serif); font-style: italic; color: #d8d1dc; font-size: clamp(21px, 2.5vw, 30px); line-height: 1.8; }
+    .rule { height:1px; background: var(--line); margin: 32px 0; }
+    .meta-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 32px; }
+    .meta h3, .labelish { font-family: var(--sans); letter-spacing: .22em; text-transform: uppercase; color: #817b9a; font-size: 13px; margin-bottom: 8px; }
+    .meta p { margin: 0; color: #e7e1eb; font-size: 20px; }
+    .accent { color: var(--accent) !important; }
+
+    .callout { border-radius: 24px; padding: 26px; margin-top: 22px; border: 1px solid; }
+    .green { background: var(--teal-soft); border-color: rgba(45,225,209,.18); }
+    .red { background: var(--red-soft); border-color: rgba(194,77,96,.22); }
+    .blue { background: var(--blue-soft); border-color: rgba(76,163,230,.18); }
+    .purple { background: var(--purple-soft); border-color: rgba(137,92,190,.22); }
+    .aqua { background: var(--aqua-soft); border-color: rgba(125,249,255,.22); }
+    .callout h3 { font-family: var(--sans); letter-spacing: .18em; text-transform: uppercase; font-size: 14px; margin-bottom: 10px; color: var(--accent); }
+    .callout p { margin: 0; font-size: 21px; color: #e9e3ee; }
+
+    .eieia-item { display:grid; grid-template-columns: 56px 1fr; gap: 22px; margin: 32px 0; }
+    .badge { width:48px; height:48px; border-radius: 16px; display:grid; place-items:center; border:1px solid rgba(125,249,255,.30); background: linear-gradient(145deg, rgba(45,225,209,.16), rgba(111,29,120,.22)); color: var(--aqua); font-family: var(--serif); box-shadow: var(--glow-teal); }
+    .eieia-item h3 { font-size: 25px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+    .eieia-item h3 em { color: var(--dim); font-family: var(--sans); text-transform:none; letter-spacing:0; font-size: 16px; }
+    .eieia-item p { margin: 0; color: #d8d1dc; font-size: 20px; }
+
+    .mechanics { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .footer-cta { text-align:center; padding: 70px 0 90px; color: var(--muted); }
+    .footer-cta h2 { font-size: clamp(32px, 5vw, 58px); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: 18px; }
+
+    @media (max-width: 760px) {
+      .nav { align-items:flex-start; }
+      .navlinks { display:none; }
+      .hero { padding-top: 58px; }
+      .formgrid, .meta-grid, .mechanics { grid-template-columns: 1fr; }
+      button { width:100%; }
+      .calculator { padding: 20px; }
+      .eieia-item { grid-template-columns: 1fr; }
+      .orb { width: 150px; height: 150px; }
+      .orb span { font-size: 70px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="tetractys" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span>Pythagorean Arithmosophic Anamnesis</span></div>
+      <nav class="navlinks">
+        <a href="#calculator">Reveal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="eyebrow">Birthdate Root Glyph Diagnostic</div>
+      <h1>Number as Glyph.<br/>Glyph as Structure.</h1>
+      <p>This is not a personality quiz. It is Archetypal Analysis: Birthdate into Root Glyph, Root Glyph into structural tendency, structural tendency into archetypal pattern.</p>
+      <div class="oracle-line">What holds. What fails. And how to align.</div>
+    </section>
+
+    <section id="calculator" class="calculator wrap">
+      <div class="formgrid">
+        <div>
+          <label for="birthdate">Enter your birthdate</label>
+          <input id="birthdate" type="date" />
+        </div>
+        <button id="revealBtn">Reveal My Birth Root Glyph</button>
+      </div>
+      <div id="calcPath" class="calc-path"></div>
+    </section>
+
+    <section id="reading" class="reading wrap">
+      <div class="glyph-hero">
+        <div class="orb"><span id="glyphNumber">2</span></div>
+        <h2 id="glyphName" class="glyph-title">The Mirror</h2>
+        <div id="glyphSubtitle" class="subtitle">Dyad · Partner</div>
+        <div id="glyphPlanet" class="planet">Moon — Artemis</div>
+      </div>
+
+      <article id="archetype" class="card">
+        <div class="section-title"><div class="sigil">◇</div><h2>Number Archetype</h2></div>
+        <p id="archetypeText" class="lead"></p>
+        <div class="meta-grid">
+          <div class="meta"><h3>Archetype</h3><p id="archetypeRole" class="accent"></p></div>
+          <div class="meta"><h3>Social Role</h3><p id="socialRole"></p></div>
+          <div class="meta"><h3>Sacred Form</h3><p id="sacredForm"></p></div>
+          <div class="meta"><h3>Direction</h3><p id="direction"></p></div>
+        </div>
+        <div class="callout green"><h3>Virtue</h3><p id="virtue"></p></div>
+        <div class="callout red"><h3>Vice · Shadow</h3><p id="vice"></p></div>
+      </article>
+
+      <article class="card">
+        <div class="section-title"><div class="sigil">✦</div><h2>Deep Wisdom</h2></div>
+        <p id="wisdom" class="lead"></p>
+        <div class="rule"></div>
+        <div class="meta-grid">
+          <div class="meta"><h3>Growth Cycle</h3><p id="growthCycle"></p></div>
+          <div class="meta"><h3>Range</h3><p id="range"></p></div>
+          <div class="meta"><h3>Reliable In</h3><p id="reliableIn"></p></div>
+          <div class="meta"><h3>Unreliable In</h3><p id="unreliableIn"></p></div>
+        </div>
+      </article>
+
+      <article id="eieia" class="card">
+        <div class="section-title"><div class="sigil">✧</div><h2>EIEIA — Archetypal Intelligence</h2></div>
+        <div class="labelish">Essence · Impulse · Energy · Intelligence · Archetypal Action</div>
+        <div id="eieiaList"></div>
+      </article>
+
+      <article class="card">
+        <div class="section-title"><div class="sigil">◆</div><h2>Coherent Expression</h2></div>
+        <div class="labelish">The archetype operating at its highest potential</div>
+        <div class="callout green"><p id="coherent"></p></div>
+      </article>
+
+      <article class="card">
+        <div class="section-title"><div class="sigil">⚡</div><h2>Distortion Trigger</h2></div>
+        <div class="labelish">The specific fear or condition that activates distortion</div>
+        <div class="callout aqua"><p id="trigger"></p></div>
+      </article>
+
+      <article class="card">
+        <div class="section-title"><div class="sigil">◇</div><h2>Distorted Expression</h2></div>
+        <div class="labelish">The archetype operating under fear or unconscious compulsion</div>
+        <div class="callout red"><p id="distorted"></p></div>
+      </article>
+
+      <article id="regulation" class="card">
+        <div class="section-title"><div class="sigil">⊙</div><h2>Regulation Mechanics</h2></div>
+        <div class="labelish">Four checkpoints for interrupting distortion and restoring coherence</div>
+        <div class="mechanics">
+          <div class="callout aqua"><h3>Awareness — First Recognition</h3><p id="awareness"></p></div>
+          <div class="callout blue"><h3>Constraint — Required Discipline</h3><p id="constraint"></p></div>
+          <div class="callout purple"><h3>Feedback — External Mirror</h3><p id="feedback"></p></div>
+          <div class="callout red"><h3>Cost — Price of Unchecked Distortion</h3><p id="cost"></p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="footer-cta wrap">
+      <h2>The Glyph does not flatter. It pierces in order to reveal.</h2>
+      <p>©2026 Pythagorean Arithmosophic Anamnesis.</p>
+    </section>
+  </main>
+
+  <script>
+    const glyphs = {
+      1: {
+        name: 'The Monad', subtitle: 'Spark · Initiator', planet: 'Sun — Apollo', archetypeRole: 'The Initiator', socialRole: 'The Founder / The First Mover', sacredForm: 'The Point — origin, seed, singular impulse before extension', direction: 'Projecting — moving outward from center, declaring presence into the field', virtue: 'Courage, originality, decisiveness, self-trust, clean initiation', vice: 'Domination, isolation, impatience, inability to receive correction, identity fused with being first',
+        archetypeText: 'The Monad is the first rupture into existence — the moment possibility becomes presence. Where nothing has yet been organized, 1 declares. It does not wait for permission because its function is emergence. The Spark begins cycles, opens paths, and gives form to the first act of will.',
+        wisdom: 'The 1 teaches that beginning is sacred, but beginning is not completion. Its gift is ignition. Its trial is learning that a true origin does not need to control everything that follows. The Spark must become a source without becoming a tyrant.',
+        growthCycle: 'The phase of emergence, declaration, and first movement. Governs beginnings, identity formation, and the courage required to act before consensus exists.', range: 'Material: entrepreneurship, leadership, invention, decisive action. Spiritual: selfhood, divine individuation, the first “I am” before relation.', reliableIn: 'Crises needing decision, unformed spaces, new ventures, moments where someone must act first.', unreliableIn: 'Slow consensus processes, emotionally complex mediation, environments where listening must precede action.',
+        eieia: { Essence: ['What it is','Origin. The principle of singular emergence — the first assertion of being before relationship, structure, or refinement.'], Impulse: ['What moves first','To begin, to declare, to cut through inertia. The impulse is centrifugal — thrusting outward from center into manifestation.'], Energy: ['How it moves','Direct, solar, sharp. It moves like a line fired from a point — fast, bright, and resistant to hesitation.'], Intelligence: ['How it reads reality','Initiatory perception. The 1 asks: What is the first move? What is mine to begin? Where is hesitation disguising fear?'], 'Archetypal Action': ['What it becomes in motion','It starts what others later inhabit. It turns possibility into event. It makes the first incision in the unformed field.'] },
+        coherent: 'Clear initiative, decisive leadership, original action without domination. The coherent 1 begins cleanly, owns its direction, and allows others to join without demanding worship.', trigger: 'Obstruction, dismissal, loss of autonomy, being forced to wait for permission from those who cannot see the path.', distorted: 'Control, arrogance, impulsive severing, refusal to collaborate, treating every delay as betrayal and every correction as weakness.', awareness: 'Notice when action becomes compulsion — when you move because stillness feels like humiliation.', constraint: 'Pause before declaration. Let one trusted countervoice test whether your impulse is vision or reaction.', feedback: 'Ask: “Am I leading the field, or am I trying to prove I exist?”', cost: 'Unchecked, the Spark burns through relationship and becomes alone at the center of what it created.'
+      },
+      2: {
+        name: 'The Dyad', subtitle: 'Witness · Partner', planet: 'Moon — Artemis', archetypeRole: 'The Partner', socialRole: 'The Diplomat / The Sacred Witness', sacredForm: 'The Line Segment — the first extension, connecting two points, the birth of dimension and duality', direction: 'Oscillating — moving between poles, mediating, balancing inward reception with outward responsiveness', virtue: 'Empathy, diplomacy, receptivity, patience, relational intelligence', vice: 'Passivity, codependence, loss of self in the other, emotional manipulation through yielding',
+        archetypeText: 'The Dyad is the first act of reflection — consciousness turning to meet itself. Where 1 declares, 2 listens. It is the principle of relationship, polarity, and the space between. The Mirror does not create light; it reveals what is already there, doubling truth through attention.',
+        wisdom: 'True partnership is not the erasure of self but the expansion of it through encounter. The Mirror teaches that to see another clearly, you must first be willing to be seen. Duality is not division — it is the first dialogue.',
+        growthCycle: 'The phase of gestation and partnership. Governs collaboration, waiting, and the patience required before emergence.', range: 'Material: partnerships, negotiations, diplomacy, cooperative enterprise. Spiritual: the soul’s encounter with its own reflection, yin-yang integration.', reliableIn: 'Mediation, emotional attunement, partnership building, creating harmony in polarized environments.', unreliableIn: 'Situations demanding solitary command, fast unilateral action, or environments where yielding will be exploited.',
+        eieia: { Essence: ['What it is','Relation itself. The principle that nothing exists without its complement — the ontological necessity of the other for self-knowledge.'], Impulse: ['What moves first','To connect, to respond, to mirror. The drive is centripetal — drawing inward, receiving, seeking resonance rather than projection.'], Energy: ['How it moves','Gentle, lunar, undulating. It moves like water finding its level — adapting, flowing around obstacles, seeking equilibrium.'], Intelligence: ['How it reads reality','Relational perception. The Dyad reads reality through the lens of: What is the relationship between these things? What is missing from this polarity? It perceives connection, absence, and emotional undercurrent.'], 'Archetypal Action': ['What it becomes in motion','It reconciles what has been split. It reveals through reflection. It makes relation conscious.'] },
+        coherent: 'Deep empathy, graceful mediation, ability to hold paradox without forcing resolution. Creates safe containers for truth.', trigger: 'Fear of abandonment, conflict, or being truly seen rather than the projected image.', distorted: 'Codependent merging, passive aggression, emotional manipulation through guilt or helplessness, disappearance of authentic self.', awareness: 'Notice when peacemaking becomes self-erasure — when you sacrifice your truth to avoid tension.', constraint: 'Practice healthy confrontation. Say the difficult thing before resentment accumulates.', feedback: 'Ask yourself: “Am I being kind, or am I being afraid?” Kindness has a spine.', cost: 'Unchecked, the Mirror becomes transparent — visible to all, known by none. The cost is selfhood.'
+      },
+      3: {
+        name: 'The Triad', subtitle: 'Expressor · Creator', planet: 'Jupiter — Hermes', archetypeRole: 'The Communicator', socialRole: 'The Artist / The Signal Weaver', sacredForm: 'The Triangle — first enclosed form, relation stabilized into pattern', direction: 'Radiating — moving through expression, synthesis, and communicative expansion', virtue: 'Creativity, humor, synthesis, expressive intelligence, social warmth', vice: 'Scattered performance, exaggeration, avoidance through charm, mistaking expression for embodiment',
+        archetypeText: 'The Triad is relation becoming pattern. After origin and reflection, 3 gives the field rhythm, language, and expressive form. It is the first enclosure — the moment scattered points become a recognizable shape. The Pattern translates inner movement into visible signal.', wisdom: 'The 3 teaches that expression is not decoration. Speech, art, humor, and beauty are structural forces when they organize perception. But the gift becomes distortion when performance replaces truth.', growthCycle: 'The phase of articulation, play, and adaptive patterning. Governs communication, symbolic learning, and social coordination.', range: 'Material: writing, teaching, media, storytelling, brand, art. Spiritual: Logos made audible, form becoming song, meaning entering relation.', reliableIn: 'Creative synthesis, public expression, morale building, translating complexity into memorable form.', unreliableIn: 'Long silence, rigid systems, repetitive maintenance, or environments that punish expressive intelligence.',
+        eieia: { Essence:['What it is','Patterned expression. The principle that meaning becomes real when it can be shared, shaped, and recognized.'], Impulse:['What moves first','To express, connect, name, play, translate, and make the invisible communicable.'], Energy:['How it moves','Bright, rhythmic, associative. It leaps between images, words, people, and possibilities.'], Intelligence:['How it reads reality','Symbolic perception. The 3 asks: What pattern wants to be spoken? What form makes this intelligible?'], 'Archetypal Action':['What it becomes in motion','It gives language to the field. It turns experience into communicable pattern.'] },
+        coherent:'Clear creative expression, precise translation, joyful intelligence, social connection without falseness.', trigger:'Being ignored, silenced, shamed for expression, or trapped in environments where no pattern can breathe.', distorted:'Performative charm, gossip, theatrical avoidance, scattered promises, replacing truth with cleverness.', awareness:'Notice when expression becomes escape — when you talk around the wound instead of naming it.', constraint:'Finish the form. Let one expression become complete before opening ten more.', feedback:'Ask: “Did I reveal truth, or did I merely create stimulation?”', cost:'Unchecked, the Pattern becomes noise — admired briefly, trusted rarely.'
+      },
+      4: {
+        name: 'The Tetrad', subtitle: 'Stone · Builder', planet: 'Saturn — Hephaestus', archetypeRole: 'The Builder', socialRole: 'The Steward / The Architect of Order', sacredForm: 'The Square — stability, boundary, ground, and durable form', direction: 'Descending — bringing possibility into matter, procedure, and reliable structure', virtue: 'Discipline, endurance, responsibility, craftsmanship, loyalty to what must hold', vice: 'Rigidity, fear of change, control through rules, resentment when burdened',
+        archetypeText:'The Tetrad is the first house of form. It takes the bright impulse of prior numbers and asks whether it can survive weight. 4 is structure, law, boundary, and craft. It does not worship novelty; it tests what can be built.', wisdom:'The 4 teaches that freedom without structure decays. But structure without life becomes prison. Its task is not to harden reality, but to create a vessel strong enough for living truth.', growthCycle:'The phase of stabilization, labor, system, and embodiment. Governs habits, institutions, craft, and durable commitments.', range:'Material: operations, engineering, law, finance, land, systems, administration. Spiritual: discipline as devotion, form as covenant.', reliableIn:'Long-term building, crisis stabilization, practical execution, environments where reliability matters more than performance.', unreliableIn:'Chaotic improvisation, ambiguous social games, fast-moving novelty cycles with no respect for foundation.',
+        eieia:{ Essence:['What it is','Stability. The principle that what is true must eventually take form and bear weight.'], Impulse:['What moves first','To secure, define, build, protect, and make repeatable.'], Energy:['How it moves','Slow, dense, grounded. It moves like stone placed correctly — not quickly, but consequentially.'], Intelligence:['How it reads reality','Structural perception. The 4 asks: What supports this? What fails under load? What must be ordered before growth continues?'], 'Archetypal Action':['What it becomes in motion','It builds the vessel. It turns ideal into infrastructure.']},
+        coherent:'Steady competence, honorable duty, practical wisdom, the ability to make truth livable through structure.', trigger:'Instability, disorder, irresponsibility, vague promises, or being forced to carry what others refuse to hold.', distorted:'Control, stubbornness, emotional shutdown, punitive rule-making, becoming the prison while trying to protect the house.', awareness:'Notice when responsibility becomes resentment — when you keep building but secretly despise those inside the structure.', constraint:'Let form adapt. Preserve the load-bearing principle, not every old wall.', feedback:'Ask: “Am I protecting what matters, or defending what is familiar?”', cost:'Unchecked, the Foundation becomes a tomb — stable, impressive, and spiritually airless.'
+      },
+      5: {
+        name: 'The Pentad', subtitle: 'Adventurer · Wanderer', planet: 'Mercury — Dionysus', archetypeRole: 'The Liberator', socialRole: 'The Explorer / The Disruptive Messenger', sacredForm: 'The Pentagram — living proportion, embodied motion, human reach', direction: 'Spiraling — moving through change, sensation, experiment, and adaptive rupture', virtue: 'Freedom, adaptability, courage to experiment, aliveness, persuasive motion', vice: 'Restlessness, escape, addiction to novelty, refusal to stay long enough to transform',
+        archetypeText:'The Pentad is life in motion. It enters the stable world of 4 and disturbs it so growth can continue. 5 is variation, risk, contact, embodiment, and experiment. It does not ask whether the cage is comfortable; it asks whether the door is real.', wisdom:'The 5 teaches that freedom is not endless movement. Freedom is the capacity to choose motion or stillness without compulsion. The Wind must learn that escape is not liberation when the same pattern follows.', growthCycle:'The phase of variation, exploration, sensual contact, and adaptive risk. Governs travel, change, communication, experimentation, and rupture from stale order.', range:'Material: sales, travel, media, crisis adaptation, entrepreneurship, performance. Spiritual: liberation from false structure, embodiment as teacher.', reliableIn:'Fast change, unstable markets, persuasive communication, crisis improvisation, breaking stale patterns.', unreliableIn:'Long repetitive maintenance, confinement, slow bureaucracy, or environments requiring emotional consistency without adventure.',
+        eieia:{ Essence:['What it is','Liberating motion. The principle that life renews itself through variation, risk, and contact with the unknown.'], Impulse:['What moves first','To move, test, taste, speak, disrupt, and refuse dead enclosure.'], Energy:['How it moves','Quick, electric, restless. It moves like wind through an open gate — hard to capture, harder to command.'], Intelligence:['How it reads reality','Opportunity perception. The 5 asks: Where is the exit? Where is the opening? What wants to change now?'], 'Archetypal Action':['What it becomes in motion','It breaks stagnation. It reintroduces life where structure has become suffocation.']},
+        coherent:'Courageous adaptability, embodied intelligence, liberating speech, the ability to move without abandoning responsibility.', trigger:'Confinement, boredom, surveillance, predictability, or any structure that feels like slow death.', distorted:'Escapism, impulsivity, seduction, scattered commitments, confusing stimulation with transformation.', awareness:'Notice when freedom becomes avoidance — when movement protects you from the discipline of becoming real.', constraint:'Choose one arena where you will stay beyond boredom. Let the pattern transform instead of fleeing it.', feedback:'Ask: “Am I moving toward life, or away from consequence?”', cost:'Unchecked, the Wind becomes dispersal — everywhere, nowhere, known by momentum but not by depth.'
+      },
+      6: {
+        name: 'The Hexad', subtitle: 'Hearth · Harmonizer', planet: 'Venus — Hera', archetypeRole: 'The Caregiver', socialRole: 'The Healer / The Keeper of Harmony', sacredForm: 'The Hexagon — harmonic enclosure, beauty, relational order', direction: 'Enfolding — drawing fragments into care, proportion, and shared belonging', virtue: 'Care, responsibility, beauty, protection, relational repair, devotion', vice: 'Martyrdom, control disguised as care, moral superiority, over-responsibility for others',
+        archetypeText:'The Hexad is harmony made domestic. It gathers what has scattered and asks what must be healed, beautified, protected, or brought back into proportion. 6 is not mere kindness; it is the structural intelligence of care.', wisdom:'The 6 teaches that love must have order. Care without boundary becomes possession. Beauty without truth becomes decoration. The Hearth must learn that saving others can become a way of avoiding its own unfinished work.', growthCycle:'The phase of repair, harmonization, service, and relational responsibility. Governs home, beauty, healing, teaching, and stewardship.', range:'Material: counseling, design, education, health, family systems, community leadership. Spiritual: love as proportion, service as sacred architecture.', reliableIn:'Repairing broken trust, creating beautiful order, supporting growth, holding communities through conflict.', unreliableIn:'Environments exploiting care, chaos demanding endless rescue, situations requiring detachment over involvement.',
+        eieia:{ Essence:['What it is','Harmonic responsibility. The principle that relationship must be cared for, ordered, and made beautiful enough to sustain life.'], Impulse:['What moves first','To protect, mend, serve, beautify, and restore proportion.'], Energy:['How it moves','Warm, enveloping, rhythmic. It moves like a household being put back into order.'], Intelligence:['How it reads reality','Relational-repair perception. The 6 asks: What is out of harmony? Who is unheld? What must be restored?'], 'Archetypal Action':['What it becomes in motion','It heals the field. It turns care into structure and beauty into responsibility.']},
+        coherent:'Mature devotion, clean service, protective beauty, repair without control, care that strengthens rather than absorbs.', trigger:'Disharmony, ingratitude, abandonment of duty, ugliness, family rupture, or watching what should be cared for decay.', distorted:'Martyrdom, guilt-based control, rescuing, moral pressure, confusing being needed with being loved.', awareness:'Notice when care becomes leverage — when your help secretly demands repayment.', constraint:'Let others carry their portion. Support does not mean substitution.', feedback:'Ask: “Am I loving them, or managing them so I feel safe?”', cost:'Unchecked, the Hearth becomes a shrine to resentment — warm on the surface, binding underneath.'
+      },
+      7: {
+        name: 'The Heptad', subtitle: 'Blade · Seeker', planet: 'Neptune — Athena', archetypeRole: 'The Seer', socialRole: 'The Analyst / The Initiate of Discernment', sacredForm: 'The Heptagon — sacred irregularity, mystery, the figure that resists easy harmonization', direction: 'Ascending inward — withdrawing from noise to perceive hidden structure', virtue: 'Discernment, contemplation, precision, spiritual intelligence, refusal of false answers', vice: 'Isolation, suspicion, contempt, paralysis through over-analysis, severance without mercy',
+        archetypeText:'The Heptad is the sacred rupture in the numeric chorus. It does not easily resolve, and that is its power. 7 separates appearance from essence. It is the blade of inquiry, solitude, study, and initiation through hidden law.', wisdom:'The 7 teaches that truth is not the same as certainty. Discernment must cut illusion, but if it cuts relation itself, it becomes sterile. The Blade must learn when to sever and when to consecrate.', growthCycle:'The phase of inquiry, withdrawal, refinement, and initiation. Governs study, mysticism, research, philosophy, and hidden pattern recognition.', range:'Material: research, strategy, theology, analytics, investigation, systems diagnosis. Spiritual: initiation, contemplative sight, sacred discernment.', reliableIn:'Deep research, hidden-pattern detection, solitude, high-stakes discernment, separating signal from distortion.', unreliableIn:'Shallow social performance, forced optimism, noisy environments, emotional chaos demanding instant response.',
+        eieia:{ Essence:['What it is','Discernment. The principle that truth must be separated from appearance before action becomes clean.'], Impulse:['What moves first','To question, withdraw, investigate, refine, and refuse premature closure.'], Energy:['How it moves','Piercing, inward, austere. It moves like a blade entering silence.'], Intelligence:['How it reads reality','Diagnostic perception. The 7 asks: What is hidden? What is false? What structure explains the surface?'], 'Archetypal Action':['What it becomes in motion','It initiates through severance. It reveals the concealed architecture beneath the visible thing.']},
+        coherent:'Precise discernment, spiritual depth, research mastery, clean solitude, truth-bearing speech without contempt.', trigger:'Deception, stupidity, spiritual vulgarity, forced conformity, or being pressured to accept what has not been examined.', distorted:'Coldness, elitism, paranoia, withdrawal, analysis as avoidance, cutting people to avoid being touched.', awareness:'Notice when discernment becomes contempt — when seeing clearly becomes a license to stop loving.', constraint:'Return from the cave with something useful. Insight that cannot serve becomes self-enclosure.', feedback:'Ask: “Did I cut illusion, or did I cut the bond because I feared the mess of incarnation?”', cost:'Unchecked, the Blade becomes exile — sharp, accurate, and alone.'
+      },
+      8: {
+        name: 'The Ogdoad', subtitle: 'Executive · Sovereign', planet: 'Saturn — Zeus', archetypeRole: 'The Executive', socialRole: 'The Ruler / The Steward of Power', sacredForm: 'The Octagon — doubled square, power stabilized through higher order', direction: 'Commanding — organizing force, consequence, resources, and visible authority', virtue: 'Power, responsibility, endurance, strategic command, material mastery', vice: 'Domination, greed, hardness, exploitation, identity fused with status or control',
+        archetypeText:'The Ogdoad is power under law. It takes the structural weight of 4 and raises it into authority, consequence, and command. 8 governs stewardship, resource, empire, judgment, and the burden of visible strength.', wisdom:'The 8 teaches that power is not evil; unconscious power is. True sovereignty is not possession but accountability. The Crown must learn that command without service becomes tyranny, and service without command becomes impotence.', growthCycle:'The phase of mastery, authority, consequence, and institutional force. Governs wealth, leadership, governance, achievement, and executive decision.', range:'Material: business, law, finance, management, politics, strategy. Spiritual: right use of power, karma, authority as stewardship.', reliableIn:'High-pressure leadership, resource allocation, negotiation, building durable institutions, enforcing consequence.', unreliableIn:'Environments where power must be hidden, sentimental indecision, or contexts demanding softness without structure.',
+        eieia:{ Essence:['What it is','Sovereign force. The principle that power must be organized, directed, and made accountable to consequence.'], Impulse:['What moves first','To command, build, acquire, decide, enforce, and bear weight.'], Energy:['How it moves','Dense, magnetic, authoritative. It moves like gravity around a throne.'], Intelligence:['How it reads reality','Power perception. The 8 asks: Who holds force? What is the leverage? What consequence will follow?'], 'Archetypal Action':['What it becomes in motion','It governs the field. It turns force into order and ambition into measurable consequence.']},
+        coherent:'Ethical command, disciplined ambition, resource mastery, protective authority, visible strength governed by responsibility.', trigger:'Powerlessness, disrespect, betrayal, financial instability, incompetence, or seeing authority used weakly.', distorted:'Control, intimidation, work addiction, status worship, domination, reducing people to utility.', awareness:'Notice when strength becomes armor — when command protects you from vulnerability.', constraint:'Submit power to principle before outcome. Winning is not proof of right order.', feedback:'Ask: “Am I stewarding force, or feeding the hunger to never feel small again?”', cost:'Unchecked, the Crown becomes a cage — feared by many, trusted by few.'
+      },
+      9: {
+        name: 'The Ennead', subtitle: 'Sage · Humanitarian', planet: 'Mars — Sophia', archetypeRole: 'The Sage', socialRole: 'The Witness of Completion / The Compassionate Judge', sacredForm: 'The Enneagon — completion before return, the full cycle preparing to dissolve', direction: 'Completing — gathering, releasing, forgiving, and widening into the whole', virtue: 'Compassion, wisdom, forgiveness, universality, sacrifice for what is larger than self', vice: 'Martyrdom, vagueness, savior complex, emotional flooding, inability to choose the finite',
+        archetypeText:'The Ennead is completion before return. It carries the memory of all prior numbers and feels the whole field. 9 sees suffering, endings, and the larger pattern. It is the horizon where personal identity widens into universal concern.', wisdom:'The 9 teaches that compassion must become clear or it becomes drowning. To love the whole does not mean refusing boundaries. The Horizon must learn that completion requires release, not endless rescue.', growthCycle:'The phase of culmination, forgiveness, harvest, and release. Governs endings, integration, humanitarian concern, and spiritual maturity.', range:'Material: public service, art, healing, global work, teaching, end-of-cycle leadership. Spiritual: compassion, completion, surrender, universal memory.', reliableIn:'Holding grief, integrating complexity, moral imagination, guiding endings, restoring human context.', unreliableIn:'Precise execution without emotional scope, small tactical demands, environments requiring cold detachment.',
+        eieia:{ Essence:['What it is','Completion. The principle that every cycle must gather meaning, release attachment, and return its wisdom to the whole.'], Impulse:['What moves first','To include, forgive, serve, mourn, integrate, and widen the frame.'], Energy:['How it moves','Expansive, oceanic, encompassing. It moves like a horizon drawing every road into distance.'], Intelligence:['How it reads reality','Holistic perception. The 9 asks: What is the larger story? What must be completed? Who is being forgotten?'], 'Archetypal Action':['What it becomes in motion','It completes the cycle. It turns suffering into wisdom and ending into offering.']},
+        coherent:'Wide compassion, mature forgiveness, integrated wisdom, service without self-erasure, endings handled with grace.', trigger:'Cruelty, exclusion, meaningless suffering, unfinished grief, or being forced to ignore the larger human consequence.', distorted:'Savior complex, martyrdom, vagueness, emotional collapse, avoiding personal choice by dissolving into universal concern.', awareness:'Notice when compassion becomes avoidance — when loving everyone prevents you from choosing what is yours.', constraint:'Make the universal specific. Choose one concrete act instead of drowning in the whole.', feedback:'Ask: “Am I serving truth, or using vastness to avoid the finite demand before me?”', cost:'Unchecked, the Horizon becomes fog — beautiful, encompassing, and impossible to rely on.'
+      },
+      11: {
+        name: 'The Master Dyad', subtitle: 'Threshold Crossing · Signal-Bearer', planet: 'Uranus — Prometheus', archetypeRole: 'The Messenger', socialRole: 'The Visionary / The Nervous Prophet', sacredForm: 'The Twin Pillars — doubled verticality, a gate charged with transmission', direction: 'Transmitting — receiving higher signal and attempting to embody it without fracture', virtue: 'Vision, inspiration, spiritual voltage, symbolic perception, catalytic presence', vice: 'Nervous fragmentation, grandiosity, instability, martyr-complex, signal without grounding',
+        archetypeText:'The 11 is not merely an intensified 2. It is the Dyad electrified into a gate. Two pillars stand apart so something higher can pass between them. 11 carries vision, signal, tension, and the burden of translating what exceeds ordinary language.', wisdom:'The 11 teaches that revelation must be grounded or it damages the vessel. High signal is not proof of mastery. The Pillar must learn to conduct without burning out, to transmit without demanding worship, and to test vision through embodiment.', growthCycle:'The phase of heightened perception, catalytic vision, nervous refinement, and symbolic transmission. Governs inspiration, spiritual crisis, charisma, and public signal.', range:'Material: speaking, art, innovation, teaching, media, spiritual leadership. Spiritual: revelation, initiation through voltage, gate-consciousness.', reliableIn:'Catalytic moments, symbolic translation, public inspiration, crisis revelation, awakening dormant perception.', unreliableIn:'Routine maintenance, emotionally chaotic dependency, environments requiring slow mundane repetition without symbolic purpose.',
+        eieia:{ Essence:['What it is','Charged transmission. The principle that higher signal must pass through a living gate and become intelligible.'], Impulse:['What moves first','To reveal, awaken, speak, intensify, and bring unseen voltage into the visible field.'], Energy:['How it moves','Electric, vertical, unstable until grounded. It moves like lightning seeking a conductor.'], Intelligence:['How it reads reality','Signal perception. The 11 asks: What is trying to come through? What symbol is charged? What must be awakened now?'], 'Archetypal Action':['What it becomes in motion','It opens the gate. It transmits vision into language, art, presence, or rupture.']},
+        coherent:'Grounded inspiration, precise symbolic speech, catalytic presence, revelation disciplined by service and embodiment.', trigger:'Being unseen, spiritually trivialized, trapped in dullness, or overloaded by unintegrated perception.', distorted:'Grandiosity, nervous collapse, prophetic inflation, instability, confusing intensity with truth.', awareness:'Notice when voltage becomes identity — when being charged feels more important than being accurate.', constraint:'Ground every revelation in one testable action, one embodied discipline, or one practical service.', feedback:'Ask: “Did I transmit truth, or did I amplify my own nervous system?”', cost:'Unchecked, the Pillar fractures — signal remains, but the vessel loses trust.'
+      }
+    };
+
+    function reduceBirthdate(dateString) {
+      const digits = dateString.replace(/\D/g, '').split('').map(Number);
+      const first = digits.reduce((a,b)=>a+b,0);
+      let steps = [first];
+      let current = first;
+      while (current > 9 && current !== 11) {
+        current = String(current).split('').map(Number).reduce((a,b)=>a+b,0);
+        steps.push(current);
+      }
+      return { digits, first, steps, root: current };
+    }
+
+    function setText(id, text) { document.getElementById(id).textContent = text; }
+
+    function renderGlyph(root, result) {
+      const g = glyphs[root] || glyphs[String(root)];
+      setText('glyphNumber', root);
+      setText('glyphName', g.name);
+      setText('glyphSubtitle', g.subtitle);
+      setText('glyphPlanet', g.planet);
+      setText('archetypeText', g.archetypeText);
+      setText('archetypeRole', g.archetypeRole);
+      setText('socialRole', g.socialRole);
+      setText('sacredForm', g.sacredForm);
+      setText('direction', g.direction);
+      setText('virtue', g.virtue);
+      setText('vice', g.vice);
+      setText('wisdom', g.wisdom);
+      setText('growthCycle', g.growthCycle);
+      setText('range', g.range);
+      setText('reliableIn', g.reliableIn);
+      setText('unreliableIn', g.unreliableIn);
+      setText('coherent', g.coherent);
+      setText('trigger', g.trigger);
+      setText('distorted', g.distorted);
+      setText('awareness', g.awareness);
+      setText('constraint', g.constraint);
+      setText('feedback', g.feedback);
+      setText('cost', g.cost);
+
+      const list = document.getElementById('eieiaList');
+      list.innerHTML = '';
+      Object.entries(g.eieia).forEach(([key, value]) => {
+        const initial = key === 'Archetypal Action' ? 'A' : key[0];
+        const div = document.createElement('div');
+        div.className = 'eieia-item';
+        div.innerHTML = `<div class="badge">${initial}</div><div><h3>${key} <em>— ${value[0]}</em></h3><p>${value[1]}</p></div>`;
+        list.appendChild(div);
+      });
+
+      const calc = document.getElementById('calcPath');
+      const digitString = result.digits.join(' + ');
+      const stepString = result.steps.length > 1 ? result.steps.map((s, i) => i === 0 ? `${digitString} = ${s}` : `${String(result.steps[i-1]).split('').join(' + ')} = ${s}`).join('<br/>') : `${digitString} = ${result.first}`;
+      calc.innerHTML = `<strong>Calculation Path</strong><br/>Birthdate digits: ${digitString}<br/>${stepString}<br/><strong>Birth Root Glyph: ${root}</strong>`;
+      calc.style.display = 'block';
+      document.getElementById('reading').style.display = 'block';
+      document.getElementById('reading').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.getElementById('revealBtn').addEventListener('click', () => {
+      const date = document.getElementById('birthdate').value;
+      if (!date) { alert('Enter your birthdate first.'); return; }
+      const result = reduceBirthdate(date);
+      renderGlyph(result.root, result);
+    });
+  </script>
+</body>
+</html>
+</body>
+</html>
