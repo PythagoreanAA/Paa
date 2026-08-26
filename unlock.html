@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Unlocked | PAA</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0c2140">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b1a2b;--lapis:#0c2140;--teal:#1fb2c2;--gold:#b8933a;--paper:#f7fafb;--line:rgba(12,33,64,.14)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:28px;background:radial-gradient(circle at 50% 0,rgba(31,178,194,.12),transparent 38%),var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif}
+main{width:min(680px,100%);padding:54px 42px;text-align:center;background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 28px 70px -42px rgba(12,33,64,.48)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+h1{margin:14px 0 18px;font:700 clamp(38px,7vw,64px)/.98 "Cormorant Garamond",Georgia,serif;color:var(--lapis)}
+p{margin:0 auto 22px;max-width:540px;line-height:1.7;color:#4b6073}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;background:var(--lapis);color:white;text-decoration:none;font-weight:700}
+.note{margin-top:22px;font-size:12px;color:#71808e}
+@media(max-width:560px){main{padding:42px 24px}}
+</style>
+</head>
+<body>
+<main>
+<div class="eyebrow">Full Operational Reading</div>
+<h1>Your reading is unlocked.</h1>
+<p>Your advanced interpretation is now available on this browser. Return to your Birth Root result to examine relationship, pressure, collision, correction, and field-test layers.</p>
+<a class="btn" id="continueReading" href="/?advanced=unlocked#reading">Continue to My Reading</a>
+<p class="note">Access is stored on this browser. Save or revisit the homepage here when you want to return.</p>
+<noscript><p>JavaScript is required to activate the reading. Use the button above after enabling it.</p></noscript>
+</main>
+<script>
+try{localStorage.setItem('paaAdvancedUnlocked','true')}catch(e){}
+setTimeout(function(){location.href='/?advanced=unlocked#reading'},1800);
+</script>
+</body>
+</html>
