@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAA Glyph Reading | Birth Root + Full Name</title>
+  <meta name="description" content="A polished PAA reading tool for birthdate, full birth name, the single Birth Root to Full Name relationship, EIEIA, and regulation mechanics." />
+  <meta name="theme-color" content="#070817" />
+  <meta property="og:title" content="PAA Glyph Reading" />
+  <meta property="og:description" content="Reveal the Birth Root Glyph, Full Name Glyph, and the single ordered relationship between them." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://pythagoreanaa.com/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root{
+      --bg:#050713; --bg2:#090c22; --panel:#10132d; --panel2:#161238;
+      --ink:#f8f1df; --muted:#b8bdd6; --dim:#7d85a7;
+      --line:rgba(255,255,255,.14); --line2:rgba(86,226,222,.34);
+      --aqua:#56e2de; --aqua2:#a9fff8;
+      --royal:#7a3cff; --royal2:#c2a8ff; --royal3:#eadfff; --royal-deep:#2a0d4a; --royal-glow:rgba(122,60,255,.34);
+      --gold:var(--royal); --gold2:var(--royal2);
+      --tyrian:#3b0f5a; --tyrian2:#251035; --good:#b7f8d7; --bad:#ffaaa6;
+      --shadow:0 30px 90px rgba(0,0,0,.44); --radius:26px;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --serif:Georgia,"Times New Roman",serif; --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:var(--sans);color:var(--ink);background:radial-gradient(circle at 12% 5%,rgba(86,226,222,.16),transparent 30%),radial-gradient(circle at 84% 0,rgba(77,29,110,.48),transparent 34%),radial-gradient(circle at 55% 105%,rgba(122,60,255,.13),transparent 45%),linear-gradient(135deg,var(--bg),var(--bg2) 54%,#050612);overflow-x:hidden} body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);background-size:68px 68px;mask-image:radial-gradient(circle at 50% 12%,black,transparent 74%);z-index:-2} body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 18%,transparent 0,rgba(0,0,0,.36) 78%);z-index:-1}
+    a{color:inherit;text-decoration:none} button,input{font:inherit}.wrap{width:min(1160px,calc(100% - 32px));margin:0 auto}.glass{background:linear-gradient(145deg,rgba(255,255,255,.078),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .topbar{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(5,7,19,.78);backdrop-filter:blur(18px)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:.035em}.brand-mark{width:42px;height:42px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(194,168,255,.75);color:var(--gold2);font-family:var(--serif);background:radial-gradient(circle at 35% 25%,rgba(122,60,255,.30),rgba(255,255,255,.045));box-shadow:0 0 34px var(--royal-glow)} nav{display:flex;align-items:center;gap:18px;color:var(--muted);font-size:.93rem}nav a:hover{color:var(--ink)}.nav-cta{padding:10px 14px;border:1px solid rgba(86,226,222,.34);border-radius:999px;color:var(--aqua);background:rgba(86,226,222,.055)}
+    .hero{padding:72px 0 44px;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:stretch}.sigil{min-height:560px;padding:30px;position:relative;overflow:hidden}.sigil:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 50% 35%,rgba(86,226,222,.20),transparent 30%),radial-gradient(circle at 50% 72%,rgba(122,60,255,.17),transparent 38%)}.sigil-inner{position:relative;height:100%;display:grid;place-items:center;text-align:center}.tetractys{display:grid;gap:17px;justify-items:center;margin-bottom:42px}.dot-row{display:flex;gap:17px}.dot{width:15px;height:15px;border-radius:999px;background:var(--royal2);box-shadow:0 0 28px var(--royal-glow)}.rings{width:336px;height:336px;border-radius:999px;display:grid;place-items:center;position:relative;border:1px solid rgba(194,168,255,.50);box-shadow:inset 0 0 58px rgba(122,60,255,.14),0 0 84px rgba(77,29,110,.22)}.rings:before,.rings:after{content:"";position:absolute;border-radius:999px;border:1px solid rgba(194,168,255,.34)}.rings:before{width:248px;height:248px}.rings:after{width:154px;height:154px;border-color:rgba(86,226,222,.3)}.ring-center{z-index:2;font-family:var(--serif);letter-spacing:.13em;line-height:1.5;color:var(--ink);font-size:1.05rem}.ring-label{position:absolute;z-index:3;font-size:.72rem;color:var(--muted);background:rgba(5,7,19,.84);border:1px solid var(--line);border-radius:999px;padding:8px 11px;white-space:nowrap}.ring-label.one{top:8px;left:50%;transform:translateX(-50%)}.ring-label.two{bottom:53px;left:-18px}.ring-label.three{bottom:53px;right:-18px}.sigil-note{margin-top:28px;color:var(--dim);font-size:.88rem;line-height:1.55;max-width:390px}.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:18px 0}.eyebrow{color:var(--aqua);text-transform:uppercase;letter-spacing:.19em;font-weight:950;font-size:.74rem;margin-bottom:18px}h1{font-size:clamp(2.9rem,6.2vw,5.7rem);line-height:.9;letter-spacing:-.075em;margin:0 0 24px}.lead{color:var(--muted);font-size:1.13rem;line-height:1.72;max-width:760px;margin:0 0 18px}.hero-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}.point{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.05)}.point b{display:block;color:var(--gold2);margin-bottom:6px}.point span{color:var(--muted);font-size:.9rem;line-height:1.45}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}.btn{border:0;cursor:pointer;border-radius:999px;padding:14px 20px;font-weight:950;letter-spacing:.01em;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.18s ease}.btn:hover{transform:translateY(-2px)}.btn-primary{color:#041114;background:linear-gradient(135deg,var(--aqua),var(--aqua2));box-shadow:0 15px 48px rgba(86,226,222,.24)}.btn-secondary{color:var(--ink);background:rgba(255,255,255,.075);border:1px solid var(--line)}.btn-gold{color:#050713;background:linear-gradient(135deg,var(--royal),var(--royal2));box-shadow:0 15px 48px var(--royal-glow)}
+    section{padding:50px 0}.section-title{font-size:clamp(2rem,4.2vw,3.75rem);line-height:.96;letter-spacing:-.06em;margin:0 0 14px}.section-sub{color:var(--muted);line-height:1.75;max-width:900px;margin:0 0 28px}.calc-panel{padding:28px}.calc-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:end}label{display:block;color:var(--muted);font-weight:850;margin-bottom:8px}input{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--ink);padding:15px 16px;border-radius:16px;outline:none;color-scheme:dark}input:focus{border-color:rgba(86,226,222,.72);box-shadow:0 0 0 4px rgba(86,226,222,.12)}.helper{color:var(--dim);font-size:.88rem;margin-top:8px;line-height:1.5}.result{display:none;margin-top:24px;padding:0;overflow:hidden}.result-head{padding:28px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 20% 10%,rgba(86,226,222,.12),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.024))}.result-head h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.045em;margin:0 0 8px}.result-head p{color:var(--muted);line-height:1.65;max-width:850px;margin:0}.summary-grid{padding:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.summary-grid.two-card{grid-template-columns:.92fr 1.08fr}.name-card{min-height:315px}.name-lenses{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.lens{border:1px solid rgba(255,255,255,.13);border-radius:16px;background:rgba(255,255,255,.055);padding:14px}.lens b{display:block;color:var(--aqua);font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}.lens span{display:block;color:var(--muted);line-height:1.5;font-size:.92rem}.glyph-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;padding:22px;background:radial-gradient(circle at 12% 0%,rgba(122,60,255,.20),transparent 38%),linear-gradient(145deg,rgba(77,29,110,.30),rgba(22,6,31,.72));min-height:265px}.glyph-card.aqua{background:radial-gradient(circle at 12% 0%,rgba(86,226,222,.18),transparent 38%),linear-gradient(145deg,rgba(77,29,110,.30),rgba(22,6,31,.72))}.glyph-card.purple{background:radial-gradient(circle at 12% 0%,rgba(183,148,255,.18),transparent 38%),linear-gradient(145deg,rgba(77,29,110,.30),rgba(22,6,31,.72))}.card-kicker{text-transform:uppercase;letter-spacing:.13em;font-size:.73rem;color:var(--aqua);font-weight:950}.big-number{font-family:var(--serif);font-size:5.4rem;line-height:.88;color:var(--royal2);margin:16px 0 6px;text-shadow:0 0 30px var(--royal-glow)}.glyph-card h3{font-size:1.32rem;margin:0 0 8px;letter-spacing:-.025em}.glyph-card p{color:var(--muted);line-height:1.58;margin:0}.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.chip{font-size:.75rem;color:var(--muted);border:1px solid var(--line);background:rgba(255,255,255,.055);padding:7px 9px;border-radius:999px}.synthesis{margin:0 24px 24px;padding:24px;border-radius:24px;border:1px solid rgba(86,226,222,.28);background:linear-gradient(135deg,rgba(86,226,222,.08),rgba(77,29,110,.22))}.synthesis h3,.tile h3{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold2);margin:0 0 10px}.synthesis p,.tile p{color:var(--muted);line-height:1.72;margin:0}.synthesis strong{color:var(--ink)}.diagnostic-grid{padding:0 24px 24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.tile{border:1px solid var(--line);border-radius:22px;padding:20px;background:radial-gradient(circle at 0 0,rgba(86,226,222,.06),transparent 36%),linear-gradient(135deg,rgba(77,29,110,.26),rgba(22,6,31,.70))}.tile.full{grid-column:1/-1}.tile.good{border-color:rgba(183,248,215,.26)}.tile.bad{border-color:rgba(255,170,166,.26)}.mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}.mini{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.055);padding:14px}.mini b{display:block;color:var(--aqua);margin-bottom:8px}.mini span{color:var(--muted);line-height:1.55;font-size:.93rem}.calc-readout{display:grid;grid-template-columns:1fr;gap:14px}.calc-block{border:1px solid var(--line);border-radius:18px;padding:16px;background:rgba(255,255,255,.052)}.calc-block.birth{border-color:rgba(86,226,222,.30)}.calc-block.name{border-color:rgba(194,168,255,.32)}.calc-block.reduction{border-color:rgba(183,148,255,.28)}.calc-block h4{margin:0 0 10px;color:var(--aqua);font-size:.76rem;text-transform:uppercase;letter-spacing:.13em}.calc-row{display:grid;grid-template-columns:132px 1fr;gap:12px;border-top:1px solid rgba(255,255,255,.09);padding-top:10px;margin-top:10px}.calc-row:first-of-type{border-top:0;padding-top:0;margin-top:0}.calc-label{color:var(--dim);font-size:.86rem;font-weight:850}.calc-value{color:var(--ink);line-height:1.55;word-break:break-word}.calc-chain{font-family:var(--mono);font-size:.86rem;color:var(--muted)}.lock{position:relative;border-color:rgba(194,168,255,.38);background:radial-gradient(circle at 10% 0%,rgba(122,60,255,.16),transparent 28%),linear-gradient(135deg,rgba(77,29,110,.28),rgba(22,6,31,.76))}.locked-lines{display:grid;gap:9px;margin:14px 0}.locked-lines div{height:13px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,.035));filter:blur(.2px)}.locked-lines div:nth-child(2){width:85%}.locked-lines div:nth-child(3){width:68%}.advanced-preview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}.adv-card{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.052);padding:16px}.adv-card strong{display:block;color:var(--aqua);margin-bottom:8px}.adv-card p{font-size:.92rem}.premium-shell{position:relative;overflow:hidden;border-color:rgba(194,168,255,.44);background:radial-gradient(circle at 8% 0%,rgba(122,60,255,.20),transparent 30%),linear-gradient(135deg,rgba(77,29,110,.33),rgba(10,7,24,.88))}.premium-topline{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:16px}.premium-price{border:1px solid rgba(194,168,255,.38);border-radius:999px;padding:9px 12px;color:var(--royal3);background:rgba(122,60,255,.12);font-weight:950;white-space:nowrap}.premium-lock-panel{position:relative;z-index:3;border:1px solid rgba(86,226,222,.30);border-radius:22px;padding:18px;background:linear-gradient(135deg,rgba(5,7,19,.88),rgba(42,13,74,.82));box-shadow:0 18px 60px rgba(0,0,0,.34);margin-bottom:18px}.premium-copy strong{display:block;color:var(--ink);font-size:1.06rem;margin-bottom:7px}.premium-copy span{display:block;color:var(--muted);line-height:1.62}.paid-preview-cut{margin-top:14px;border:1px solid rgba(194,168,255,.30);border-radius:18px;padding:14px 16px;background:rgba(122,60,255,.10)}.paid-preview-cut p{margin:0;color:var(--royal3);line-height:1.58;font-weight:850}.premium-actions{margin-top:16px}.stripe-note{font-size:.82rem;color:var(--dim);margin-top:12px!important}.premium-blur{position:relative}.is-locked .premium-blur{max-height:520px;overflow:hidden}.is-locked .paid-diagnostic{filter:blur(7px);user-select:none;pointer-events:none;opacity:.74}.is-locked .premium-blur:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,19,.05),rgba(5,7,19,.92));pointer-events:none}.paid-diagnostic{display:grid;gap:14px;transition:.25s ease}.paid-section{border:1px solid rgba(255,255,255,.13);border-radius:20px;background:rgba(255,255,255,.052);padding:18px}.paid-section h4{margin:0 0 10px;color:var(--aqua);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em}.paid-section p{margin:0 0 10px;color:var(--muted);line-height:1.72}.paid-section p:last-child{margin-bottom:0}.paid-section strong{color:var(--ink)}.paid-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.paid-mini{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px;background:rgba(0,0,0,.14)}.paid-mini b{display:block;color:var(--royal2);margin-bottom:7px}.paid-mini span{color:var(--muted);line-height:1.55;font-size:.93rem}.is-unlocked .premium-blur{max-height:none}.is-unlocked .paid-diagnostic{filter:none;user-select:auto;pointer-events:auto;opacity:1}.is-unlocked .premium-lock-panel{border-color:rgba(183,248,215,.32)}.copy-box{width:100%;min-height:180px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,rgba(77,29,110,.24),rgba(20,10,40,.82));color:var(--muted);padding:16px;line-height:1.6;white-space:pre-wrap;font-family:var(--mono);font-size:.83rem;overflow-x:auto}.gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.num-card{border:1px solid var(--line);border-radius:22px;background:radial-gradient(circle at 12% 0%,rgba(122,60,255,.16),transparent 38%),linear-gradient(145deg,rgba(77,29,110,.30),rgba(22,6,31,.74));padding:18px;min-height:178px}.num-card .n{font-family:var(--serif);font-size:2.7rem;color:var(--royal2);line-height:1}.num-card h3{margin:10px 0 8px}.num-card p{color:var(--muted);line-height:1.52;font-size:.92rem;margin:0}footer{border-top:1px solid var(--line);padding:34px 0;color:var(--dim);font-size:.92rem;margin-top:34px}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .reading-spine{padding:24px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.spine-step{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.055);padding:14px;min-height:108px}.spine-step b{display:block;color:var(--aqua);font-size:.76rem;text-transform:uppercase;letter-spacing:.10em;margin-bottom:8px}.spine-step span{display:block;color:var(--muted);line-height:1.45;font-size:.92rem}.eieia-grid,.reg-grid{display:grid;gap:12px;margin-top:14px}.eieia-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.reg-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.eieia-card,.reg-card{border:1px solid rgba(255,255,255,.13);border-radius:17px;padding:14px;background:rgba(255,255,255,.052)}.eieia-card strong,.reg-card b{display:block;color:var(--aqua);margin-bottom:8px}.eieia-card p,.reg-card span{color:var(--muted);line-height:1.55;font-size:.92rem;margin:0}.relationship-banner{margin:0 24px 24px;padding:20px;border-radius:22px;border:1px solid rgba(194,168,255,.36);background:linear-gradient(135deg,rgba(122,60,255,.12),rgba(86,226,222,.055))}.relationship-banner h3{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--royal2);margin:0 0 10px}.relationship-banner p{color:var(--muted);line-height:1.72;margin:0}.relationship-banner strong{color:var(--ink)}
+    @media(max-width:980px){nav{display:none}.hero{grid-template-columns:1fr}.calc-grid,.summary-grid,.summary-grid.two-card,.diagnostic-grid,.paid-three,.reading-spine,.eieia-grid,.reg-grid{grid-template-columns:1fr}.hero-points,.mini-grid,.advanced-preview,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.wrap{width:min(100% - 22px,1160px)}.name-lenses{grid-template-columns:1fr}.sigil{min-height:500px}.rings{width:270px;height:270px}.ring-label{white-space:normal;max-width:142px;text-align:center}.hero-points,.mini-grid,.advanced-preview,.gallery{grid-template-columns:1fr}h1{font-size:3.05rem}.calc-panel,.result-head,.summary-grid,.diagnostic-grid{padding:18px}.synthesis{margin:0 18px 18px;padding:18px}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="PAA Glyph Reading home"><span class="brand-mark">P</span><span>PAA Glyph Reading</span></a>
+    <nav aria-label="Primary navigation"><a href="#reveal">Reveal</a><a href="#method">Method</a><a href="#gallery">Glyphs</a><a class="nav-cta" href="#reveal">Begin</a></nav>
+  </div>
+</header>
+<main id="top">
+  <section class="wrap hero">
+    <aside class="glass sigil" aria-label="PAA symbolic field diagram">
+      <div class="sigil-inner">
+        <div>
+          <div class="tetractys" aria-label="Tetractys of ten points">
+            <div class="dot-row"><span class="dot"></span></div>
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span></div>
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="dot-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="rings">
+            <div class="ring-label one">Birth Root</div>
+            <div class="ring-label two">Full Name</div>
+            <div class="ring-label three">Archetypal Synthesis</div>
+            <div class="ring-center">BIRTH ROOT → FULL NAME<br/><span style="font-size:.78em;color:var(--muted)">(Archetypal Awareness)</span></div>
+          </div>
+          <p class="sigil-note">Pythagorean Arithmosophic Anamnesis</p>
+        </div>
+      </div>
+    </aside>
+    <div class="hero-copy">
+      <div class="eyebrow">Pythagorean Arithmosophic Anamnesis</div>
+      <h1>Your life runs on a pattern. This reveals it.</h1>
+      <p class="lead">Your birthdate shows the pressure life repeats. Your full name shows how you carry that pressure and what quietly drives it underneath.</p>
+      <div class="hero-points">
+        <div class="point"><b>Birth Root</b><span>The pattern life keeps activating.</span></div>
+        <div class="point"><b>Full Name Ordinal</b><span>The form that carries it.</span></div>
+        <div class="point"><b>Full Name Reduction</b><span>The hidden motive shaping the response.</span></div>
+      </div>
+      <div class="actions"><a class="btn btn-primary" href="#reveal">Reveal Archetypal Analysis</a><a 
+    </div>
+  </section>
+  <section id="reveal" class="wrap">
+    <h2 class="section-title">PAA Glyph Calculator</h2>
+    <p class="section-sub">Enter your birthdate and full birth name. The free reading gives recognition: the core sequence, the visible name-form, and the underlying engine. The full reading shows where the sequence breaks, how it repeats, and how to correct it.</p>
+    <div class="glass calc-panel">
+      <div class="calc-grid">
+        <div>
+          <label for="birthdate">Birthdate</label>
+          <input type="date" id="birthdate"/>
+          <div class="helper">Example: 1998-05-05 → 37 → 10 → 1.</div>
+        </div>
+        <div>
+          <label for="fullName">Full Birth Name</label>
+          <input type="text" id="fullName" placeholder="First Middle Last" autocomplete="name"/>
+          <div class="helper">Letters only are counted. Spaces and punctuation are ignored.</div>
+        </div>
+        <button class="btn btn-primary" onclick="calculateDiagnostic()">Reveal Reading</button>
+      </div>
+
+      <article id="result" class="glass result" aria-live="polite">
+        <div class="result-head">
+          <h2 id="resultTitle">Your Core Pattern</h2>
+          <p id="resultSubtitle">One sequence governs the reading: Birth Root → Full Name. The reduction stays inside the name-field as an undertone.</p>
+        </div>
+
+        <div class="reading-spine">
+          <div class="spine-step"><b>Birthdate</b><span id="spineBirthdate"></span></div>
+          <div class="spine-step"><b>Birth Sum</b><span id="spineBirthSum"></span></div>
+          <div class="spine-step"><b>Birth Root</b><span id="spineBirthRoot"></span></div>
+          <div class="spine-step"><b>Full Name</b><span id="spineNameGlyph"></span></div>
+          <div class="spine-step"><b>Relationship</b><span id="spineRelationship"></span></div>
+        </div>
+
+        <div class="summary-grid two-card">
+          <div class="glyph-card aqua">
+            <div class="card-kicker">Birth Root</div>
+            <div class="big-number" id="birthGlyphNum"></div>
+            <h3 id="birthGlyphName"></h3>
+            <p id="birthGlyphDesc"></p>
+            <div class="meta" id="birthMeta"></div>
+          </div>
+
+          <div class="glyph-card purple name-card">
+            <div class="card-kicker">Full Name Pattern</div>
+            <div class="big-number" id="nameGlyphNum"></div>
+            <h3 id="nameGlyphName"></h3>
+            <p id="nameGlyphDesc"></p>
+            <div class="name-lenses">
+              <div class="lens"><b>Ordinal · How People Experience You</b><span id="ordinalLens"></span></div>
+              <div class="lens"><b>Reduction · What Quietly Drives You</b><span id="reductionLens"></span></div>
+            </div>
+            <div class="meta" id="nameMeta"></div>
+          </div>
+        </div>
+
+        <div class="synthesis">
+          <h3>The Pattern</h3>
+          <p id="structuralSentence"></p>
+        </div>
+
+        <div class="relationship-banner">
+          <h3>What This Means</h3>
+          <p id="primaryRelationship"></p>
+        </div>
+
+        <div class="diagnostic-grid">
+          <div class="tile full">
+            <h3>Calculation Path</h3>
+            <div class="calc-readout">
+              <div class="calc-block birth"><h4>Birthdate Calculation</h4><div id="birthCalc"></div></div>
+              <div class="calc-block name"><h4>Full Name Ordinal Path</h4><div id="ordinalCalc"></div></div>
+              <div class="calc-block reduction"><h4>Full Name Reduction Path</h4><div id="reductionCalc"></div></div>
+            </div>
+          </div>
+
+          <div class="tile"><h3>Your Main Glyph Tension</h3><p id="coreTension"></p></div>
+          <div class="tile good"><h3>When This Works Well</h3><p id="coherence"></p></div>
+          <div class="tile bad"><h3>When This Goes Wrong</h3><p id="distortion"></p></div>
+
+          <div class="tile full">
+            <h3>Free EIEIA Snapshot</h3>
+            <p>This is the surface map of the pattern. Essence names the structure. Impulse names the first movement. Energy names the tempo. Intelligence names the interpretive bias. Action names how the pattern is experienced in motion.</p>
+            <div class="eieia-grid">
+              <div class="eieia-card"><strong>Essence</strong><p id="eEssence"></p></div>
+              <div class="eieia-card"><strong>Impulse</strong><p id="eImpulse"></p></div>
+              <div class="eieia-card"><strong>Energy</strong><p id="eEnergy"></p></div>
+              <div class="eieia-card"><strong>Intelligence</strong><p id="eIntelligence"></p></div>
+              <div class="eieia-card"><strong>Action</strong><p id="eAction"></p></div>
+            </div>
+          </div>
+
+
+          <div id="advanced" class="tile full premium-shell is-locked">
+            <div class="premium-topline">
+              <div>
+                <h3>Full Diagnostic Locked</h3>
+                <p>The free reading shows the outline. The full reading shows the break-point: the mistake that repeats while looking like adaptation.</p>
+              </div>
+              <div class="premium-price">Full Reading</div>
+            </div>
+
+            <div class="premium-lock-panel">
+              <div class="premium-copy">
+                <strong>You are already repeating this pattern.</strong>
+                <span>The free version shows what the pattern is. The full reading shows exactly where it breaks in real life: how other people misread you, what you do under pressure, and the specific mistake you keep making without seeing it.</span>
+              </div>
+              <div class="paid-preview-cut"><p>Most people do not fail randomly. They fail in the same place, for the same reason, while believing they are adapting.</p></div>
+              <div class="actions premium-actions">
+                <a id="stripeUnlockLink" class="btn btn-gold" href="#" target="_blank" rel="noopener">See Where Yours Breaks</a>
+                <button class="btn btn-secondary" type="button" onclick="demoRevealPaidReading()">Preview Reveal</button>
+                <button class="btn btn-secondary" onclick="copyReading()">Copy Free Reading</button>
+              </div>
+              <p class="stripe-note">Replace the placeholder Stripe URL in the code with your real Stripe Payment Link. The preview button is for your review only; remove it before launch. True payment verification requires a backend or Stripe success redirect.</p>
+            </div>
+
+            <div class="premium-blur"><div id="paidDiagnostic" class="paid-diagnostic"></div></div>
+          </div>
+
+          <div class="tile full">
+            <h3>Copy / Share Free Glyph Reading</h3>
+            <div class="copy-box" id="copyBox"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="method" class="wrap"><h2 class="section-title">How the Reading Works</h2><p class="section-sub">The reading keeps the layers separate, then joins only what should be joined. Birthdate gives the initiating Glyph. The full name gives the carrying Glyph. The reduction name remains an undertone, not a second relationship. The value is in reading the single ordered movement clearly.</p><div class="diagnostic-grid" style="padding:0"><div class="tile"><h3>Free Reading</h3><p>Reveal the three numbers, calculation path, plain-English pattern, what works well, and what tends to go wrong under pressure.</p></div><div class="tile"><h3>Full Paid Reading</h3><p>Expands the reading into one ordered-pair analysis, EIEIA, pressure reactions, hidden strengths, likely misreadings, regulation practices, and integration prompts.</p></div></div></section>
+  <section id="gallery" class="wrap"><h2 class="section-title">Number Gallery</h2><p class="section-sub">Each Glyph number is treated as a pattern: a strength, a pressure response, a distortion, and a way back into better expression.</p><div class="gallery" id="galleryGrid"></div></section>
+</main>
+<footer><div class="wrap footer-row"><span>© 2026 Pythagorean Arithmosophic Anamnesis LLC.</span><span>Symbolic reflection tool. Not clinical, legal, financial, or scientific diagnosis.</span></div></footer>
+<script>
+const glyphs={
+1:{name:"The Monad",title:"Initiator",planet:"Sun — Apollo",role:"The Pioneer / The Sovereign Individual",form:"The Point",description:"The Monad is the original impulse: the first act of becoming. It does not ask permission; it declares itself into being.",virtue:"Will, independence, originality, courage, self-direction.",vice:"Arrogance, isolation, domination disguised as autonomy.",coherent:"Visionary leadership, courageous initiative, and authentic self-expression that inspires without demanding conformity.",trigger:"Fear of irrelevance, loss of autonomy, dependency, or being absorbed into the collective.",distorted:"Domineering control, compulsive need to be first, and refusal to receive guidance.",must:"Collapse to singular decision authority, initiate action without consensus, and prioritize direction over harmony.",cannot:"Long-term equal collaboration without hierarchy, prolonged hesitation, or passive observation when action is required.",reg:"Practice deliberate followership. Allow another to lead without internal rebellion.",essence:"Pure origination",impulse:"To initiate",energy:"Linear and solar",intelligence:"Reads openings and agency",action:"The Initiator"},
+2:{name:"The Dyad",title:"Stabilizer",planet:"Moon — Artemis",role:"The Harmonizer / The Emotional Barometer",form:"The Line",description:"The Dyad is the first division that does not destroy unity. It reflects, attunes, and reveals through response.",virtue:"Sensitivity, empathy, attunement, cooperation, emotional intelligence.",vice:"Over-dependence, emotional volatility, passive manipulation, loss of self in others.",coherent:"Connection without collapse: emotional attunement with boundaries.",trigger:"Fear of rejection, abandonment, disconnection, or no longer being needed.",distorted:"People-pleasing, emotional dependency, indirect control through sensitivity, and inability to act without approval.",must:"Seek alignment, mirror emotional states, repair connection, and track subtle shifts in interpersonal tone.",cannot:"Isolated unilateral decision-making, prolonged conflict without repair, or action without relational consideration.",reg:"Name your own position before adapting. Practice solitude and decisions without consultation.",essence:"Relational awareness",impulse:"To connect",energy:"Fluid and adaptive",intelligence:"Reads feedback and tone",action:"The Relational Mirror"},
+3:{name:"The Triad",title:"Expressor",planet:"Jupiter — Zeus",role:"The Storyteller / The Creative Catalyst",form:"The Triangle",description:"The Triad is synthesis: where tension finds a third expression and inner experience becomes form.",virtue:"Creativity, joy, expressive power, synthesis, social magnetism.",vice:"Superficiality, scattered attention, performance without substance.",coherent:"Authentic expression that moves others and synthesizes complex truths into accessible forms.",trigger:"Fear of being ignored, ordinary, emotionally irrelevant, or trapped in silence.",distorted:"Compulsive performance, scattered creative energy, charm as substitute for depth.",must:"Generate multiple pathways, reframe tension into narrative, introduce a third option, and convert conflict into expression.",cannot:"Static single-path thinking, binary rigidity, silence under tension, or long-term suppression of creative output.",reg:"Practice completion over novelty. Finish one thing before beginning three more.",essence:"Creative synthesis",impulse:"To express",energy:"Radiant and warm",intelligence:"Reads combination",action:"The Expressor"},
+4:{name:"The Tetrad",title:"Builder",planet:"Earth — Demeter",role:"The Architect / The Foundation-Keeper",form:"The Square",description:"The Tetrad is manifestation: where spirit meets matter and form becomes stable. It builds what can endure.",virtue:"Structure, discipline, reliability, patience, methodical mastery.",vice:"Rigidity, excessive control, fear of the unplanned.",coherent:"Patient craftsmanship and reliable follow-through that turns abstract vision into concrete reality.",trigger:"Fear of chaos, unpredictability, loss of control, or wasted foundational labor.",distorted:"Obsessive control, emotional rigidity, workaholism as identity, confusing the map for the territory.",must:"Seek order, reinforce boundaries, slow action to stabilize foundation, and convert chaos into repeatable structure.",cannot:"Rapid unstructured change, ambiguity without parameters, undefined roles, or action without a plan.",reg:"Practice deliberate unstructured time. Allow life to breathe beyond the plan.",essence:"Material stability",impulse:"To build",energy:"Dense and rhythmic",intelligence:"Reads load-bearing structure",action:"The Builder"},
+5:{name:"The Pentad",title:"Adventurer",planet:"Mercury — Hermes",role:"The Explorer / The Trickster-Teacher",form:"The Pentagon / Pentagram",description:"The Pentad is dynamic change: the disruption that prevents stagnation and opens the known world.",virtue:"Adaptability, freedom, curiosity, versatility, courage to change.",vice:"Impulsiveness, novelty addiction, irresponsibility, chronic restlessness.",coherent:"Meaningful exploration, liberating others from stagnation, and translating diverse experience into wisdom.",trigger:"Fear of entrapment, routine, boredom, or predictability.",distorted:"Compulsive novelty-seeking, abandoning people or projects at difficulty, using freedom as excuse for irresponsibility.",must:"Introduce change, break confinement, seek freedom through new input, destabilize stagnation, and pivot when constrained.",cannot:"Prolonged restriction, monotony, static identity, total predictability, or submission to rigid control.",reg:"Practice staying. Complete one full cycle before beginning the next adventure.",essence:"Dynamic change",impulse:"To move",energy:"Mercurial and electric",intelligence:"Reads exits and openings",action:"The Adventurer"},
+6:{name:"The Hexad",title:"Nurturer",planet:"Venus — Aphrodite",role:"The Caretaker / The Aesthetic Harmonizer",form:"The Hexagon",description:"The Hexad is harmony: the reconciliation of opposites into beauty, care, and functional wholeness.",virtue:"Harmony, responsibility, love, aesthetic sensitivity, nurturing presence.",vice:"Martyrdom, control through caretaking, self-righteousness, suffocating love.",coherent:"Care that empowers, beauty that reveals truth, and environments where others flourish.",trigger:"Fear of being unneeded, unloved, morally imperfect, or aesthetically disordered.",distorted:"Martyrdom, guilt-based control, perfectionism in relationships, inability to let others fail and learn.",must:"Restore balance, absorb tension, prioritize group stability, smooth conflict, and maintain continuity.",cannot:"Prolonged imbalance, open fracture, neglected responsibility, or chaotic environments.",reg:"Practice receiving without reciprocating. Let someone care for you without earning it.",essence:"Harmonic wholeness",impulse:"To heal",energy:"Warm and cohesive",intelligence:"Reads need and imbalance",action:"The Nurturer"},
+7:{name:"The Heptad",title:"Seeker",planet:"Neptune — Poseidon",role:"The Philosopher / The Sacred Investigator",form:"The Heptagon",description:"The Heptad is mystery: the prime that resists easy division and forces deeper questioning beneath appearances.",virtue:"Wisdom, introspection, analytical depth, spiritual perception, discernment.",vice:"Withdrawal, cynicism, analysis paralysis, spiritual elitism.",coherent:"Wisdom that serves life; solitude that returns with insight rather than severing from the world.",trigger:"Fear of superficiality, exposure of ignorance, emotional vulnerability, or being ordinary.",distorted:"Intellectual arrogance, emotional withdrawal disguised as depth, complexity as weapon.",must:"Withdraw to analyze, seek hidden structure, reduce noise, question assumptions, and process before action.",cannot:"Constant engagement without reflection, blind surface acceptance, rapid action without understanding, or shallow sociality as primary mode.",reg:"Practice embodiment. Do something physical, sensory, and unanalyzed.",essence:"Irreducible mystery",impulse:"To understand",energy:"Still and penetrating",intelligence:"Reads hidden structure",action:"The Seeker"},
+8:{name:"The Ogdoad",title:"Ruler",planet:"Saturn — Kronos",role:"The Executive / The Power-Wielder",form:"The Octagon",description:"The Ogdoad is power: authority through mastery, leverage, consequence, and stewardship.",virtue:"Power, mastery, material intelligence, strategic vision, executive capacity.",vice:"Domination, greed, ruthlessness, corruption through authority.",coherent:"Stewardship of resources and authority that empowers rather than diminishes.",trigger:"Fear of powerlessness, dependency, poverty, humiliation, or subjection to another authority.",distorted:"Hoarding, domination, utility-based relationships, workaholism, inability to admit limitation.",must:"Consolidate control, evaluate leverage, enforce hierarchy, convert opportunity into gain, and secure position.",cannot:"Power vacuums, wasted resources, subordination without influence, or systems without measurable output.",reg:"Practice generosity without strategic calculation. Give where there is no return.",essence:"Regenerative power",impulse:"To master",energy:"Dense and commanding",intelligence:"Reads leverage and stakes",action:"The Ruler"},
+9:{name:"The Ennead",title:"Humanitarian",planet:"Universal Field",role:"The Sage-Healer / The Compassionate Completer",form:"The Enneagram",description:"The Ennead is completion: the fullness that precedes transformation and opens the personal into the universal.",virtue:"Compassion, universality, wisdom through completion, selfless service.",vice:"Self-neglect, escapism, martyrdom without boundaries, spiritual bypassing.",coherent:"Wise generosity, compassion with boundaries, and service from fullness rather than depletion.",trigger:"Fear of meaninglessness, universal suffering, endings, or actually completing the work.",distorted:"Savior complex, self-neglect, dissociative transcendence, world-weariness.",must:"Move toward closure, integrate the field, release what is unnecessary, and expand beyond the immediate.",cannot:"Endless cycles without conclusion, narrow perspective, fragmentation without integration, or refusal to let go.",reg:"Practice bounded generosity. Rest is maintenance of the instrument.",essence:"Universal completion",impulse:"To complete",energy:"Flowing and encompassing",intelligence:"Reads the whole cycle",action:"The Humanitarian"},
+11:{name:"The Blade",title:"Threshold-Crosser",planet:"Uranus — Prometheus",role:"The Lightning Rod / The Prophetic Witness",form:"Twin Pillars",description:"Eleven is the first master number: the threshold between ordinary awareness and charged perception.",virtue:"Heightened intuition, visionary perception, dual illumination, prophetic insight.",vice:"Nervous instability, psychic overwhelm, grandiosity masked as sensitivity.",coherent:"Channeled inspiration stabilized through discipline and translated into useful wisdom.",trigger:"Overstimulation, lack of grounding, identification with vision rather than service, spiritual inflation.",distorted:"Nervous collapse, chosen-one complex, spiritual performance, severance from ordinary life.",must:"Illuminate, reveal, hold paradox, bridge seen and unseen, and translate what presses through.",cannot:"Sustain intensity without grounding, vision without service, or threshold perception without discipline.",reg:"Ground relentlessly. Physical practice, routine, and mundane obligation anchor the vision.",essence:"Threshold illumination",impulse:"To reveal",energy:"Electric and high-frequency",intelligence:"Reads the membrane",action:"The Visionary Initiate"}
+};
+function cleanName(name){return (name||"").toUpperCase().replace(/[^A-Z]/g,"");}
+function letterValue(ch){return ch.charCodeAt(0)-64;}
+function digitalRootLetter(v){return ((v-1)%9)+1;}
+function reduceNumber(n){const path=[n];let c=n;while(c>9&&c!==11){c=String(c).split("").reduce((a,b)=>a+Number(b),0);path.push(c)}return{root:c,path};}
+function digitSumFromDate(v){const digits=v.replace(/\D/g,"").split("").map(Number);return{digits,sum:digits.reduce((a,b)=>a+b,0)}}
+function chipList(items){return items.map(x=>`<span class="chip">${x}</span>`).join("")}
+function short(s,n=185){return s.length>n?s.slice(0,n-1)+"…":s}
+function set(id,val){document.getElementById(id).textContent=val}
+function calculateName(name){const letters=cleanName(name).split("");const ordinalValues=letters.map(letterValue);const reductionValues=ordinalValues.map(digitalRootLetter);const ordinalTotal=ordinalValues.reduce((a,b)=>a+b,0);const reductionTotal=reductionValues.reduce((a,b)=>a+b,0);const ordinal=reduceNumber(ordinalTotal);const reduction=reduceNumber(reductionTotal);return{letters,ordinalValues,reductionValues,ordinalTotal,reductionTotal,ordinal,reduction}}
+function calcRow(label,value,mono=false){return `<div class="calc-row"><div class="calc-label">${label}</div><div class="calc-value ${mono?"calc-chain":""}">${value}</div></div>`}
+function setHTML(id,val){document.getElementById(id).innerHTML=val}
+
+const STRIPE_PAYMENT_LINK="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE";
+
+const glyphFunction={
+  1:{label:"Initiation",first:"acts before the room has finished deciding",response:"answers pressure by taking direct action",breaks:"can become force without listening",task:"move first, then deliberately check reality",plain:"I start fast, then must learn not to confuse speed with truth."},
+  2:{label:"Relational Attunement",first:"registers the emotional field before choosing",response:"answers pressure by seeking alignment, repair, or confirmation",breaks:"can trade self-trust for approval",task:"listen without disappearing",plain:"I sense people quickly, then must remember I am also allowed to stand somewhere."},
+  3:{label:"Expression",first:"turns pressure into language, creativity, humor, or narrative",response:"answers pressure by reframing and communicating",breaks:"can perform instead of resolving",task:"finish the truth, not merely decorate it",plain:"I make meaning quickly, then must prove the meaning by completing something."},
+  4:{label:"Stabilization",first:"looks for the structure, rule, duty, or load-bearing step",response:"answers pressure by building, organizing, or controlling the ground",breaks:"can mistake rigidity for safety",task:"build without imprisoning the living thing",plain:"I stabilize what others scatter, then must learn when the structure has become a cage."},
+  5:{label:"Adaptation",first:"looks for movement, option, escape, or new input",response:"answers pressure by changing the route",breaks:"can flee the lesson by calling it freedom",task:"keep mobility without abandoning the work",plain:"I need motion, then must learn the difference between liberation and avoidance."},
+  6:{label:"Responsibility",first:"notices what is imbalanced, neglected, or in need of care",response:"answers pressure by repairing, harmonizing, or carrying",breaks:"can over-own what belongs to others",task:"care without becoming the container for everyone",plain:"I restore what is strained, then must not become a servant to every fracture."},
+  7:{label:"Discernment",first:"withdraws inward to question what is really happening",response:"answers pressure by analyzing, separating, or seeking hidden structure",breaks:"can turn insight into distance",task:"return from analysis with an embodied action",plain:"I question deeply, then must not let depth become exile."},
+  8:{label:"Command",first:"measures leverage, consequence, power, and control",response:"answers pressure by consolidating authority or enforcing results",breaks:"can dominate what should be stewarded",task:"use power as stewardship, not armor",plain:"I see the stakes, then must not make control my only proof of safety."},
+  9:{label:"Completion",first:"sees the larger cycle, the ending, and the human cost",response:"answers pressure by integrating, forgiving, releasing, or completing",breaks:"can dissolve before the necessary boundary is made",task:"complete without vanishing",plain:"I see the whole, then must still make one clear choice inside it."},
+  11:{label:"Threshold Illumination",first:"registers heightened pressure, paradox, signal, or rupture before it can be easily explained",response:"answers pressure by revealing, intensifying, translating, or cutting through the ordinary frame",breaks:"can confuse intensity with authority or revelation with integration",task:"ground the signal before declaring it",plain:"I see the threshold quickly, then must prove the vision by making it usable."}
+};
+const relationshipGrid={
+  "1-1":"Reinforced Drive","1-2":"Action Seeking Response","1-3":"Directness Becoming Expression","1-4":"Impulse Seeking Structure","1-5":"Initiative Seeking Freedom","1-6":"Will Taking Responsibility","1-7":"Action Interrupted by Discernment","1-8":"Drive Becoming Command","1-9":"Initiation Seeking Completion",
+  "2-1":"Sensitivity Forcing Action","2-2":"Reinforced Attunement","2-3":"Feeling Becoming Expression","2-4":"Sensitivity Seeking Stability","2-5":"Connection Seeking Movement","2-6":"Care Becoming Responsibility","2-7":"Relational Reading Becoming Discernment","2-8":"Sensitivity Meeting Power","2-9":"Feeling Expanding into Compassion",
+  "3-1":"Expression Forcing Direction","3-2":"Communication Seeking Reception","3-3":"Reinforced Expression","3-4":"Creativity Seeking Form","3-5":"Expression Seeking Range","3-6":"Communication Becoming Care","3-7":"Expression Checked by Depth","3-8":"Voice Seeking Authority","3-9":"Expression Seeking Meaningful Closure",
+  "4-1":"Structure Releasing Action","4-2":"Order Seeking Relational Peace","4-3":"Form Seeking Voice","4-4":"Reinforced Structure","4-5":"Stability Pressured by Change","4-6":"Duty Becoming Care","4-7":"Structure Questioned from Within","4-8":"Foundation Becoming Authority","4-9":"Structure Seeking Completion",
+  "5-1":"Movement Becoming Action","5-2":"Freedom Seeking Connection","5-3":"Change Becoming Expression","5-4":"Freedom Meeting Constraint","5-5":"Reinforced Adaptation","5-6":"Movement Seeking Responsibility","5-7":"Freedom Checked by Discernment","5-8":"Adaptability Seeking Control","5-9":"Movement Seeking Release",
+  "6-1":"Care Forcing Direction","6-2":"Responsibility Seeking Recognition","6-3":"Care Becoming Expression","6-4":"Harmony Seeking Structure","6-5":"Responsibility Pressured by Freedom","6-6":"Reinforced Responsibility","6-7":"Care Checked by Discernment","6-8":"Responsibility Seeking Authority","6-9":"Care Expanding into Universal Concern",
+  "7-1":"Analysis Erupting into Action","7-2":"Discernment Seeking Trust","7-3":"Depth Becoming Language","7-4":"Insight Seeking Structure","7-5":"Discernment Meeting Movement","7-6":"Insight Becoming Responsibility","7-7":"Reinforced Discernment","7-8":"Analysis Seeking Command","7-9":"Discernment Dissolving into Completion",
+  "8-1":"Command Becoming Direct Action","8-2":"Power Meeting Sensitivity","8-3":"Authority Seeking Voice","8-4":"Control Seeking Foundation","8-5":"Control Pressured by Freedom","8-6":"Authority Becoming Responsibility","8-7":"Power Checked by Discernment","8-8":"Reinforced Command","8-9":"Authority Seeking Completion",
+  "9-1":"Completion Forcing a New Beginning","9-2":"Wholeness Seeking Intimacy","9-3":"Meaning Becoming Expression","9-4":"Completion Seeking Structure","9-5":"Release Seeking Movement","9-6":"Compassion Becoming Care","9-7":"Wholeness Questioned by Discernment","9-8":"Completion Meeting Power","9-9":"Reinforced Completion",
+  "1-11":"Initiation Meeting Threshold Signal","2-11":"Sensitivity Meeting Threshold Signal","3-11":"Expression Becoming Revelation","4-11":"Structure Pressured by Vision","5-11":"Movement Charged by Illumination","6-11":"Care Pressured by Calling","7-11":"Discernment Intensified by Vision","8-11":"Command Meeting Prophetic Pressure","9-11":"Completion Opening a Threshold",
+  "11-1":"Threshold Signal Forcing Action","11-2":"Threshold Signal Seeking Reception","11-3":"Revelation Seeking Language","11-4":"Vision Seeking Ground","11-5":"Threshold Energy Seeking Movement","11-6":"Vision Becoming Responsibility","11-7":"Illumination Checked by Discernment","11-8":"Threshold Signal Seeking Command","11-9":"Revelation Seeking Completion","11-11":"Reinforced Threshold Illumination"
+};
+function paidSection(title,body){return `<div class="paid-section"><h4>${title}</h4>${body}</div>`}
+function paidP(label,text){return `<p><strong>${label}:</strong> ${text}</p>`}
+function paidMini(label,text){return `<div class="paid-mini"><b>${label}</b><span>${text}</span></div>`}
+function pairMode(a,b){
+  if(a===b)return "Reinforcement";
+  const k=`${a}-${b}`;
+  const align=new Set(["1-8","2-6","3-6","4-8","7-9","8-4","9-7","7-11","11-7","11-9","9-11"]);
+  const reversal=new Set(["1-7","1-9","2-8","2-9","3-9","7-1","8-1","8-2","9-1","9-2","9-3","1-11","11-1","4-11","11-4","8-11","11-8"]);
+  const masking=new Set(["1-4","2-5","4-1","4-7","5-2","5-8","6-3","6-9","7-4","8-5","9-6","2-11","11-2","6-11","11-6"]);
+  const compensation=new Set(["1-3","1-6","2-4","2-7","3-1","3-5","3-8","4-2","4-6","4-9","5-3","5-7","6-1","6-4","6-8","7-2","7-5","8-3","8-6","9-4","3-11","11-3","5-11","11-5"]);
+  if(align.has(k))return "Clean Cooperation";
+  if(reversal.has(k))return "Stress Reversal";
+  if(masking.has(k))return "Hidden Pattern";
+  if(compensation.has(k))return "Compensation";
+  return "Managed Tension";
+}
+const modeHuman={
+  "Reinforcement":"The same number appears on both sides, so the pattern intensifies instead of changing channels",
+  "Clean Cooperation":"The first pressure and the response can cooperate with unusually little inner war",
+  "Managed Tension":"Two real needs pull against each other and must be consciously managed",
+  "Compensation":"The response tries to solve, soften, or correct the vulnerability of the first pressure",
+  "Hidden Pattern":"The visible response can conceal the deeper pressure underneath",
+  "Stress Reversal":"Under pressure, the person may flip into a strategy that surprises even them"
+};
+function pairTitle(a,b){return `Glyph ${a} → Glyph ${b}: ${relationshipGrid[`${a}-${b}`]||"Ordered Pair Pattern"}`;}
+function pairCore(a,b){
+  const A=glyphFunction[a]||glyphFunction[reduceNumber(a).root]||glyphFunction[9];
+  const B=glyphFunction[b]||glyphFunction[reduceNumber(b).root]||glyphFunction[9];
+  return `You initiate through ${A.label.toLowerCase()}, but respond through ${B.label.toLowerCase()}. This means your first move is rarely the problem — your response is. You solve ${A.label.toLowerCase()} situations using ${B.label.toLowerCase()}, even when it is not what the situation actually requires.`;
+}
+function pairBreak(a,b){
+  const A=glyphFunction[a]||glyphFunction[reduceNumber(a).root]||glyphFunction[9];
+  const B=glyphFunction[b]||glyphFunction[reduceNumber(b).root]||glyphFunction[9];
+  return `You begin correctly, then drift. The original pressure (${A.label.toLowerCase()}) gets replaced by your habitual response (${B.label.toLowerCase()}). Over time, you stop responding to reality and start repeating yourself.`;
+}
+function pairFix(a,b){
+  const A=glyphFunction[a]||glyphFunction[reduceNumber(a).root]||glyphFunction[9];
+  const B=glyphFunction[b]||glyphFunction[reduceNumber(b).root]||glyphFunction[9];
+  return `Do not remove your response (${B.label.toLowerCase()}). Place it after the correct beginning (${A.label.toLowerCase()}). The order is the correction.`;
+}
+function pairMechanics(a,b,ga,gb,label){
+  const A=glyphFunction[a]||glyphFunction[reduceNumber(a).root]||glyphFunction[9],B=glyphFunction[b]||glyphFunction[reduceNumber(b).root]||glyphFunction[9],mode=pairMode(a,b);
+  const coherent={
+    "Reinforcement":`The person becomes legible and consistent. Others know what pattern will show up, and the person can build identity around a clear center.`,
+    "Clean Cooperation":`The first pressure finds a clean outlet. The person can move with less self-contradiction and convert pressure into useful behavior.`,
+    "Managed Tension":`The tension produces maturity when the person can honor both numbers without letting either one dominate the whole system.`,
+    "Compensation":`The second number becomes medicine for the first. It gives the first pressure a missing skill rather than shaming it.`,
+    "Hidden Pattern":`The visible response becomes a translator. It allows a deeper pressure to enter the world in a form other people can understand.`,
+    "Stress Reversal":`The person gains emergency range. They can switch tactics when the original strategy cannot carry the pressure.`
+  }[mode];
+  const distorted={
+    "Reinforcement":`The person doubles down and calls it authenticity. Same pattern, louder volume, weaker correction.`,
+    "Clean Cooperation":`Because the pair feels natural, the person may stop testing it. Ease becomes assumption. Assumption becomes blind spot.`,
+    "Managed Tension":`The person sends mixed signals: one number asks for one thing while the other behaves as though something else is true.`,
+    "Compensation":`The correction becomes excessive. The person solves one problem by creating another.`,
+    "Hidden Pattern":`People respond to the mask while the real pressure remains unseen. The person may then feel misunderstood even while performing the misunderstanding.`,
+    "Stress Reversal":`The reversal becomes the default defense. The person becomes effective in a way that slowly betrays the original need.`
+  }[mode];
+  return {mode,humanMode:modeHuman[mode],title:pairTitle(a,b),core:pairCore(a,b),coherent,distorted:pairBreak(a,b),first:`Glyph ${a} activates first: it ${A.first}.`,response:`Glyph ${b} answers: it ${B.response}.`,friction:`The break-point is this: ${A.breaks}; ${B.breaks}.`,plain:`Plain sentence: ${A.plain} ${B.plain}`,task:pairFix(a,b),label};
+}
+function pairCard(label,a,b,ga,gb){const p=pairMechanics(a,b,ga,gb,label);return `<div class="paid-section"><h4>${label} · ${a} → ${b}</h4><p><strong>${p.title}</strong></p><p><strong>Engine class:</strong> ${p.mode}. ${p.humanMode}.</p><p><strong>First pressure:</strong> ${p.first}</p><p><strong>Response pattern:</strong> ${p.response}</p><p><strong>Core mechanic:</strong> ${p.core}</p><p><strong>Where it works:</strong> ${p.coherent}</p><p><strong>Where it breaks:</strong> ${p.distorted}</p><p><strong>Practical cut:</strong> ${p.task}</p></div>`;}
+function buildPaidReading(ctx){
+  const {fullName,date,root,ord,red,gRoot,gOrd,gRed,n,birth,d}=ctx;
+  const unified=ord===red;
+  const nameGlyph=ord;
+  const gName=gOrd;
+  return [
+    paidSection("I. What the Two Primary Glyphs Mean",
+      paidP("Birth Root",`This is the basic life pattern: the recurring pressure, lesson, and demand life places in front of the person. Here it resolves to <strong>Glyph ${root}</strong>.`)+
+      paidP("Full Name Glyph",`The full birth name is read as the second primary glyph in the relationship. Its ordinal value gives the outward name-form: <strong>Glyph ${ord}</strong>. Its reduction value, <strong>Glyph ${red}</strong>, is not treated as a second relationship; it clarifies the inner motive inside the name-field.`)+
+      paidP("Reading Rule",`There is one ordered relationship in the reading: <strong>Glyph ${root} → Glyph ${nameGlyph}</strong>. The reduction layer modifies the interpretation; it does not create another pair.`)
+    ),
+    paidSection("II. The Relevant Ordered Pair",
+      `<p>The whole pair library stays under the hood. The user only needs the one relationship that applies: <strong>Birth Root → Full Name Glyph</strong>.</p><p><strong>Applied here:</strong> Glyph ${root} → Glyph ${nameGlyph}. The birth root is the first pressure. The full name is the response-form: how the person carries, expresses, defends, or organizes that pressure in life.</p>`
+    ),
+    pairCard("Birth Root → Full Name Glyph",root,nameGlyph,gRoot,gName),
+    paidSection("III. How the Reduction Layer Is Used",
+      `<p><strong>Name reduction is not a second ordered pair.</strong> It is a clarifying lens inside the full-name field. It tells us what quietly motivates or colors the outward name-form.</p><div class="paid-three">${paidMini("Full Name Ordinal",`${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}. This is the primary full-name glyph used in the ordered pair: Glyph ${ord}.`)}${paidMini("Full Name Reduction",`${n.reductionTotal} → ${n.reduction.path.join(" → ")}. This modifies the name-reading from underneath: Glyph ${red}.`)}${paidMini("Unified or Layered Name",unified?`Both name calculations resolve to Glyph ${ord}. The name-field is concentrated: the outer form and inner motive reinforce the same glyph.`:`The name-field is layered: Glyph ${ord} is the outward form; Glyph ${red} is the interior motive. The ordered pair remains Glyph ${root} → Glyph ${ord}.`)}</div>`
+    ),
+    paidSection("IV. Why Order Matters",
+      `<p><strong>Order changes the meaning.</strong> Glyph ${root} → Glyph ${nameGlyph} does not mean Glyph ${nameGlyph} → Glyph ${root}. The first tells you what life activates and how the full name tends to carry or respond to it. The reverse would tell a different story.</p><p><strong>This is the upgrade:</strong> the reading is no longer a stack of static traits. A pair shows movement: activation, response, friction, correction.</p>`
+    ),
+    paidSection("V. Five-Part Human Snapshot",
+      `<div class="paid-three">${paidMini("Essence",`Life-pattern: ${gRoot.essence}. Full-name form: ${gName.essence}. Hidden name motive: ${gRed.essence}.`)}${paidMini("Impulse",`Life pushes toward ${gRoot.impulse.toLowerCase()}. The full name carries this through ${gName.impulse.toLowerCase()}. The hidden motive tends toward ${gRed.impulse.toLowerCase()}.`)}${paidMini("Energy",`The tempo is ${gRoot.energy.toLowerCase()} at the root, ${gName.energy.toLowerCase()} in the full-name form, and ${gRed.energy.toLowerCase()} underneath.`)}${paidMini("Intelligence",`This person notices: ${gRoot.intelligence.toLowerCase()}, expresses through ${gName.intelligence.toLowerCase()}, and is quietly colored by ${gRed.intelligence.toLowerCase()}.`)}${paidMini("Action",`The primary sequence is ${gRoot.action} moving into ${gName.action}. The reduction layer adds the motive of ${gRed.action}.`)}${paidMini("Failure Signal",`The warning sign is simple: the person begins treating an old defense as if it were destiny.`)}</div>`
+    ),
+    paidSection("VI. What You Do Under Pressure",
+      paidP(`Glyph ${root} · Birth Root`,gRoot.must)+
+      paidP(`Glyph ${root} Cannot Sustain`,gRoot.cannot)+
+      paidP(`Glyph ${nameGlyph} · Full Name Form`,gName.must)+
+      paidP(`Glyph ${red} · Reduction Modifier`,gRed.must)+
+      paidP("Practical Meaning",`The reading only matters if it helps the person recognize what they do when comfort is removed. The pair is the mechanism; the reduction is the undertone.`)
+    ),
+    paidSection("VII. Where This Works Well",
+      paidP("High Expression",`This works well when the birth root and full-name glyph cooperate instead of impersonating one another.`)+
+      paidP(`Glyph ${root} Strength`,gRoot.coherent)+
+      paidP(`Glyph ${nameGlyph} Strength`,gName.coherent)+
+      paidP(`Glyph ${red} Reduction Support`,gRed.coherent)+
+      paidP("Operating Sentence",`Let the birthdate show the recurring life-lesson. Let the full-name glyph show the response-form. Let the reduction glyph clarify the hidden motive. Do not turn the modifier into a second relationship.`)
+    ),
+    paidSection("VIII. Where This Goes Wrong",
+      paidP("Primary Trigger",gRoot.trigger)+
+      paidP(`Glyph ${nameGlyph} Distortion`,gName.distorted)+
+      paidP(`Glyph ${red} Hidden-Motive Distortion`,gRed.distorted)+
+      paidP("The Repeating Problem",`The person may react from Glyph ${root}, carry that reaction through Glyph ${nameGlyph}, and justify it through the hidden motive of Glyph ${red} until the defense starts to feel like identity.`)
+    ),
+    paidSection("IX. Regulation Mechanics",
+      `<p><strong>The reading is incomplete until the distortion can be interrupted.</strong> Regulation is not generic self-improvement. It is the behavioral correction for this exact sequence: Glyph ${root} → Glyph ${nameGlyph}, with Glyph ${red} operating underneath.</p>`+
+      `<div class="reg-grid">${paidMini("Awareness",`You default to ${gName.name.toLowerCase()} before confirming what the situation actually requires. That is the error point.`)}${paidMini("Constraint",`Complete the birth-root demand first: ${gRoot.reg} Do not move into the name-form until the initial demand has been seen clearly.`)}${paidMini("Feedback",`Track repetition. If the same problem keeps returning, you are likely responding too early or using the name-form as a defense.`)}${paidMini("Cost",`If unchecked, the pattern becomes identity instead of behavior. Once that happens, it stops adapting, and the undertone may rationalize the defense through ${gRed.distorted.toLowerCase()}.`)}</div>`+
+      paidP(`Glyph ${root} Practice`,gRoot.reg)+
+      paidP(`Glyph ${nameGlyph} Practice`,gName.reg)+
+      paidP(`Glyph ${red} Reduction Practice`,gRed.reg)+
+      paidP("Daily Use",`Choose one small behavior that interrupts the distortion without betraying the strength. The aim is not to become someone else. The aim is to express the birth-root-to-full-name sequence cleanly.`)
+    ),
+    paidSection("X. Questions Worth Sitting With",
+      `<p><strong>1.</strong> Where does Glyph ${root} help me tell the truth, and where does it merely protect me?</p><p><strong>2.</strong> Where does my full name express Glyph ${nameGlyph} in ways other people can actually see?</p><p><strong>3.</strong> Where does Glyph ${red} quietly color the name-field from underneath?</p><p><strong>4.</strong> Does the ordered pair Glyph ${root} → Glyph ${nameGlyph} explain a pattern I have repeated more than once?</p>`
+    ),
+    paidSection("XI. Final Reading",
+      `<p><strong>${fullName}</strong>, born ${date}, resolves into one primary ordered relationship: <strong>Birth Root Glyph ${root} → Full Name Glyph ${nameGlyph}</strong>.</p><p>The name reduction, Glyph ${red}, remains important, but it is not a separate relationship. It is the undertone inside the name-field.</p>`
+    )
+  ].join("");
+}
+function demoRevealPaidReading(){const shell=document.getElementById("advanced");if(shell){shell.classList.remove("is-locked");shell.classList.add("is-unlocked")}}
+document.addEventListener("DOMContentLoaded",()=>{const link=document.getElementById("stripeUnlockLink");if(link)link.href=STRIPE_PAYMENT_LINK});
+
+function regulationSet(gRoot,gName,gRed){return {
+  awareness:`You default to ${gName.name.toLowerCase()} before confirming what the situation actually requires. That is the error point.`,
+  constraint:`Complete the birth-root demand first: ${gRoot.reg} Do not move into the name-form until the initial demand has been seen clearly.`,
+  feedback:`Track repetition. If the same problem keeps returning, you are likely responding too early or using the name-form as a defense.`,
+  cost:`If unchecked, the pattern becomes identity instead of behavior. Once that happens, it stops adapting, and the undertone may rationalize the defense through ${gRed.distorted.toLowerCase()}.`
+}}
+function eieiaBlend(gRoot,gName,gRed){return {
+  essence:`Your core pattern is ${gRoot.essence.toLowerCase()}. It is expressed through ${gName.essence.toLowerCase()} and driven underneath by ${gRed.essence.toLowerCase()}.`,
+  impulse:`You initiate through ${gRoot.impulse.toLowerCase()}, but your behavior tends to move through ${gName.impulse.toLowerCase()}. The hidden push comes from ${gRed.impulse.toLowerCase()}.`,
+  energy:`Your energy begins ${gRoot.energy.toLowerCase()} and settles into ${gName.energy.toLowerCase()}. The underlying tone is ${gRed.energy.toLowerCase()}.`,
+  intelligence:`You notice through ${gRoot.intelligence.toLowerCase()}, but you interpret through ${gName.intelligence.toLowerCase()}. The bias underneath is ${gRed.intelligence.toLowerCase()}.`,
+  action:`You become ${gRoot.action}, but others experience you as ${gName.action}. The reduction layer pulls this toward ${gRed.action}.`
+}}
+function calculateDiagnostic(){const date=document.getElementById("birthdate").value;const fullName=document.getElementById("fullName").value.trim();if(!date){document.getElementById("birthdate").focus();return}if(!cleanName(fullName)){document.getElementById("fullName").focus();return}const d=digitSumFromDate(date);const birth=reduceNumber(d.sum);const n=calculateName(fullName);const root=birth.root,ord=n.ordinal.root,red=n.reduction.root;const gRoot=glyphs[root]||glyphs[reduceNumber(root).root]||glyphs[9];const gOrd=glyphs[ord]||glyphs[reduceNumber(ord).root]||glyphs[9];const gRed=glyphs[red]||glyphs[reduceNumber(red).root]||glyphs[9];document.getElementById("result").style.display="block";set("spineBirthdate",date);set("spineBirthSum",`${d.digits.join(" + ")} = ${d.sum}`);set("spineBirthRoot",`${birth.path.join(" → ")} · Glyph ${root}`);set("spineNameGlyph",`Ordinal ${ord} · Undertone ${red}`);set("spineRelationship",`Glyph ${root} → Glyph ${ord}`);set("resultSubtitle",`${fullName} · Birthdate ${date}. The sequence is Birth Root Glyph ${root} → Full Name Glyph ${ord}. Reduction Glyph ${red} modifies the name from underneath.`);set("birthGlyphNum",root);set("birthGlyphName",`Glyph ${root} · ${gRoot.name} · ${gRoot.title}`);set("birthGlyphDesc",short(gRoot.description));document.getElementById("birthMeta").innerHTML=chipList([gRoot.role,gRoot.form,gRoot.planet]);const sameNameGlyph=ord===red;set("nameGlyphNum",sameNameGlyph?ord:`${ord}/${red}`);set("nameGlyphName",sameNameGlyph?`Glyph ${ord} · ${gOrd.name} · ${gOrd.title}`:`Ordinal Glyph ${ord}: ${gOrd.name} · Reduction Glyph ${red}: ${gRed.name}`);set("nameGlyphDesc",sameNameGlyph?`The same number is being read in two ways: ordinal as how the full name stands in the world, reduction as what quietly drives the person underneath. ${short(gOrd.description,150)}`:`Two name-values are present: one shows how the name is likely experienced from the outside; the other shows what may be moving underneath. This tension should be read, not flattened.`);set("ordinalLens",`${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}. How people may experience this: ${gOrd.essence.toLowerCase()}. Application: ${gOrd.action}.`);set("reductionLens",`${n.reductionTotal} → ${n.reduction.path.join(" → ")}. What quietly drives this: ${gRed.essence.toLowerCase()}. Application: ${gRed.impulse}.`);document.getElementById("nameMeta").innerHTML=chipList([`Ordinal total ${n.ordinalTotal}`,`Reduction total ${n.reductionTotal}`,sameNameGlyph?`Unified glyph ${ord}`:`Name tension ${ord}/${red}`]);set("structuralSentence",`Life repeatedly forces ${gRoot.impulse.toLowerCase()}. You respond through ${gOrd.impulse.toLowerCase()}, driven underneath by ${gRed.impulse.toLowerCase()}. When this fails, you treat ${gOrd.impulse.toLowerCase()} as the solution to a problem that actually began with ${gRoot.impulse.toLowerCase()}.`);setHTML("primaryRelationship",`The primary relationship is <strong>Glyph ${root} → Glyph ${ord}</strong>. Glyph ${root} is the first pressure. Glyph ${ord} is the full-name response-form. Glyph ${red} is the undertone inside the name-field, not a second pair.`);setHTML("birthCalc",calcRow("Birthdate",date)+calcRow("Digits",`${d.digits.join(" + ")} = ${d.sum}`,true)+calcRow("Reduction",birth.path.join(" → "),true)+calcRow("Final Root",`${root} — ${gRoot.name}`));setHTML("ordinalCalc",calcRow("Name",fullName)+calcRow("Letter Values",`${n.letters.map((l,i)=>`${l}=${n.ordinalValues[i]}`).join(" · ")}`,true)+calcRow("Ordinal Total",String(n.ordinalTotal),true)+calcRow("Reduction",n.ordinal.path.join(" → "),true)+calcRow("Final Glyph",`${ord} — ${gOrd.name}`));setHTML("reductionCalc",calcRow("Name",fullName)+calcRow("Reduced Letters",`${n.letters.map((l,i)=>`${l}=${n.reductionValues[i]}`).join(" · ")}`,true)+calcRow("Reduction Total",String(n.reductionTotal),true)+calcRow("Reduction",n.reduction.path.join(" → "),true)+calcRow("Final Glyph",`${red} — ${gRed.name}`));set("coreTension",`The tension is not three separate traits. It is one sequence: life activates Glyph ${root}; the name carries it through Glyph ${ord}; the undertone of Glyph ${red} quietly colors the motive. Watch the gap between what starts the reaction and what you use to answer it.`);set("coherence",`This works well when Glyph ${root} gives the life-pattern, Glyph ${ord} gives the visible carrying-form, and Glyph ${red} motivates without secretly taking over. In high expression: ${gRoot.coherent}`);set("distortion",`This goes wrong when Glyph ${root} is triggered by ${gRoot.trigger.toLowerCase()}. Glyph ${ord} may distort into ${gOrd.distorted.toLowerCase()}, while Glyph ${red} may seek safety through ${gRed.distorted.toLowerCase()}.`);const e=eieiaBlend(gRoot,gOrd,gRed);set("eEssence",e.essence);set("eImpulse",e.impulse);set("eEnergy",e.energy);set("eIntelligence",e.intelligence);set("eAction",e.action);document.getElementById("advanced").classList.add("is-locked");document.getElementById("advanced").classList.remove("is-unlocked");setHTML("paidDiagnostic",buildPaidReading({fullName,date,root,ord,red,gRoot,gOrd,gRed,n,birth,d}));const copy=`PAA Core Glyph Reading\nName: ${fullName}\nBirthdate: ${date}\n\nBirth Glyph: ${d.digits.join(" + ")} = ${d.sum} → ${birth.path.join(" → ")}\n${root} — ${gRoot.name}\n\nName Ordinal: ${n.ordinalTotal} → ${n.ordinal.path.join(" → ")}\n${ord} — ${gOrd.name}\n\nName Reduction: ${n.reductionTotal} → ${n.reduction.path.join(" → ")}\n${red} — ${gRed.name}\n\nPattern:\nBirth Root Glyph ${root} → Full Name Glyph ${ord}. Reduction Glyph ${red} modifies the name-field from underneath.\n\nYour Main Glyph Tension:\n${document.getElementById("coreTension").textContent}\n\nBasic Coherence:\n${document.getElementById("coherence").textContent}\n\nBasic Distortion:\n${document.getElementById("distortion").textContent}`;set("copyBox",copy);document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"})}
+function copyReading(){const text=document.getElementById("copyBox").textContent;if(text.trim())navigator.clipboard.writeText(text)}
+function renderGallery(){const order=[1,2,3,4,5,6,7,8,9,11];document.getElementById("galleryGrid").innerHTML=order.map(n=>{const g=glyphs[n];return`<div class="num-card"><div class="n">${n}</div><h3>${g.name}</h3><p>${g.title}<br>${g.role}</p></div>`}).join("")}
+renderGallery();
+</script>
+</body>
+</html>
