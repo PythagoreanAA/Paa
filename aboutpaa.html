@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>What Is PAA? | Pythagorean Arithmosophic Anamnesis</title>
+<meta name="description" content="Pythagorean Arithmosophic Anamnesis (PAA) is a developing architecture for investigating number through structure, geometry, archetype, operation, grammar, behavior, relation, and process." />
+<meta name="author" content="Stephen Richard Neville" />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://pythagoreanaa.com/aboutpaa.html" />
+
+<meta property="og:title" content="What Is PAA? | Pythagorean Arithmosophic Anamnesis" />
+<meta property="og:description" content="A multi-lens architecture of number: structure, geometry, archetype, operation, grammar, behavior, relation, and process." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pythagoreanaa.com/aboutpaa.html" />
+<meta property="og:site_name" content="Pythagorean Arithmosophic Anamnesis" />
+<meta property="og:image" content="https://pythagoreanaa.com/preview.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="What Is PAA? | Pythagorean Arithmosophic Anamnesis" />
+<meta name="twitter:description" content="Number examined through structure, form, archetype, operation, grammar, and manifestation." />
+<meta name="twitter:image" content="https://pythagoreanaa.com/preview.jpg" />
+
+<meta name="theme-color" content="#0b1d35" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#fbfcfd;
+  --bg-warm:#f7f5f1;
+  --panel:#ffffff;
+  --panel-cool:#f4f8fa;
+  --panel-deep:#10243f;
+
+  --ink:#0a1827;
+  --text:#31475a;
+  --muted:#607688;
+  --dim:#8295a3;
+
+  --lapis:#1b3a6b;
+  --lapis-deep:#0b1d35;
+  --lapis-mid:#234d7b;
+  --indigo:#38346f;
+
+  --turq:#1eaeba;
+  --turq-soft:#91dde2;
+  --verdigris:#2b817e;
+  --sea:#437f8e;
+
+  --tyrian:#641b46;
+  --tyrian-bright:#971a5a;
+  --plum:#4f315f;
+
+  --gold:#b69043;
+  --gold-soft:#dcc48d;
+  --bronze:#8d6f46;
+
+  --line:rgba(27,58,107,.14);
+  --line-warm:rgba(141,111,70,.18);
+  --shadow:0 30px 90px -44px rgba(11,29,53,.36);
+  --shadow-soft:0 18px 56px -38px rgba(11,29,53,.28);
+
+  --radius:28px;
+  --radius-sm:20px;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 50% -8%,rgba(30,174,186,.10),transparent 32rem),
+    radial-gradient(circle at 5% 16%,rgba(100,27,70,.06),transparent 25rem),
+    radial-gradient(circle at 95% 36%,rgba(56,52,111,.05),transparent 23rem),
+    linear-gradient(180deg,#fff 0%,#f7fafc 48%,#fbfcfd 100%);
+  overflow-x:hidden
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  opacity:.42;
+  background-image:
+    linear-gradient(rgba(27,58,107,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(27,58,107,.026) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(circle at top,black,transparent 78%)
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1160px,calc(100% - 32px));margin-inline:auto}
+::selection{background:var(--turq-soft);color:var(--lapis-deep)}
+button{font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid var(--turq);outline-offset:3px}
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(18px) saturate(140%);
+  background:rgba(255,255,255,.89);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 10px 38px rgba(12,33,64,.05)
+}
+.nav{
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  min-width:max-content
+}
+.brand-mark{
+  width:48px;
+  height:48px;
+  border:1px solid rgba(30,174,186,.27);
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(220,196,141,.18),transparent 38%),
+    linear-gradient(135deg,rgba(30,174,186,.1),rgba(100,27,70,.08))
+}
+.tetractys{display:grid;gap:3px}
+.tetra-row{display:flex;justify-content:center;gap:3px}
+.dot{
+  width:5px;height:5px;border-radius:50%;
+  background:linear-gradient(135deg,var(--turq),var(--lapis))
+}
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.12em;
+  font-size:10px;
+  line-height:1.15
+}
+.brand-text span:nth-child(2){color:var(--turq)}
+.brand-text span:nth-child(3){color:var(--tyrian)}
+
+.menu-wrap{position:relative}
+.menu-btn{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid rgba(27,58,107,.2);
+  background:#fff;color:var(--lapis-deep);
+  border-radius:999px;padding:11px 15px;
+  font-weight:900;text-transform:uppercase;
+  letter-spacing:.1em;font-size:11px
+}
+.bars{width:18px;height:12px;display:grid;align-content:space-between}
+.bars i{
+  height:2px;border-radius:9px;
+  background:linear-gradient(90deg,var(--turq),var(--tyrian))
+}
+.menu-panel{
+  position:absolute;right:0;top:calc(100% + 12px);
+  width:min(410px,calc(100vw - 32px));
+  display:grid;gap:7px;padding:14px;
+  border-radius:22px;border:1px solid var(--line);
+  background:#fff;box-shadow:var(--shadow);
+  opacity:0;visibility:hidden;transform:translateY(-7px);
+  transition:.2s
+}
+.menu-wrap.open .menu-panel{opacity:1;visibility:visible;transform:none}
+.menu-panel a{
+  padding:13px 14px;border-radius:14px;
+  background:var(--panel-cool);
+  border:1px solid transparent;display:block;transition:.18s
+}
+.menu-panel a:hover{border-color:rgba(30,174,186,.32);transform:translateX(-2px)}
+.menu-panel a[aria-current="page"]{
+  border-color:rgba(30,174,186,.28);
+  background:linear-gradient(135deg,rgba(30,174,186,.08),rgba(100,27,70,.045)),#fff
+}
+.menu-panel strong{
+  display:block;color:var(--lapis-deep);font-size:12px;
+  text-transform:uppercase;letter-spacing:.07em
+}
+.menu-panel span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+
+.btn{
+  border:0;border-radius:15px;padding:15px 20px;
+  background:linear-gradient(120deg,var(--lapis),var(--turq));
+  color:#fff;font-weight:900;letter-spacing:.07em;
+  text-transform:uppercase;font-size:12px;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  box-shadow:0 16px 40px -18px rgba(30,174,186,.5);
+  transition:.2s
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.secondary{
+  background:#fff;color:var(--lapis);
+  border:1px solid rgba(27,58,107,.24);box-shadow:none
+}
+.btn.ghost-gold{
+  background:rgba(255,255,255,.7);
+  color:var(--bronze);
+  border:1px solid rgba(182,144,67,.34);
+  box-shadow:none
+}
+
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600}
+.eyebrow,.section-kicker{
+  color:var(--tyrian);
+  font-size:11px;font-weight:900;
+  letter-spacing:.2em;text-transform:uppercase
+}
+.eyebrow:before,.section-kicker:before{content:"— ";color:var(--turq)}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(34px,4.8vw,56px);
+  line-height:1.02;color:var(--lapis-deep);
+  margin:10px 0 12px
+}
+.lead{
+  color:var(--muted);
+  font-size:clamp(16px,1.5vw,18px);
+  line-height:1.72
+}
+.section-head{max-width:860px;margin-bottom:28px}
+section{padding:54px 0}
+.card{
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  background:#fff;
+  box-shadow:var(--shadow)
+}
+
+/* HERO */
+.hero{padding:88px 0 62px}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:52px;
+  align-items:center
+}
+.hero h1{
+  font-size:clamp(50px,7vw,88px);
+  line-height:.93;margin:14px 0 18px;
+  background:linear-gradient(180deg,var(--lapis-deep),var(--lapis) 46%,var(--turq) 83%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.hero-copy{
+  font-size:clamp(17px,1.6vw,20px);
+  line-height:1.74;color:var(--muted);max-width:680px
+}
+.hero-copy strong{color:var(--ink)}
+.hero-thesis{
+  margin:24px 0 0;
+  padding:20px 22px;
+  border-left:3px solid var(--turq);
+  border-right:1px solid rgba(182,144,67,.14);
+  background:linear-gradient(90deg,rgba(30,174,186,.055),rgba(255,255,255,.72));
+  color:var(--lapis-deep);
+  font-family:var(--serif);
+  font-size:clamp(22px,2.5vw,31px);
+  line-height:1.24
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+.atlas-orb{
+  position:relative;
+  min-height:480px;
+  border-radius:34px;
+  border:1px solid rgba(27,58,107,.15);
+  background:
+    radial-gradient(circle at 50% 44%,rgba(30,174,186,.12),transparent 9rem),
+    radial-gradient(circle at 34% 24%,rgba(182,144,67,.10),transparent 10rem),
+    radial-gradient(circle at 74% 72%,rgba(100,27,70,.09),transparent 12rem),
+    linear-gradient(145deg,#fff,#f6fafb 70%,#f9f6f8);
+  box-shadow:var(--shadow);
+  overflow:hidden
+}
+.atlas-orb:before,.atlas-orb:after{
+  content:"";position:absolute;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)
+}
+.atlas-orb:before{
+  width:76%;aspect-ratio:1;border:1px solid rgba(30,174,186,.18)
+}
+.atlas-orb:after{
+  width:54%;aspect-ratio:1;border:1px solid rgba(100,27,70,.18)
+}
+.orbit-core{
+  position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:3
+}
+.core-glyph{
+  font-family:var(--serif);font-size:clamp(5rem,9vw,7.2rem);
+  line-height:.8;color:var(--lapis-deep)
+}
+.core-label{
+  margin-top:14px;text-transform:uppercase;letter-spacing:.19em;
+  font-size:.68rem;font-weight:900;color:var(--muted)
+}
+.core-rule{
+  width:84px;height:1px;margin:20px auto;
+  background:linear-gradient(90deg,transparent,var(--turq),var(--gold),var(--tyrian),transparent)
+}
+.orbit-word{
+  position:absolute;z-index:4;
+  font-size:.66rem;font-weight:900;text-transform:uppercase;
+  letter-spacing:.13em;color:var(--lapis);
+  padding:7px 9px;border-radius:999px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(27,58,107,.10)
+}
+.ow1{top:11%;left:42%}.ow2{top:25%;right:6%}.ow3{top:51%;right:5%}
+.ow4{bottom:13%;right:17%}.ow5{bottom:8%;left:28%}.ow6{bottom:25%;left:5%}
+.ow7{top:43%;left:3%}.ow8{top:19%;left:10%}
+
+/* INTRO / DEFINITIONS */
+.content-card{padding:clamp(28px,5vw,46px)}
+.content-card p{
+  margin:0 0 17px;color:var(--text);
+  font-size:1.06rem;line-height:1.8
+}
+.content-card p:last-child{margin-bottom:0}
+.content-card strong{color:var(--ink)}
+.divider-line{
+  height:1px;margin:28px 0;
+  background:linear-gradient(90deg,transparent,rgba(30,174,186,.35),rgba(182,144,67,.32),rgba(100,27,70,.3),transparent)
+}
+.definition-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px
+}
+.definition{
+  border:1px solid var(--line);
+  border-radius:18px;background:var(--panel-cool);padding:18px
+}
+.definition small{
+  display:block;text-transform:uppercase;letter-spacing:.12em;
+  font-size:10px;font-weight:900;color:var(--tyrian);margin-bottom:7px
+}
+.definition strong{
+  display:block;font-family:var(--serif);color:var(--lapis-deep);font-size:1.2rem
+}
+
+/* MAP OF PAA */
+.architecture-shell{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(28px,5vw,52px);
+  background:
+    radial-gradient(circle at 50% 50%,rgba(30,174,186,.055),transparent 20rem),
+    linear-gradient(150deg,#fff 0%,#f8fbfc 62%,#faf7f4 100%)
+}
+.architecture-shell:before{
+  content:"";position:absolute;inset:18px;
+  border:1px solid rgba(182,144,67,.16);
+  border-radius:22px;pointer-events:none
+}
+.arch-center{
+  max-width:700px;margin:0 auto 28px;text-align:center
+}
+.arch-center .number{
+  display:inline-grid;place-items:center;
+  width:84px;height:84px;border-radius:50%;
+  border:1px solid rgba(30,174,186,.26);
+  box-shadow:0 0 0 12px rgba(30,174,186,.035);
+  font-family:var(--serif);font-size:2.4rem;color:var(--lapis-deep);
+  background:#fff
+}
+.arch-center h3{
+  font-size:clamp(27px,3vw,38px);color:var(--lapis-deep);margin-top:17px
+}
+.arch-center p{color:var(--muted);line-height:1.7;margin:10px auto 0}
+.lens-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;z-index:2
+}
+.lens{
+  min-height:220px;padding:21px;
+  border-radius:22px;border:1px solid var(--line);
+  background:rgba(255,255,255,.92);
+  box-shadow:var(--shadow-soft);
+  transition:.2s
+}
+.lens:hover{transform:translateY(-4px);border-color:rgba(30,174,186,.28)}
+.lens .sig{
+  width:34px;height:34px;border-radius:11px;
+  display:grid;place-items:center;
+  margin-bottom:17px;
+  background:linear-gradient(135deg,rgba(30,174,186,.12),rgba(56,52,111,.08));
+  border:1px solid rgba(30,174,186,.16);
+  font-family:var(--serif);font-size:1.12rem;color:var(--lapis)
+}
+.lens:nth-child(2n) .sig{background:linear-gradient(135deg,rgba(182,144,67,.13),rgba(100,27,70,.07));color:var(--bronze)}
+.lens h3{font-size:1.42rem;color:var(--lapis-deep);margin-bottom:8px}
+.lens p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.58}
+.lens a{
+  display:inline-block;margin-top:14px;
+  color:var(--verdigris);font-weight:800;font-size:.77rem;
+  text-transform:uppercase;letter-spacing:.08em
+}
+
+/* LADDER */
+.ladder{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  gap:8px;margin-top:24px
+}
+.rung{
+  position:relative;min-height:118px;padding:18px 14px;
+  border-radius:18px;border:1px solid var(--line);
+  background:#fff;text-align:center
+}
+.rung:after{
+  content:"→";position:absolute;right:-10px;top:48%;
+  transform:translateY(-50%);z-index:3;
+  color:var(--gold);font-weight:900
+}
+.rung:last-child:after{display:none}
+.rung small{
+  display:block;color:var(--tyrian);text-transform:uppercase;
+  letter-spacing:.1em;font-weight:900;font-size:9px
+}
+.rung strong{
+  display:block;margin-top:8px;font-family:var(--serif);
+  color:var(--lapis-deep);font-size:1.16rem
+}
+
+/* GRAMMAR */
+.chain{
+  padding:22px 24px;margin-top:22px;border-radius:18px;
+  background:
+    linear-gradient(120deg,rgba(30,174,186,.06),rgba(182,144,67,.06),rgba(100,27,70,.08)),
+    var(--lapis-deep);
+  color:#fff;font-size:13px;line-height:1.8;font-weight:700;letter-spacing:.02em
+}
+.cycle-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.phase{
+  padding:23px;border-radius:22px;border:1px solid var(--line);
+  background:#fff;min-height:182px;transition:.2s
+}
+.phase:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 44px -30px rgba(12,33,64,.42);
+  border-color:rgba(30,174,186,.28)
+}
+.phase-number{
+  font-family:var(--serif);font-size:2.25rem;line-height:1;color:var(--turq)
+}
+.phase-title{
+  margin-top:10px;font-size:1.08rem;font-weight:900;color:var(--lapis-deep);
+  text-transform:uppercase;letter-spacing:.04em
+}
+.phase-text{margin-top:7px;color:var(--muted);font-size:.94rem;line-height:1.58}
+.phase-turn{
+  margin-top:13px;padding-top:12px;border-top:1px solid var(--line);
+  color:var(--dim);font-size:.78rem;line-height:1.45
+}
+.phase.meta{
+  border-color:rgba(100,27,70,.25);
+  background:linear-gradient(145deg,rgba(100,27,70,.04),#fff 55%)
+}
+.phase.meta .phase-number{color:var(--tyrian)}
+
+.triad-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.triad{
+  padding:24px;border:1px solid var(--line);
+  border-radius:22px;background:#fff
+}
+.triad small{
+  display:block;text-transform:uppercase;letter-spacing:.14em;
+  font-size:10px;color:var(--tyrian);font-weight:900
+}
+.triad h3{margin:8px 0;color:var(--lapis-deep);font-size:1.5rem}
+.triad p{margin:0;color:var(--muted);line-height:1.6;font-size:.95rem}
+
+/* INTRINSIC / APPLIED */
+.two-realms{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px
+}
+.realm{
+  position:relative;overflow:hidden;
+  padding:30px;border-radius:26px;border:1px solid var(--line);background:#fff
+}
+.realm:before{
+  content:"";position:absolute;width:150px;height:150px;border-radius:50%;
+  right:-65px;top:-65px;border:1px solid rgba(30,174,186,.2)
+}
+.realm.applied:before{border-color:rgba(100,27,70,.19)}
+.realm small{
+  color:var(--tyrian);text-transform:uppercase;letter-spacing:.14em;
+  font-size:10px;font-weight:900
+}
+.realm h3{font-size:2rem;margin:8px 0 12px;color:var(--lapis-deep)}
+.realm p{margin:0;color:var(--muted);line-height:1.7}
+.realm .mini{
+  margin-top:18px;padding-top:17px;border-top:1px solid var(--line);
+  color:var(--text);font-size:.9rem;line-height:1.6
+}
+
+/* DOMAINS */
+.domain-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.domain{
+  padding:22px;border-radius:22px;border:1px solid var(--line);background:#fff
+}
+.domain-title{
+  color:var(--lapis-deep);font-weight:700;display:block;margin-bottom:8px;
+  font-family:var(--serif);font-size:1.28rem
+}
+.domain-text{color:var(--muted);font-size:.94rem;line-height:1.58}
+
+/* BOI + LIMITS */
+.caution-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.caution{
+  padding:24px;border:1px solid var(--line);border-radius:22px;background:#fff
+}
+.caution.good{border-color:rgba(30,174,186,.28)}
+.caution.limit{border-color:rgba(100,27,70,.24)}
+.caution h3{
+  font-family:var(--sans);font-size:11px;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--tyrian);font-weight:900;margin-bottom:10px
+}
+.caution p{margin:0;color:var(--text);line-height:1.68}
+
+/* PRINCIPLE */
+.principle{
+  position:relative;overflow:hidden;
+  padding:clamp(30px,5vw,56px);
+  text-align:center;
+  border-color:rgba(182,144,67,.24);
+  background:
+    radial-gradient(circle at 50% 120%,rgba(182,144,67,.11),transparent 20rem),
+    radial-gradient(circle at 50% -20%,rgba(30,174,186,.08),transparent 18rem),
+    #fff
+}
+.principle:before,.principle:after{
+  content:"";position:absolute;left:50%;transform:translateX(-50%);
+  width:280px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-soft),transparent)
+}
+.principle:before{top:21px}.principle:after{bottom:21px}
+.principle blockquote{
+  max-width:900px;margin:0 auto;
+  font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);
+  line-height:1.16;color:var(--lapis-deep)
+}
+.principle p{
+  max-width:780px;margin:22px auto 0;color:var(--muted);
+  font-size:1.02rem;line-height:1.72
+}
+
+/* FOUNDER + CTA */
+.founder-card{
+  padding:clamp(28px,5vw,48px);
+  display:grid;grid-template-columns:1fr auto;
+  gap:30px;align-items:center;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(30,174,186,.09),transparent 20rem),
+    radial-gradient(circle at 80% 100%,rgba(182,144,67,.06),transparent 18rem),
+    #fff
+}
+.founder-card h2{
+  color:var(--lapis-deep);font-size:clamp(30px,4vw,44px);margin:8px 0 12px
+}
+.founder-card p{color:var(--muted);line-height:1.72;margin:0;max-width:760px}
+
+.cta{
+  padding:clamp(32px,5vw,52px);text-align:center;
+  background:
+    linear-gradient(135deg,rgba(30,174,186,.075),rgba(182,144,67,.045),rgba(100,27,70,.06)),
+    #fff
+}
+.cta h2{
+  max-width:820px;margin:0 auto;font-size:clamp(30px,4vw,48px);color:var(--lapis-deep)
+}
+.cta p{
+  max-width:720px;margin:16px auto 0;color:var(--muted);
+  font-size:1.02rem;line-height:1.68
+}
+
+footer{
+  padding:34px 0 56px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)
+}
+.footer-grid{
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center
+}
+.footer-grid a{color:var(--lapis)}
+.footer-attribution strong{color:var(--lapis-deep)}
+
+@media(max-width:1040px){
+  .hero-grid{grid-template-columns:1fr}
+  .atlas-orb{min-height:400px}
+  .lens-grid{grid-template-columns:repeat(2,1fr)}
+  .ladder{grid-template-columns:repeat(4,1fr)}
+  .rung:nth-child(4):after{display:none}
+  .cycle-grid{grid-template-columns:repeat(2,1fr)}
+  .domain-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .brand-text{font-size:8px}
+  .menu-panel{position:fixed;left:12px;right:12px;top:74px;width:auto}
+  .hero{padding-top:54px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%}
+  .atlas-orb{min-height:350px}
+  .orbit-word{font-size:.56rem}
+  .lens-grid,.two-realms,.caution-grid,.domain-grid,.triad-grid{grid-template-columns:1fr}
+  .ladder{grid-template-columns:1fr}
+  .rung:after{content:"↓";right:auto;left:50%;top:auto;bottom:-15px;transform:translateX(-50%)}
+  .rung:nth-child(4):after{display:block}
+  .rung:last-child:after{display:none}
+  .cycle-grid{grid-template-columns:1fr}
+  .definition-strip{grid-template-columns:1fr}
+  .founder-card{grid-template-columns:1fr}
+  .founder-card .btn{width:100%}
+}
+@media(max-width:520px){
+  .atlas-orb{min-height:320px}
+  .ow2,.ow6{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Person",
+      "@id":"https://pythagoreanaa.com/#stephen-richard-neville",
+      "name":"Stephen Richard Neville",
+      "url":"https://pythagoreanaa.com/stephen-richard-neville.html",
+      "jobTitle":"Founder and Architect of Pythagorean Arithmosophic Anamnesis",
+      "description":"Stephen Richard Neville is the founder and architect of Pythagorean Arithmosophic Anamnesis (PAA)."
+    },
+    {
+      "@type":"Organization",
+      "@id":"https://pythagoreanaa.com/#paa",
+      "name":"Pythagorean Arithmosophic Anamnesis",
+      "alternateName":"PAA",
+      "url":"https://pythagoreanaa.com/",
+      "founder":{"@id":"https://pythagoreanaa.com/#stephen-richard-neville"},
+      "description":"A developing architecture for investigating number through structure, geometry, archetype, operation, grammar, behavior, relation, and process."
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://pythagoreanaa.com/aboutpaa.html#page",
+      "url":"https://pythagoreanaa.com/aboutpaa.html",
+      "name":"What Is PAA? | Pythagorean Arithmosophic Anamnesis",
+      "description":"A public orientation to PAA as a multi-lens architecture of number.",
+      "about":{"@id":"https://pythagoreanaa.com/#paa"},
+      "author":{"@id":"https://pythagoreanaa.com/#stephen-richard-neville"},
+      "isPartOf":{
+        "@type":"WebSite",
+        "@id":"https://pythagoreanaa.com/#website",
+        "name":"Pythagorean Arithmosophic Anamnesis",
+        "url":"https://pythagoreanaa.com/"
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="PAA home">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="tetractys">
+          <span class="tetra-row"><span class="dot"></span></span>
+          <span class="tetra-row"><span class="dot"></span><span class="dot"></span></span>
+          <span class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+          <span class="tetra-row"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+        </span>
+      </span>
+      <span class="brand-text">
+        <span>PAA</span>
+        <span>Number &amp; Soul</span>
+        <span>Patterns you can test</span>
+      </span>
+    </a>
+
+    <div class="menu-wrap" data-menu>
+      <button class="menu-btn" data-menu-button type="button" aria-label="Open menu" aria-expanded="false">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Menu</span>
+      </button>
+
+      <nav class="menu-panel" aria-label="Primary navigation">
+        <a href="index.html">
+          <strong>Home</strong>
+          <span>Enter the PAA system</span>
+        </a>
+        <a href="aboutpaa.html" aria-current="page">
+          <strong>What Is PAA?</strong>
+          <span>The architecture, lenses, method, and applications</span>
+        </a>
+        <a href="geometry.html">
+          <strong>Glyph Geometry</strong>
+          <span>Number, form, and structural meaning</span>
+        </a>
+        <a href="archetypes.html">
+          <strong>Glyph Archetypes</strong>
+          <span>Recurring figures that embody the glyphs</span>
+        </a>
+        <a href="relationships.html">
+          <strong>Relationships</strong>
+          <span>Compare patterns across people and bonds</span>
+        </a>
+        <a href="glossary.html">
+          <strong>Glossary</strong>
+          <span>The developing language of PAA</span>
+        </a>
+        <a href="stephen-richard-neville.html">
+          <strong>Founder</strong>
+          <span>Stephen Richard Neville · architect of PAA</span>
+        </a>
+        <a href="donate.html">
+          <strong>Support PAA</strong>
+          <span>Help build the work</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">The architecture of number</div>
+      <h1>What is PAA?</h1>
+      <p class="hero-copy">
+        <strong>Pythagorean Arithmosophic Anamnesis</strong> — PAA — is a developing framework founded and architected by
+        <strong>Stephen Richard Neville</strong> for investigating number through multiple coordinated lenses:
+        <strong>structure, geometry, archetype, operation, grammar, behavior, relation, and process.</strong>
+      </p>
+
+      <div class="hero-thesis">
+        PAA does not offer one fixed “meaning” for each number. It develops multiple disciplined ways of interrogating the same numerical object.
+      </div>
+
+      <div class="hero-actions">
+        <a href="#architecture" class="btn">See the Whole System</a>
+        <a href="#grammar" class="btn secondary">Explore the Grammar</a>
+        <a href="geometry.html" class="btn ghost-gold">Enter Glyph Geometry</a>
+      </div>
+    </div>
+
+    <div class="atlas-orb" aria-label="PAA multi-lens number atlas">
+      <div class="orbit-core">
+        <div>
+          <div class="core-glyph">1–11</div>
+          <div class="core-label">The glyphic field</div>
+          <div class="core-rule"></div>
+          <div class="core-label">one object · many lenses</div>
+        </div>
+      </div>
+      <span class="orbit-word ow1">Structure</span>
+      <span class="orbit-word ow2">Geometry</span>
+      <span class="orbit-word ow3">Archetype</span>
+      <span class="orbit-word ow4">Operation</span>
+      <span class="orbit-word ow5">Grammar</span>
+      <span class="orbit-word ow6">Behavior</span>
+      <span class="orbit-word ow7">Relation</span>
+      <span class="orbit-word ow8">Process</span>
+    </div>
+  </div>
+</section>
+
+<section id="orientation">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">First orientation</div>
+      <h2 class="section-title">Number is the object. The lenses are the approaches.</h2>
+    </div>
+
+    <div class="card content-card">
+      <p>
+        Arithmetic tells us <strong>how many</strong>. PAA accepts that without qualification. Its further question is whether numerical structure
+        can disclose additional intelligible relations: how a number is composed, how it takes form, what transformation it suggests,
+        what recurring archetypal figure embodies that transformation, and whether comparable patterns can actually be observed in life.
+      </p>
+
+      <p>
+        This means that geometry, archetype, and operation are not rival definitions of a glyph. They are different investigations of the same object.
+        Five, for example, may be studied as mathematical structure, as a geometry of crossing or displacement, as an archetypal pattern,
+        as the operation of breach, and as a grammatical position between established order and restored coherence.
+      </p>
+
+      <p>
+        The aim is not to collapse mathematics, psychology, mythology, and philosophy into one claim. The aim is to make the transitions between
+        those domains <strong>visible enough to examine, criticize, refine, and test.</strong>
+      </p>
+
+      <div class="divider-line"></div>
+
+      <div class="definition-strip">
+        <div class="definition">
+          <small>Object of study</small>
+          <strong>The numerical glyph</strong>
+        </div>
+        <div class="definition">
+          <small>Method</small>
+          <strong>Multiple disciplined lenses</strong>
+        </div>
+        <div class="definition">
+          <small>Standard</small>
+          <strong>Traceable interpretation</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">The PAA architecture</div>
+      <h2 class="section-title">One field. Eight principal lenses.</h2>
+      <p class="lead">
+        Each lens asks a different question of number. Taken together, they form an architecture rather than a catalogue of correspondences.
+      </p>
+    </div>
+
+    <div class="card architecture-shell">
+      <div class="arch-center">
+        <div class="number">№</div>
+        <h3>The numerical glyph remains at the center.</h3>
+        <p>The lenses do not replace number. They disclose different aspects of its structure, action, expression, and possible manifestation.</p>
+      </div>
+
+      <div class="lens-grid">
+        <article class="lens">
+          <div class="sig">I</div>
+          <h3>Structure</h3>
+          <p>Quantity, composition, parity, primality, factorization, ratio, sequence, recurrence, and the mathematical relations from which further interpretation must begin.</p>
+        </article>
+
+        <article class="lens">
+          <div class="sig">II</div>
+          <h3>Geometry</h3>
+          <p>How numerical relation becomes form: point, polarity, triangle, boundary, crossing, enclosure, symmetry, expansion, and higher configurations.</p>
+          <a href="geometry.html">Explore geometry →</a>
+        </article>
+
+        <article class="lens">
+          <div class="sig">III</div>
+          <h3>Archetype</h3>
+          <p>Recurring human and mythic figures whose characteristic action resembles the deeper structure and operation attributed to a glyph.</p>
+          <a href="archetypes.html">Explore archetypes →</a>
+        </article>
+
+        <article class="lens">
+          <div class="sig">IV</div>
+          <h3>Operation</h3>
+          <p>The transformation performed: posit, distinguish, relate, bound, breach, restore, test, magnify, consequence, systematize, exceed.</p>
+          <a href="#grammar">See the operators →</a>
+        </article>
+
+        <article class="lens">
+          <div class="sig">V</div>
+          <h3>Grammar</h3>
+          <p>The ordered syntax formed when operations are read sequentially. PAA asks not only what occurs, but what tends to become possible next.</p>
+          <a href="#grammar">Enter the grammar →</a>
+        </article>
+
+        <article class="lens">
+          <div class="sig">VI</div>
+          <h3>Behavior</h3>
+          <p>Observable action classified by the transformation it performs upon an object—not merely by appearance, motive, mood, or self-description.</p>
+          <a href="#behavior">Behavioral branch →</a>
+        </article>
+
+        <article class="lens">
+          <div class="sig">VII</div>
+          <h3>Relation</h3>
+          <p>How operators interact across people, bonds, arguments, organizations, and systems: agreement, friction, compensation, sequence, and skipped operations.</p>
+          <a href="relationships.html">Explore relationships →</a>
+        </article>
+
+        <article class="lens">
+          <div class="sig">VIII</div>
+          <h3>Process</h3>
+          <p>How a developing sequence can be diagnosed as movement: what has been established, differentiated, bounded, breached, restored, tested, amplified, completed, or exceeded.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="intrinsic-applied">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Two realms of study</div>
+      <h2 class="section-title">Intrinsic PAA and Applied PAA.</h2>
+      <p class="lead">
+        This distinction prevents applications such as the Birth Root from being mistaken for the whole system.
+      </p>
+    </div>
+
+    <div class="two-realms">
+      <article class="realm">
+        <small>Intrinsic PAA</small>
+        <h3>What does the number itself disclose?</h3>
+        <p>
+          Intrinsic study begins with the glyph as an object: arithmetic structure, relation, form, geometry, sequence, operation, archetypal possibility, and position within the grammar.
+        </p>
+        <div class="mini">
+          Typical questions: What is structurally peculiar about Seven? What geometry naturally belongs to Four? Why does Five occupy a transformational position between boundary and restoration?
+        </div>
+      </article>
+
+      <article class="realm applied">
+        <small>Applied PAA</small>
+        <h3>What happens when the glyph is mapped onto a domain?</h3>
+        <p>
+          Applied study examines whether the intrinsic patterns illuminate persons, names, dates, relationships, organizations, arguments, creative works, historical sequences, and other processes.
+        </p>
+        <div class="mini">
+          Birth Root analysis, relationship comparison, behavioral observation, and organizational process-mapping belong here: applications of PAA, not definitions of PAA.
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">The discipline of interpretation</div>
+      <h2 class="section-title">Correspondence is not enough.</h2>
+      <p class="lead">
+        PAA attempts to distinguish what is mathematically given from what is structurally inferred, symbolically interpreted, behaviorally hypothesized, and empirically observed.
+      </p>
+    </div>
+
+    <div class="card content-card">
+      <p>
+        The strongest PAA reading should be reconstructible. A compelling symbolic resemblance may begin an inquiry, but it should not be allowed to masquerade as proof.
+        Where possible, every claim should show the path by which it was reached.
+      </p>
+
+      <div class="ladder" aria-label="PAA ladder of interpretation">
+        <div class="rung"><small>01</small><strong>Number</strong></div>
+        <div class="rung"><small>02</small><strong>Structure</strong></div>
+        <div class="rung"><small>03</small><strong>Form</strong></div>
+        <div class="rung"><small>04</small><strong>Operation</strong></div>
+        <div class="rung"><small>05</small><strong>Archetype</strong></div>
+        <div class="rung"><small>06</small><strong>Manifestation</strong></div>
+        <div class="rung"><small>07</small><strong>Test</strong></div>
+      </div>
+
+      <div class="chain">
+        ARITHMETIC FACT → STRUCTURAL CONSEQUENCE → ABSTRACT OPERATION → BEHAVIORAL HYPOTHESIS → OBSERVABLE DISCRIMINATOR / FALSIFIER
+      </div>
+
+      <p style="margin-top:22px">
+        Not every PAA inquiry will pass through every rung in exactly the same manner. The governing principle is simpler:
+        <strong>do not conceal the inferential leap.</strong> If a correspondence is poetic, say that it is poetic. If it is structural, show the structure.
+        If it becomes a behavioral claim, specify what would count as evidence against it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="grammar">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">A principal PAA discovery</div>
+      <h2 class="section-title">The Arithmosophic Grammar of Operation.</h2>
+      <p class="lead">
+        One of PAA's central proposals is that the glyphs can be read not merely as symbolic qualities but as ordered transformations.
+        The first nine operate within a developing cycle. Ten gathers the completed run into a model. Eleven confronts and exceeds that model.
+      </p>
+    </div>
+
+    <div class="cycle-grid">
+      <article class="phase">
+        <div class="phase-number">1</div>
+        <div class="phase-title">Posit</div>
+        <div class="phase-text">Establishes a term, point, position, or beginning where none had yet been distinctly placed.</div>
+        <div class="phase-turn">possibility → position</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">2</div>
+        <div class="phase-title">Distinguish</div>
+        <div class="phase-text">Introduces difference, polarity, comparison, or the encounter between self and other.</div>
+        <div class="phase-turn">position → polarity</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">3</div>
+        <div class="phase-title">Relate</div>
+        <div class="phase-text">Creates relation between differentiated terms and makes mediation or articulation possible.</div>
+        <div class="phase-turn">difference → relation</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">4</div>
+        <div class="phase-title">Bound</div>
+        <div class="phase-text">Frames relation within an ordered structure, container, rule, role, or boundary.</div>
+        <div class="phase-turn">relation → structure</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">5</div>
+        <div class="phase-title">Breach</div>
+        <div class="phase-text">Crosses, disrupts, varies, or reconfigures an established structure, opening alternatives.</div>
+        <div class="phase-turn">structure → alternative</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">6</div>
+        <div class="phase-title">Restore</div>
+        <div class="phase-text">Integrates plurality, fragments, or competing elements into renewed coherence.</div>
+        <div class="phase-turn">plurality → restored whole</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">7</div>
+        <div class="phase-title">Test</div>
+        <div class="phase-text">Interrogates a coherence, claim, or structure to discover what actually withstands examination.</div>
+        <div class="phase-turn">coherence → proven / qualified / broken</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">8</div>
+        <div class="phase-title">Magnify</div>
+        <div class="phase-text">Amplifies what survives testing into greater force, scale, reach, capacity, or consequence.</div>
+        <div class="phase-turn">warranted coherence → magnitude</div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-number">9</div>
+        <div class="phase-title">Consequence</div>
+        <div class="phase-text">Carries magnitude and trajectory into fulfillment, harvest, result, completion, or reckoning.</div>
+        <div class="phase-turn">trajectory → consequence</div>
+      </article>
+
+      <article class="phase meta">
+        <div class="phase-number">10</div>
+        <div class="phase-title">Systematize</div>
+        <div class="phase-text">Gathers a completed run into a model that can be named, taught, transmitted, repeated, and examined as a whole.</div>
+        <div class="phase-turn">completed run → system / model</div>
+      </article>
+
+      <article class="phase meta">
+        <div class="phase-number">11</div>
+        <div class="phase-title">Exceed</div>
+        <div class="phase-text">Treats the completed model as an object and passes beyond what the closed system can contain.</div>
+        <div class="phase-turn">model → model-as-object / exit</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="triads">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Larger movements within the grammar</div>
+      <h2 class="section-title">Three triads organize the Ennead.</h2>
+    </div>
+
+    <div class="triad-grid">
+      <article class="triad">
+        <small>1–3</small>
+        <h3>Genesis of Relation</h3>
+        <p>Term → difference → relation. Something stands, something differs from it, and relation becomes possible.</p>
+      </article>
+
+      <article class="triad">
+        <small>4–6</small>
+        <h3>Transformation of Order</h3>
+        <p>Boundary → crossing → reintegration. Structure forms, is breached, and must either collapse or become a larger coherence.</p>
+      </article>
+
+      <article class="triad">
+        <small>7–9</small>
+        <h3>Warrant of Becoming</h3>
+        <p>Examination → amplification → fulfillment. What survives testing gains force and eventually produces consequence.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="archetypal">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">The archetypal branch</div>
+      <h2 class="section-title">Operations become recognizable as figures.</h2>
+    </div>
+
+    <div class="card content-card">
+      <p>
+        Human beings rarely experience transformation as abstract syntax. We encounter it embodied in figures: the founder, the mirror, the mediator,
+        the builder, the transgressor, the healer, the examiner, the sovereign, the finisher, the system-maker, the one who crosses beyond the established frame.
+      </p>
+
+      <p>
+        PAA therefore studies <strong>archetypes as manifestations of deeper operations</strong>, rather than treating archetypal names as arbitrary labels.
+        An archetype earns its place when its characteristic action can be shown to resemble the structure, geometry, and operation of its glyph.
+      </p>
+
+      <div class="hero-actions">
+        <a href="archetypes.html" class="btn">Explore Glyph Archetypes</a>
+        <a href="geometry.html" class="btn secondary">Compare Glyph Geometry</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="behavior">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">The behavioral branch</div>
+      <h2 class="section-title">Behavior is classified by transformation, not appearance.</h2>
+    </div>
+
+    <div class="card content-card">
+      <p>
+        PAA's behavioral branch asks a stricter question than “What type of person is this?” The same outward act may perform different operations depending
+        on what object it changes. Silence, for example, might distinguish, test, maintain a boundary, breach expectation, or refuse the premises of an interaction.
+      </p>
+
+      <p>
+        The developing <strong>Behavioral Operator Instrument (BOI)</strong> therefore begins with an atomic observational structure:
+      </p>
+
+      <div class="chain">
+        CONDITION → OBJECT → ACTION → TRANSFORMATION → RESULT
+      </div>
+
+      <p style="margin-top:20px">
+        The classification question is not merely what someone intended, felt, or appeared to be doing. It is:
+        <strong>what transformation did the behavior actually perform upon what object?</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="domains">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">What can PAA examine?</div>
+      <h2 class="section-title">The same architecture can be investigated at different scales.</h2>
+    </div>
+
+    <div class="domain-grid">
+      <article class="domain">
+        <span class="domain-title">A number itself</span>
+        <div class="domain-text">Its structure, factors, geometry, sequence, operation, archetypal potential, and relationships with other numbers.</div>
+      </article>
+
+      <article class="domain">
+        <span class="domain-title">A person</span>
+        <div class="domain-text">Recurring behavioral tendencies, decision patterns, stress responses, corrective operations, names, dates, and personal symbolic structures.</div>
+      </article>
+
+      <article class="domain">
+        <span class="domain-title">A relationship</span>
+        <div class="domain-text">How two people establish difference, negotiate boundaries, breach expectations, restore coherence, test trust, and amplify one another.</div>
+      </article>
+
+      <article class="domain">
+        <span class="domain-title">A project or organization</span>
+        <div class="domain-text">Founding, differentiation, coordination, structure, disruption, repair, audit, scaling, completion, and systematization.</div>
+      </article>
+
+      <article class="domain">
+        <span class="domain-title">An argument or idea</span>
+        <div class="domain-text">A claim is posited, distinguished from alternatives, related to evidence, bounded, challenged, repaired, tested, amplified, and resolved.</div>
+      </article>
+
+      <article class="domain">
+        <span class="domain-title">A process or sequence</span>
+        <div class="domain-text">A diagnostic map for asking what operation has occurred, which operation may have been skipped, and what transformation may be required next.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="birth-root">
+  <div class="wrap">
+    <div class="card principle">
+      <blockquote>Birth Root is an instrument within PAA. It is not PAA itself.</blockquote>
+      <p>
+        Dates, names, and other numerical signatures provide one applied pathway into the system. Their value depends on whether the patterns attributed to them
+        continue to survive comparison with actual behavior and lived structure. The wider PAA architecture remains concerned with number whether or not a personal reading is being performed.
+      </p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#instrument" class="btn">Explore Birth Root</a>
+        <a href="#architecture" class="btn secondary">Return to the Whole System</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="limits">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Research status</div>
+      <h2 class="section-title">What PAA claims — and what remains open.</h2>
+    </div>
+
+    <div class="caution-grid">
+      <article class="caution good">
+        <h3>PAA attempts</h3>
+        <p>
+          To construct an explicit, inspectable, teachable framework linking number, mathematical structure, geometry, transformation,
+          archetypal interpretation, relational patterns, and observable behavioral hypotheses.
+        </p>
+      </article>
+
+      <article class="caution limit">
+        <h3>PAA does not assume</h3>
+        <p>
+          That every symbolic correspondence is mathematically derived; that every historical Pythagorean taught this modern grammar;
+          that archetypal resemblance constitutes proof; or that developing instruments such as the BOI are already clinically validated psychological diagnostics.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="principle">
+  <div class="wrap">
+    <div class="card principle">
+      <blockquote>“Counting remains true; it ceases to be exhaustive.”</blockquote>
+      <p>
+        PAA does not ask us to abandon arithmetic. It asks what else becomes intelligible when quantity is joined by structure, form, relation,
+        operation, archetype, sequence, and observable manifestation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="wrap">
+    <div class="card founder-card">
+      <div>
+        <div class="section-kicker">Founder &amp; architect</div>
+        <h2>Stephen Richard Neville</h2>
+        <p>
+          Pythagorean Arithmosophic Anamnesis is an independently developed framework founded and architected by Stephen Richard Neville.
+          His ongoing work concerns the formalization, documentation, testing, teaching, and application of number as a multi-lens architecture
+          of structure, form, transformation, archetype, behavior, and relation.
+        </p>
+      </div>
+      <a href="stephen-richard-neville.html" class="btn secondary">About the Founder</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="card cta">
+      <div class="section-kicker">Enter through any door</div>
+      <h2>The whole system becomes clearer when the lenses begin to converge.</h2>
+      <p>
+        Begin with geometry if you think in form. Begin with archetype if you think in figures. Begin with grammar if you think in process.
+        Begin with a Birth Root if you want an applied experiment. Then compare the lenses against one another.
+      </p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="geometry.html" class="btn">Glyph Geometry</a>
+        <a href="archetypes.html" class="btn secondary">Glyph Archetypes</a>
+        <a href="index.html#instrument" class="btn ghost-gold">Birth Root</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-attribution">
+      © <span id="year"></span> <strong>Pythagorean Arithmosophic Anamnesis LLC</strong><br>
+      Founded and architected by <a href="stephen-richard-neville.html">Stephen Richard Neville</a>
+    </div>
+    <div>
+      <a href="glossary.html">Glossary</a> ·
+      <a href="contact.html">Contact</a> ·
+      <a href="donate.html">Support PAA</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const menuWrap = document.querySelector('[data-menu]');
+const menuBtn = document.querySelector('[data-menu-button]');
+
+function setMenu(open){
+  if(!menuWrap || !menuBtn) return;
+  menuWrap.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', String(open));
+}
+
+menuBtn?.addEventListener('click', e => {
+  e.stopPropagation();
+  setMenu(!menuWrap.classList.contains('open'));
+});
+
+document.addEventListener('click', e => {
+  if(menuWrap && !menuWrap.contains(e.target)) setMenu(false);
+});
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') setMenu(false);
+});
+</script>
+</body>
+</html>
