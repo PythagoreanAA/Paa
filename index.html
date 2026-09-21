@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pythagorean Arithmosophic Anamnesis — Reality has a grammar. Number is its verb. Explore the Nine Operations, glyph geometry, instruments, practice, school, and library.">
+  <meta name="description" content="Pythagorean Arithmosophic Anamnesis — Reality has a grammar. Number is its verb. Explore the Nine Operations, glyph geometry, instruments, practice, and the PAA school.">
   <meta name="theme-color" content="#07111f">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://pythagoreanaa.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://pythagoreanaa.com/">
   <meta property="og:title" content="PAA — Reality Has a Grammar">
-  <meta property="og:description" content="Explore Number as operation: the Nine Operations, glyph geometry, practice, instruments, school, and library of Pythagorean Arithmosophic Anamnesis.">
+  <meta property="og:description" content="Explore Number as operation: the Nine Operations, glyph geometry, practice, instruments, and the school of Pythagorean Arithmosophic Anamnesis.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="PAA — Reality Has a Grammar">
   <meta name="twitter:description" content="Reality has a grammar. Number is its verb.">
@@ -377,17 +377,6 @@
       border-left-color: rgba(23, 63, 114, 0.2);
     }
 
-    .light .library-grid {
-      border-top-color: rgba(23, 63, 114, 0.2);
-    }
-
-    .light .book {
-      border-bottom-color: rgba(23, 63, 114, 0.2);
-    }
-
-    .light .book:nth-child(even) {
-      border-left-color: rgba(23, 63, 114, 0.2);
-    }
 
     .light .book span {
       color: var(--tyrian);
@@ -693,41 +682,7 @@
 
     .degree h3 { margin-top: 4px; }
     
-    /* Library */
-    .library-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid rgba(23, 63, 114, 0.2);
-    }
-    
-    .book {
-      padding: 34px 30px 34px 0;
-      border-bottom: 1px solid rgba(23, 63, 114, 0.2);
-    }
-    
-    .book:nth-child(even) {
-      padding-left: 40px;
-      border-left: 1px solid rgba(23, 63, 114, 0.2);
-    }
-    
-    .book span {
-      font-family: var(--caps);
-      font-size: .63rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--tyrian);
-      font-weight: 700;
-    }
-    
-    .book h3 { margin: 8px 0 6px; }
 
-    .book p {
-      font-family: var(--sans);
-      font-size: .95rem;
-      color: #556c82;
-      margin: 0;
-      line-height: 1.7;
-    }
     
     /* Gateway */
     .gateway {
@@ -918,7 +873,7 @@
       section { padding: 80px 0; }
       .hero-inner { padding: 60px 0 90px; }
       .ops { grid-template-columns: repeat(3, 1fr); }
-      .journey, .practice-list, .library-grid { grid-template-columns: 1fr; }
+      .journey, .practice-list { grid-template-columns: 1fr; }
       .practice-list div:nth-child(even), .book:nth-child(even) { padding-left: 0; border-left: 0; }
       .footer-grid { display: block; }
       .footer-grid > div + div { margin-top: 25px; }
@@ -980,7 +935,7 @@
     .card,.journey article,.degree,.book,.field-card,.glyph-tile{
       transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;
     }
-    .card:hover,.journey article:hover,.degree:hover,.book:hover,.field-card:hover{
+    .card:hover,.journey article:hover,.degree:hover,.field-card:hover{
       transform:translateY(-4px);border-color:rgba(27,155,170,.34);
       box-shadow:0 18px 46px rgba(4,16,28,.12),0 0 28px rgba(27,155,170,.045);
     }
@@ -1300,8 +1255,6 @@ h3{line-height:1.15}
     linear-gradient(180deg,#06101d,#071321)
 }
 .degree{background:rgba(9,29,48,.64);border-color:rgba(104,212,222,.20);border-top-color:#54cbd7}
-.library-grid .book{transition:.22s ease}
-.library-grid .book:hover{background:rgba(27,79,138,.035)}
 footer{background:#030811}
 
 /* Tablet */
@@ -1362,7 +1315,7 @@ footer{background:#030811}
   #instruments .tri3{grid-template-columns:1fr}
   #instruments .gcard{min-height:auto}
   #instruments .gcard .val{font-size:4rem}
-  .practice-list,.library-grid{grid-template-columns:1fr}
+  .practice-list{grid-template-columns:1fr}
   .practice-list div,.practice-list div:nth-child(even),
   .book,.book:nth-child(even){padding:26px 0;border-left:0}
   .degrees{grid-template-columns:1fr}
@@ -1838,7 +1791,7 @@ h1 em,.school-quote em{
 .card,.degree,.field-card,.glyph-tile{
   border-color:rgba(242,201,109,.16);
 }
-.card:hover,.journey article:hover,.degree:hover,.book:hover,.field-card:hover{
+.card:hover,.journey article:hover,.degree:hover,.field-card:hover{
   border-color:rgba(242,201,109,.38);
   box-shadow:0 18px 46px rgba(4,16,28,.15),0 0 30px rgba(215,95,154,.055);
 }
@@ -1850,14 +1803,13 @@ h1 em,.school-quote em{
 .degree:nth-child(3) small,.journey article:nth-child(3) .step{color:var(--violet)}
 .journey article:nth-child(4) .step{color:var(--aqua)}
 
-/* Gateway and library micro-accents */
+/* Gateway micro-accents */
 .path small{color:var(--solar)}
 .path:nth-child(2) small{color:var(--coral)}
 .path:nth-child(3) small{color:var(--rose)}
 .path:nth-child(4) small{color:var(--violet)}
 .path:nth-child(5) small{color:var(--aqua)}
 .path:hover{background:linear-gradient(145deg,rgba(242,201,109,.07),rgba(215,95,154,.055))}
-.book span{color:#a94679}
 .light .eyebrow,.light .big-num,.light .journey .step{color:#9a4c35}
 .light .book span{color:#8e3569}
 
@@ -1911,12 +1863,11 @@ h1 em,.school-quote em{
       </span>
     </a>
     <nav class="school-navlinks" id="primaryNavigation" aria-label="Primary navigation">
-      <div class="mobile-nav-intro" aria-hidden="true"><span>Navigate the Work</span><small>Doctrine · Operations · Instruments · Practice · Texts</small></div>
+      <div class="mobile-nav-intro" aria-hidden="true"><span>Navigate the Work</span><small>Doctrine · Operations · Instruments · Practice · School</small></div>
       <a href="#philosophy"><span>Doctrine</span><small>The philosophical foundation</small></a>
       <a href="#grammar"><span>Operations</span><small>The grammar of 1–9</small></a>
       <a href="#instruments"><span>Instruments</span><small>Apply the system</small></a>
       <a href="#practice"><span>Practice</span><small>Train perception</small></a>
-      <a href="#library"><span>Library</span><small>Read the texts</small></a>
       <a class="school-enter" href="school.html"><span>Enter the School</span><small>Begin formal study</small></a>
     </nav>
     <button class="school-menu" type="button" aria-label="Open navigation" aria-controls="primaryNavigation" aria-expanded="false"><span class="menu-icon" aria-hidden="true">☰</span></button>
@@ -2151,50 +2102,6 @@ h1 em,.school-quote em{
       </div>
     </div>
     <div style="margin-top:50px"><a class="btn fill" href="school.html">Enter the School</a></div>
-  </div>
-</section>
-
-<section class="light" id="library">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">VI · The Library</div>
-        <h2>One architecture. Many entrances.</h2>
-      </div>
-      <p class="section-copy">The books are not disconnected products. Each approaches the same architecture from a different depth: first encounter, practical grammar, philosophical foundation, canonical system, operational companion, and experimental Codex.</p>
-    </div>
-    <div class="library-grid">
-      <div class="book">
-        <span>Gateway</span>
-        <h3>The Logia of Number</h3>
-        <p>Short contemplative entries designed as a first encounter with the philosophy.</p>
-      </div>
-      <div class="book">
-        <span>Field Guide</span>
-        <h3>The Archetypes of Number</h3>
-        <p>A practical symbolic grammar for recognizing numerical operations.</p>
-      </div>
-      <div class="book">
-        <span>Foundations</span>
-        <h3>Liber I</h3>
-        <p>The philosophical foundations of Pythagorean Arithmosophic Anamnesis.</p>
-      </div>
-      <div class="book">
-        <span>Canonical Work</span>
-        <h3>Liber II</h3>
-        <p>The archetypal architecture and its extended symbolic correspondences.</p>
-      </div>
-      <div class="book">
-        <span>Companion</span>
-        <h3>The Nine Operations</h3>
-        <p>Number understood first as verb: the operational grammar in concentrated form.</p>
-      </div>
-      <div class="book">
-        <span>Working Codex</span>
-        <h3>Super Secret Codex</h3>
-        <p>Koans, principles, practices, ritual concepts, poetic fragments, and the experimental prima materia of PAA.</p>
-      </div>
-    </div>
   </div>
 </section>
 
