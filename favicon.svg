@@ -60,7 +60,7 @@
 
     <!--
          MONAD
-         Deliberately brighter than every other point.
+         Deliberately brighter and larger than every other point.
     -->
     <radialGradient id="monad"
                     cx="38%"
@@ -185,10 +185,7 @@
 
   <!-- =====================================================
        TETRAKTYS NETWORK
-
-       Only the deep lapis / turquoise structural lines remain.
-       The former faint Tyrian-purple internal diagonals have
-       been completely removed.
+       Deep lapis / turquoise structural lines only.
        ===================================================== -->
 
   <g fill="none"
@@ -255,6 +252,7 @@
 
   <!-- =====================================================
        ORDINARY NINE POINTS
+       Enlarged from r=17 to r=22
        ===================================================== -->
 
   <g fill="url(#pearl)"
@@ -265,43 +263,43 @@
     <!-- TWO -->
     <circle cx="209"
             cy="205"
-            r="17"/>
+            r="22"/>
 
     <circle cx="303"
             cy="205"
-            r="17"/>
+            r="22"/>
 
 
     <!-- THREE -->
     <circle cx="162"
             cy="298"
-            r="17"/>
+            r="22"/>
 
     <circle cx="256"
             cy="298"
-            r="17"/>
+            r="22"/>
 
     <circle cx="350"
             cy="298"
-            r="17"/>
+            r="22"/>
 
 
     <!-- FOUR -->
     <circle cx="116"
             cy="390"
-            r="17"/>
+            r="22"/>
 
     <circle cx="209"
             cy="390"
-            r="17"/>
+            r="22"/>
 
     <circle cx="303"
             cy="390"
-            r="17"/>
+            r="22"/>
 
     <circle cx="396"
             cy="390"
-            r="17"/>
+            r="22"/>
 
   </g>
 
@@ -309,12 +307,13 @@
   <!-- =====================================================
        MONAD
        ONE / UNITY / SOURCE
+       Enlarged and intentionally dominant
        ===================================================== -->
 
   <!-- Monad aura -->
   <circle cx="256"
           cy="112"
-          r="31"
+          r="38"
           fill="#58d6df"
           opacity=".13"
           filter="url(#monadGlow)"/>
@@ -325,16 +324,16 @@
      stroke-linecap="round"
      opacity=".72">
 
-    <path d="M256 69 L256 83"
+    <path d="M256 69 L256 78"
           stroke-width="2"/>
 
-    <path d="M256 141 L256 155"
+    <path d="M256 146 L256 155"
           stroke-width="2"/>
 
-    <path d="M213 112 L227 112"
+    <path d="M213 112 L222 112"
           stroke-width="2"/>
 
-    <path d="M285 112 L299 112"
+    <path d="M290 112 L299 112"
           stroke-width="2"/>
 
   </g>
@@ -345,11 +344,11 @@
      stroke-linecap="round"
      opacity=".52">
 
-    <path d="M226 82 L236 92"/>
-    <path d="M276 132 L286 142"/>
+    <path d="M226 82 L232 88"/>
+    <path d="M280 136 L286 142"/>
 
-    <path d="M286 82 L276 92"/>
-    <path d="M236 132 L226 142"/>
+    <path d="M286 82 L280 88"/>
+    <path d="M232 136 L226 142"/>
 
   </g>
 
@@ -357,7 +356,7 @@
   <!-- Monad body -->
   <circle cx="256"
           cy="112"
-          r="21"
+          r="27"
           fill="url(#monad)"
           stroke="#641b46"
           stroke-width="3"
@@ -365,31 +364,32 @@
 
 
   <!-- White source -->
-  <circle cx="250"
-          cy="106"
-          r="6"
+  <circle cx="248"
+          cy="104"
+          r="7"
           fill="#ffffff"
           opacity=".96"/>
 
 
   <!-- =====================================================
        SUBTLE POINT HIGHLIGHTS
+       Repositioned slightly for larger pearls
        ===================================================== -->
 
   <g fill="#ffffff"
      opacity=".82">
 
-    <circle cx="204" cy="200" r="3"/>
-    <circle cx="298" cy="200" r="3"/>
+    <circle cx="202" cy="198" r="4"/>
+    <circle cx="296" cy="198" r="4"/>
 
-    <circle cx="157" cy="293" r="3"/>
-    <circle cx="251" cy="293" r="3"/>
-    <circle cx="345" cy="293" r="3"/>
+    <circle cx="155" cy="291" r="4"/>
+    <circle cx="249" cy="291" r="4"/>
+    <circle cx="343" cy="291" r="4"/>
 
-    <circle cx="111" cy="385" r="3"/>
-    <circle cx="204" cy="385" r="3"/>
-    <circle cx="298" cy="385" r="3"/>
-    <circle cx="391" cy="385" r="3"/>
+    <circle cx="109" cy="383" r="4"/>
+    <circle cx="202" cy="383" r="4"/>
+    <circle cx="296" cy="383" r="4"/>
+    <circle cx="389" cy="383" r="4"/>
 
   </g>
 
