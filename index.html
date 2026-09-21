@@ -1517,36 +1517,172 @@ header .btn.solid:hover{
   .brand-full{font-size:.44rem !important;letter-spacing:.045em !important}
 }
 
+
+/* ============================================================
+   SCHOOL HEADER — transplanted into master index
+   ============================================================ */
+header{
+  height:76px;
+  border-bottom:1px solid rgba(104,212,222,.21);
+  background:rgba(5,13,24,.82);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 1px 18px rgba(88,214,223,.05);
+}
+header:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(88,214,223,.72),rgba(140,40,95,.35),transparent);
+  box-shadow:0 0 12px rgba(88,214,223,.22);
+}
+header .nav{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+header .brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  font-family:inherit;
+  font-size:inherit;
+  letter-spacing:normal;
+  text-transform:none;
+  font-weight:400;
+  flex:0 0 auto;
+}
+header .mark{
+  width:45px;height:45px;
+  border:1px solid rgba(88,214,223,.44);
+  display:grid;place-items:center;
+  border-radius:50%;
+  box-shadow:0 0 22px rgba(88,214,223,.10),inset 0 0 18px rgba(88,214,223,.05);
+}
+header .tetra{display:grid;gap:3px}
+header .row{display:flex;justify-content:center;gap:3px}
+header .dot{
+  display:block;width:4px;height:4px;border-radius:50%;
+  background:linear-gradient(135deg,#fff,#58d6df);
+  box-shadow:0 0 6px rgba(88,214,223,.55);
+}
+header .brand-copy{display:flex;align-items:center;gap:11px}
+header .paa{
+  font-family:"Libre Caslon Display",Georgia,serif;
+  font-size:1.45rem;line-height:1;color:#fff;letter-spacing:.05em;
+}
+header .full{
+  padding-left:11px;
+  border-left:1px solid rgba(215,197,143,.34);
+  display:flex;flex-direction:column;
+  font-family:"Manrope",system-ui,sans-serif;
+  font-size:.51rem;line-height:1.18;
+  letter-spacing:.13em;text-transform:uppercase;
+}
+header .full span:nth-child(1){color:#a9dff0}
+header .full span:nth-child(2){color:#74e1e7}
+header .full span:nth-child(3){color:#c9afd7}
+
+.school-navlinks{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:clamp(13px,1.6vw,24px);
+  margin-left:auto;
+  font-family:"Manrope",system-ui,sans-serif;
+  font-size:.58rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+.school-navlinks a{
+  color:#a8c4d3;
+  white-space:nowrap;
+  transition:color .2s ease;
+}
+.school-navlinks a:hover{color:#9af1f3}
+.school-navlinks a:not(.school-enter)::after{display:none}
+.school-navlinks .school-enter{
+  border:1px solid rgba(88,214,223,.38);
+  padding:10px 14px;
+  color:#e9fbfc;
+  background:linear-gradient(135deg,rgba(29,87,152,.28),rgba(140,40,95,.18));
+}
+.school-navlinks .school-enter:hover{
+  border-color:rgba(154,241,243,.7);
+  background:linear-gradient(135deg,rgba(29,87,152,.42),rgba(140,40,95,.28));
+}
+.school-menu{
+  display:none;
+  border:1px solid rgba(88,214,223,.28);
+  background:rgba(255,255,255,.025);
+  color:#dff9fa;
+  width:42px;height:42px;
+  cursor:pointer;
+  font-size:1.1rem;
+}
+@media(max-width:1000px){
+  .school-navlinks{
+    display:none;
+    position:absolute;
+    top:76px;
+    left:0;right:0;
+    margin:0;
+    padding:22px max(20px,calc((100vw - var(--max))/2));
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:rgba(5,13,24,.98);
+    border-bottom:1px solid rgba(88,214,223,.22);
+    box-shadow:0 22px 40px rgba(0,0,0,.35);
+  }
+  .school-navlinks.open{display:flex}
+  .school-navlinks a{width:100%;padding:13px 0;border-bottom:1px solid rgba(104,212,222,.10)}
+  .school-navlinks .school-enter{margin-top:12px;width:auto;padding:10px 14px;border-bottom:1px solid rgba(88,214,223,.38)}
+  .school-menu{display:block}
+}
+@media(max-width:600px){
+  header{height:70px}
+  header .full{display:none}
+  header .paa{font-size:1.25rem}
+  header .mark{width:41px;height:41px}
+  .school-navlinks{top:70px;padding-left:14px;padding-right:14px}
+}
+
 </style>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 <header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#top">
-        <span class="tetraktys-mark" aria-hidden="true">
-          <span class="tetra-row"><i></i></span>
-          <span class="tetra-row"><i></i><i></i></span>
-          <span class="tetra-row"><i></i><i></i><i></i></span>
-          <span class="tetra-row"><i></i><i></i><i></i><i></i></span>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Return to PAA">
+      <span class="mark" aria-hidden="true">
+        <span class="tetra">
+          <span class="row"><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
         </span>
-        <span class="brand-text">
-          <strong>PAA</strong>
-          <small class="brand-full"><span>Pythagorean</span><span>Arithmosophic</span><span>Anamnesis</span></small>
-        </span>
-      </a>
-      <button class="menu" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
-      <div class="navlinks">
-        <a href="#philosophy">Philosophy</a>
-        <a href="#grammar">Grammar</a>
-        <a href="#instruments">Instruments</a>
-        <a href="#practice">Practice</a>
-        <a href="#school">School</a>
-        <a href="#library">Library</a>
-        <a class="begin" href="#" onclick="openGateway(event)">Begin</a>
-      </div>
+      </span>
+      <span class="brand-copy">
+        <span class="paa">PAA</span>
+        <span class="full"><span>Pythagorean</span><span>Arithmosophic</span><span>Anamnesis</span></span>
+      </span>
+    </a>
+    <nav class="school-navlinks" aria-label="Primary navigation">
+      <a href="#philosophy">Doctrine</a>
+      <a href="#operations">Operations</a>
+      <a href="#instruments">Instruments</a>
+      <a href="#practice">Practice</a>
+      <a href="#library">Library</a>
+      <a class="school-enter" href="school.html">Enter the School</a>
     </nav>
+    <button class="school-menu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -2236,5 +2372,24 @@ function calculateTriGlyph(){
 initEngine();
 
 </script>
+
+<script>
+(function(){
+  const menu = document.querySelector('.school-menu');
+  const links = document.querySelector('.school-navlinks');
+  if(!menu || !links) return;
+  menu.addEventListener('click', function(){
+    const open = links.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      menu.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
