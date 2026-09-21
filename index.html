@@ -2513,13 +2513,82 @@ function dateToRoot(dateStr){
   return reduceSum(sum, true);
 }
 
+/* Human-readable semantic field for the Tri-Glyph oracle.
+   Canonical verbs remain identifiers; readings speak in recognizable human language. */
+const HUMAN = {
+  1:{gift:'You notice the moment when something needs to begin and are often willing to become the first visible cause.', attention:'what has not yet been claimed, decided, named, or begun', decision:'You tend to clarify yourself by choosing a direction and giving it an initial form.', social:'In groups, you may become the person who breaks hesitation, names the priority, or assumes ownership before ownership is formally assigned.', pressure:'Under pressure, initiative can harden into unilateral certainty; outside input may begin to feel like interference.', need:'room to act from an inner conviction rather than waiting indefinitely for permission', watch:'Notice when decisiveness becomes a defense against receiving information.', practice:'Before acting on a strong first conviction, ask one trusted person what you may not yet be seeing. Then decide.', signal:'You may hear yourself say, “Someone has to start.”'},
+  2:{gift:'You register differences that other people flatten: tone, timing, motive, category, boundary, and the small fact that changes the meaning of the whole.', attention:'what differs, what does not belong together, and where a cleaner distinction would reduce confusion', decision:'You often need to compare the poles before commitment feels intelligent.', social:'You can read the space between people unusually well and may detect tension before anyone names it.', pressure:'Under pressure, discernment can multiply alternatives until choosing feels like a betrayal of nuance.', need:'enough contrast to know what is actually being chosen', watch:'Notice when making one more distinction no longer improves the decision.', practice:'When two options remain, state the decisive difference in one sentence and choose from that sentence.', signal:'You may hear yourself say, “Those are not actually the same thing.”'},
+  3:{gift:'You see connections, mediating possibilities, and third options where other people see isolated pieces or opposing camps.', attention:'what could be connected, translated, introduced, or brought into meaningful relation', decision:'You often discover the answer through conversation, synthesis, comparison, or making the pieces speak to one another.', social:'You can become the translator in a room: the person who understands what each side is trying to say and finds a bridge between them.', pressure:'Under pressure, connection can become complication; you may keep adding people, interpretations, or possibilities when a cleaner line is needed.', need:'a living exchange in which meaning can move between parts', watch:'Notice when mediation is preserving a conflict that someone simply needs to resolve.', practice:'Ask whether the situation needs another bridge or a clear decision. Do not confuse connection with completion.', signal:'You may hear yourself say, “There is a way these two things fit together.”'},
+  4:{gift:'You instinctively look for the container that will make something dependable: sequence, boundary, ownership, standard, schedule, rule, or repeatable form.', attention:'what must be defined, protected, ordered, bounded, or made reliable', decision:'You tend to trust choices that can survive repetition and contact with practical reality.', social:'People may rely on you to turn an intention into an arrangement that can actually be followed.', pressure:'Under pressure, the structure can become more important than the life it was built to protect.', need:'clear limits and a form sturdy enough to carry responsibility', watch:'Notice when you begin defending a procedure after its purpose has disappeared.', practice:'Name the purpose of one rule you are enforcing. If the rule no longer serves that purpose, redesign the rule.', signal:'You may hear yourself say, “What is the actual structure here?”'},
+  5:{gift:'You learn by entering the field. Possibility becomes real to you through movement, experiment, contact, variation, and lived consequence.', attention:'where there is room to move, test, explore, alter course, or encounter something directly', decision:'You may need a small real-world experiment more than another hour of abstraction.', social:'You can restore vitality to stagnant situations by introducing motion, novelty, risk, or a path nobody has tried.', pressure:'Under pressure, freedom can become escape; the existence of another possibility can make sustained commitment feel artificially restrictive.', need:'enough mobility to remain alive inside a commitment', watch:'Notice when you are leaving because the path is wrong versus leaving because the path has become demanding.', practice:'Before abandoning something, change one variable and stay long enough to observe the result.', signal:'You may hear yourself say, “I need to see what happens if I actually try it.”'},
+  6:{gift:'You notice what would allow separate people, obligations, or functions to work as one living whole without erasing their differences.', attention:'what must be reconciled, cared for, coordinated, or brought into mutual support', decision:'You tend to consider the health of the whole system, not merely the local advantage of one part.', social:'You may become the person who quietly holds a family, team, partnership, or project together by seeing what each part requires from the others.', pressure:'Under pressure, responsibility can expand until you are carrying what other people must carry for themselves.', need:'reciprocity: belonging that does not require self-erasure', watch:'Notice when helping has crossed into managing another person’s share of reality.', practice:'In one strained relationship or system, identify what is yours to carry, what is theirs, and what must be carried together.', signal:'You may hear yourself say, “This has to work for the whole, not just one part.”'},
+  7:{gift:'You are drawn to the weak premise, the untested assumption, the contradiction, and the place where appearances stop surviving examination.', attention:'what is true beneath the claim, what has actually been demonstrated, and what fails when pressure is applied', decision:'Conviction tends to deepen when an idea survives private scrutiny rather than merely receiving social approval.', social:'You may be the person who asks the question everyone else skipped because the answer was being taken for granted.', pressure:'Under pressure, examination can become recursive doubt; nothing feels sufficiently proven to deserve commitment.', need:'intellectual and inward honesty strong enough to survive solitude', watch:'Notice when another round of analysis is producing no new information.', practice:'Define in advance what evidence would be sufficient. When that threshold is met, permit yourself to act.', signal:'You may hear yourself say, “But how do we actually know that?”'},
+  8:{gift:'You naturally notice leverage: what could carry more weight, reach more people, produce compounding effects, or become a durable system.', attention:'what can be strengthened, multiplied, delegated, resourced, or expanded without losing proportion', decision:'You often evaluate choices by consequence, capacity, and whether the result can endure at a larger scale.', social:'You may become an organizer of resources, authority, systems, or momentum—especially once a project has outgrown improvisation.', pressure:'Under pressure, more can begin to look automatically better; scale can conceal weakening foundations.', need:'meaningful responsibility with enough authority and resources to meet it', watch:'Notice when growth is being used to avoid repairing the thing that is already strained.', practice:'Before expanding, identify the one failure that would become most expensive if multiplied by ten.', signal:'You may hear yourself say, “If this works, how do we make it carry more?”'},
+  9:{gift:'You sense when a cycle has yielded what it can yield and what must be harvested, named, released, handed on, or brought to a dignified end.', attention:'what is finished, what remains unresolved, and what wisdom should survive the ending', decision:'You often need to understand what an experience meant before you can fully release it.', social:'You can help people or projects cross endings without treating completion as failure.', pressure:'Under pressure, closure can become finality, nostalgia, exhaustion, or a premature wish to be done.', need:'an ending that preserves meaning without preserving the entire past', watch:'Notice whether you are finishing because the work is complete or because you are depleted.', practice:'Choose one unfinished cycle and define the smallest concrete act that would make it genuinely complete.', signal:'You may hear yourself say, “What needs to be finished before we move on?”'},
+  11:{gift:'You can stand far enough from a pattern to notice the pattern itself—including your own participation in it.', attention:'the frame behind the event, the observer behind the reaction, and the system producing the repeated outcome', decision:'You may need perspective before action: a moment in which you can see not only what is happening but how you are interpreting it.', social:'You can sometimes name the pattern a group is enacting while everyone else is still absorbed in the immediate content.', pressure:'Under pressure, perspective can become distance; observing life can replace entering it.', need:'enough inward space to see clearly without disappearing from participation', watch:'Notice when insight has become a substitute for the vulnerable act the insight is asking of you.', practice:'After naming a pattern, take one physical or interpersonal action that changes your participation in it.', signal:'You may hear yourself say, “I can see the pattern we are repeating.”'}
+};
+
+function humanGlyph(val, position){
+  const h=HUMAN[val], g=G[val];
+  const lead = position==='root'
+    ? `At the Root, this describes what your attention tends to do before you have had time to perform a role for anyone.`
+    : position==='name'
+      ? `In the Name position, this describes the method through which you tend to make yourself effective, legible, and useful in the world.`
+      : `In the Synthesis position, this is less a personality label than a developmental instruction: a capacity your other two patterns are being asked to make more conscious.`;
+  return `${lead} ${h.gift} ${h.signal}`;
+}
+
+function pairFriction(a,b){
+  const key=`${a}-${b}`;
+  const specific={
+    '1-2':'One part of you wants to end hesitation by choosing; another wants to preserve the distinction long enough to understand what the choice actually means. You may alternate between unusually fast decisions and sudden second thoughts once the neglected nuance appears.',
+    '2-1':'You may spend considerable time detecting the important difference, then surprise people by becoming extremely decisive once that difference is clear. The danger is waiting for perfect discrimination and then overcorrecting into abrupt certainty.',
+    '2-7':'You do not merely notice discrepancies; you are inclined to investigate them. This can produce exceptional discernment, but also a recursive loop in which every answer generates another distinction to examine.',
+    '7-2':'Your scrutiny is often triggered by a subtle mismatch others would ignore. The gift is forensic perception; the trap is treating every ambiguity as if it must be resolved before life can continue.',
+    '4-5':'You contain a genuine tension between reliability and freedom. You may build a structure carefully and then begin resenting the very arrangement you insisted was necessary once it starts limiting movement.',
+    '5-4':'You may enter through experiment and only later discover that what you found needs discipline, repetition, and boundaries to survive. The recurring challenge is staying long enough to build a vessel for what initially arrived as possibility.',
+    '5-8':'You can see both the next experiment and its larger potential. This is potent for entrepreneurship and change, but dangerous when an exciting prototype is scaled before its weaknesses have become visible.',
+    '8-5':'You may be skilled at building capacity yet periodically feel trapped by the machinery required to sustain it. Growth remains healthy only if the system retains room for adaptation.',
+    '6-9':'You may feel responsible for holding things together even after a relationship, role, or project has reached its natural end. Care can make release feel like abandonment.',
+    '9-6':'You often understand what needs to end, yet may hesitate when completion will disrupt people who depend on the existing arrangement. Your work is to distinguish compassionate closure from indefinite maintenance.',
+    '7-3':'Your private standard of proof meets a strong capacity to connect and explain. You may understand a subject deeply but delay speaking until every objection has been answered internally.',
+    '3-7':'You generate connections readily, but another part of you insists that the connection survive examination. This can make you an unusually rigorous synthesizer when you resist both premature enthusiasm and reflexive demolition.',
+    '8-1':'You know how to strengthen an existing structure, but there are moments when no amount of optimization can substitute for beginning something fundamentally new.',
+    '1-8':'You can initiate strongly and quickly begin thinking about consequence, reach, and durable capacity. The danger is designing the empire before the first small thing has proved itself.',
+    '1-4':'You can know quickly what should begin, then become much more deliberate about how it should be built. Others may experience you as bold at inception and exacting during implementation.',
+    '4-1':'You often seek a sound container before committing, yet once the structure becomes clear you can move with striking decisiveness. Beware using preparation to postpone the moment when ownership must actually be claimed.',
+    '5-5':'Both instinct and learned method favor possibility, movement, and direct experience. Departure may therefore become easier than declaration: keeping several futures alive can protect you from the loss inherent in choosing one.',
+    '1-1':'Initiative is doubled. You are unlikely to suffer from a shortage of beginnings; the subtler work is learning when leadership requires reception, revision, and allowing something not authored by you to alter the course.'
+  };
+  if(specific[key]) return specific[key];
+  const A=HUMAN[a], B=HUMAN[b];
+  if(a===b) return `The same tendency appears in both positions, so it is likely to feel natural enough that you may not notice yourself doing it. ${A.pressure} The central question is not how to acquire more of this capacity, but how to regulate it without betraying its gift.`;
+  if(G[a].field===G[b].field) return `These two patterns speak a related structural language, so they can reinforce one another almost invisibly. Your instinct is drawn toward ${A.attention}; your enacted method is drawn toward ${B.attention}. This creates concentration, but concentration can become enclosure when the same kind of answer is applied to every problem.`;
+  return `Your instinct tends to orient toward ${A.attention}. Your learned method tends to orient toward ${B.attention}. The friction appears when the first tendency believes the second is slowing, distorting, or overriding what feels obvious—and when the second is actually supplying information the first would otherwise miss.`;
+}
+
+function synthesisDevelopment(rootVal,nameVal,synthVal){
+  const r=HUMAN[rootVal], n=HUMAN[nameVal], s=HUMAN[synthVal];
+  let opening;
+  if(rootVal===nameVal){
+    opening=`Because Root and Name repeat the same glyph, the synthesis is not asking you to become “more” of what already comes naturally. It asks what that doubled strength must produce once it is disciplined.`;
+  }else if(G[rootVal].field===G[nameVal].field){
+    opening=`Root and Name reinforce a related mode of operating. The synthesis therefore acts as an opening in the concentration: it introduces a capacity that keeps your strongest pattern from becoming a closed circuit.`;
+  }else{
+    opening=`The third glyph is best read as the capacity that can make the first two cooperate rather than compete.`;
+  }
+  return `${opening} ${s.gift} In practice, this means your development is less about repeating “${G[synthVal].op}” and more about learning to notice ${s.attention}. ${s.practice}`;
+}
+
 function synthesisRelation(rootVal,nameVal,synthVal){
-  const r=G[rootVal], n=G[nameVal], s=G[synthVal];
-  if(rootVal===nameVal) return `Root and Name repeat the same operation, concentrating ${r.op.toUpperCase()}. The work is not to acquire another identity, but to regulate the strength already doubled in the configuration. The synthesis asks that this concentrated operation become ${s.op.toUpperCase()}.`;
-  if(r.field===n.field) return `Root and Name arise within the same ${FIELDS[r.field].name}, creating field concentration rather than simple agreement. ${r.op.toUpperCase()} and ${n.op.toUpperCase()} reinforce a shared mode, while the synthesis requires ${s.op.toUpperCase()} so that concentration becomes development rather than enclosure.`;
-  const distance=Math.abs(rootVal-nameVal);
-  if(distance===1) return `Root and Name are adjacent operations in the developmental grammar: ${r.op.toUpperCase()} passes directly into ${n.op.toUpperCase()}. The synthesis, ${s.op.toUpperCase()}, shows what becomes possible when that transition is made consciously rather than automatically.`;
-  return `Your native operation, ${r.op.toUpperCase()}, meets the enacted method of ${n.op.toUpperCase()}. Because they occupy different positions in the grammar, the useful question is not which one is “you,” but what each supplies that the other lacks. Their combined demand is ${s.op.toUpperCase()}.`;
+  return {
+    recognition:`${humanGlyph(rootVal,'root')} ${humanGlyph(nameVal,'name')}`,
+    friction:pairFriction(rootVal,nameVal),
+    emergence:synthesisDevelopment(rootVal,nameVal,synthVal),
+    diagnostic:`Watch for this: ${HUMAN[rootVal].watch} Also notice the complementary Name-pattern: ${HUMAN[nameVal].watch}`,
+    practice:`For the next seven days, use this as a field experiment. ${HUMAN[synthVal].practice}`,
+    question:`When ${HUMAN[rootVal].attention} meets ${HUMAN[nameVal].attention}, what becomes possible if you consciously make room for ${HUMAN[synthVal].attention}?`
+  };
 }
 
 function calculateTriGlyph(){
@@ -2540,11 +2609,12 @@ function calculateTriGlyph(){
   }
   const rawSynth = rootVal + nameVal;
   const synthVal = reduceSum(rawSynth, true);
+  const reading=synthesisRelation(rootVal,nameVal,synthVal);
 
   const glyphs = [
-    {pos:'I · The Root', val:rootVal, name:'Given Operation', desc:'Derived from the sum of your birth date digits. Represents your foundational structural inheritance.'},
-    {pos:'II · The Name', val:nameVal, name:'Trained Operation', desc:'Derived from your full birth name via Pythagorean letter valuation. Represents your acquired style and active method.'},
-    {pos:'III · The Synthesis', val:synthVal, name:'Directed Operation', desc:`Sum of Root (${rootVal}) and Name (${nameVal}) = ${rawSynth} → ${synthVal}. Represents what your configuration is asked to enact.`}
+    {pos:'I · The Root', val:rootVal, name:'Native Pattern', desc:humanGlyph(rootVal,'root')},
+    {pos:'II · The Name', val:nameVal, name:'Enacted Method', desc:humanGlyph(nameVal,'name')},
+    {pos:'III · The Synthesis', val:synthVal, name:'Developmental Demand', desc:humanGlyph(synthVal,'synthesis')}
   ];
 
   let html = `<div class="tri3">`;
@@ -2557,7 +2627,7 @@ function calculateTriGlyph(){
         <div class="chain">${g.name}</div>
         <h4>${item.greek} · ${item.op}</h4>
         <p>${g.desc}</p>
-        <div class="pl"><b>Coherence:</b> ${item.coherence}</div>
+        <div class="pl"><b>Human signature:</b> ${HUMAN[g.val].gift}</div>
       </div>
     `;
   });
@@ -2566,9 +2636,24 @@ function calculateTriGlyph(){
       <span>Unit: <i>Individual Life-Structure</i></span>
       <span>Method: <i class="a">Pythagorean Letter Valuation</i> & <i class="b">Date Summation</i></span>
     </div>
-    <div class="test">
-      <h4>Synthesis Test</h4>
-      <p>${synthesisRelation(rootVal,nameVal,synthVal)}</p>
+    <div class="test tri-oracle">
+      <span class="engine-index">The living configuration</span>
+      <h4>How these three patterns meet</h4>
+      <p>${reading.recognition}</p>
+
+      <h4>The friction to recognize</h4>
+      <p>${reading.friction}</p>
+
+      <h4>What the third glyph is asking of you</h4>
+      <p>${reading.emergence}</p>
+
+      <h4>A pattern to catch in real time</h4>
+      <p>${reading.diagnostic}</p>
+
+      <h4>Field practice</h4>
+      <p>${reading.practice}</p>
+
+      <div class="glyph-question"><strong>Anamnesis question</strong><br>${reading.question}</div>
       <p class="relation-equation"><strong>${rootVal} ${G[rootVal].op}</strong> + <strong>${nameVal} ${G[nameVal].op}</strong> → <strong>${synthVal} ${G[synthVal].op}</strong></p>
     </div>
   `;
