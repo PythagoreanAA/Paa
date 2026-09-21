@@ -6,36 +6,79 @@
      aria-label="PAA Tetraktys">
 
   <defs>
-    <!-- Deep nocturnal field -->
-    <radialGradient id="bg" cx="50%" cy="42%" r="68%">
-      <stop offset="0%" stop-color="#10283d"/>
-      <stop offset="55%" stop-color="#081827"/>
-      <stop offset="100%" stop-color="#030913"/>
-    </radialGradient>
 
-    <!-- Solar metal -->
-    <linearGradient id="solar" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#fff8d6"/>
-      <stop offset="22%" stop-color="#ffe39a"/>
-      <stop offset="52%" stop-color="#f2c96d"/>
-      <stop offset="76%" stop-color="#e69b4a"/>
-      <stop offset="100%" stop-color="#d75f76"/>
+    <!-- =====================================================
+         PAA PALETTE
+         Tyrian Purple + Lapis Lazuli + Turquoise
+         ===================================================== -->
+
+    <!-- Tyrian metal -->
+    <linearGradient id="tyrian"
+                    x1="0" y1="0"
+                    x2="1" y2="1">
+      <stop offset="0%"   stop-color="#3b0a2a"/>
+      <stop offset="28%"  stop-color="#641b46"/>
+      <stop offset="55%"  stop-color="#8b2f68"/>
+      <stop offset="78%"  stop-color="#641b46"/>
+      <stop offset="100%" stop-color="#310820"/>
     </linearGradient>
 
-    <!-- Individual pearl / solar point -->
-    <radialGradient id="pearl" cx="35%" cy="27%" r="70%">
-      <stop offset="0%" stop-color="#fffdf0"/>
-      <stop offset="24%" stop-color="#fff0b8"/>
-      <stop offset="58%" stop-color="#f2c96d"/>
-      <stop offset="82%" stop-color="#e69b4a"/>
-      <stop offset="100%" stop-color="#c95d70"/>
+    <!-- Deep Lapis → Turquoise -->
+    <linearGradient id="lapis"
+                    x1="0" y1="0"
+                    x2="1" y2="1">
+      <stop offset="0%"   stop-color="#102f5c"/>
+      <stop offset="32%"  stop-color="#173f72"/>
+      <stop offset="62%"  stop-color="#176b88"/>
+      <stop offset="84%"  stop-color="#1b9baa"/>
+      <stop offset="100%" stop-color="#58d6df"/>
+    </linearGradient>
+
+    <!-- Combined ceremonial gradient -->
+    <linearGradient id="ceremonial"
+                    x1="0" y1="0"
+                    x2="1" y2="1">
+      <stop offset="0%"   stop-color="#641b46"/>
+      <stop offset="28%"  stop-color="#8b2f68"/>
+      <stop offset="52%"  stop-color="#173f72"/>
+      <stop offset="76%"  stop-color="#1b9baa"/>
+      <stop offset="100%" stop-color="#58d6df"/>
+    </linearGradient>
+
+    <!-- Ordinary Tetraktys pearls -->
+    <radialGradient id="pearl"
+                    cx="34%"
+                    cy="28%"
+                    r="72%">
+      <stop offset="0%"   stop-color="#f5ffff"/>
+      <stop offset="18%"  stop-color="#b9f3f2"/>
+      <stop offset="42%"  stop-color="#58d6df"/>
+      <stop offset="68%"  stop-color="#1b9baa"/>
+      <stop offset="86%"  stop-color="#173f72"/>
+      <stop offset="100%" stop-color="#641b46"/>
     </radialGradient>
 
-    <!-- Outer ring glow -->
-    <filter id="ringGlow"
-            x="-50%" y="-50%"
-            width="200%" height="200%">
-      <feGaussianBlur stdDeviation="5"
+    <!--
+         MONAD
+         Deliberately brighter than every other point.
+    -->
+    <radialGradient id="monad"
+                    cx="38%"
+                    cy="30%"
+                    r="68%">
+      <stop offset="0%"   stop-color="#ffffff"/>
+      <stop offset="16%"  stop-color="#efffff"/>
+      <stop offset="36%"  stop-color="#9af3ee"/>
+      <stop offset="60%"  stop-color="#36c7cf"/>
+      <stop offset="82%"  stop-color="#176b88"/>
+      <stop offset="100%" stop-color="#641b46"/>
+    </radialGradient>
+
+    <!-- Restrained blue line glow -->
+    <filter id="lineGlow"
+            x="-40%" y="-40%"
+            width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2"
                       result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
@@ -43,11 +86,11 @@
       </feMerge>
     </filter>
 
-    <!-- Dot glow -->
-    <filter id="dotGlow"
-            x="-100%" y="-100%"
-            width="300%" height="300%">
-      <feGaussianBlur stdDeviation="7"
+    <!-- Ordinary point glow -->
+    <filter id="pointGlow"
+            x="-80%" y="-80%"
+            width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3.5"
                       result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
@@ -55,199 +98,298 @@
       </feMerge>
     </filter>
 
-    <!-- Soft central aura -->
-    <radialGradient id="aura">
-      <stop offset="0%" stop-color="#f2c96d"
-            stop-opacity=".13"/>
-      <stop offset="55%" stop-color="#d75f9a"
-            stop-opacity=".04"/>
-      <stop offset="100%" stop-color="#07111f"
-            stop-opacity="0"/>
-    </radialGradient>
+    <!-- Stronger Monad glow -->
+    <filter id="monadGlow"
+            x="-150%" y="-150%"
+            width="400%" height="400%">
+      <feGaussianBlur stdDeviation="8"
+                      result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
   </defs>
 
-  <!-- Background -->
+
+  <!-- =====================================================
+       WHITE FIELD
+       ===================================================== -->
+
   <rect width="512"
         height="512"
-        rx="92"
-        fill="url(#bg)"/>
+        fill="#ffffff"/>
 
-  <!-- Central atmospheric illumination -->
-  <circle cx="256"
-          cy="250"
-          r="205"
-          fill="url(#aura)"/>
 
   <!-- =====================================================
-       OUTER SOLAR SEAL
+       OUTER SEAL
        ===================================================== -->
 
   <circle cx="256"
           cy="256"
           r="218"
           fill="none"
-          stroke="#f2c96d"
-          stroke-opacity=".18"
-          stroke-width="15"/>
+          stroke="url(#ceremonial)"
+          stroke-width="5"/>
 
   <circle cx="256"
           cy="256"
-          r="218"
+          r="207"
           fill="none"
-          stroke="url(#solar)"
-          stroke-width="4"
-          filter="url(#ringGlow)"/>
-
-  <circle cx="256"
-          cy="256"
-          r="203"
-          fill="none"
-          stroke="#ffe39a"
-          stroke-opacity=".48"
+          stroke="#173f72"
+          stroke-opacity=".20"
           stroke-width="1.5"/>
 
-  <!-- Cardinal rays -->
-  <g stroke="url(#solar)"
-     stroke-linecap="round"
-     filter="url(#ringGlow)">
-
-    <path d="M256 12 L256 75"
-          stroke-width="3"/>
-
-    <path d="M256 437 L256 500"
-          stroke-width="3"/>
-
-    <path d="M12 256 L75 256"
-          stroke-width="3"/>
-
-    <path d="M437 256 L500 256"
-          stroke-width="3"/>
-
-  </g>
-
-  <!-- Small cardinal stars -->
-  <g fill="#fff4c7"
-     filter="url(#dotGlow)">
-
-    <circle cx="256" cy="39" r="3"/>
-    <circle cx="256" cy="473" r="3"/>
-    <circle cx="39" cy="256" r="3"/>
-    <circle cx="473" cy="256" r="3"/>
-
-  </g>
 
   <!-- =====================================================
-       SACRED CONSTRUCTION
+       FOUR CARDINAL MARKS
+       ===================================================== -->
+
+  <g fill="url(#tyrian)">
+
+    <!-- North -->
+    <path d="
+      M256 16
+      L260 38
+      L256 69
+      L252 38
+      Z"/>
+
+    <!-- South -->
+    <path d="
+      M256 496
+      L252 474
+      L256 443
+      L260 474
+      Z"/>
+
+    <!-- West -->
+    <path d="
+      M16 256
+      L38 252
+      L69 256
+      L38 260
+      Z"/>
+
+    <!-- East -->
+    <path d="
+      M496 256
+      L474 260
+      L443 256
+      L474 252
+      Z"/>
+
+  </g>
+
+
+  <!-- =====================================================
+       TETRAKTYS NETWORK
+
+       Only the deep lapis / turquoise structural lines remain.
+       The former faint Tyrian-purple internal diagonals have
+       been completely removed.
        ===================================================== -->
 
   <g fill="none"
-     stroke="#f2c96d"
-     stroke-opacity=".22"
-     stroke-width="1.5">
+     stroke="url(#lapis)"
+     stroke-width="3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     filter="url(#lineGlow)">
 
-    <circle cx="256"
-            cy="256"
-            r="164"/>
+    <!-- OUTER TRIANGLE -->
+    <path d="
+      M256 112
+      L116 390
+      L396 390
+      Z"/>
 
-    <path d="M256 105
-             L112 385
-             L400 385
-             Z"/>
+
+    <!-- LEVEL 2 -->
+    <path d="
+      M209 205
+      L303 205"/>
+
+
+    <!-- LEVEL 3 -->
+    <path d="
+      M162 298
+      L256 298
+      L350 298"/>
+
+
+    <!-- LEVEL 4 -->
+    <path d="
+      M116 390
+      L209 390
+      L303 390
+      L396 390"/>
+
+
+    <!-- MONAD → DYAD -->
+    <path d="M256 112 L209 205"/>
+    <path d="M256 112 L303 205"/>
+
+
+    <!-- DYAD → TRIAD -->
+    <path d="M209 205 L162 298"/>
+    <path d="M209 205 L256 298"/>
+
+    <path d="M303 205 L256 298"/>
+    <path d="M303 205 L350 298"/>
+
+
+    <!-- TRIAD → TETRAD -->
+    <path d="M162 298 L116 390"/>
+    <path d="M162 298 L209 390"/>
+
+    <path d="M256 298 L209 390"/>
+    <path d="M256 298 L303 390"/>
+
+    <path d="M350 298 L303 390"/>
+    <path d="M350 298 L396 390"/>
 
   </g>
 
-  <!-- Tetraktys connecting structure -->
-  <g fill="none"
-     stroke="url(#solar)"
-     stroke-opacity=".62"
-     stroke-width="2">
-
-    <!-- Outer triangle -->
-    <path d="M256 123
-             L132 377
-             L380 377
-             Z"/>
-
-    <!-- Horizontal levels -->
-    <path d="M215 208 L297 208"/>
-    <path d="M174 292 L338 292"/>
-    <path d="M132 377 L380 377"/>
-
-  </g>
 
   <!-- =====================================================
-       THE TETRAKTYS
-       1 + 2 + 3 + 4 = 10
+       ORDINARY NINE POINTS
        ===================================================== -->
 
   <g fill="url(#pearl)"
-     stroke="#fff0b0"
-     stroke-width="2"
-     filter="url(#dotGlow)">
-
-    <!-- ONE -->
-    <circle cx="256"
-            cy="123"
-            r="18"/>
+     stroke="#641b46"
+     stroke-width="2.5"
+     filter="url(#pointGlow)">
 
     <!-- TWO -->
-    <circle cx="215"
-            cy="208"
-            r="18"/>
+    <circle cx="209"
+            cy="205"
+            r="17"/>
 
-    <circle cx="297"
-            cy="208"
-            r="18"/>
+    <circle cx="303"
+            cy="205"
+            r="17"/>
+
 
     <!-- THREE -->
-    <circle cx="174"
-            cy="292"
-            r="18"/>
+    <circle cx="162"
+            cy="298"
+            r="17"/>
 
     <circle cx="256"
-            cy="292"
-            r="18"/>
+            cy="298"
+            r="17"/>
 
-    <circle cx="338"
-            cy="292"
-            r="18"/>
+    <circle cx="350"
+            cy="298"
+            r="17"/>
+
 
     <!-- FOUR -->
-    <circle cx="132"
-            cy="377"
-            r="18"/>
+    <circle cx="116"
+            cy="390"
+            r="17"/>
 
-    <circle cx="215"
-            cy="377"
-            r="18"/>
+    <circle cx="209"
+            cy="390"
+            r="17"/>
 
-    <circle cx="297"
-            cy="377"
-            r="18"/>
+    <circle cx="303"
+            cy="390"
+            r="17"/>
 
-    <circle cx="380"
-            cy="377"
-            r="18"/>
+    <circle cx="396"
+            cy="390"
+            r="17"/>
 
   </g>
 
-  <!-- White-hot centers preserve legibility at favicon scale -->
-  <g fill="#fffbe9"
+
+  <!-- =====================================================
+       MONAD
+       ONE / UNITY / SOURCE
+       ===================================================== -->
+
+  <!-- Monad aura -->
+  <circle cx="256"
+          cy="112"
+          r="31"
+          fill="#58d6df"
+          opacity=".13"
+          filter="url(#monadGlow)"/>
+
+
+  <!-- Monad rays -->
+  <g stroke="#641b46"
+     stroke-linecap="round"
+     opacity=".72">
+
+    <path d="M256 69 L256 83"
+          stroke-width="2"/>
+
+    <path d="M256 141 L256 155"
+          stroke-width="2"/>
+
+    <path d="M213 112 L227 112"
+          stroke-width="2"/>
+
+    <path d="M285 112 L299 112"
+          stroke-width="2"/>
+
+  </g>
+
+
+  <!-- Monad diagonal rays -->
+  <g stroke="#1b9baa"
+     stroke-linecap="round"
+     opacity=".52">
+
+    <path d="M226 82 L236 92"/>
+    <path d="M276 132 L286 142"/>
+
+    <path d="M286 82 L276 92"/>
+    <path d="M236 132 L226 142"/>
+
+  </g>
+
+
+  <!-- Monad body -->
+  <circle cx="256"
+          cy="112"
+          r="21"
+          fill="url(#monad)"
+          stroke="#641b46"
+          stroke-width="3"
+          filter="url(#monadGlow)"/>
+
+
+  <!-- White source -->
+  <circle cx="250"
+          cy="106"
+          r="6"
+          fill="#ffffff"
+          opacity=".96"/>
+
+
+  <!-- =====================================================
+       SUBTLE POINT HIGHLIGHTS
+       ===================================================== -->
+
+  <g fill="#ffffff"
      opacity=".82">
 
-    <circle cx="250" cy="117" r="4"/>
+    <circle cx="204" cy="200" r="3"/>
+    <circle cx="298" cy="200" r="3"/>
 
-    <circle cx="209" cy="202" r="4"/>
-    <circle cx="291" cy="202" r="4"/>
+    <circle cx="157" cy="293" r="3"/>
+    <circle cx="251" cy="293" r="3"/>
+    <circle cx="345" cy="293" r="3"/>
 
-    <circle cx="168" cy="286" r="4"/>
-    <circle cx="250" cy="286" r="4"/>
-    <circle cx="332" cy="286" r="4"/>
-
-    <circle cx="126" cy="371" r="4"/>
-    <circle cx="209" cy="371" r="4"/>
-    <circle cx="291" cy="371" r="4"/>
-    <circle cx="374" cy="371" r="4"/>
+    <circle cx="111" cy="385" r="3"/>
+    <circle cx="204" cy="385" r="3"/>
+    <circle cx="298" cy="385" r="3"/>
+    <circle cx="391" cy="385" r="3"/>
 
   </g>
 
