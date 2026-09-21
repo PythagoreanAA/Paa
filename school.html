@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter the School — Pythagorean Arithmosophic Anamnesis</title>
+<meta name="description" content="Enter the School of Pythagorean Arithmosophic Anamnesis. Write directly to the founder, or support the restoration through patronage.">
+<meta name="theme-color" content="#050d18">
+<meta property="og:title" content="Enter the School — Pythagorean Arithmosophic Anamnesis">
+<meta property="og:description" content="A private threshold for correspondence, inquiry, study, and patronage.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#050d18;--night2:#08172a;--ink:#f4fbfd;--muted:#91a9b9;
+  --teal:#58d6df;--teal2:#9af1f3;--lapis:#1d5798;--tyrian:#8c285f;
+  --violet:#c4a5d3;--gold:#d7c58f;--line:rgba(104,212,222,.21);
+  --serif:"Libre Caslon Display",Georgia,serif;
+  --sans:"DM Sans",system-ui,sans-serif;--caps:"Manrope",system-ui,sans-serif;
+  --max:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100svh;color:var(--ink);font-family:var(--serif);
+  background:
+    radial-gradient(circle at 50% -12%,rgba(88,214,223,.14),transparent 32rem),
+    radial-gradient(circle at 9% 82%,rgba(140,40,95,.10),transparent 30rem),
+    radial-gradient(circle at 91% 70%,rgba(29,87,152,.11),transparent 30rem),
+    linear-gradient(180deg,#050d18,#071321 56%,#040a12);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(104,212,222,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(104,212,222,.025) 1px,transparent 1px);
+  background-size:84px 84px;
+  mask-image:radial-gradient(circle at 50% 20%,#000,transparent 72%);
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{
+  height:76px;border-bottom:1px solid var(--line);background:rgba(5,13,24,.82);
+  backdrop-filter:blur(18px) saturate(140%);position:relative;z-index:10;
+  box-shadow:0 1px 18px rgba(88,214,223,.05);
+}
+header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(88,214,223,.72),rgba(140,40,95,.35),transparent);box-shadow:0 0 12px rgba(88,214,223,.22)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px}
+.mark{width:45px;height:45px;border:1px solid rgba(88,214,223,.44);display:grid;place-items:center;border-radius:50%;box-shadow:0 0 22px rgba(88,214,223,.10),inset 0 0 18px rgba(88,214,223,.05)}
+.tetra{display:grid;gap:3px}.row{display:flex;justify-content:center;gap:3px}.dot{width:4px;height:4px;border-radius:50%;background:linear-gradient(135deg,#fff,var(--teal));box-shadow:0 0 6px rgba(88,214,223,.55)}
+.brand-copy{display:flex;align-items:center;gap:11px}
+.paa{font-family:var(--serif);font-size:1.45rem;line-height:1;color:#fff;letter-spacing:.05em}
+.full{padding-left:11px;border-left:1px solid rgba(215,197,143,.34);display:flex;flex-direction:column;font-family:var(--caps);font-size:.51rem;line-height:1.18;letter-spacing:.13em;text-transform:uppercase}
+.full span:nth-child(1){color:#a9dff0}.full span:nth-child(2){color:#74e1e7}.full span:nth-child(3){color:#c9afd7}
+.return{font-family:var(--caps);font-size:.61rem;letter-spacing:.15em;text-transform:uppercase;color:#a8c4d3;transition:.2s}.return:hover{color:var(--teal2)}
+main{position:relative}
+.threshold{padding:clamp(70px,9vw,118px) 0 46px;text-align:center}
+.kicker{font-family:var(--caps);font-size:.63rem;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);font-weight:700}
+.threshold h1{font-size:clamp(3.3rem,7vw,6.4rem);line-height:.92;font-weight:400;letter-spacing:-.035em;margin:16px auto 22px;max-width:900px}
+.threshold h1 em{font-style:normal;background:linear-gradient(115deg,#fff 5%,#9eeff1 48%,#c8add6 88%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.threshold p{font-family:var(--sans);color:#a9becb;font-size:clamp(1rem,1.5vw,1.15rem);line-height:1.75;max-width:620px;margin:0 auto}
+.seal{width:96px;height:96px;margin:0 auto 30px;position:relative;display:grid;place-items:center}
+.seal:before,.seal:after{content:"";position:absolute;border-radius:50%;inset:0;border:1px solid rgba(88,214,223,.28)}
+.seal:after{inset:11px;border-color:rgba(215,197,143,.25)}
+.seal .mark{width:66px;height:66px;border:0;box-shadow:none}
+.divider{width:min(600px,72vw);height:1px;margin:48px auto 0;background:linear-gradient(90deg,transparent,rgba(88,214,223,.36),transparent)}
+.contact{padding:32px 0 clamp(84px,9vw,120px)}
+.contact-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(42px,7vw,84px);align-items:start}
+.intro{padding-top:20px}
+.index{font-family:var(--caps);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--violet)}
+.intro h2{font-size:clamp(2.25rem,4vw,3.65rem);font-weight:400;line-height:1.04;margin:11px 0 20px}
+.intro p{font-family:var(--sans);color:var(--muted);font-size:.98rem;line-height:1.75;margin:0 0 18px}
+.founder{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.founder strong{display:block;font-weight:400;font-size:1.2rem;color:#fff}
+.founder span{font-family:var(--caps);font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.form-shell{position:relative;border:1px solid rgba(88,214,223,.25);background:linear-gradient(145deg,rgba(10,28,46,.92),rgba(5,14,25,.95));padding:clamp(26px,4vw,42px);box-shadow:0 34px 90px -50px rgba(0,0,0,.9),0 0 44px rgba(88,214,223,.035)}
+.form-shell:before{content:"";position:absolute;inset:-1px auto -1px -1px;width:2px;background:linear-gradient(var(--teal),rgba(88,214,223,.08),var(--tyrian))}
+.field{margin-bottom:20px}
+label{display:block;font-family:var(--caps);font-size:.59rem;letter-spacing:.17em;text-transform:uppercase;color:#b9d0db;margin-bottom:8px}
+input,textarea{width:100%;border:1px solid rgba(104,212,222,.22);background:rgba(255,255,255,.035);color:#fff;border-radius:5px;padding:14px 15px;outline:none;transition:.2s;font-family:var(--sans);font-size:.96rem}
+textarea{min-height:150px;resize:vertical;line-height:1.6}
+input::placeholder,textarea::placeholder{color:#607a8d}
+input:focus,textarea:focus{border-color:rgba(104,212,222,.76);box-shadow:0 0 0 3px rgba(88,214,223,.07),0 0 18px rgba(88,214,223,.05)}
+.submit{width:100%;border:1px solid rgba(104,212,222,.58);background:linear-gradient(135deg,#1c568e,#08798d);color:#fff;border-radius:5px;padding:15px 20px;font-family:var(--caps);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 15px 32px -18px rgba(88,214,223,.7);transition:.2s}
+.submit:hover{transform:translateY(-1px);border-color:#8df1f3;background:linear-gradient(135deg,#2468a7,#0994a6)}
+.form-note{font-family:var(--sans);font-size:.76rem;color:#6f899a;line-height:1.5;margin:13px 0 0;text-align:center}
+.patronage{border-top:1px solid rgba(104,212,222,.15);padding:clamp(70px,8vw,98px) 0 100px;background:radial-gradient(circle at 50% 100%,rgba(140,40,95,.08),transparent 32rem)}
+.patron-head{text-align:center;max-width:670px;margin:0 auto 38px}
+.patron-head h2{font-size:clamp(2.2rem,4vw,3.55rem);font-weight:400;margin:11px 0 16px}
+.patron-head p{font-family:var(--sans);color:var(--muted);line-height:1.72;margin:0}
+.patron-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:rgba(5,14,25,.58)}
+.patron{padding:30px 26px;border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:235px}
+.patron:last-child{border-right:0}
+.patron small{font-family:var(--caps);font-size:.56rem;letter-spacing:.17em;text-transform:uppercase;color:var(--teal)}
+.patron h3{font-size:1.5rem;font-weight:400;margin:8px 0}
+.patron p{font-family:var(--sans);font-size:.87rem;color:#829bab;line-height:1.6;margin:0 0 20px}
+.amount{font-size:2rem;color:#fff;margin-top:auto;margin-bottom:15px}
+.gift{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(104,212,222,.2);padding-top:13px;font-family:var(--caps);font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:#9ddfe4;transition:.2s}
+.gift:hover{color:#fff;text-shadow:0 0 10px rgba(88,214,223,.35)}
+.patronage-note{text-align:center;font-family:var(--sans);font-size:.8rem;color:#708999;margin-top:23px}
+.custom{display:inline-block;margin-top:8px;color:#a7dfe3;border-bottom:1px solid rgba(104,212,222,.3)}
+footer{border-top:1px solid rgba(104,212,222,.14);padding:34px 0 46px;text-align:center;font-family:var(--sans);font-size:.76rem;color:#607a8d;background:#030811}
+footer strong{font-family:var(--serif);font-size:1rem;font-weight:400;color:#9fb7c5}
+@media(max-width:800px){
+  header{height:70px}.full{display:none}.return{font-size:.56rem}.threshold{padding-top:64px}
+  .contact-grid{grid-template-columns:1fr;gap:28px}.intro{padding-top:0}.patron-grid{grid-template-columns:1fr}
+  .patron{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.patron:last-child{border-bottom:0}
+}
+@media(max-width:520px){
+  .wrap{width:calc(100% - 28px)}.paa{font-size:1.25rem}.mark{width:41px;height:41px}
+  .threshold{padding:52px 0 28px}.threshold h1{font-size:clamp(3rem,16vw,4.3rem)}
+  .seal{width:82px;height:82px;margin-bottom:24px}.contact{padding-top:20px}
+  .form-shell{padding:23px 18px}.patronage{padding:66px 0 78px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Return to PAA">
+      <span class="mark" aria-hidden="true">
+        <span class="tetra">
+          <span class="row"><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+        </span>
+      </span>
+      <span class="brand-copy">
+        <span class="paa">PAA</span>
+        <span class="full"><span>Pythagorean</span><span>Arithmosophic</span><span>Anamnesis</span></span>
+      </span>
+    </a>
+    <a class="return" href="index.html">Return to the outer court</a>
+  </div>
+</header>
+
+<main>
+  <section class="threshold">
+    <div class="wrap">
+      <div class="seal" aria-hidden="true">
+        <span class="mark"><span class="tetra">
+          <span class="row"><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+          <span class="row"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+        </span></span>
+      </div>
+      <div class="kicker">The School · Correspondence</div>
+      <h1><em>Enter the School.</em></h1>
+      <p>This threshold is for those who wish to study, inquire, collaborate, or help restore the work. Write directly to the founder. No application theater. No mailing list. A human reply.</p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap contact-grid">
+      <div class="intro">
+        <div class="index">Private Correspondence</div>
+        <h2>Begin with a letter.</h2>
+        <p>Tell me who you are, what brought you here, and what you hope to understand or build.</p>
+        <p>Serious questions, invitations, study inquiries, collaborations, patronage, and institutional conversations are welcome.</p>
+        <div class="founder"><strong>Stephen Richard Neville</strong><span>Founder · Pythagorean Arithmosophic Anamnesis</span></div>
+      </div>
+
+      <form class="form-shell" id="schoolForm">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" autocomplete="name" required placeholder="Name">
+        </div>
+        <div class="field">
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="message">Your letter</label>
+          <textarea id="message" name="message" required placeholder="What brings you to the School?"></textarea>
+        </div>
+        <button class="submit" type="submit">Send correspondence →</button>
+        <p class="form-note">This opens a prepared email addressed directly to the founder. Your information is not stored by this page.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="patronage" id="patronage">
+    <div class="wrap">
+      <div class="patron-head">
+        <div class="kicker">Patronage · The Restoration</div>
+        <h2>Help keep the temple lit.</h2>
+        <p>PAA is being built as a living school: its texts, instruments, public teachings, and future gatherings. Patronage supports the time and material required to restore and extend the work.</p>
+      </div>
+
+      <div class="patron-grid">
+        <article class="patron">
+          <small>Offering I</small>
+          <h3>Friend of the School</h3>
+          <p>A simple offering toward the writing, instruments, and public work.</p>
+          <div class="amount">$33</div>
+          <a class="gift" href="https://buy.stripe.com/28E6oG0AceWrex08eYcEw00" target="_blank" rel="noopener noreferrer"><span>Make an offering</span><span>→</span></a>
+        </article>
+        <article class="patron">
+          <small>Offering II</small>
+          <h3>Builder</h3>
+          <p>Direct support for the continued construction of the School and its teaching materials.</p>
+          <div class="amount">$111</div>
+          <a class="gift" href="https://buy.stripe.com/aFa9ASdmY8y3agKgLucEw01" target="_blank" rel="noopener noreferrer"><span>Support the restoration</span><span>→</span></a>
+        </article>
+        <article class="patron">
+          <small>Offering III</small>
+          <h3>Patron</h3>
+          <p>Substantial support for the work, with an invitation to direct correspondence with the founder.</p>
+          <div class="amount">$2,207</div>
+          <a class="gift" href="https://buy.stripe.com/7sY00i2Ik5lRcoS3YIcEw02" target="_blank" rel="noopener noreferrer"><span>Become a patron</span><span>→</span></a>
+        </article>
+      </div>
+      <div class="patronage-note">Prefer another amount? <a class="custom" href="https://buy.stripe.com/fZu9AS3Mo5lR4Wqan6cEw03" target="_blank" rel="noopener noreferrer">Choose your own offering.</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><strong>Pythagorean Arithmosophic Anamnesis</strong><br>Correspondence · Study · Patronage</div>
+</footer>
+
+<script>
+document.getElementById('schoolForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const subject = encodeURIComponent('Enter the School — ' + name);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n\n' +
+    message
+  );
+  window.location.href = 'mailto:pythagoreanaa@proton.me?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
