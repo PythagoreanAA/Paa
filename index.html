@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Pythagorean Arithmosophic Anamnesis — Reality has a grammar. Number is its verb. Explore the Nine Operations, glyph geometry, instruments, practice, school, and library.">
   <meta name="theme-color" content="#07111f">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://pythagoreanaa.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pythagoreanaa.com/">
+  <meta property="og:title" content="PAA — Reality Has a Grammar">
+  <meta property="og:description" content="Explore Number as operation: the Nine Operations, glyph geometry, practice, instruments, school, and library of Pythagorean Arithmosophic Anamnesis.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PAA — Reality Has a Grammar">
+  <meta name="twitter:description" content="Reality has a grammar. Number is its verb.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>PAA — Reality Has a Grammar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1613,6 +1622,8 @@ header .full span:nth-child(3){color:#c9afd7}
   white-space:nowrap;
   transition:color .2s ease;
 }
+.school-navlinks a small,.mobile-nav-intro{display:none}
+.school-navlinks a span{display:block}
 .school-navlinks a:hover{color:#9af1f3}
 .school-navlinks a:not(.school-enter)::after{display:none}
 .school-navlinks .school-enter{
@@ -1641,25 +1652,81 @@ header .full span:nth-child(3){color:#c9afd7}
     top:76px;
     left:0;right:0;
     margin:0;
-    padding:22px max(20px,calc((100vw - var(--max))/2));
+    padding:18px max(20px,calc((100vw - var(--max))/2)) 24px;
     flex-direction:column;
-    align-items:flex-start;
+    align-items:stretch;
     gap:0;
-    background:rgba(5,13,24,.98);
-    border-bottom:1px solid rgba(88,214,223,.22);
-    box-shadow:0 22px 40px rgba(0,0,0,.35);
+    max-height:calc(100vh - 76px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    background:linear-gradient(180deg,rgba(5,13,24,.995),rgba(8,18,31,.985));
+    border-bottom:1px solid rgba(242,201,109,.25);
+    box-shadow:0 24px 48px rgba(0,0,0,.46);
   }
   .school-navlinks.open{display:flex}
-  .school-navlinks a{width:100%;padding:13px 0;border-bottom:1px solid rgba(104,212,222,.10)}
-  .school-navlinks .school-enter{margin-top:12px;width:auto;padding:10px 14px;border-bottom:1px solid rgba(88,214,223,.38)}
-  .school-menu{display:block}
+  .mobile-nav-intro{
+    display:block;
+    padding:4px 0 14px;
+    border-bottom:1px solid rgba(104,212,222,.14);
+    margin-bottom:2px;
+  }
+  .mobile-nav-intro span{
+    display:block;
+    font-family:"Libre Caslon Display",Georgia,serif;
+    color:#fff4d2;
+    font-size:1.08rem;
+    letter-spacing:.02em;
+  }
+  .mobile-nav-intro small{
+    display:block;
+    margin-top:4px;
+    color:#6f8b9b;
+    font-size:.54rem;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+  }
+  .school-navlinks a{
+    width:100%;
+    padding:13px 2px 12px;
+    border-bottom:1px solid rgba(104,212,222,.10);
+    white-space:normal;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .school-navlinks a span{font-size:.67rem;color:#dcebf1}
+  .school-navlinks a small{
+    display:block;
+    color:#718b99;
+    font-size:.55rem;
+    letter-spacing:.03em;
+    text-transform:none;
+    font-weight:400;
+    text-align:right;
+  }
+  .school-navlinks a:hover span,.school-navlinks a.active span{color:#ffe39a}
+  .school-navlinks .school-enter{
+    margin-top:14px;
+    width:100%;
+    padding:13px 14px;
+    border:1px solid rgba(242,201,109,.38);
+    background:linear-gradient(135deg,rgba(230,155,74,.13),rgba(140,40,95,.14));
+  }
+  .school-navlinks .school-enter span{color:#fff0c7}
+  .school-navlinks .school-enter small{color:#b89ca9}
+  .school-menu{display:grid;place-items:center;border-radius:2px}
+  .menu-icon{display:block;line-height:1;transition:transform .2s ease}
+  .school-menu[aria-expanded="true"] .menu-icon{transform:rotate(90deg)}
 }
 @media(max-width:600px){
   header{height:70px}
   header .full{display:none}
   header .paa{font-size:1.25rem}
   header .mark{width:41px;height:41px}
-  .school-navlinks{top:70px;padding-left:14px;padding-right:14px}
+  .school-navlinks{top:70px;max-height:calc(100vh - 70px);padding:14px 16px 20px}
+  .school-navlinks a{align-items:flex-start;padding:12px 2px}
+  .school-navlinks a small{max-width:48%;line-height:1.35}
 }
 
 
@@ -1843,15 +1910,16 @@ h1 em,.school-quote em{
         <span class="full"><span>Pythagorean</span><span>Arithmosophic</span><span>Anamnesis</span></span>
       </span>
     </a>
-    <nav class="school-navlinks" aria-label="Primary navigation">
-      <a href="#philosophy">Doctrine</a>
-      <a href="#operations">Operations</a>
-      <a href="#instruments">Instruments</a>
-      <a href="#practice">Practice</a>
-      <a href="#library">Library</a>
-      <a class="school-enter" href="school.html">Enter the School</a>
+    <nav class="school-navlinks" id="primaryNavigation" aria-label="Primary navigation">
+      <div class="mobile-nav-intro" aria-hidden="true"><span>Navigate the Work</span><small>Doctrine · Operations · Instruments · Practice · Texts</small></div>
+      <a href="#philosophy"><span>Doctrine</span><small>The philosophical foundation</small></a>
+      <a href="#grammar"><span>Operations</span><small>The grammar of 1–9</small></a>
+      <a href="#instruments"><span>Instruments</span><small>Apply the system</small></a>
+      <a href="#practice"><span>Practice</span><small>Train perception</small></a>
+      <a href="#library"><span>Library</span><small>Read the texts</small></a>
+      <a class="school-enter" href="school.html"><span>Enter the School</span><small>Begin formal study</small></a>
     </nav>
-    <button class="school-menu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <button class="school-menu" type="button" aria-label="Open navigation" aria-controls="primaryNavigation" aria-expanded="false"><span class="menu-icon" aria-hidden="true">☰</span></button>
   </div>
 </header>
 
@@ -2145,11 +2213,11 @@ h1 em,.school-quote em{
   </div>
 </footer>
 
-<div class="modal" id="gatewayModal" onclick="if(event.target===this)closeGateway()">
-  <div class="modal-box">
+<div class="modal" id="gatewayModal" role="dialog" aria-modal="true" aria-labelledby="gatewayTitle" aria-hidden="true" onclick="if(event.target===this)closeGateway()">
+  <div class="modal-box" tabindex="-1">
     <button class="close" onclick="closeGateway()" aria-label="Close">×</button>
     <div class="eyebrow" style="color:var(--tyrian)">Begin</div>
-    <h2 style="font-size:2.5rem; margin:10px 0 20px; font-weight:400; color:var(--lapis)">Where is the question alive?</h2>
+    <h2 id="gatewayTitle" style="font-size:2.5rem; margin:10px 0 20px; font-weight:400; color:var(--lapis)">Where is the question alive?</h2>
     <div class="modal-links">
       <a href="#philosophy" onclick="closeGateway()">I want to understand Number. <span>→</span></a>
       <a href="#grammar" onclick="closeGateway()">I want to learn the Nine Operations. <span>→</span></a>
@@ -2276,8 +2344,8 @@ renderGlyphs();document.getElementById("prevGlyph").onclick=()=>shiftGlyph(-1);d
 
 const scrollProgress=document.getElementById("scrollProgress");
 const backTop=document.getElementById("backTop");
-const menuToggle=document.getElementById("menuToggle");
-const navLinks=document.querySelector(".navlinks");
+const schoolMenu=document.querySelector(".school-menu");
+const schoolNav=document.querySelector(".school-navlinks");
 
 function updatePageChrome(){
   const doc=document.documentElement;
@@ -2287,22 +2355,33 @@ function updatePageChrome(){
   backTop.classList.toggle("show",doc.scrollTop>650);
 }
 window.addEventListener("scroll",updatePageChrome,{passive:true});
-window.addEventListener("resize",updatePageChrome);
+window.addEventListener("resize",()=>{
+  updatePageChrome();
+  if(window.innerWidth>1000 && schoolNav && schoolMenu){
+    schoolNav.classList.remove("open");
+    schoolMenu.setAttribute("aria-expanded","false");
+    schoolMenu.setAttribute("aria-label","Open navigation");
+  }
+});
 updatePageChrome();
 
 backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
-menuToggle.addEventListener("click",()=>{
-  const open=navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded",String(open));
-});
-navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
-  navLinks.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded","false");
-}));
+if(schoolMenu && schoolNav){
+  schoolMenu.addEventListener("click",()=>{
+    const open=schoolNav.classList.toggle("open");
+    schoolMenu.setAttribute("aria-expanded",String(open));
+    schoolMenu.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+  });
+  schoolNav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+    schoolNav.classList.remove("open");
+    schoolMenu.setAttribute("aria-expanded","false");
+    schoolMenu.setAttribute("aria-label","Open navigation");
+  }));
+}
 
 const observedSections=[...document.querySelectorAll("main section[id]")];
-const navAnchors=[...document.querySelectorAll('.navlinks a[href^="#"]')].filter(a=>a.getAttribute("href")!=="#");
+const navAnchors=[...document.querySelectorAll('.school-navlinks a[href^="#"]')].filter(a=>a.getAttribute("href")!=="#");
 if("IntersectionObserver" in window){
   const sectionObserver=new IntersectionObserver(entries=>{
     const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
@@ -2318,27 +2397,36 @@ document.addEventListener("keydown",e=>{
     if(gateway?.classList.contains("open")) closeGateway();
     const detail=document.getElementById("glyphDetail");
     if(detail?.classList.contains("open") && typeof closeGlyph==="function") closeGlyph();
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded","false");
+    if(schoolNav) schoolNav.classList.remove("open");
+    if(schoolMenu){ schoolMenu.setAttribute("aria-expanded","false"); schoolMenu.setAttribute("aria-label","Open navigation"); }
   }
 });
 
+let gatewayReturnFocus=null;
 function openGateway(e) {
-  e.preventDefault();
-  document.getElementById("gatewayModal").classList.add("open");
+  if(e) e.preventDefault();
+  const modal=document.getElementById("gatewayModal");
+  gatewayReturnFocus=document.activeElement;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+  modal.querySelector(".modal-box")?.focus();
 }
 
 function closeGateway() {
-  document.getElementById("gatewayModal").classList.remove("open");
+  const modal=document.getElementById("gatewayModal");
+  if(!modal?.classList.contains("open")) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+  gatewayReturnFocus?.focus?.();
 }
 
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeGateway();
 });
 
-document.querySelectorAll(".navlinks a:not(.begin)").forEach(a => 
-  a.addEventListener("click", () => document.querySelector(".navlinks").classList.remove("open"))
-);
+
 
 
 /* ============================================================
@@ -2434,14 +2522,14 @@ const G = {
      excess:'Senile rigidity, dogmatic finality, refusal to hand over the torch.',
      read:'Nine asks how you finish what you started. Can you step aside when the work is done?'},
 
-  11:{greek:'Hyperbainō',op:'Transcend',field:'blade',ratio:'10:11, the hyper-step',att:'Interpreted',
-     lore:'Eleven stands beyond the Decad, the master number of threshold perception and visionary intuition.',
-     q:'What threshold looms beyond system?',
-     body:'The master number of threshold awareness. It breaks the bounds of the completed Ennead to peer into the unmanifest.',
-     deficiency:'Delusional grandiosity, dissociation from practical reality, erratic mysticism.',
-     coherence:'Visionary breakthrough, prophetic clarity, liminal mastery, lightning insight.',
-     excess:'Psychic instability, alienation from earthly community, visionary fanaticism.',
-     read:'Eleven is the unreduced gate. It tests whether your vision anchors in the world or dissolves into smoke.'}
+  11:{greek:'Mártys',op:'Witness',field:'blade',ratio:'Beyond the completed Decad',att:'PAA Interpretation',
+     lore:'Eleven is treated in PAA as the witness beyond a completed structure: awareness capable of observing the pattern without being identical to it.',
+     q:'What becomes visible when you can witness the system itself?',
+     body:'The witnessing operation. Eleven introduces reflexive awareness: the capacity to observe a pattern, its limits, and one’s participation in it.',
+     deficiency:'Detachment without participation, abstraction, or observation used to avoid action.',
+     coherence:'Reflexive awareness, lucid observation, perspective, and the capacity to see the pattern while remaining grounded within it.',
+     excess:'Hyper-reflexivity, distance from lived experience, or mistaking observation for transformation.',
+     read:'Eleven asks whether witnessing clarifies participation or becomes another way to stand outside the work.'}
 };
 
 function initEngine(){
@@ -2460,9 +2548,9 @@ function reduceSum(num, keepEleven = true){
 }
 
 function nameToNumber(name){
-  if(!name) return 1;
+  if(!name) return null;
   const clean = name.toUpperCase().replace(/[^A-Z]/g,'');
-  if(!clean.length) return 1;
+  if(!clean.length) return null;
   const table = {
     A:1,J:1,S:1,
     B:2,K:2,T:2,
@@ -2482,14 +2570,23 @@ function nameToNumber(name){
 }
 
 function dateToRoot(dateStr){
-  if(!dateStr) return 1;
+  if(!dateStr) return null;
   const digits = dateStr.replace(/\D/g,'');
-  if(!digits.length) return 1;
+  if(!digits.length) return null;
   let sum = 0;
   for(let d of digits){
     sum += parseInt(d,10);
   }
   return reduceSum(sum, true);
+}
+
+function synthesisRelation(rootVal,nameVal,synthVal){
+  const r=G[rootVal], n=G[nameVal], s=G[synthVal];
+  if(rootVal===nameVal) return `Root and Name repeat the same operation, concentrating ${r.op.toUpperCase()}. The work is not to acquire another identity, but to regulate the strength already doubled in the configuration. The synthesis asks that this concentrated operation become ${s.op.toUpperCase()}.`;
+  if(r.field===n.field) return `Root and Name arise within the same ${FIELDS[r.field].name}, creating field concentration rather than simple agreement. ${r.op.toUpperCase()} and ${n.op.toUpperCase()} reinforce a shared mode, while the synthesis requires ${s.op.toUpperCase()} so that concentration becomes development rather than enclosure.`;
+  const distance=Math.abs(rootVal-nameVal);
+  if(distance===1) return `Root and Name are adjacent operations in the developmental grammar: ${r.op.toUpperCase()} passes directly into ${n.op.toUpperCase()}. The synthesis, ${s.op.toUpperCase()}, shows what becomes possible when that transition is made consciously rather than automatically.`;
+  return `Your native operation, ${r.op.toUpperCase()}, meets the enacted method of ${n.op.toUpperCase()}. Because they occupy different positions in the grammar, the useful question is not which one is “you,” but what each supplies that the other lacks. Their combined demand is ${s.op.toUpperCase()}.`;
 }
 
 function calculateTriGlyph(){
@@ -2504,12 +2601,16 @@ function calculateTriGlyph(){
 
   const rootVal = dateToRoot(dateInput);
   const nameVal = nameToNumber(nameInput);
+  if(rootVal == null || nameVal == null){
+    out.innerHTML = `<p class="err" role="alert">Please enter a valid birth date and a full name using A–Z letters.</p>`;
+    return;
+  }
   const rawSynth = rootVal + nameVal;
   const synthVal = reduceSum(rawSynth, true);
 
   const glyphs = [
     {pos:'I · The Root', val:rootVal, name:'Given Operation', desc:'Derived from the sum of your birth date digits. Represents your foundational structural inheritance.'},
-    {pos:'II · The Name', val:nameVal, name:'Trained Operation', desc:'Derived from your full birth name via Pythagorean isopsephy. Represents your acquired style and active method.'},
+    {pos:'II · The Name', val:nameVal, name:'Trained Operation', desc:'Derived from your full birth name via Pythagorean letter valuation. Represents your acquired style and active method.'},
     {pos:'III · The Synthesis', val:synthVal, name:'Directed Operation', desc:`Sum of Root (${rootVal}) and Name (${nameVal}) = ${rawSynth} → ${synthVal}. Represents what your configuration is asked to enact.`}
   ];
 
@@ -2530,38 +2631,41 @@ function calculateTriGlyph(){
   html += `</div>
     <div class="prov">
       <span>Unit: <i>Individual Life-Structure</i></span>
-      <span>Method: <i class="a">Pythagorean Isopsephy</i> & <i class="b">Date Summation</i></span>
+      <span>Method: <i class="a">Pythagorean Letter Valuation</i> & <i class="b">Date Summation</i></span>
     </div>
     <div class="test">
       <h4>Synthesis Test</h4>
-      <p>Your Tri-Glyph places <strong>${G[rootVal].greek}</strong> into dialogue with <strong>${G[nameVal].greek}</strong>, directed toward <strong>${G[synthVal].greek}</strong> (${G[synthVal].op}). Examine whether this tension accurately reflects your current operating challenges.</p>
+      <p>${synthesisRelation(rootVal,nameVal,synthVal)}</p>
+      <p class="relation-equation"><strong>${rootVal} ${G[rootVal].op}</strong> + <strong>${nameVal} ${G[nameVal].op}</strong> → <strong>${synthVal} ${G[synthVal].op}</strong></p>
     </div>
   `;
 
   out.innerHTML = html;
 }
 
+document.addEventListener("click",e=>{
+  if(schoolNav && schoolMenu && schoolNav.classList.contains("open") && !schoolNav.contains(e.target) && !schoolMenu.contains(e.target)){
+    schoolNav.classList.remove("open");
+    schoolMenu.setAttribute("aria-expanded","false");
+    schoolMenu.setAttribute("aria-label","Open navigation");
+  }
+});
+
+document.addEventListener("keydown",e=>{
+  const modal=document.getElementById("gatewayModal");
+  if(e.key!=="Tab" || !modal?.classList.contains("open")) return;
+  const focusable=[...modal.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')];
+  if(!focusable.length) return;
+  const first=focusable[0], last=focusable[focusable.length-1];
+  if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+});
+
 initEngine();
 
 </script>
 
-<script>
-(function(){
-  const menu = document.querySelector('.school-menu');
-  const links = document.querySelector('.school-navlinks');
-  if(!menu || !links) return;
-  menu.addEventListener('click', function(){
-    const open = links.classList.toggle('open');
-    menu.setAttribute('aria-expanded', String(open));
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      menu.setAttribute('aria-expanded','false');
-    });
-  });
-})();
-</script>
+
 
 </body>
 </html>
