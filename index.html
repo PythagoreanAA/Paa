@@ -1069,6 +1069,454 @@
 .relation-panel{margin-top:1.5rem;padding:1.5rem;border-left:3px solid var(--tyrian);background:#fff}.relation-panel h4{font-family:var(--serif);font-size:1.55rem;margin:.3rem 0 .5rem}.relation-panel p{color:var(--muted);max-width:50rem}.relation-equation{font-family:var(--serif);font-size:1.2rem;color:var(--ink)!important;margin-top:.8rem}
 @media(max-width:900px){.engine-shell{grid-template-columns:1fr}.engine-results{min-height:500px}.tri-result{grid-template-columns:1fr}.result-glyph{min-height:auto;border-left:0;border-top:1px solid rgba(11,25,48,.1)}.result-glyph:first-child{border-top:0}}
 
+
+/* Engine */
+.engine{display:grid;gap:2.5rem}
+@media(min-width:960px){.engine{grid-template-columns:.85fr 1.15fr;gap:4rem}}
+.form label{display:block;font-size:.9rem;color:var(--mute);margin:0 0 .4rem}
+.form input{width:100%;font:inherit;font-size:1.05rem;color:var(--pearl);background:rgba(5,7,22,.7);border:1px solid var(--line);padding:.9rem 1rem;border-radius:3px;margin-bottom:1.4rem;color-scheme:dark}
+.form input:focus{outline:2px solid var(--violet);outline-offset:1px}
+.form .btn{width:100%;padding:1rem}
+.out{border:1px solid var(--line);background:rgba(10,14,42,.6);padding:clamp(1.3rem,3vw,2.2rem);min-height:320px}
+.out .empty{color:var(--mute);font-family:var(--serif);font-size:1.3rem;font-style:italic}
+.tri3{display:grid;gap:1px;background:var(--line-s);border:1px solid var(--line-s);margin-bottom:1.6rem}
+@media(min-width:700px){.tri3{grid-template-columns:repeat(3,1fr)}}
+.gcard{background:var(--night);padding:1.3rem 1.3rem 1.5rem}
+.gcard .pos{font-family:var(--serif);font-style:italic;color:var(--mute);font-size:1.1rem}
+.gcard .val{font-family:var(--serif);font-size:4.2rem;font-weight:500;line-height:1;margin:.3rem 0 .1rem;color:var(--c)}
+.gcard .chain{font-size:.82rem;color:var(--dim);margin-bottom:.8rem}
+.gcard h4{font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.gcard p{font-size:.88rem;color:var(--mute);margin-top:.5rem;line-height:1.55}
+.gcard .pl{margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line-s);font-size:.82rem;color:var(--mute)}
+.gcard .pl b{color:var(--pearl);font-weight:500}
+.prov{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-size:.82rem;color:var(--mute);margin-bottom:1.6rem}
+.prov i{font-style:normal;display:inline-block;padding:.15rem .6rem;border-radius:99px;border:1px solid;margin-right:.4rem;font-size:.76rem}
+.prov .a{border-color:rgba(110,140,240,.6);color:var(--lapis-l)}
+.prov .b{border-color:rgba(224,102,138,.6);color:var(--blade)}
+.test{border-left:2px solid var(--blade);padding:.3rem 0 .3rem 1.3rem}
+.test h4{font-family:var(--serif);font-size:1.4rem;font-weight:500;margin-bottom:.4rem}
+.test p{color:var(--mute);font-size:.95rem;max-width:38rem}
+.err{color:var(--blade)}
+
+/* Preserved Tri-Glyph Engine — compatibility aliases for the master design */
+#instruments{
+  --mute: var(--muted);
+  --dim: #7f96aa;
+  --pearl: #edf8f9;
+  --line-s: rgba(27,155,170,.16);
+  --violet: var(--tyrian);
+  --lapis-l: #7da6d8;
+  --blade: #d170a7;
+}
+#instruments .lede{font-family:var(--sans);font-size:1.12rem;line-height:1.75}
+#instruments .note{font-family:var(--sans);font-size:.86rem;line-height:1.65;color:var(--muted)}
+#instruments .btn.solid{
+  background:linear-gradient(135deg,var(--lapis),var(--cerulean));
+  border-color:rgba(27,155,170,.4);
+  color:#fff;
+}
+#instruments .engine{margin-top:3rem}
+#instruments .form input{background:rgba(7,17,31,.96)}
+#instruments .out{background:linear-gradient(145deg,rgba(11,25,48,.96),rgba(7,17,31,.98))}
+#instruments .gcard{background:#07111f}
+#instruments .test strong{color:var(--ink)}
+.light #instruments .test strong{color:var(--lapis)}
+
+
+/* ============================================================
+   FINAL PRODUCTION REFINEMENT LAYER
+   Responsive proportions · brighter hierarchy · professional finish
+   ============================================================ */
+:root{
+  --paper:#f7fafc;
+  --paper2:#eaf1f5;
+  --night:#050d18;
+  --ink:#081a2f;
+  --muted:#536b80;
+  --lapis:#1b4f8a;
+  --cerulean:#08738e;
+  --teal:#22b8c7;
+  --teal2:#68d4de;
+  --cerulean2:#67bde3;
+  --tyrian:#761d54;
+  --tyrian2:#a33d78;
+  --gold2:#e1cc8e;
+  --line:rgba(38,105,146,.19);
+  --line-light:rgba(73,197,211,.30);
+  --shadow:0 28px 72px -34px rgba(3,18,34,.34);
+  --max:1200px;
+}
+html{scroll-padding-top:86px}
+body{
+  background:
+    radial-gradient(circle at 82% 4%,rgba(34,184,199,.13),transparent 31rem),
+    radial-gradient(circle at 8% 26%,rgba(118,29,84,.11),transparent 29rem),
+    linear-gradient(180deg,#050d18 0%,#09182b 46%,#050c16 100%);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:min(var(--max),calc(100% - clamp(32px,6vw,76px)))}
+section{padding:clamp(88px,9vw,126px) 0}
+.light{background:linear-gradient(180deg,#f9fbfc 0%,#f2f7f9 100%)}
+.rule{opacity:.8}
+header{background:rgba(5,13,24,.9);border-bottom-color:rgba(104,212,222,.19)}
+nav{height:74px}
+.brand{gap:12px}.tetraktys-mark{width:42px;height:42px;border-radius:10px}
+.navlinks{gap:clamp(15px,2vw,25px)}
+.navlinks a{color:#c5d9e6}
+.navlinks a:hover,.navlinks a.active{color:#f2ffff}
+.eyebrow{color:var(--teal2);letter-spacing:.22em}
+.light .eyebrow{color:var(--tyrian)}
+h1{font-size:clamp(3.25rem,7vw,6.55rem);line-height:.94;max-width:920px}
+h2{font-size:clamp(2.35rem,4.4vw,4.15rem);line-height:1.02}
+h3{line-height:1.15}
+.lead,.section-copy{letter-spacing:-.008em}
+.hero.triskelion-hero{min-height:min(900px,calc(100svh - 74px));padding:0}
+.triskelion-hero-grid{grid-template-columns:minmax(0,.95fr) minmax(410px,1.05fr);gap:clamp(32px,5vw,70px)}
+.triskelion-copy{padding:clamp(70px,9vh,110px) 0}
+.triskelion-copy .lead{max-width:720px;color:#c2d5e2}
+.tri-stage{max-width:640px}
+#heroTri .tri-ring{stroke:rgba(104,212,222,.19)}
+#heroTri .tri-node circle{fill:rgba(5,13,24,.97);stroke-width:1.9}
+#heroTri .tri-node text{fill:#f7ffff}
+.tri-caption{color:rgba(231,246,249,.75)}
+.btn{
+  min-height:46px;
+  border-radius:7px;
+  border-color:rgba(104,212,222,.58);
+  color:#85e4eb;
+  background:rgba(255,255,255,.018);
+}
+.btn:hover{background:rgba(34,184,199,.12);box-shadow:0 10px 26px rgba(0,0,0,.12)}
+.btn.fill,.btn.solid{
+  background:linear-gradient(135deg,#1d5798,#087b93);
+  border-color:rgba(104,212,222,.46);
+  box-shadow:0 14px 30px -14px rgba(15,118,151,.72);
+  color:white;
+}
+.btn.fill:hover,.btn.solid:hover{background:linear-gradient(135deg,#2466ad,#0992a9)}
+.section-head{grid-template-columns:minmax(260px,.88fr) minmax(0,1.35fr);gap:clamp(36px,6vw,76px);margin-bottom:clamp(44px,5vw,68px)}
+.philosophy-grid article{padding-top:34px;padding-bottom:30px}
+.big-num{color:var(--cerulean);text-shadow:0 0 26px rgba(34,184,199,.12)}
+.field-card{
+  border-color:rgba(104,212,222,.2);
+  background:linear-gradient(145deg,rgba(10,46,68,.86),rgba(28,13,36,.60));
+  box-shadow:0 20px 50px -38px rgba(0,0,0,.65)
+}
+.field-numbers{color:#76d9e7}
+.glyph-grid{gap:18px}
+.glyph-tile{
+  min-height:400px;
+  border-color:rgba(104,212,222,.19);
+  background:
+    radial-gradient(circle at 78% 16%,rgba(130,37,91,.22),transparent 34%),
+    linear-gradient(150deg,rgba(9,42,62,.92),rgba(4,17,28,.96));
+  box-shadow:0 18px 48px -36px rgba(0,0,0,.75)
+}
+.glyph-tile:hover,.glyph-tile:focus-visible,.glyph-tile.active{
+  border-color:rgba(104,212,222,.72);
+  box-shadow:0 28px 65px -34px rgba(0,0,0,.8),0 0 36px rgba(34,184,199,.09)
+}
+.glyph-number{color:#7bd5ec}.glyph-op,.glyph-open{color:#67d4df}
+.glyph-detail{border-color:rgba(104,212,222,.25)}
+.glyph-question{border-left-color:var(--teal2)}
+.journey{border-color:rgba(27,79,138,.18);box-shadow:0 24px 60px -46px rgba(8,26,47,.25)}
+.light .journey article{background:rgba(255,255,255,.86)}
+.gateway{
+  padding:clamp(68px,8vw,96px) 0;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(34,184,199,.09),transparent 28rem),
+    linear-gradient(180deg,#06101d,#081629);
+  border-top:1px solid rgba(104,212,222,.13);
+  border-bottom:1px solid rgba(104,212,222,.13)
+}
+.gateway h2{font-size:clamp(2.25rem,4vw,3.8rem)}
+.gateway p{margin-bottom:34px}
+.paths{margin-top:38px;border-color:rgba(104,212,222,.22)}
+.path{padding:27px 20px}
+.path:hover{background:linear-gradient(145deg,rgba(34,184,199,.11),rgba(118,29,84,.07))}
+.path small{color:#6dd9e3}
+#instruments{
+  position:relative;
+  background:
+    radial-gradient(circle at 82% 14%,rgba(34,184,199,.10),transparent 26rem),
+    radial-gradient(circle at 14% 78%,rgba(118,29,84,.10),transparent 28rem)
+}
+#instruments .engine{
+  border:1px solid rgba(104,212,222,.23);
+  box-shadow:0 34px 84px -46px rgba(0,0,0,.72);
+  background:rgba(6,17,29,.72)
+}
+#instruments .form{padding:clamp(25px,3.2vw,42px)}
+#instruments .form label{color:#d8e9ef}
+#instruments .form input{
+  min-height:54px;
+  border-color:rgba(104,212,222,.34);
+  background:rgba(255,255,255,.045);
+  color:#f8ffff;
+  border-radius:6px;
+  padding:0 15px;
+}
+#instruments .form input:focus{
+  border-color:#6bdce5;
+  box-shadow:0 0 0 3px rgba(34,184,199,.10);
+  outline:none
+}
+#instruments .out{
+  min-height:440px;
+  background:
+    radial-gradient(circle at 80% 0%,rgba(34,184,199,.08),transparent 24rem),
+    linear-gradient(145deg,rgba(9,26,43,.98),rgba(4,13,24,.99))
+}
+#instruments .tri3{gap:12px}
+#instruments .gcard{
+  border-color:rgba(104,212,222,.18);
+  box-shadow:0 16px 36px -30px rgba(0,0,0,.8)
+}
+#instruments .gcard .val{filter:brightness(1.18)}
+#instruments .test{border-color:rgba(104,212,222,.19)}
+.practice-list b{color:var(--ink)}
+.school{
+  background:
+    radial-gradient(circle at 14% 50%,rgba(145,42,101,.15),transparent 38%),
+    radial-gradient(circle at 82% 18%,rgba(34,184,199,.13),transparent 36%),
+    linear-gradient(180deg,#06101d,#071321)
+}
+.degree{background:rgba(9,29,48,.64);border-color:rgba(104,212,222,.20);border-top-color:#54cbd7}
+.library-grid .book{transition:.22s ease}
+.library-grid .book:hover{background:rgba(27,79,138,.035)}
+footer{background:#030811}
+
+/* Tablet */
+@media(max-width:1024px){
+  .triskelion-hero-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.88fr)}
+  .tri-stage{max-width:540px}
+  .glyph-grid{grid-template-columns:repeat(2,1fr)}
+  .paths{grid-template-columns:repeat(3,1fr)}
+  .path:nth-child(3n){border-right:0}
+}
+
+/* Phone / narrow tablet */
+@media(max-width:900px){
+  html{scroll-padding-top:70px}
+  nav{height:68px}
+  .navlinks.open{top:68px}
+  .triskelion-hero-grid{grid-template-columns:1fr}
+  .triskelion-copy{text-align:left;padding:66px 0 18px}
+  .triskelion-copy .hero-actions{justify-content:flex-start}
+  .tri-stage{max-width:560px;margin:0 auto 28px}
+  .section-head{grid-template-columns:1fr;gap:20px}
+  .gateway{text-align:left}
+  .gateway h2,.gateway p{margin-left:0;margin-right:0}
+  .paths{grid-template-columns:1fr;text-align:left}
+  .path{border-right:0;border-bottom:1px solid rgba(104,212,222,.16)}
+  .glyph-detail.open{grid-template-columns:1fr}
+  #instruments .engine{grid-template-columns:1fr}
+  #instruments .out{min-height:360px}
+}
+
+/* Phones */
+@media(max-width:620px){
+  .wrap{width:min(100% - 30px,var(--max))}
+  section{padding:72px 0}
+  h1{font-size:clamp(2.85rem,14vw,4.25rem);line-height:.94}
+  h2{font-size:clamp(2.15rem,10vw,3.05rem)}
+  .lead,.section-copy{font-size:1rem;line-height:1.7}
+  .hero.triskelion-hero{min-height:auto}
+  .triskelion-copy{padding:58px 0 10px}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:30px}
+  .hero-actions .btn{width:100%}
+  .tri-instruction{font-size:.57rem;line-height:1.6}
+  .tri-stage{width:108%;margin-left:-4%;margin-bottom:12px}
+  .tri-caption{min-height:62px;padding:0 7%;font-size:.96rem}
+  .philosophy-grid{grid-template-columns:1fr}
+  .glyph-doctrine,.glyph-grid{grid-template-columns:1fr}
+  .glyph-tile{min-height:360px;padding:22px 20px}
+  .glyph-visual{height:138px}
+  .glyph-detail-copy{padding:23px 20px}
+  .glyph-detail-grid{grid-template-columns:1fr}
+  .glyph-controls{display:grid;grid-template-columns:1fr}
+  .glyph-controls .btn{width:100%}
+  .journey{grid-template-columns:1fr}
+  .journey article{padding:30px 24px}
+  #instruments .engine{margin-top:2rem}
+  #instruments .form,#instruments .out{padding:24px 20px}
+  #instruments .form .btn{width:100%}
+  #instruments .tri3{grid-template-columns:1fr}
+  #instruments .gcard{min-height:auto}
+  #instruments .gcard .val{font-size:4rem}
+  .practice-list,.library-grid{grid-template-columns:1fr}
+  .practice-list div,.practice-list div:nth-child(even),
+  .book,.book:nth-child(even){padding:26px 0;border-left:0}
+  .degrees{grid-template-columns:1fr}
+  .degree{padding:25px 22px}
+  .school-quote{font-size:clamp(2.1rem,11vw,3.25rem)}
+  .gateway{padding:62px 0}
+  .path{padding:24px 20px}
+  .footer-grid{align-items:flex-start}
+}
+
+/* Very narrow phones */
+@media(max-width:390px){
+  .wrap{width:calc(100% - 24px)}
+  .brand-text small{display:none}
+  .tetraktys-mark{width:38px;height:38px}
+  .glyph-number{font-size:3.7rem}
+  #instruments .form,#instruments .out{padding-left:17px;padding-right:17px}
+}
+
+/* Touch devices: don't depend on hover to reveal polish */
+@media(hover:none){
+  .card:hover,.journey article:hover,.degree:hover,.book:hover,.field-card:hover,.glyph-tile:hover{transform:none}
+  .path:hover{background:transparent}
+}
+
+
+/* ============================================================
+   HEADER NEON REFINEMENT
+   ============================================================ */
+header{
+  background:
+    linear-gradient(90deg,rgba(5,13,24,.97),rgba(7,22,38,.94) 52%,rgba(16,8,28,.96)),
+    radial-gradient(circle at 14% 50%,rgba(34,184,199,.15),transparent 22rem);
+  border-bottom:1px solid rgba(104,212,222,.36);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.025) inset,
+    0 10px 34px rgba(0,0,0,.28),
+    0 1px 18px rgba(34,184,199,.07);
+}
+header::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-1px;
+  height:1px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(103,189,227,.28) 15%,
+    rgba(104,212,222,.92) 48%,
+    rgba(163,61,120,.58) 76%,
+    transparent 100%);
+  box-shadow:0 0 13px rgba(104,212,222,.42);
+  pointer-events:none;
+}
+nav{position:relative}
+.brand{
+  gap:12px;
+  min-width:max-content;
+}
+.tetraktys-mark{
+  width:44px;height:44px;
+  border:1px solid rgba(104,212,222,.56);
+  background:
+    radial-gradient(circle at 50% 42%,rgba(104,212,222,.13),transparent 66%),
+    rgba(5,19,32,.78);
+  box-shadow:
+    0 0 0 1px rgba(103,189,227,.08) inset,
+    0 0 19px rgba(34,184,199,.18),
+    0 0 34px rgba(118,29,84,.08);
+  filter:brightness(1.12) saturate(1.08);
+}
+.brand-text{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+.brand-text>b,
+.brand-text>strong{
+  color:#f5ffff;
+  letter-spacing:.15em;
+  text-shadow:
+    0 0 9px rgba(104,212,222,.38),
+    0 0 20px rgba(34,184,199,.13);
+}
+.brand-full{
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;
+  gap:0;
+  margin:0;
+  font-family:var(--sans);
+  font-size:.58rem !important;
+  line-height:1.16;
+  font-weight:650;
+  letter-spacing:.105em !important;
+  text-transform:uppercase;
+  color:#9ddde5 !important;
+  white-space:nowrap;
+}
+.brand-full span:nth-child(1){color:#a9dff0}
+.brand-full span:nth-child(2){
+  color:#76e0e7;
+  text-shadow:0 0 10px rgba(34,184,199,.25)
+}
+.brand-full span:nth-child(3){color:#c6b2d7}
+.navlinks a{
+  position:relative;
+  color:#c9dbe6;
+  transition:color .18s ease,text-shadow .18s ease;
+}
+.navlinks a::after{
+  content:"";
+  position:absolute;
+  left:50%;right:50%;bottom:-10px;
+  height:1px;
+  background:#74e3ea;
+  box-shadow:0 0 9px rgba(104,212,222,.85);
+  transition:left .2s ease,right .2s ease;
+}
+.navlinks a:hover,
+.navlinks a.active{
+  color:#f2ffff;
+  text-shadow:0 0 11px rgba(104,212,222,.32);
+}
+.navlinks a:hover::after,
+.navlinks a.active::after{left:0;right:0}
+header .btn,
+header .btn.fill,
+header .btn.solid{
+  border-color:rgba(104,212,222,.72);
+  background:linear-gradient(135deg,rgba(29,87,152,.94),rgba(8,123,147,.96));
+  color:#fff;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04) inset,
+    0 0 18px rgba(34,184,199,.17),
+    0 10px 24px -14px rgba(34,184,199,.8);
+}
+header .btn:hover,
+header .btn.fill:hover,
+header .btn.solid:hover{
+  border-color:#8ef1f4;
+  background:linear-gradient(135deg,#246ab0,#0b95aa);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 0 23px rgba(34,184,199,.28),
+    0 12px 28px -13px rgba(34,184,199,.9);
+}
+.menu{
+  border-color:rgba(104,212,222,.48);
+  color:#9debf0;
+  box-shadow:0 0 14px rgba(34,184,199,.10);
+}
+
+/* Keep the full three-line identity legible on phones. */
+@media(max-width:620px){
+  .brand{gap:9px}
+  .tetraktys-mark{width:39px;height:39px}
+  .brand-text{gap:8px}
+  .brand-text>b,.brand-text>strong{font-size:.84rem;letter-spacing:.12em}
+  .brand-full{
+    display:flex !important;
+    font-size:.49rem !important;
+    letter-spacing:.075em !important;
+    line-height:1.14;
+  }
+}
+@media(max-width:390px){
+  .brand-full{display:flex !important}
+  .brand-text>b,.brand-text>strong{font-size:.76rem}
+  .brand-full{font-size:.44rem !important;letter-spacing:.045em !important}
+}
+
 </style>
 </head>
 <body>
@@ -1085,10 +1533,10 @@
         </span>
         <span class="brand-text">
           <strong>PAA</strong>
-          <small>Arithmosophy</small>
+          <small class="brand-full"><span>Pythagorean</span><span>Arithmosophic</span><span>Anamnesis</span></small>
         </span>
       </a>
-      <button class="menu" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <button class="menu" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
       <div class="navlinks">
         <a href="#philosophy">Philosophy</a>
         <a href="#grammar">Grammar</a>
@@ -1124,6 +1572,22 @@
     </div>
   </div>
 </section>
+
+<section class="gateway">
+  <div class="wrap">
+    <div class="eyebrow">Choose an Entrance</div>
+    <h2>Where do you enter the grammar?</h2>
+    <p>Reality does not present the same question to everyone. Enter through philosophy, grammar, self-examination, practice, or sustained study—and follow the operation as far as it leads.</p>
+    <div class="paths">
+      <a class="path" href="#philosophy"><small>Understand</small><h3>Philosophy</h3><p>What must reality do to become?</p></a>
+      <a class="path" href="#grammar"><small>Learn</small><h3>Grammar</h3><p>Learn the Nine Operations.</p></a>
+      <a class="path" href="#instruments"><small>Examine</small><h3>Instruments</h3><p>Turn the grammar upon yourself.</p></a>
+      <a class="path" href="#practice"><small>Practice</small><h3>Anamnesis</h3><p>Make recognition operational.</p></a>
+      <a class="path" href="#school"><small>Study</small><h3>School</h3><p>Submit understanding to practice.</p></a>
+    </div>
+  </div>
+</section>
+
 
 <section class="light" id="philosophy">
   <div class="wrap">
@@ -1228,34 +1692,23 @@
   </div>
 </section>
 
+<!-- ENGINE -->
 <section id="instruments">
   <div class="wrap">
-    <div class="section-head">
-      <div><div class="eyebrow">III · The Instruments</div><h2>Three glyphs. One living relation.</h2></div>
-      <p class="section-copy darkcopy">Two independent measures become a third operation: the Birth Root from the date, the Full Name Glyph from the letters, and the Tri-Glyph produced by adding their reduced glyphs.</p>
-    </div>
-    <div class="engine-shell" id="triGlyphEngine">
-      <div class="engine-inputs">
-        <div class="engine-intro"><span class="engine-index">01 / 03 · Sources</span><h3>Enter the two sources.</h3><p>Each resolves independently as you type. The synthesis appears only when both are present.</p></div>
-        <div class="source-input">
-          <div class="source-head"><span class="source-kicker">Birth Root Glyph</span><span class="source-status" id="birthStatus">Awaiting date</span></div>
-          <label for="paaBirthdate">Date of birth</label>
-          <div class="input-frame"><input id="paaBirthdate" type="date" autocomplete="bday" aria-describedby="birthHelp"><span class="input-sigil" aria-hidden="true">○</span></div>
-          <p class="input-help" id="birthHelp">Every digit of the birth date is summed and reduced. Eleven is held unreduced.</p>
-          <div class="live-mini" id="birthMini" aria-live="polite"><span>—</span><small>The Birth Root will appear here.</small></div>
-        </div>
-        <div class="source-input">
-          <div class="source-head"><span class="source-kicker">Full Name Glyph</span><span class="source-status" id="nameStatus">Awaiting name</span></div>
-          <label for="paaFullName">Full birth name</label>
-          <div class="input-frame"><input id="paaFullName" type="text" autocomplete="name" spellcheck="false" placeholder="e.g. Gabriel William Peters" aria-describedby="nameHelp"><span class="input-sigil" aria-hidden="true">Α</span></div>
-          <p class="input-help" id="nameHelp">Pythagorean 1–9 letter cycle: A/J/S = 1 through I/R = 9. Diacritics are normalized.</p>
-          <div class="live-mini" id="nameMini" aria-live="polite"><span>—</span><small>The Name Glyph will appear here.</small></div>
-        </div>
-        <button class="engine-reset" id="engineReset" type="button">Clear instrument</button>
+    <div class="eyebrow">III · The Instrument</div>
+    <h2 style="max-width:36rem">The Tri-Glyph Engine</h2>
+    <p class="lede" style="color:var(--mute);max-width:44rem;margin:1rem 0 3rem">Three numbers, read in a fixed grammar: what you were given, what you have trained, and what the two together are asked to do.</p>
+    <div class="engine">
+      <div class="form">
+        <label for="calc-name">Full birth name</label>
+        <input type="text" id="calc-name" autocomplete="off" placeholder="As written on your birth record">
+        <label for="calc-date">Date of birth</label>
+        <input type="date" id="calc-date">
+        <button class="btn solid" id="calc-go" type="button">Read my Tri-Glyph</button>
+        <p class="note" style="margin-top:1.2rem">The Root sums every digit of your birth date. The Name uses the standard Pythagorean letter table (A J S = 1 through I R = 9). The Synthesis adds the two. Eleven is held unreduced; every unreduced sum is shown, because a reduced number should never erase the number it came from.</p>
       </div>
-      <div class="engine-results" aria-live="polite">
-        <div class="engine-empty" id="engineEmpty"><div class="empty-triad" aria-hidden="true"><i></i><i></i><i></i></div><span class="engine-index">02 / 03 · Relation</span><h3>The third glyph is not entered.</h3><p>It emerges from the first two. Add a birth date and full name to reveal the relation.</p></div>
-        <div class="engine-reading" id="engineReading" hidden></div>
+      <div class="out" id="calc-out" aria-live="polite">
+        <p class="empty">Enter a name and a date. Nothing leaves your browser.</p>
       </div>
     </div>
   </div>
@@ -1369,20 +1822,6 @@
   </div>
 </section>
 
-<section class="gateway">
-  <div class="wrap">
-    <div class="eyebrow">Choose an Entrance</div>
-    <h2>Where do you enter the grammar?</h2>
-    <p>Reality does not present the same question to everyone. Enter through philosophy, grammar, self-examination, practice, or sustained study—and follow the operation as far as it leads.</p>
-    <div class="paths">
-      <a class="path" href="#philosophy"><small>Understand</small><h3>Philosophy</h3><p>What must reality do to become?</p></a>
-      <a class="path" href="#grammar"><small>Learn</small><h3>Grammar</h3><p>Learn the Nine Operations.</p></a>
-      <a class="path" href="#instruments"><small>Examine</small><h3>Instruments</h3><p>Turn the grammar upon yourself.</p></a>
-      <a class="path" href="#practice"><small>Practice</small><h3>Anamnesis</h3><p>Make recognition operational.</p></a>
-      <a class="path" href="#school"><small>Study</small><h3>School</h3><p>Submit understanding to practice.</p></a>
-    </div>
-  </div>
-</section>
 </main>
 <button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
 
@@ -1593,19 +2032,208 @@ document.querySelectorAll(".navlinks a:not(.begin)").forEach(a =>
   a.addEventListener("click", () => document.querySelector(".navlinks").classList.remove("open"))
 );
 
-/* Unified Birth Root + Full Name + Tri-Glyph Engine */
-(function(){
- const d=document.getElementById("paaBirthdate"),n=document.getElementById("paaFullName");if(!d||!n)return;
- const read=document.getElementById("engineReading"),empty=document.getElementById("engineEmpty"),bm=document.getElementById("birthMini"),nm=document.getElementById("nameMini"),bs=document.getElementById("birthStatus"),ns=document.getElementById("nameStatus");
- const O={1:["Monad","POSIT","Originate","Source Axis","#173f72","Before relation, structure, or change, something must first appear."],2:["Dyad","DISTINGUISH","Differentiate","Tectonic Pillars","#0d5d77","What has arisen must become discernible: this and that, self and other."],3:["Triad","RELATE","Connect","Harmonic Matrix","#1b9baa","Difference creates an interval; Three makes the interval fertile."],4:["Tetrad","FRAME","Establish","Tectonic Pillars","#0d5d77","What relates must acquire boundary if it is to hold."],5:["Pentad","VARY","Adapt","Blade Field","#641b46","Possibility produces vitality."],6:["Hexad","INTEGRATE","Reconcile","Harmonic Matrix","#1b9baa","Difference becomes strength when it can enter coherence without being erased."],7:["Heptad","TEST","Examine","Blade Field","#641b46","What has never met resistance has not yet shown what it is."],8:["Octad","AMPLIFY","Magnify","Tectonic Pillars","#0d5d77","What survives testing becomes capable of bearing greater force."],9:["Ennead","CULMINATE","Complete","Harmonic Matrix","#1b9baa","A cycle becomes fertile only when it can actually end."],11:["Undecad","WITNESS","Witness","Blade Field","#641b46","Completed order is exceeded; what remains must be witnessed and given a new vessel."]};
- const red=x=>{let a=[x],v=x;while(v>9&&v!==11){v=String(v).split("").reduce((q,z)=>q+ +z,0);a.push(v)}return{raw:x,value:v,chain:a}}, sumName=x=>{x=x.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase();let t=0,c=0;for(const z of x){let k=z.charCodeAt(0);if(k>=65&&k<=90){t+=(k-65)%9+1;c++}}return{t,c}}, chain=x=>x.chain.join(" → ");
- function birth(){if(!d.value)return null;return red(d.value.replace(/\D/g,"").split("").reduce((a,b)=>a+ +b,0))}
- function name(){let x=sumName(n.value.trim());return x.c?Object.assign(red(x.t),{letters:x.c}):null}
- function mini(el,st,r,label){if(!r){el.innerHTML=`<span>—</span><small>${label}</small>`;st.textContent=st===bs?"Awaiting date":"Awaiting name";st.classList.remove("ready");return}el.innerHTML=`<span>${r.value}</span><small>${O[r.value][1]} · ${chain(r)}</small>`;st.textContent="Resolved";st.classList.add("ready")}
- function card(pos,r,extra,cl=""){let g=O[r.value];return `<article class="result-glyph ${cl}" style="--field-color:${g[4]}"><div class="result-pos">${pos}</div><div class="result-number">${r.value}</div><h4>${g[0]} · ${g[1]}</h4><div class="verb">${g[2]} · ${g[3]}</div><div class="result-chain">${extra}<br>${chain(r)}</div></article>`}
- function render(){let b=birth(),x=name();mini(bm,bs,b,"The Birth Root will appear here.");mini(nm,ns,x,"The Name Glyph will appear here.");if(!b||!x){empty.hidden=false;read.hidden=true;return}let y=red(b.value+x.value),bg=O[b.value],ng=O[x.value],sg=O[y.value];empty.hidden=true;read.hidden=false;read.innerHTML=`<div class="result-header"><span class="engine-index">03 / 03 · Resolved</span><h3>${b.value} · ${x.value} · ${y.value}</h3><p>The first two glyphs remain distinct. The third is their operational synthesis, not a replacement for either source.</p></div><div class="tri-result">${card("Birth Root · Given",b,"Birth-date digit sum")}${card("Full Name · Expressed",x,`${x.letters} counted letters`)}${card("Tri-Glyph · Synthesis",y,`${b.value} + ${x.value} = ${b.value+x.value}`,"synthesis")}</div><div class="relation-panel"><div class="eyebrow">The relation</div><h4>${bg[1]} meets ${ng[1]}; the field asks for ${sg[1]}.</h4><p>${bg[5]} ${ng[5]} Their conjunction resolves through <strong>${sg[1].toLowerCase()}</strong>: ${sg[5]}</p><p class="relation-equation">${b.value} ${bg[1]} + ${x.value} ${ng[1]} → ${y.value} ${sg[1]}</p></div>`}
- d.addEventListener("input",render);n.addEventListener("input",render);document.getElementById("engineReset").addEventListener("click",()=>{d.value="";n.value="";render();n.focus()});render();
-})();
+
+/* ============================================================
+   PRESERVED TRI-GLYPH ENGINE
+   Restored from the prior master exactly in structure and reading logic.
+   ============================================================ */
+const FIELDS = {
+  source:   {name:'Source Axis',       color:'#ece9f4'},
+  tectonic: {name:'Tectonic Pillars',    color:'#6e8cf0'},
+  harmonic: {name:'Harmonic Matrix',     color:'#b48be8'},
+  blade:    {name:'Blade-Field',         color:'#e0668a'}
+};
+
+const G = {
+  1:{greek:'Thésis',op:'Posit',field:'source',ratio:'1:1, the unison',att:'Attested',
+     lore:'The Monad is the origin of number, not a number itself in classical reckoning.',
+     q:'What is brought into being?',
+     body:'The primordial act of positing. Before division, before relation, there is the single stake driven into the void.',
+     deficiency:'Dogmatic rigidity, absolute isolation, inability to accept external input.',
+     coherence:'Pure origination, sovereign clarity, centered presence, authentic initiative.',
+     excess:'Autocratic tyranny, monolithic delusion, refusal of differentiation.',
+     read:'To hold the One is to stand without prop. It asks whether your beginning is a foundation or a barricade.'},
+
+  2:{greek:'Díasis',op:'Distinguish',field:'tectonic',ratio:'1:2, the octave',att:'Attested',
+     lore:'The Dyad introduces otherness, division, and the possibility of opposition.',
+     q:'Where does the line divide?',
+     body:'The first cut that creates subject and object, self and other. It permits dialogue, comparison, and tension.',
+     deficiency:'Indecision, paralyzed bifurcation, inability to commit to either pole.',
+     coherence:'Sharp discernment, polar awareness, clean dialogue, fruitful tension.',
+     excess:'Schismatic antagonism, polarization, perpetual tearing of wholes into fragments.',
+     read:'The Dyad tests where you have split your world in two and whether that division serves clarity or discord.'},
+
+  3:{greek:'Harmonía',op:'Relate',field:'harmonic',ratio:'2:3, the fifth',att:'Attested',
+     lore:'The Triad reconciles the extremes of the Dyad through a third mediating principle.',
+     q:'What bridges the split?',
+     body:'The dynamic median that binds separate points into a living triangle. It is the first true number of relationship.',
+     deficiency:'Triangulation, complicity, superficial compromise that evades truth.',
+     coherence:'Harmonious synthesis, relational grace, fluid mediation, creative bridge-building.',
+     excess:'Over-complication, endless committees, diffusing responsibility among parties.',
+     read:'Three asks how you connect what you have separated and whether your bridges bear actual weight.'},
+
+  4:{greek:'Tetraktýs',op:'Frame',field:'tectonic',ratio:'3:4, the fourth',att:'Attested',
+     lore:'The Tetraktys contains the sum of 1, 2, 3, and 4, totaling ten—the holiest oath of the Pythagoreans.',
+     q:'What bounds the domain?',
+     body:'The sacred enclosure of form. Four establishes walls, seasons, directions, and the limits required for manifestation.',
+     deficiency:'Claustrophobic rigidity, bureaucratic entrapment, sterile formalism.',
+     coherence:'Architectural integrity, robust containment, dependable structure, sacred boundary.',
+     excess:'Petrifaction, fortress mentality, punishing dogmatism that crushes life within.',
+     read:'Four measures the vessel you have built. Does it protect what is inside or starve it of air?'},
+
+  5:{greek:'Proodos',op:'Move',field:'blade',ratio:'4:5, the major third',att:'Attested',
+     lore:'Five breaks the static enclosure of four, introducing motion, vitality, and human agency.',
+     q:'Into what territory do you step?',
+     body:'The blade of passage. It is the pentad of the senses, movement across thresholds, and active incarnation.',
+     deficiency:'Aimless wandering, restless scattering of force, aversion to sustained discipline.',
+     coherence:'Dynamic propulsion, somatic intelligence, adventurous courage, kinetic grace.',
+     excess:'Impulsive recklessness, constant disruption for its own sake, rootless motion.',
+     read:'Five is the threshold of action. It asks whether your movement is directed voyage or nervous flight.'},
+
+  6:{greek:'Koinonía',op:'Integrate',field:'harmonic',ratio:'5:6, the minor third',att:'Attested',
+     lore:'Six is the first perfect number, equal to the sum of its proper divisors (1 + 2 + 3 = 6).',
+     q:'How do the parts become a body?',
+     body:'The wedding of macrocosm and microcosm. Integration that honors individual parts while serving the common whole.',
+     deficiency:'Codependent enmeshment, forced conformity, sacrificing truth for false harmony.',
+     coherence:'Organic integration, ecological balance, genuine community, aesthetic completion.',
+     excess:'Smothering collectivism, erasure of distinct voices, bureaucratic uniformity.',
+     read:'Six tests the coherence of your assembly. Are you joined by mutual necessity or mutual fear?'},
+
+  7:{greek:'Élenkhos',op:'Test',field:'blade',ratio:'6:7, the septimal ratio',att:'Interpreted',
+     lore:'Seven is the virgin number—un-producing and un-produced within the decad—associated with Pallas Athena.',
+     q:'What breaks under examination?',
+     body:'The testing blade. Seven strips away illusion, subjects assumptions to rigorous critique, and demands internal truth.',
+     deficiency:'Cynical paralysis, sterile hyper-criticism, corrosive doubt that builds nothing.',
+     coherence:'Piercing clarity, rigorous self-examination, unyielding devotion to truth, assaying gold.',
+     excess:'Inquisitorial harshness, destructive fault-finding, alienation through intellectual pride.',
+     read:'Seven is the testing fire. It asks what belief you hold that you have never dared to put to the proof.'},
+
+  8:{greek:'Aúxēsis',op:'Amplify',field:'tectonic',ratio:'7:8, the major tone',att:'Interpreted',
+     lore:'Eight is the cube of the first uneven prime (2³), symbolizing cosmic order and spatial expansion.',
+     q:'What scales without distortion?',
+     body:'The octave of growth. Amplification of structural capacity, institutional scaling, and the compounding of power.',
+     deficiency:'Bloated expansion, systemic collapse under its own weight, cancerous growth.',
+     coherence:'Sustainable scaling, reverberating resonance, majestic amplification, systemic bounty.',
+     excess:'Imperial overreach, unmanageable complexity, hubristic inflation.',
+     read:'Eight tests your scale. When magnitude increases, does the underlying proportion hold or shatter?'},
+
+  9:{greek:'Teleiótēs',op:'Complete',field:'harmonic',ratio:'8:9, the epogdoic step',att:'Interpreted',
+     lore:'Nine is the triple triad, the horizon of the digits before return to the Monad at ten.',
+     q:'How is the circle closed?',
+     body:'The final fruit of the Ennead. Bringing a cycle to its proper termination, harvesting wisdom, and preparing for dissolution.',
+     deficiency:'Premature closure, exhaustion, melancholy refusal to begin the next cycle.',
+     coherence:'Masterly culmination, serene wisdom, graceful closure, legacy distilled.',
+     excess:'Senile rigidity, dogmatic finality, refusal to hand over the torch.',
+     read:'Nine asks how you finish what you started. Can you step aside when the work is done?'},
+
+  11:{greek:'Hyperbainō',op:'Transcend',field:'blade',ratio:'10:11, the hyper-step',att:'Interpreted',
+     lore:'Eleven stands beyond the Decad, the master number of threshold perception and visionary intuition.',
+     q:'What threshold looms beyond system?',
+     body:'The master number of threshold awareness. It breaks the bounds of the completed Ennead to peer into the unmanifest.',
+     deficiency:'Delusional grandiosity, dissociation from practical reality, erratic mysticism.',
+     coherence:'Visionary breakthrough, prophetic clarity, liminal mastery, lightning insight.',
+     excess:'Psychic instability, alienation from earthly community, visionary fanaticism.',
+     read:'Eleven is the unreduced gate. It tests whether your vision anchors in the world or dissolves into smoke.'}
+};
+
+function initEngine(){
+  const goBtn = document.getElementById('calc-go');
+  if(!goBtn) return;
+  goBtn.addEventListener('click', calculateTriGlyph);
+}
+
+function reduceSum(num, keepEleven = true){
+  if(keepEleven && num === 11) return num;
+  while(num > 9){
+    if(keepEleven && num === 11) return 11;
+    num = String(num).split('').reduce((a,b)=>a+parseInt(b,10),0);
+  }
+  return num;
+}
+
+function nameToNumber(name){
+  if(!name) return 1;
+  const clean = name.toUpperCase().replace(/[^A-Z]/g,'');
+  if(!clean.length) return 1;
+  const table = {
+    A:1,J:1,S:1,
+    B:2,K:2,T:2,
+    C:3,L:3,U:3,
+    D:4,M:4,V:4,
+    E:5,N:5,W:5,
+    F:6,O:6,X:6,
+    G:7,P:7,Y:7,
+    H:8,Q:8,Z:8,
+    I:9,R:9
+  };
+  let sum = 0;
+  for(let char of clean){
+    sum += table[char] || 0;
+  }
+  return reduceSum(sum, true);
+}
+
+function dateToRoot(dateStr){
+  if(!dateStr) return 1;
+  const digits = dateStr.replace(/\D/g,'');
+  if(!digits.length) return 1;
+  let sum = 0;
+  for(let d of digits){
+    sum += parseInt(d,10);
+  }
+  return reduceSum(sum, true);
+}
+
+function calculateTriGlyph(){
+  const nameInput = document.getElementById('calc-name').value;
+  const dateInput = document.getElementById('calc-date').value;
+  const out = document.getElementById('calc-out');
+
+  if(!nameInput || !dateInput){
+    out.innerHTML = `<p class="err">Please provide both your full birth name and date of birth to calculate your Tri-Glyph.</p>`;
+    return;
+  }
+
+  const rootVal = dateToRoot(dateInput);
+  const nameVal = nameToNumber(nameInput);
+  const rawSynth = rootVal + nameVal;
+  const synthVal = reduceSum(rawSynth, true);
+
+  const glyphs = [
+    {pos:'I · The Root', val:rootVal, name:'Given Operation', desc:'Derived from the sum of your birth date digits. Represents your foundational structural inheritance.'},
+    {pos:'II · The Name', val:nameVal, name:'Trained Operation', desc:'Derived from your full birth name via Pythagorean isopsephy. Represents your acquired style and active method.'},
+    {pos:'III · The Synthesis', val:synthVal, name:'Directed Operation', desc:`Sum of Root (${rootVal}) and Name (${nameVal}) = ${rawSynth} → ${synthVal}. Represents what your configuration is asked to enact.`}
+  ];
+
+  let html = `<div class="tri3">`;
+  glyphs.forEach(g => {
+    const item = G[g.val] || G[1];
+    html += `
+      <div class="gcard" style="--c:${FIELDS[item.field].color}">
+        <span class="pos">${g.pos}</span>
+        <div class="val">${g.val}</div>
+        <div class="chain">${g.name}</div>
+        <h4>${item.greek} · ${item.op}</h4>
+        <p>${g.desc}</p>
+        <div class="pl"><b>Coherence:</b> ${item.coherence}</div>
+      </div>
+    `;
+  });
+  html += `</div>
+    <div class="prov">
+      <span>Unit: <i>Individual Life-Structure</i></span>
+      <span>Method: <i class="a">Pythagorean Isopsephy</i> & <i class="b">Date Summation</i></span>
+    </div>
+    <div class="test">
+      <h4>Synthesis Test</h4>
+      <p>Your Tri-Glyph places <strong>${G[rootVal].greek}</strong> into dialogue with <strong>${G[nameVal].greek}</strong>, directed toward <strong>${G[synthVal].greek}</strong> (${G[synthVal].op}). Examine whether this tension accurately reflects your current operating challenges.</p>
+    </div>
+  `;
+
+  out.innerHTML = html;
+}
+
+initEngine();
 
 </script>
 </body>
