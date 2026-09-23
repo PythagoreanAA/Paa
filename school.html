@@ -29,7 +29,7 @@
       content="https://pythagoreanaa.com/assets/enter-the-school.png">
 
 <meta property="og:image:type"
-      content="image/jpeg">
+      content="image/png">
 
 <meta property="og:image:width"
       content="1200">
@@ -161,6 +161,24 @@ footer strong{font-family:var(--serif);font-size:1rem;font-weight:400;color:#9fb
   .seal{width:82px;height:82px;margin-bottom:24px}.contact{padding-top:20px}
   .form-shell{padding:23px 18px}.patronage{padding:66px 0 78px}
 }
+
+/* PROFESSIONAL PATRONAGE */
+.secure-line{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:9px 13px;border:1px solid rgba(104,212,222,.17);background:rgba(255,255,255,.025);font-family:var(--sans);font-size:.74rem;color:#8fa9b8}
+.secure-line span:first-child{color:var(--teal)}
+.patron-grid{overflow:visible}.patron{position:relative}
+.patron.featured{background:linear-gradient(180deg,rgba(20,53,76,.54),rgba(6,18,31,.8));box-shadow:inset 0 2px 0 rgba(88,214,223,.55),0 22px 55px -42px rgba(88,214,223,.8)}
+.recommended{position:absolute;top:-12px;left:25px;padding:6px 10px;background:#0b2639;border:1px solid rgba(88,214,223,.4);font-family:var(--caps);font-size:.49rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#9af1f3}
+.amount{display:flex;align-items:baseline;gap:8px}.amount span{font-family:var(--caps);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#688394}
+.gift{padding:14px 0 2px}
+.patronage-aftercare{display:flex;justify-content:space-between;align-items:center;gap:28px;margin-top:24px;padding:23px 25px;border:1px solid rgba(104,212,222,.16);background:rgba(5,14,25,.42)}
+.patronage-aftercare div{display:flex;flex-direction:column;gap:4px}.patronage-aftercare strong{font-family:var(--serif);font-weight:400;color:#eaf8fa;font-size:1.05rem}.patronage-aftercare span{font-family:var(--sans);font-size:.78rem;color:#718b9b}
+.custom-button{flex:0 0 auto;padding:11px 15px;border:1px solid rgba(104,212,222,.32);font-family:var(--caps);font-size:.55rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#a5e8eb;transition:.2s}.custom-button:hover{border-color:#8df1f3;color:#fff;background:rgba(88,214,223,.05)}
+.payment-assurance{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border-top:1px solid rgba(104,212,222,.12);border-bottom:1px solid rgba(104,212,222,.12)}
+.assurance-item{padding:22px 24px;border-right:1px solid rgba(104,212,222,.12)}.assurance-item:first-child{padding-left:0}.assurance-item:last-child{border-right:0;padding-right:0}
+.assurance-item strong{display:block;margin-bottom:7px;font-family:var(--caps);font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:#a8dce0}.assurance-item span{font-family:var(--sans);font-size:.73rem;line-height:1.55;color:#698292}
+.patronage-legal{max-width:820px;margin:20px auto 0;text-align:center;font-family:var(--sans);font-size:.69rem;line-height:1.55;color:#587181}.copyright{display:inline-block;margin-top:7px;font-size:.68rem;color:#526a7a}
+@media(max-width:800px){.payment-assurance{grid-template-columns:1fr}.assurance-item,.assurance-item:first-child,.assurance-item:last-child{padding:18px 0;border-right:0;border-bottom:1px solid rgba(104,212,222,.12)}.assurance-item:last-child{border-bottom:0}.patronage-aftercare{align-items:flex-start;flex-direction:column}.custom-button{width:100%;text-align:center}}
+
 </style>
 </head>
 <body>
@@ -235,40 +253,47 @@ footer strong{font-family:var(--serif);font-size:1rem;font-weight:400;color:#9fb
     <div class="wrap">
       <div class="patron-head">
         <div class="kicker">Patronage · The Restoration</div>
-        <h2>Help keep the temple lit.</h2>
-        <p>PAA is being built as a living school: its texts, instruments, public teachings, and future gatherings. Patronage supports the time and material required to restore and extend the work.</p>
+        <h2>Support the work.</h2>
+        <p>PAA is being built as an independent school of arithmosophic study: its texts, instruments, public teachings, and future gatherings. Patronage supports the time and material required to continue that work.</p>
+        <div class="secure-line"><span aria-hidden="true">◇</span><span>Secure checkout through Stripe · Receipt provided by email</span></div>
       </div>
-
       <div class="patron-grid">
         <article class="patron">
-          <small>Offering I</small>
-          <h3>Friend of the School</h3>
-          <p>A simple offering toward the writing, instruments, and public work.</p>
-          <div class="amount">$33</div>
-          <a class="gift" href="https://buy.stripe.com/28E6oG0AceWrex08eYcEw00" target="_blank" rel="noopener noreferrer"><span>Make an offering</span><span>→</span></a>
+          <small>Offering I</small><h3>Friend of the School</h3>
+          <p>Support the writing, instruments, and public teaching of PAA with a simple one-time offering.</p>
+          <div class="amount">$33 <span>one time</span></div>
+          <a class="gift" href="https://buy.stripe.com/28E6oG0AceWrex08eYcEw00" target="_blank" rel="noopener noreferrer"><span>Continue to secure checkout</span><span>→</span></a>
+        </article>
+        <article class="patron featured">
+          <div class="recommended">Principal Offering</div>
+          <small>Offering II</small><h3>Builder</h3>
+          <p>Direct support for the continued construction of the School, its teaching materials, instruments, and publications.</p>
+          <div class="amount">$111 <span>one time</span></div>
+          <a class="gift" href="https://buy.stripe.com/aFa9ASdmY8y3agKgLucEw01" target="_blank" rel="noopener noreferrer"><span>Continue to secure checkout</span><span>→</span></a>
         </article>
         <article class="patron">
-          <small>Offering II</small>
-          <h3>Builder</h3>
-          <p>Direct support for the continued construction of the School and its teaching materials.</p>
-          <div class="amount">$111</div>
-          <a class="gift" href="https://buy.stripe.com/aFa9ASdmY8y3agKgLucEw01" target="_blank" rel="noopener noreferrer"><span>Support the restoration</span><span>→</span></a>
-        </article>
-        <article class="patron">
-          <small>Offering III</small>
-          <h3>Patron</h3>
-          <p>Substantial support for the work, with an invitation to direct correspondence with the founder.</p>
-          <div class="amount">$2,207</div>
-          <a class="gift" href="https://buy.stripe.com/7sY00i2Ik5lRcoS3YIcEw02" target="_blank" rel="noopener noreferrer"><span>Become a patron</span><span>→</span></a>
+          <small>Offering III</small><h3>Patron</h3>
+          <p>Substantial support for the independent work of PAA, accompanied by an invitation to direct correspondence with the founder.</p>
+          <div class="amount">$2,207 <span>one time</span></div>
+          <a class="gift" href="https://buy.stripe.com/7sY00i2Ik5lRcoS3YIcEw02" target="_blank" rel="noopener noreferrer"><span>Continue to secure checkout</span><span>→</span></a>
         </article>
       </div>
-      <div class="patronage-note">Prefer another amount? <a class="custom" href="https://buy.stripe.com/fZu9AS3Mo5lR4Wqan6cEw03" target="_blank" rel="noopener noreferrer">Choose your own offering.</a></div>
+      <div class="patronage-aftercare">
+        <div><strong>Another amount?</strong><span>Choose the level of support that is appropriate for you.</span></div>
+        <a class="custom-button" href="https://buy.stripe.com/fZu9AS3Mo5lR4Wqan6cEw03" target="_blank" rel="noopener noreferrer">Choose a custom offering →</a>
+      </div>
+      <div class="payment-assurance">
+        <div class="assurance-item"><strong>Secure processing</strong><span>Payment details are entered and processed through Stripe, not stored by this page.</span></div>
+        <div class="assurance-item"><strong>Clear confirmation</strong><span>Stripe provides transaction confirmation and an email receipt after successful payment.</span></div>
+        <div class="assurance-item"><strong>Independent patronage</strong><span>Patronage supports Pythagorean Arithmosophic Anamnesis, LLC and is not represented as a tax-deductible charitable donation.</span></div>
+      </div>
+      <p class="patronage-legal">Pythagorean Arithmosophic Anamnesis, LLC · Patronage supports the independent development of PAA publications, instruments, teaching, and related work.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap"><strong>Pythagorean Arithmosophic Anamnesis</strong><br>Correspondence · Study · Patronage</div>
+  <div class="wrap"><strong>Pythagorean Arithmosophic Anamnesis, LLC</strong><br>Correspondence · Study · Patronage<br><span class="copyright">© 2026 Pythagorean Arithmosophic Anamnesis, LLC. All rights reserved.</span></div>
 </footer>
 
 <script>
